@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "Regs"]
+	url = https://github.com/ArsenySamoylov/DrawFrameWithRegisters.git
+	fetch = +refs/heads/*:refs/remotes/Regs/*

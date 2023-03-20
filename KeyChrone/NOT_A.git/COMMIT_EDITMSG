@@ -1,0 +1,14 @@
+Before changing
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Changes to be committed:
+#	modified:   START.com
+#	modified:   draw_regs.asm
+#	modified:   include/Int8Handler.asm
+#	modified:   include/Int9Handler.asm
+#	modified:   int.asm
+#	modified:   int.com
+#	modified:   key.asm
+#
