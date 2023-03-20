@@ -1,0 +1,93 @@
+GAS LISTING test.s 			page 1
+
+
+   1              	.text
+   2              	
+   3              	    .globl __start
+   4              	
+   5              	.data
+   6 ???? 30313233 	Msg: .ascii "012345678\n"
+   6      34353637 
+   6      380A
+   7              	
+   8              	    len = . - Msg
+   9              	
+  10              	
+  11              	.text
+  12              	
+  13              	__start:
+  14 ???? 48C7C001 	    mov $0x1, %rax 
+  14      000000
+  15 ???? 48C7C701 	    mov $0x1, %rdi
+  15      000000
+  16 ???? 48C7C600 	    mov $Msg, %rsi
+  16      000000
+  17 ???? 48C7C20A 	    mov $len, %rdx
+  17      000000
+  18              	
+  19 ???? 0F05     	    syscall
+  20              	
+  21 ???? 48C7C03C 	    mov $0x3c, %rax
+  21      000000
+  22 ???? 4831FF   	    xor %rdi, %rdi
+  23              	
+  24 ???? 0F05     	    syscall
+  25              	
+  26              	
+  27              	// .global my_printf
+  28              	
+  29              	my_printf:          // save rbp, rbx, r12, r13, r14, r15
+  30 ???? 55       	    push %rbp
+  31 ???? 4889E5   	    mov %rsp, %rbp
+  32              	
+  33 ???? 488B5D08 	    mov 8(%rbp), %rbx   # rbx - format 
+  34              	
+  35              	.while_not_null:
+  36 ???? 803B00   	    cmpb $0, (%rbx)
+  37 ???? 0F840000 	    je .end_of_while
+  37      0000
+  38              	
+  39 ???? 4831C9   	    xor %rcx, %rcx    # rcx - counter
+  40              	
+  41              	    .while_not_null_and_not_percent:
+  42 ???? 8A040B   	        movb (%rbx, %rcx), %al
+  43              	        
+  44 ???? 38042530 	        cmp %al, '\0'
+  44      000000
+  45 ???? 75F4     	        jne .while_not_null_and_not_percent
+  46              	
+  47 ???? 38042525 	        cmp %al, '%'
+  47      000000
+GAS LISTING test.s 			page 2
+
+
+  48 ???? 75EB     	        jne .while_not_null_and_not_percent
+  49              	
+  50              	    # putn
+  51              	
+  52 ???? 4801CB   	    add %rcx, %rbx  # rbx += rcx 
+  53              	    
+  54 ???? 803B25   	    cmpb $'%', (%rbx)            # if (ax != '%') 
+  55 ???? 0F850000 	    jne .enf_of_while_not_null   #     .string 'break;'
+  55      0000
+  56              	
+  57              	    
+  58 ???? 48FFC3   	    inc %rbx
+  59              	
+  60              	    movzxb %eax, (%rbx) # eax = format char
+  61              	
+  62              	
+GAS LISTING test.s 			page 3
+
+
+DEFINED SYMBOLS
+              test.s:13     .text:0000000000000000 __start
+              test.s:6      .data:0000000000000000 Msg
+              test.s:8      *ABS*:000000000000000a len
+              test.s:29     .text:000000000000002a my_printf
+              test.s:35     .text:0000000000000032 .while_not_null
+              test.s:41     .text:000000000000003e .while_not_null_and_not_percent
+
+UNDEFINED SYMBOLS
+.end_of_while
+.enf_of_while_not_null
