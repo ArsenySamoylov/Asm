@@ -1,0 +1,9 @@
+org 0x100
+
+Start:
+    int 0x20
+
+
+
+
+

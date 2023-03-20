@@ -1,0 +1,129 @@
+Turbo Assembler	 Version 4.1	    02/13/23 16:32:17	    Page 1
+hell.asm
+
+
+
+      1				     .186
+      2	0000			     .model tiny
+      3	      =000B		     default_string_length    =	0Bh
+      4	      =0900		     string_offset		      =	900h
+      5
+      6	      =0004		     string_color	= 100b
+      7	      =0005		     back_ground_color	= 101b
+      8	      =0088		     blink_flag			= 10001000b
+      9
+     10	0000			     .code
+     11				     org 100h
+     12
+     13
+     14	0100			     Start:
+     15					     ; SETTING ADDRESING FOR VIDEO MEM
+     16	0100  BB B800			     mov bx, 0b800h	 ; setting es for addresing to VideoMemory
+     17	0103  8E C3			     mov es, bx
+     18
+     19					     ; SETTING STRING (if program runs with option -c, than it will display list of its	    +
+     20				     argument except of	-c
+     21	0105  33 DB			     xor bx, bx
+     22	0107  8A 8F 0080		     mov cl, [bx + 80h]
+     23	010B  B5 00			     mov ch, 0h
+     24
+     25	010D  80 F9 03			     cmp cl, 3h			     ; check numer of symbols in arguments
+     26	0110  72 10			     jb	DEFAULT_STR	     ; 3 because of extra space	before '-c'
+     27
+     28	0112  8B 97 0082		     mov dx, [bx + 81h + 1h]  ;	+2, because of space
+     29
+     30	0116  81 FA 632D		     cmp dx, 'c-'
+     31	011A  75 06			     jne DEFAULT_STR
+     32
+     33	011C			     CONSOLE_ARG:
+     34	011C  BE 0081			     mov si, 081h	     ; set address, from console arguments begin to compy in load   +
+     35				     inst
+     36
+     37					     ;xor bx, bx
+     38					     ;mov cl, [bx + 80h]     ; set cx, to number of symbols of argumnets
+     39
+     40	011F  EB 07 90			     jmp END_DEFAULT_STR
+     41
+     42	0122			     DEFAULT_STR:
+     43	0122  BE 0145r			     lea     si, STRING_TO_BE_DISPLAYED
+     44	0125  B9 000B			     mov cx, default_string_length
+     45	0128			     END_DEFAULT_STR:
+     46
+     47	0128  BB 0900			     mov bx, string_offset	 ; offset for string position on the display
+     48
+     49	012B  B4 05			     mov ah, back_ground_color
+     50	012D  C0 E4 03			     shl ah, 3h
+     51
+     52	0130  80 CC 04			     or	ah, string_color	; setting color	for the	strin
+     53	0133  80 CC 88			     or	ah, blink_flag
+     54
+     55					     ; SETTING LOAD INSTRUCTION
+     56	0136  FC			     cld			 ; counter for load will increment
+     57
+Turbo Assembler	 Version 4.1	    02/13/23 16:32:17	    Page 2
+hell.asm
+
+
+
+     58
+     59	0137  AC		     AGAIN:  lodsb
+     60
+     61	0138  26: 89 07			     mov es:[bx], ax
+     62
+     63	013B  83 C3 02			     add bx, 2h
+     64	013E  E2 F7			     loop AGAIN
+     65
+     66					     ;exit(0)
+     67	0140  B8 4C00			     mov ax, 4c00h
+     68	0143  CD 21			     int 21h
+     69
+     70
+     71				     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     72				     ;	     DATA SEGMENT			  ;
+     73				     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     74	0145  48 65 6C 6C 6F 20	77+  STRING_TO_BE_DISPLAYED: db	'Hello world' ;	length = 11
+     75	      6F 72 6C 64
+     76
+     77				     end     Start
+Turbo Assembler	 Version 4.1	    02/13/23 16:32:17	    Page 3
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "02/13/23"
+??FILENAME			  Text	 "hell	  "
+??TIME				  Text	 "16:32:17"
+??VERSION			  Number 040A
+@32BIT				  Text	 0
+@CODE				  Text	 DGROUP
+@CODESIZE			  Text	 0
+@CPU				  Text	 0103H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 HELL
+@INTERFACE			  Text	 000H
+@MODEL				  Text	 1
+@STACK				  Text	 DGROUP
+@WORDSIZE			  Text	 2
+AGAIN				  Near	 DGROUP:0137
+BACK_GROUND_COLOR		  Number 0005
+BLINK_FLAG			  Number 0088
+CONSOLE_ARG			  Near	 DGROUP:011C
+DEFAULT_STR			  Near	 DGROUP:0122
+DEFAULT_STRING_LENGTH		  Number 000B
+END_DEFAULT_STR			  Near	 DGROUP:0128
+START				  Near	 DGROUP:0100
+STRING_COLOR			  Number 0004
+STRING_OFFSET			  Number 0900
+STRING_TO_BE_DISPLAYED		  Near	 DGROUP:0145
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  _DATA				  16  0000 Word	  Public  DATA
+  _TEXT				  16  0150 Word	  Public  CODE
+
