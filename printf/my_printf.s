@@ -1,5 +1,3 @@
-.extern puthcar
-.extern exit
 
 #NOTE: RACE BETWEEN RDX and RSI !
 #OVerwrites: RAX, RDI, RSI, RDX (and everything related to syscall)
@@ -34,31 +32,30 @@
     nop
 .endm
 
+.global MY_PRINTF
 
 .text
+MY_PRINTF:
+    mov (%rsp), %r11  # save return address
+    mov %rbx, %r12    # save %rbx
+        # %rbp save by my_printf
+    add $0x8, %rsp
 
-    .globl main
-    .type main, @function
+    push %r9    # arg 6
+    push %r8    # arg 5
+    push %rcx   # arg 4
+    push %rdx   # arg 3
+    push %rsi   # arg 2
+    push %rdi   # arg 1
 
-.data
-format: .ascii "%d\n\0"
-str:    .ascii "STRIN !\0"
-.text
-main:
-    // pushq $0xFFFFFFFE
-    push $-1000000
-    // push $str
-    // pushq $'G'
-    // pushq $0x636465
-    pushq $format
-    
     call my_printf
-    
-    add $(8 * 2), %rsp
 
+    add $(8 * 6), %rsp
+
+    mov %r11, %rbx
+    push %rbx # restore return value
+    mov %r12, %rbx
     ret
-
-.global my_printf
 
 my_printf:          // save rbp, rbx, r12, r13, r14, r15
     push %rbp

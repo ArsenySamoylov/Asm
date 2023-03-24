@@ -1,24 +1,35 @@
-all: clear compile link 
-    
-clear:
+all: print_slash 
+	rm -rf Lox.out
 	rm -rf test.o 
-	rm -rf a.out
 
-compile: print_slash
-	as -a -o test.o test.s > temp.lst
+	gcc -no-pie test.s -o Lox.out
 
-link: 
-	ld test.o -o a.out
+listing:
+	rm -rf test.lst
+	as -a  -am test.s -no-pie -c  > test.lst
+###################################################################
+
+prot: 
+	rm -rf prototype.out
+	gcc printf_prot.cpp -o prototype.out
+
+
+run_prot:
+	@./prototype.out
+	@echo
+
+example:
+	rm -rf switch.s
+	gcc -S  -fno-pie -fno-dwarf2-cfi-asm switch.c -Os #seems to be some troubles
+
+
+###########################################################
+
 
 print_slash:
 	@echo --------------------------------------------------------
 
-prot: clear_prot
-	gcc printf_prot.cpp -o prototype
-
-clear_prot:
-	rm prototype
-
-run_prot:
-	@./prototype
-	@echo
+link: 
+	ld -o a.out -dynamic-linker \
+		/lib/ld-linux.so.2  \
+		/usr/lib/crt1.o /usr/lib/crti.o -lc test.o /usr/lib/crtn.o

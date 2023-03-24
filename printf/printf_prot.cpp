@@ -6,8 +6,8 @@ void my_printf (const char* format, ...);
 int main(int argc, const char* argv[])
     {
 	
-    my_printf("Hello, %d, %o, %s", 10, 8, "(LOX)");
-    return 0
+    my_printf("\0");
+    return 0;
     }
 
 void putn (const char* buffer, int cnt);

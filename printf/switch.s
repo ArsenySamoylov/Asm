@@ -1,84 +1,75 @@
-	.file	"switch.cpp"
+	.file	"switch.c"
 	.text
-	.section	.rodata
-	.align 4
-	.type	_ZL3GLA, @object
-	.size	_ZL3GLA, 4
-_ZL3GLA:
-	.zero	4
-	.text
+	.globl	foo
+	.type	foo, @function
+foo:
+.LFB13:
+	endbr64
+	movl	$37, %edi
+	jmp	putchar
+.LFE13:
+	.size	foo, .-foo
+	.section	.text.startup,"ax",@progbits
 	.globl	main
 	.type	main, @function
 main:
-.LFB0:
+.LFB14:
 	endbr64
-	pushq	%rbp
+	pushq	%rax
 .LCFI0:
-	movq	%rsp, %rbp
+	movl	$37, %edi
+	call	putchar
+	xorl	%eax, %eax
+	popq	%rdx
 .LCFI1:
-	movq	$0, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movzbl	(%rax), %eax
-	movsbl	%al, %eax
-	cmpl	$37, %eax
-	je	.L13
-	cmpl	$37, %eax
-	jl	.L14
-	cmpl	$120, %eax
-	jg	.L14
-	cmpl	$98, %eax
-	jl	.L14
-	subl	$98, %eax
-	cmpl	$22, %eax
-	ja	.L14
-	movl	%eax, %eax
-	leaq	0(,%rax,4), %rdx
-	leaq	.L5(%rip), %rax
-	movl	(%rdx,%rax), %eax
-	cltq
-	leaq	.L5(%rip), %rdx
-	addq	%rdx, %rax
-	notrack jmp	*%rax
-	.section	.rodata
-	.align 4
-	.align 4
-.L5:
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.long	.L14-.L5
-	.text
-.L13:
-	nop
-	jmp	.L11
-.L14:
-	nop
-.L11:
-	movl	$0, %eax
-	popq	%rbp
-.LCFI2:
 	ret
-.LFE0:
+.LFE14:
 	.size	main, .-main
+	.section	.eh_frame,"a",@progbits
+.Lframe1:
+	.long	.LECIE1-.LSCIE1
+.LSCIE1:
+	.long	0
+	.byte	0x3
+	.string	"zR"
+	.uleb128 0x1
+	.sleb128 -8
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x3
+	.byte	0xc
+	.uleb128 0x7
+	.uleb128 0x8
+	.byte	0x90
+	.uleb128 0x1
+	.align 8
+.LECIE1:
+.LSFDE1:
+	.long	.LEFDE1-.LASFDE1
+.LASFDE1:
+	.long	.LASFDE1-.Lframe1
+	.long	.LFB13
+	.long	.LFE13-.LFB13
+	.uleb128 0
+	.align 8
+.LEFDE1:
+.LSFDE3:
+	.long	.LEFDE3-.LASFDE3
+.LASFDE3:
+	.long	.LASFDE3-.Lframe1
+	.long	.LFB14
+	.long	.LFE14-.LFB14
+	.uleb128 0
+	.byte	0x4
+	.long	.LCFI0-.LFB14
+	.byte	0xe
+	.uleb128 0x10
+	.byte	0x4
+	.long	.LCFI1-.LCFI0
+	.byte	0xe
+	.uleb128 0x8
+	.align 8
+.LEFDE3:
 	.ident	"GCC: (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
