@@ -1,6 +1,116 @@
+#####################################################################
+# C logic of this function
+#####################################################################
+# #include <stdio.h>
+# #include <stdarg.h>
+#
+# void putn (const char* buffer, int cnt);
+#
+# void putn (const char* buffer, int cnt)
+#     {
+#     int temp = 0;
+#
+#     while(temp < cnt)
+#         putchar(*(buffer + temp++));
+#
+#     return;
+#     }
+#
+# void my_printf (const char* format, ...);
+#
+# void my_printf (const char* format, ...)
+#     {
+#     va_list ap{};
+#     va_start(ap, format);
+#
+#     while(*format != '\0')
+#         {
+#         int cnt = 0;
+#
+#         while(*(format + cnt) != '%' && *(format + cnt) != '\0')
+#             cnt++;
+#
+#         putn(format, cnt); // display cnt symbols
+# 		format += cnt;
+#		
+#         if (*format != '%')
+#             break;
+#
+#         format++;
+#
+#         switch (*format)
+#             {
+#             case '%':
+#                 putchar('%');
+#                 break;
+#
+#             case 'b':
+#                 {
+#                 int temp = va_arg(ap, int);
+#                 printf("%x(binary)", temp);
+#                 break;
+#                 }
+#
+#             case 'c':
+#                 {
+#                 int temp = va_arg(ap, int);
+#                 putchar(temp);
+#                 break;
+#                 }
+#
+#             case 'd':
+#                 {
+#                 int temp = va_arg(ap, int);
+#                 printf("%d", temp);
+#                 break;
+#                 }
+#
+#             case 'o':
+#                 {
+#                 int temp = va_arg(ap, int);
+#                 printf("%o", temp);
+#                 break;
+#                 }
+#
+#             case 's':
+#                 {
+#                 char* temp = va_arg(ap, char*);
+#                 printf("%s", temp);
+#                 break;
+#                 }
+#
+#             case 'x':
+#                 {
+#                 int temp = va_arg(ap, int);
+#                 printf("%x", temp);
+#                 break;
+#                 }
+#
+#             default:
+#                 putchar('%');
+#                 putchar(*format);
+#                 break;
+#             }
+#        
+#         format++;
+#        
+#         }
+#
+#     return;
+#     }
+#####################################################################
 
-#NOTE: RACE BETWEEN RDX and RSI !
-#OVerwrites: RAX, RDI, RSI, RDX (and everything related to syscall)
+######################################################
+# Put N symbols from buffer to screen 
+######################################################
+# Entry:  %rsi - end of buffer addres
+#         %rax - value
+# Exit: %rsi - one symbol ahead of start 
+#              of string containing decimal   
+# Overwrites: RAX, RDI, RSI, RDX 
+#            (and everything related to syscall)
+# NOTE: RACE BETWEEN RDX and RSI !
+######################################################
 .macro PUTN buffer:req, cnt:req
     nop
 
@@ -13,6 +123,11 @@
     nop
 .endm
 
+######################################################
+# This macro used in %d,%o,%h,%b cases
+#   when value needed to be translated in buffer 
+#   and be displayed on the screen
+######################################################
 .macro PRINT_ARGUMENT translating_function:req
     nop
 
@@ -32,13 +147,14 @@
     nop
 .endm
 
+.extern printf
 .global MY_PRINTF
 
-.text
+.section .text
 MY_PRINTF:
-    mov (%rsp), %r11  # save return address
+    # %rbp saved by my_printf
+    mov (%rsp), %r14  # save return address
     mov %rbx, %r12    # save %rbx
-        # %rbp save by my_printf
     add $0x8, %rsp
 
     push %r9    # arg 6
@@ -48,16 +164,24 @@ MY_PRINTF:
     push %rsi   # arg 2
     push %rdi   # arg 1
 
+    
     call my_printf
 
-    add $(8 * 6), %rsp
+    pop %rdi
+    pop %rsi
+    pop %rdx
+    pop %rcx
+    pop %r8
+    pop %r9
 
-    mov %r11, %rbx
+    call printf
+
+    mov %r14, %rbx
     push %rbx # restore return value
     mov %r12, %rbx
     ret
 
-my_printf:          // save rbp, rbx, r12, r13, r14, r15
+my_printf:          // TODO save rbp, rbx, r12, r13, r14, r15
     push %rbp
     mov %rsp, %rbp
 
@@ -69,7 +193,7 @@ my_printf:          // save rbp, rbx, r12, r13, r14, r15
     cmpb $0, (%rbx)
     je .end_of_while_not_null
 
-    xor %rcx, %rcx    # rcx - counter
+    xor %rcx, %rcx         # rcx - counter
 
         .while_not_null_and_not_percent:
             movb (%rbx, %rcx), %al
@@ -87,23 +211,23 @@ my_printf:          // save rbp, rbx, r12, r13, r14, r15
 
     ### putn
     push %rcx
-    push %rbx
+    // push %rbx
 
     PUTN buffer = %rbx, cnt = %rcx
 
-    pop %rbx
+    // pop %rbx
     pop %rcx
-    # CHECK THAT REGISERS rcx and rbx safe !!!!!!!!!
+    # CHECK THAT REGISER rbx safe !!!!!!!!!
     ###
 
-    add %rcx, %rbx  # rbx += rcx 
+    add %rcx, %rbx               # rbx += rcx 
     
     cmpb $'%', (%rbx)            # if (ax != '%') 
-    jne .end_of_while_not_null   #     .string 'break;'
+    jne .end_of_while_not_null   #     break;
 
     inc %rbx
 
-    movzxb (%rbx), %eax # eax = format char
+    movzxb (%rbx), %eax         # eax = format char
     cmp $'%', %eax
     je .percent_spec_case
 
@@ -113,8 +237,8 @@ my_printf:          // save rbp, rbx, r12, r13, r14, r15
     cmp $'b', %eax
     jl .default_case
 
-    sub $'b', %eax 
-    mov jump_table(,%rax,8), %rax
+    sub $'b', %eax                  # eax -= 'b'
+    mov jump_table(,%rax,8), %rax   
     jmp *%rax
 
 
@@ -146,7 +270,7 @@ jump_table:
     movb $'%', buffer 
     PUTN buffer = $buffer, cnt = $0x1
     
-    jmp .end_of_switch  #break;
+    jmp .end_of_switch      #break;
 
 .binary_spec_case:
     PRINT_ARGUMENT translating_function = put_binary_in_buffer
@@ -173,21 +297,21 @@ jump_table:
 
     PUTN buffer = (%rbp), cnt = %rcx
     add $0x8, %rbp 
-    jmp .end_of_switch #break;
+    jmp .end_of_switch       #break;
 
 .hex_spec_case:
     push %rbx
     PRINT_ARGUMENT translating_function = put_hex_in_buffer
     pop %rbx
 
-    jmp .end_of_switch #break;
+    jmp .end_of_switch       #break;
 
 .default_case:
-    dec %rbx # to print '%'
+    dec %rbx                 # to print '%'
     PUTN buffer = %rbx, cnt = $0x2
     inc %rbx
 
-    jmp .end_of_switch #break;
+    jmp .end_of_switch      #break;
 
 .end_of_switch:
     inc %rbx
@@ -212,13 +336,19 @@ str_len:
 1:
     inc %rcx
     cmpb %al, (%rdi, %rcx, 1)
-    jne 1f
+    jne 1b
     
     ret
 
-#%rax - value
-#%rsi - end of buffer buffer
-# Overwrites: %rdi. %rdx. 
+######################################################
+# Put_decimal in buffer 
+######################################################
+# Entry:  %rsi - end of buffer addres
+#         %rax - value
+# Exit: %rsi - one symbol ahead of start 
+#              of string containing decimal   
+# Overwrites: %rdi, %rdx, .... 
+######################################################
 put_decimal_in_buffer:
     mov %eax, %ecx
     call put_abs_decimal_in_buffer
@@ -261,8 +391,15 @@ put_abs_decimal_in_buffer:
 
     jmp 1b
 
-#%rax - value
-#%rsi - end of buffer buffer
+######################################################
+# Put binary in buffer 
+######################################################
+# Entry:  %rsi - end of buffer addres
+#         %rax - value
+# Exit: %rsi - one symbol ahead of start 
+#              of string containing decimal   
+# Overwrites: %rdi, %rdx, .... 
+#####################################################
 put_binary_in_buffer:
   1:
     mov $1, %rdx
@@ -279,6 +416,15 @@ put_binary_in_buffer:
 
     ret
 
+######################################################
+# Put oct in buffer 
+######################################################
+# Entry:  %rsi - end of buffer addres
+#         %rax - value
+# Exit: %rsi - one symbol ahead of start 
+#              of string containing decimal   
+# Overwrites: %rdi, %rdx, .... 
+#####################################################
 put_oct_in_buffer:
   1:
     mov $7, %rdx
@@ -295,8 +441,17 @@ put_oct_in_buffer:
 
     ret
 
-#Overwrites: RBX, RSI
-#Note: XLAT Uses ds
+######################################################
+# Put hex in buffer 
+######################################################
+# Entry:  %rsi - end of buffer addres
+#         %rax - value
+# Exit: %rsi - one symbol ahead of start 
+#              of string containing decimal   
+# Overwrites: %rdi, %rdx, .... 
+#             RBX, RSI
+# Note: XLAT Uses ds
+#####################################################
 put_hex_in_buffer:
     mov $hex_table, %rbx
     xchg %rax, %rdx

@@ -25,7 +25,13 @@ example:
 
 ###########################################################
 
+test:
+	rm -rf a.out
+	rm -rf test_my_printf.o my_printf.o
+	gcc -c my_printf.s
+	gcc -c test_my_printf.c
 
+	gcc test_my_printf.o my_printf.o -no-pie
 print_slash:
 	@echo --------------------------------------------------------
 
