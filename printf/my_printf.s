@@ -1,122 +1,130 @@
-#####################################################################
-# C logic of this function
-#####################################################################
-# #include <stdio.h>
-# #include <stdarg.h>
-#
-# void putn (const char* buffer, int cnt);
-#
-# void putn (const char* buffer, int cnt)
-#     {
-#     int temp = 0;
-#
-#     while(temp < cnt)
-#         putchar(*(buffer + temp++));
-#
-#     return;
-#     }
-#
-# void my_printf (const char* format, ...);
-#
-# void my_printf (const char* format, ...)
-#     {
-#     va_list ap{};
-#     va_start(ap, format);
-#
-#     while(*format != '\0')
-#         {
-#         int cnt = 0;
-#
-#         while(*(format + cnt) != '%' && *(format + cnt) != '\0')
-#             cnt++;
-#
-#         putn(format, cnt); // display cnt symbols
-# 		format += cnt;
-#		
-#         if (*format != '%')
-#             break;
-#
-#         format++;
-#
-#         switch (*format)
-#             {
-#             case '%':
-#                 putchar('%');
-#                 break;
-#
-#             case 'b':
-#                 {
-#                 int temp = va_arg(ap, int);
-#                 printf("%x(binary)", temp);
-#                 break;
-#                 }
-#
-#             case 'c':
-#                 {
-#                 int temp = va_arg(ap, int);
-#                 putchar(temp);
-#                 break;
-#                 }
-#
-#             case 'd':
-#                 {
-#                 int temp = va_arg(ap, int);
-#                 printf("%d", temp);
-#                 break;
-#                 }
-#
-#             case 'o':
-#                 {
-#                 int temp = va_arg(ap, int);
-#                 printf("%o", temp);
-#                 break;
-#                 }
-#
-#             case 's':
-#                 {
-#                 char* temp = va_arg(ap, char*);
-#                 printf("%s", temp);
-#                 break;
-#                 }
-#
-#             case 'x':
-#                 {
-#                 int temp = va_arg(ap, int);
-#                 printf("%x", temp);
-#                 break;
-#                 }
-#
-#             default:
-#                 putchar('%');
-#                 putchar(*format);
-#                 break;
-#             }
-#        
-#         format++;
-#        
-#         }
-#
-#     return;
-#     }
-#####################################################################
+#########################################################################
+# C logic of this function                                              #
+#########################################################################
+# #include <stdio.h>                                                    #
+# #include <stdarg.h>                                                   #
+#                                                                       #
+# void putn (const char* buffer, int cnt);                              #
+#                                                                       #
+# void putn (const char* buffer, int cnt)                               #
+#     {                                                                 #
+#     int temp = 0;                                                     #
+#                                                                       #
+#     while(temp < cnt)                                                 #
+#         putchar(*(buffer + temp++));                                  #
+#                                                                       #
+#     return;                                                           #
+#     }                                                                 #
+#                                                                       #
+# #define PRINT_ARGUMENT(translating_function)                      \   #
+#                 int temp = va_arg(ap, int);                       \   #
+#                                                                   \   # 
+#                 ptr = buffer + buffer_size - 1;                   \   #
+#                 translating_function(temp, &ptr)                  \   #
+#                 putn (ptr + 1, (buffer + buffer_size - 1 - ptr);      #
+#                                                                       #
+#                                                                       #
+# void my_printf (const char* format, ...);                             #
+#                                                                       #
+# void my_printf (const char* format, ...)                              #
+#     {                                                                 #
+#     va_list ap{};                                                     #
+#     va_start(ap, format);                                             #
+#                                                                       #
+#     while(*format != '\0')                                            #
+#         {                                                             #
+#         int cnt = 0;                                                  #
+#                                                                       #
+#         while(*(format + cnt) != '%' && *(format + cnt) != '\0')      #
+#             cnt++;                                                    #
+#                                                                       #
+#         putn(format, cnt); // display cnt symbols                     #
+# 		format += cnt;                                                  #
+#		                                                                #
+#         if (*format != '%')                                           #
+#             break;                                                    #
+#                                                                       #
+#         format++;                                                     #
+#                                                                       #
+#         switch (*format)                                              #
+#             {                                                         #
+#             case '%':                                                 #
+#                 putchar('%');                                         #
+#                 break;                                                #
+#                                                                       #
+#             case 'b':                                                 #
+#                 {                                                     #
+#                 PRINT_ARGUMENT(put_binary_in_buffer);                 #
+#                                                                       #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             case 'c':                                                 #
+#                 {                                                     #
+#                 int temp = va_arg(ap, int);                           #
+#                 putchar(temp);                                        #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             case 'd':                                                 #
+#                 {                                                     #
+#                 PRINT_ARGUMENT(put_decimal_in_buffer);                #
+#                                                                       #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             case 'o':                                                 #
+#                 {                                                     #
+#                 PRINT_ARGUMENT(put_oct_in_buffer);                    #
+#                                                                       #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             case 's':                                                 #
+#                 {                                                     #
+#                 char* temp = va_arg(ap, char*);                       #
+#                 printf("%s", temp);                                   #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             case 'x':                                                 #
+#                 {                                                     #
+#                 PRINT_ARGUMENT(put_hex_in_buffer);                    #
+#                                                                       #
+#                 break;                                                #
+#                 }                                                     #
+#                                                                       #
+#             default:                                                  #
+#                 putchar('%');                                         #
+#                 putchar(*format);                                     #
+#                 break;                                                #
+#             }                                                         #
+#                                                                       #
+#         format++;                                                     #
+#                                                                       #
+#         }                                                             #
+#                                                                       #
+#     return;                                                           #
+#     }                                                                 #
+#########################################################################
 
 ######################################################
-# Put N symbols from buffer to screen 
+# Put N symbols from buffer to screen                #
 ######################################################
-# Entry:  %rsi - end of buffer addres
-#         %rax - value
-# Exit: %rsi - one symbol ahead of start 
-#              of string containing decimal   
-# Overwrites: RAX, RDI, RSI, RDX 
-#            (and everything related to syscall)
-# NOTE: RACE BETWEEN RDX and RSI !
+# Entry:  %rsi - end of buffer addres                #
+#         %rax - value                               #
+# Exit: %rsi - one symbol ahead of start             #
+#              of string containing decimal          #
+# Overwrites: RAX, RDI, RSI, RDX                     #
+#            (and everything related to syscall)     #
+# NOTE: RACE BETWEEN RDX and RSI !                   #
 ######################################################
 .macro PUTN buffer:req, cnt:req
     nop
 
     mov \cnt,    %rdx    #
     mov \buffer, %rsi    #
-    mov $1, %rax         # write code
+    mov $1, %rax         # write function code for syscall
     mov $1, %rdi         # write (buffer = rsi, descriptor = rdi, rdx = count)
     syscall              #
     
@@ -124,9 +132,9 @@
 .endm
 
 ######################################################
-# This macro used in %d,%o,%h,%b cases
-#   when value needed to be translated in buffer 
-#   and be displayed on the screen
+# This macro used in %d,%o,%h,%b cases               #
+#   when value needed to be translated in buffer     #
+#   and be displayed on the screen                   #
 ######################################################
 .macro PRINT_ARGUMENT translating_function:req
     nop
@@ -151,6 +159,13 @@
 .global MY_PRINTF
 
 .section .text
+######################################################
+# This is wrapper for my_printf function             #
+# that pushes arguments on stack and also calls      #
+# standart printf function                           #
+######################################################
+# Check that proper registers saved                  #
+######################################################
 MY_PRINTF:
     # %rbp saved by my_printf
     mov (%rsp), %r14  # save return address
@@ -164,11 +179,10 @@ MY_PRINTF:
     push %rsi   # arg 2
     push %rdi   # arg 1
 
-    
     call my_printf
 
-    pop %rdi
-    pop %rsi
+    pop %rdi    # restore argument
+    pop %rsi    # for printf
     pop %rdx
     pop %rcx
     pop %r8
@@ -177,14 +191,19 @@ MY_PRINTF:
     call printf
 
     mov %r14, %rbx
-    push %rbx # restore return value
-    mov %r12, %rbx
+    push %rbx       # restore return value
+    mov %r12, %rbx  # restore rbx (not sure)
+    
     ret
 
-my_printf:          // TODO save rbp, rbx, r12, r13, r14, r15
-    push %rbp
-    mov %rsp, %rbp
-
+#######################################################
+# Analog of printf function                           #
+#######################################################
+# Note: check that rbp, rbx, r12, r13, r14, r15 saved #
+#######################################################
+my_printf:         
+    push %rbp             # save rbp
+    mov %rsp, %rbp        # use rpb for addressing to arguments
 
     mov 0x10(%rbp), %rbx   # rbx - format 
     add $0x18, %rbp        # set rbp for addrsing to arguments from stk
@@ -211,11 +230,9 @@ my_printf:          // TODO save rbp, rbx, r12, r13, r14, r15
 
     ### putn
     push %rcx
-    // push %rbx
 
     PUTN buffer = %rbx, cnt = %rcx
 
-    // pop %rbx
     pop %rcx
     # CHECK THAT REGISER rbx safe !!!!!!!!!
     ###
@@ -231,16 +248,13 @@ my_printf:          // TODO save rbp, rbx, r12, r13, r14, r15
     cmp $'%', %eax
     je .percent_spec_case
 
-    cmp $'x', %eax
-    jg .default_case
+    cmp $'x', %eax              #
+    jg .default_case            #
+                                # check before jump
+    cmp $'b', %eax              # that value in borders
+    jl .default_case            #
 
-    cmp $'b', %eax
-    jl .default_case
-
-    sub $'b', %eax                  # eax -= 'b'
-    mov jump_table(,%rax,8), %rax   
-    jmp *%rax
-
+    jmp *(jump_table - 'b' * 8)(,%rax,8)
 
 jump_table:
     .quad   .binary_spec_case   #
@@ -274,7 +288,7 @@ jump_table:
 
 .binary_spec_case:
     PRINT_ARGUMENT translating_function = put_binary_in_buffer
-    jmp .end_of_switch      #break;
+    jmp .end_of_switch       #break;
 
 .char_spec_case:
     PUTN buffer = %rbp, cnt = $1
@@ -311,7 +325,7 @@ jump_table:
     PUTN buffer = %rbx, cnt = $0x2
     inc %rbx
 
-    jmp .end_of_switch      #break;
+    jmp .end_of_switch       #break;
 
 .end_of_switch:
     inc %rbx
@@ -319,16 +333,16 @@ jump_table:
 
 .end_of_while_not_null:
     pop %rbp
+    
     ret
 
-
-######################################################
-# str_len - length of string except terminatimg symbol
-######################################################
-# Entry:  %rdi - buffer addres
-#          %al - terminatin symbol
-# Exit: %rcx - number of symbols        
-######################################################
+########################################################
+# str_len - length of string except terminatimg symbol #
+########################################################
+# Entry:  %rdi - buffer addres                         #
+#          %al - terminatin symbol                     #
+# Exit: %rcx - number of symbols                       #
+########################################################
 str_len: 
 
     mov $-1, %rcx
@@ -341,13 +355,13 @@ str_len:
     ret
 
 ######################################################
-# Put_decimal in buffer 
+# Put_decimal in buffer                              #
 ######################################################
-# Entry:  %rsi - end of buffer addres
-#         %rax - value
-# Exit: %rsi - one symbol ahead of start 
-#              of string containing decimal   
-# Overwrites: %rdi, %rdx, .... 
+# Entry:  %rsi - end of buffer addres                #
+#         %rax - value                               #
+# Exit: %rsi - one symbol ahead of start             #
+#              of string containing decimal          #
+# Overwrites: %rdi, %rdx, ....                       #
 ######################################################
 put_decimal_in_buffer:
     mov %eax, %ecx
@@ -392,14 +406,14 @@ put_abs_decimal_in_buffer:
     jmp 1b
 
 ######################################################
-# Put binary in buffer 
+# Put binary in buffer                               #
 ######################################################
-# Entry:  %rsi - end of buffer addres
-#         %rax - value
-# Exit: %rsi - one symbol ahead of start 
-#              of string containing decimal   
-# Overwrites: %rdi, %rdx, .... 
-#####################################################
+# Entry:  %rsi - end of buffer addres                #
+#         %rax - value                               #
+# Exit: %rsi - one symbol ahead of start             #
+#              of string containing decimal          #
+# Overwrites: %rdi, %rdx, ....                       #
+######################################################
 put_binary_in_buffer:
   1:
     mov $1, %rdx
@@ -417,14 +431,14 @@ put_binary_in_buffer:
     ret
 
 ######################################################
-# Put oct in buffer 
+# Put oct in buffer                                  #
 ######################################################
-# Entry:  %rsi - end of buffer addres
-#         %rax - value
-# Exit: %rsi - one symbol ahead of start 
-#              of string containing decimal   
-# Overwrites: %rdi, %rdx, .... 
-#####################################################
+# Entry:  %rsi - end of buffer addres                #
+#         %rax - value                               #
+# Exit: %rsi - one symbol ahead of start             #
+#              of string containing decimal          #
+# Overwrites: %rdi, %rdx, ....                       #
+######################################################
 put_oct_in_buffer:
   1:
     mov $7, %rdx
@@ -442,16 +456,16 @@ put_oct_in_buffer:
     ret
 
 ######################################################
-# Put hex in buffer 
+# Put hex in buffer                                  #
 ######################################################
-# Entry:  %rsi - end of buffer addres
-#         %rax - value
-# Exit: %rsi - one symbol ahead of start 
-#              of string containing decimal   
-# Overwrites: %rdi, %rdx, .... 
-#             RBX, RSI
-# Note: XLAT Uses ds
-#####################################################
+# Entry:  %rsi - end of buffer addres                #
+#         %rax - value                               #
+# Exit: %rsi - one symbol ahead of start             #
+#              of string containing decimal          #
+# Overwrites: %rdi, %rdx, ....                       #
+#             RBX, RSI                               #
+# Note: XLAT Uses ds                                 #
+######################################################
 put_hex_in_buffer:
     mov $hex_table, %rbx
     xchg %rax, %rdx
@@ -460,7 +474,7 @@ put_hex_in_buffer:
     mov $0xF, %rax
     and %rdx, %rax
     
-    xlat        # AL := (RBX + ZeroExtend(AL))
+    xlat             # AL := (RBX + ZeroExtend(AL))
     mov %al, (%rsi)
 
     dec %rsi
@@ -470,7 +484,6 @@ put_hex_in_buffer:
     jne 1b
 
     ret
-
 
 .section .data
 hex_table: .ascii "0123456789ABCDEF"
