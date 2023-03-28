@@ -1,6 +1,6 @@
 .extern puthcar
 .extern exit
-
+.extern printf
 #NOTE: RACE BETWEEN RDX and RSI !
 #OVerwrites: RAX, RDI, RSI, RDX (and everything related to syscall)
 .macro PUTN buffer:req, cnt:req
@@ -52,6 +52,7 @@ main:
     // pushq $0x636465
     pushq $format
     
+    call printf
     call my_printf
     
     add $(8 * 2), %rsp
