@@ -47,5 +47,7 @@ int main()
 
         }        
 
+    free(color_array);
+
     return SUCCESS;    
     }

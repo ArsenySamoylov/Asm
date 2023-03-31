@@ -27,3 +27,4 @@ typedef unsigned char pixel_color;
 
 #define $ { printf("I am working in %s:%d\n", __FILE__, __LINE__); }
 
+typedef unsigned int uint;
