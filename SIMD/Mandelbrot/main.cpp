@@ -6,7 +6,6 @@
 #include "gui.hpp"
 #include "Mandelbrot.hpp"
 
-
 int main()
     {
     sf::RenderWindow  window(sf::VideoMode(DEF_WIDTH, DEF_HEIGHT), "Mandelbrot");

@@ -103,6 +103,9 @@ static void DrawPixel (sf::RenderWindow* window, unsigned x_coord, unsigned y_co
     {
     assert(window);
 
+    // if (iteration)
+        // printf ("Pixel (%u, %u) = itertion: %u\n", x_coord, y_coord, iteration);
+
     static sf::RectangleShape rectangle{sf::Vector2f(1.f,1.f)};
     static sf::Color color{};
 
