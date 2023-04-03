@@ -14,7 +14,7 @@ CFLAGS  := -g   -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				
 
 all: separator clear
 	@clear
-	@g++ main.cpp bmp.cpp -o alphaBlending.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images.cpp ./src/gui.cpp -o alphaBlending.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 	
 run:
 	./alphaBlending.out table.bmp
