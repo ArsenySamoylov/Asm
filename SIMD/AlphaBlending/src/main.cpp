@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "gui.hpp"
 #include "bmp.hpp"
@@ -39,7 +40,7 @@ int main(int argc, const char* argv[])
                       .width     = main_bmp.dib_header->width,
                       .height    = main_bmp.dib_header->height };
 
-    if (Blend(&main_img, &background_img, 0, 0) != SUCCESS)
+    if (Blend(&main_img, &background_img, (unsigned) atoi(argv[3]), background_img.height - main_img.height - (unsigned) atoi(argv[4])) != SUCCESS)
         goto FAILURE_EXIT;
     
     DisplayImage(&background_img);

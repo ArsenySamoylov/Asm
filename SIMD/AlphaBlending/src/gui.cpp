@@ -48,7 +48,7 @@ static void DrawWindow (sf::RenderWindow* window, const Image* img)
          // printf("X cord = %u, Y cord = %u, Color = %u, (w:%u, h:%u)\n", 
             //  x, y, img->pixel_arr[y* img->width + x].red, img->width, img->height);
           
-          DrawPixel (window, x, y, img->pixel_arr[y * img->width + x]);
+          DrawPixel (window, x, img->height - y, img->pixel_arr[y * img->width + x]);
           }
     
     Display(window); 

@@ -2,11 +2,11 @@
 #include <assert.h>
 #include <stdint.h>
 
+#include <immintrin.h>
+
 #include "blend_images.hpp"
 #include "common.hpp"
 
-// Note: this function fails when front image out of boders of background image
-//       Add checking borders, to avoid it
 int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
     {
     assert(front_img);
@@ -20,30 +20,44 @@ int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
         return FAILURE;
         }
 
-    const unsigned front_width = front_img->width;
-    const unsigned  back_width =  back_img->width;
+    uint32_t* back_arr  = (uint32_t*) back_img->pixel_arr + (y_start * back_img->width + x_start); 
+    uint32_t* front_arr = (uint32_t*) front_img->pixel_arr; 
 
-    const unsigned front_height = front_img->height;
-
-    uint32_t*  back_color_array = (uint32_t*)  back_img->pixel_arr + (y_start * back_img->width + x_start); 
-    uint32_t* front_color_array = (uint32_t*) front_img->pixel_arr;
-
-
-    for (unsigned y_coord = 0; y_coord < front_height; y_coord++)
+    for (unsigned y_coord = 0; y_coord < front_img->height; y_coord++)
         {
-
-        uint32_t* back_arr  =  back_color_array + y_coord * back_width; 
-        uint32_t* front_arr = front_color_array + y_coord * front_width; 
-
-        for (unsigned x_coord = 0; x_coord < front_width; x_coord++)
+        for (unsigned x_coord = 0; x_coord < front_img->width; x_coord += 4)
             {
             //uint8_t alpha_back  =  back_arr->alpha_mask;
             
-            uint64_t  back_color = (uint64_t)  *back_arr; 
-            uint64_t front_color = (uint64_t) *front_arr;
+            static const __m256i  Red_green_mask = 
+              _mm256_set_epi64x (0x00FF00FF00FF00FF, 0x00FF00FF00FF00FF, 0x00FF00FF00FF00FF, 0x00FF00FF00FF00FF);
+            static const __m256i Alpha_blue_mask = 
+              _mm256_set_epi64x 
+              (   (__int64_t) 0xFF00FF00FF00FF00, 
+                  (__int64_t) 0xFF00FF00FF00FF00, 
+                  (__int64_t) 0xFF00FF00FF00FF00, 
+                  (__int64_t) 0xFF00FF00FF00FF00);
 
-            uint8_t alpha_front = (uint8_t) (front_color >> 24);
-           
+
+            __m256i  back_color = _mm256_load_si256 ((__m256i*)  back_arr); 
+            __m256i front_color = _mm256_load_si256 ((__m256i*) front_arr);
+            
+            __m256i  back_color_red_green = _mm256_and_si256 ( back_color,  Red_green_mask); 
+            __m256i front_color_red_green = _mm256_and_si256 (front_color, Alpha_blue_mask);
+
+            static const __m128i Alpha_head_shuffle_mask = ;
+            static const __m128i Alpha_tail_shuffle_mask = ;
+
+            // shuffle
+            __m128i alpha_head = _mm_shuffle_epi32 (front_,__MM_SHUFFLE(
+            __m128i alpha_tail = _mm_shuffle_epi8
+
+            // cancatenate
+            __m256i alpha = _mm256_setm128i (alpha_head, alpha_tail);
+            
+            // then multiply
+
+
             uint64_t new_red_green = ((front_color & 0x00FF00FF) * (alpha_front) + (back_color & 0x00FF00FF) * (256 - alpha_front)) >> 8;
             uint64_t new_alph_blue = ((front_color & 0xFF00FF00) * (alpha_front) + (back_color & 0xFF00FF00) * (256 - alpha_front)) >> 8;
             
@@ -69,7 +83,7 @@ int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
 
             //*back_arr = {.red = back_pixel.red + front_pixel.red};
             
-            *back_arr = (uint32_t) (new_red_green + new_alph_blue); 
+            *back_arr = (uint32_t) (new_red_green | new_alph_blue); 
 
             back_arr++;
             front_arr++;
