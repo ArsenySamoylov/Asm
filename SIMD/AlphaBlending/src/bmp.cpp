@@ -10,6 +10,7 @@ static_assert (TEMP_BUFFER_SIZE > BITMAP_HEADER_SIZE + DIB_HEADER_SIZE);
 
 #pragma GCC diagnostic ignored "-Wpointer-arith"
 
+#define report_error(format, ...) printf("%s:%d" format, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
 int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
   {
   assert(file_path);
@@ -25,7 +26,7 @@ int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
   temp = fopen(file_path, "rb");
   if (!temp)
     {
-    printf ("Couldn't find file '%s'\n", file_path);
+    report_error ("Couldn't find file '%s'\n", file_path);
     goto FAILURE_EXIT;
     }
 
@@ -34,7 +35,7 @@ int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
 
   if (fread(temp_buffer, sizeof(temp_buffer[0]), BITMAP_HEADER_SIZE + DIB_HEADER_SIZE + 16, temp) == 0)
       {
-      printf ("Couldn't read headers from '%s'n\n", file_path);
+      report_error ("Couldn't read headers from '%s'n\n", file_path);
       goto FAILURE_EXIT;
       }
   
@@ -49,8 +50,8 @@ int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
 
   if (header->bfType[0] != 'B' && header->bfType[1] != 'M')
       {
-      printf ("Wrong signature for file '%s'\n", file_path);
-      printf ("'%.1s' instead of 'BM'\n", (char*) header->bfType);
+      report_error ("Wrong signature for file '%s'\n", file_path);
+      report_error ("'%.1s' instead of 'BM'\n", (char*) header->bfType);
 
       goto FAILURE_EXIT;
       }
@@ -73,14 +74,14 @@ int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
   pixel_array = (RGBA*) calloc (dib_header->width * dib_header->height, sizeof(pixel_array[0]));
   assert(pixel_array);
   
-  printf("pixel_array: \t image_size: %u\n\t\twidth:%u height:%u\n\t\tbits_per_pixel: %u\n", 
+  report_error ("pixel_array: \t image_size: %u\n\t\twidth:%u height:%u\n\t\tbits_per_pixel: %u\n", 
           dib_header->image_size, dib_header->width, dib_header->height, dib_header->bits_per_pixel);
 
   fseek (temp, header->bfOffbits, SEEK_SET);
 
   if (fread(pixel_array, dib_header->width * dib_header->height, sizeof(pixel_array[0]), temp) == 0)
       {
-      printf ("Couldn't read pixel array from '%s'n\n", file_path);
+      report_error ("Couldn't read pixel array from '%s'n\n", file_path);
       goto FAILURE_EXIT;
       }
 
@@ -115,20 +116,20 @@ int CheckBmpFormat (Bmp_image* bmp)
     
     if (!bmp->header)
       {
-      printf("Empty header\n");
+      report_error("Empt:y header\n");
       return FAILURE;
       }
 
     if (!bmp->dib_header)
       {
-      printf ("Empty dib header\n");
+      report_error ("Empty dib header\n");
       return FAILURE;
       }
 
     if (bmp->header->bfType[0] != 'B' && bmp->header->bfType[1] != 'M')
       {
-      printf ("Wrong signature for bmp (%p)\n", bmp);
-      printf ("'%.1s' instead of 'BM'\n", (char*) bmp->header->bfType);
+      report_error ("Wrong signature for bmp (%p)\n", bmp);
+      report_error ("'%.1s' instead of 'BM'\n", (char*) bmp->header->bfType);
 
       return FAILURE;
       }
@@ -137,21 +138,21 @@ int CheckBmpFormat (Bmp_image* bmp)
   if (bmp->dib_header->compression != 0 &&
       bmp->dib_header->compression != 3)
       {
-      printf("For correct work bmp file MUST have ZERO compression, (not %u)\n", bmp->dib_header->compression);
+      report_error ("For correct work bmp file MUST have ZERO compression, (not %u)\n", bmp->dib_header->compression);
       
       return FAILURE;
       }
 
   if (bmp->dib_header->bits_per_pixel != 32)
       {
-      printf ("Image must be 32 bits per pixel (RGBA format) (not %u)\n",bmp->dib_header->bits_per_pixel);
+      report_error ("Image must be 32 bits per pixel (RGBA format) (not %u)\n",bmp->dib_header->bits_per_pixel);
       
       return FAILURE;
       }
   
   if (bmp->dib_header->width * bmp->dib_header->height != bmp->dib_header->image_size / sizeof(RGBA))
       {
-      printf ("Error, image: width * height != image_size / sizeof(RGBA) (%u * %u != %u / %lu)\n",
+      report_error ("Error, image: width * height != image_size / sizeof(RGBA) (%u * %u != %u / %lu)\n",
       bmp->dib_header->width, bmp->dib_header->height, bmp->dib_header->image_size, sizeof(RGBA));
 
      // return FAILURE;

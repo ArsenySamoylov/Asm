@@ -10,7 +10,7 @@ void help();
 
 int main(int argc, const char* argv[])
     {
-    if (argc < 3)
+    if (argc < 5)
       {
       help();
       return 0;

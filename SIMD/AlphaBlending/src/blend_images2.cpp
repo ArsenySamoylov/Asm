@@ -21,7 +21,7 @@ int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
         }
     
     __m256i _zero_m256i = _mm256_setzero_si256 ();
-    __m256i  _255_m256i = _mm256_set1_epi16 (255);
+    __m256i  _255_m256i = _mm256_set1_epi16 (0xFF00);
 
     const unsigned front_width = front_img->width;
     const unsigned  back_width =  back_img->width;
@@ -75,16 +75,24 @@ int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
                     alpha_front_high = _mm256_shufflelo_epi16 (alpha_front_high, _MM_SHUFFLE(3,3,3,3));
             
             // then multiply
+            //
+
             front_color_low  = _mm256_mulhi_epu16 (front_color_low,  alpha_front_low);
             front_color_high = _mm256_mulhi_epu16 (front_color_high, alpha_front_high);
 
-            back_color_low  = _mm256_mulhi_epu16 (back_color_low,  _mm256_sub_epi16 (_255_m256i, alpha_front_low));
-            back_color_high = _mm256_mulhi_epu16 (back_color_high, _mm256_sub_epi16 (_255_m256i, alpha_front_high));
+            __m256i anti_alpha_low  =  _mm256_sub_epi16 (_255_m256i, alpha_front_low);
+            __m256i anti_alpha_high =  _mm256_sub_epi16 (_255_m256i, alpha_front_high);
+            
+            back_color_low  = _mm256_mulhi_epu16 (back_color_low, anti_alpha_low);
+            back_color_high = _mm256_mulhi_epu16 (back_color_high, anti_alpha_high);
             
             __m256i sum_low  = _mm256_add_epi16 (front_color_low,  back_color_low);
             __m256i sum_high = _mm256_add_epi16 (front_color_high, back_color_high);
+            
+            __m256i sum_low_trunc = _mm256_srli_epi16 (sum_low, 8);
+            __m256i sum_high_trunc = _mm256_srli_epi16 (sum_high, 8);
 
-            __m256i result_color = _mm256_packs_epi16 (sum_low, sum_high);
+            __m256i result_color = _mm256_packus_epi16 (sum_low_trunc, sum_high_trunc);
 
             
            // *back_arr = (uint32_t) (new_red_green | new_alph_blue); 
