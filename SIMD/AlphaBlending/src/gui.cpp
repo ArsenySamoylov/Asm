@@ -40,7 +40,7 @@ static void DrawWindow (sf::RenderWindow* window, const Image* img)
     assert(window);
     assert(img);
 
-    setvbuf (stdout, NULL, _IONBF, 0);
+    //setvbuf (stdout, NULL, _IONBF, 0);
 
     for (unsigned y = 0; y < img->height; y++)
         for (unsigned x = 0; x < img->width; x++)

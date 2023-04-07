@@ -2,13 +2,26 @@
 #include <string.h>
 #include <assert.h>
 
-#include "Mandelbrot2.hpp"
+#include "Mandelbrot.hpp"
 #include "common.hpp"
 
+struct __mm256
+    {
+    float arr[8];
+    };
+
+struct __mm256i
+    {
+    int arr[8];
+    };
+
+const unsigned  NUMBER_OF_PACKED_FLOATS   = sizeof(__mm256)  / sizeof(float);
+const unsigned  NUMBER_OF_PACKED_INTEGERS = sizeof(__mm256i) / sizeof(int);
+
+static_assert(NUMBER_OF_PACKED_FLOATS == NUMBER_OF_PACKED_INTEGERS);
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // x_(i+1) = 2*x_i*y_i + x_0
 // y_(i+1) = x_i^2 - y_i^2 +y_0
-
-
 #define __mm_256_cast_si256(value) (__mm256i*) &value  // cast for compilator
 
 inline __mm256*  __mm256_mul_ps (__mm256* a, __mm256* b, __mm256* dest)
@@ -47,6 +60,7 @@ inline __mm256i* __mm256_set1_epi32 (__mm256i* dest, int a)
     {
     for (uint i = 0; i < NUMBER_OF_PACKED_INTEGERS; i++)
         dest->arr[i] = a;
+        
 
     return dest;
     }
@@ -88,7 +102,7 @@ inline __mm256i* __mm256_add_epi32 (__mm256i* a, __mm256i* b, __mm256i* dest)
 
 #pragma GCC diagnostic ignored "-Wstack-protector"
 
-int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
+int CalculateMandalbrot_optimized (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
     {
     assert(color_array);
 

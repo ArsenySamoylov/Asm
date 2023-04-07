@@ -18,7 +18,7 @@ all: separator clear
 
 	
 run:
-	./alphaBlending.out  table.bmp table.bmp 0 0
+	./alphaBlending.out  table1.bmp cat1.bmp 0 0
 clear:
 	rm -rf alphaBlending.out 
 

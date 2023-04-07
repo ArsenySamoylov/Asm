@@ -12,15 +12,10 @@ CFLAGS  := -g   -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				
 				-Wlarger-than=8192     		-Wstack-usage=8192 					-pie -fPIE 				-fext-numeric-literals
 
 
-1: separator clear
+all: separator clear
 	@clear
-	@g++ main.cpp gui.cpp Mandelbrot.cpp -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -O2 -mavx2 -I./include ./src/main.cpp ./src/gui.cpp ./src/Mandelbrot2.cpp ./src/Mandelbrot3.cpp ./src/Mandelbrot.cpp -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
-2: separator clear
-	@g++ main.cpp gui.cpp Mandelbrot2.cpp -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
-
-3: separator clear clear_screen
-	@g++ main.cpp gui.cpp Mandelbrot3.cpp -mavx2 -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 	 
 clear:
 	rm -rf simd.out

@@ -116,7 +116,7 @@ int Blend_optimized (Image* front_img, Image* back_img, unsigned x_start, unsign
             front_arr += 8;
             }
         
-        back_arr += back_img->width - front_img->width;
+        back_arr += back_width - front_width;
       }
 
 

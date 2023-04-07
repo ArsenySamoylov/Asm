@@ -9,7 +9,7 @@
 
 void help();
 
-const int NUMBER_OF_ITERATIONS_FOR_MEASURMENT = 300;
+const int NUMBER_OF_ITERATIONS_FOR_MEASURMENT = 10000;
 int Measure_perfomance_difference(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start);
 
 int main(int argc, const char* argv[])
@@ -55,7 +55,7 @@ int main(int argc, const char* argv[])
     if (status != SUCCESS)
         goto FAILURE_EXIT;
     
-    //DisplayImage(&background_img);
+    DisplayImage(&background_img);
 
     return SUCCESS;    
 

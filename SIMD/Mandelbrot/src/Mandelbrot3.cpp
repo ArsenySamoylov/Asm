@@ -4,7 +4,7 @@
 
 #include <immintrin.h>
 
-#include "Mandelbrot3.hpp"
+#include "Mandelbrot.hpp"
 #include "common.hpp"
 
 // x_(i+1) = 2*x_i*y_i + x_0
@@ -14,7 +14,7 @@
 const int NUMBER_OF_PACKED_INTEGERS = 8;
 const int NUMBER_OF_PACKED_FLOATS   = 8;
 
-int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
+int CalculateMandalbrot_optimized_avx (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
     {
     assert(color_array);
 
@@ -23,6 +23,7 @@ int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsign
 
     // printf("X_delta: %f, Y_delta: %f\n", x_delta, y_delta);
     // printf("Screen width %u, Height: %u\n", screen_width, screen_height);
+    __m256 temp = _mm256_set_ps (7*x_delta, 6*x_delta, 5*x_delta, 4*x_delta, 3*x_delta, 2*x_delta, 1*x_delta, 0);
 
     unsigned y_screen_coord = 0;
     unsigned x_screen_coord = 0;    
@@ -39,7 +40,6 @@ int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsign
         for (float  x_coord = X_MIN; x_screen_coord < screen_width; x_coord += NUMBER_OF_PACKED_FLOATS * x_delta, x_screen_coord += NUMBER_OF_PACKED_FLOATS)
             {
             __m256 x_0  = _mm256_set1_ps(x_coord);
-            __m256 temp = _mm256_set_ps (7*x_delta, 6*x_delta, 5*x_delta, 4*x_delta, 3*x_delta, 2*x_delta, 1*x_delta, 0);
                    x_0  = _mm256_add_ps (temp, x_0);
 
             __m256 x = x_0;
@@ -69,13 +69,14 @@ int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsign
             
                 // printf("X screen coord = %u, Y screen coord = %u ||| ", x_screen_coord, DEF_HEIGHT - y_screen_coord);
                 // printf("X math coord = %f, Y math coord = %f\n", x_coord, y_coord);
-
+          
             uint* color = (uint*) &iteration;           // if base type for pixel color changes from byte
                                                        // to integer, to change this place to move
                                                       // colors value directly 
 
             for (uint i = 0; i < NUMBER_OF_PACKED_INTEGERS; i++)
                 *(color_array++) = (pixel_color) *(color++);
+//               _mm256_storeu_si256 ((__m256i*)color_array, iteration);
 
             }
         }
