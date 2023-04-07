@@ -16,7 +16,7 @@ int DisplayImage(Image* img)
 
     DrawWindow (&window, img);
     
-    printf("Img: height = %u, width = %u\n(RGBA = %lu)\n", img->width, img->height, sizeof(RGBA));
+//    printf("Img: height = %u, width = %u\n(RGBA = %lu)\n", img->width, img->height, sizeof(RGBA));
     
     while (window.isOpen())
       {

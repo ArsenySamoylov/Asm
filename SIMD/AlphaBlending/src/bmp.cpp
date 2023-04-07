@@ -10,7 +10,7 @@ static_assert (TEMP_BUFFER_SIZE > BITMAP_HEADER_SIZE + DIB_HEADER_SIZE);
 
 #pragma GCC diagnostic ignored "-Wpointer-arith"
 
-#define report_error(format, ...) printf("%s:%d" format, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
+#define report_error(format, ...) printf("%s:%d " format, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
 int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
   {
   assert(file_path);
@@ -74,8 +74,8 @@ int Bmp_image_ctor (Bmp_image* bmp, const char* file_path)
   pixel_array = (RGBA*) calloc (dib_header->width * dib_header->height, sizeof(pixel_array[0]));
   assert(pixel_array);
   
-  report_error ("pixel_array: \t image_size: %u\n\t\twidth:%u height:%u\n\t\tbits_per_pixel: %u\n", 
-          dib_header->image_size, dib_header->width, dib_header->height, dib_header->bits_per_pixel);
+//  report_error ("pixel_array: \t image_size: %u\n\t\twidth:%u height:%u\n\t\tbits_per_pixel: %u\n", 
+  //        dib_header->image_size, dib_header->width, dib_header->height, dib_header->bits_per_pixel);
 
   fseek (temp, header->bfOffbits, SEEK_SET);
 
@@ -149,14 +149,15 @@ int CheckBmpFormat (Bmp_image* bmp)
       
       return FAILURE;
       }
-  
+  /*
   if (bmp->dib_header->width * bmp->dib_header->height != bmp->dib_header->image_size / sizeof(RGBA))
       {
       report_error ("Error, image: width * height != image_size / sizeof(RGBA) (%u * %u != %u / %lu)\n",
       bmp->dib_header->width, bmp->dib_header->height, bmp->dib_header->image_size, sizeof(RGBA));
 
-     // return FAILURE;
+      return FAILURE;
       }
+  */
 
     return SUCCESS;
     }

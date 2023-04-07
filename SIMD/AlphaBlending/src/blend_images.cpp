@@ -5,9 +5,29 @@
 #include "blend_images.hpp"
 #include "common.hpp"
 
-// Note: this function fails when front image out of boders of background image
-//       Add checking borders, to avoid it
-int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
+/**
+  \brief This is first version of Blend function, thas serves as prototype
+
+  @param [in] front_img ptr to Image structure that contans ptr to array with pixels
+                        and width, height
+                        This image will be blended on the back image
+  
+  @param [in] back_img prt to back_img ptr
+
+  @param [in] x_start x coordinate for position of blending front image to back image
+                      (coordinate relative to back_image)
+  
+  @param [in] y_start y coordinate for position of blending front image to back image
+                      (coordinate relative to back_image)
+
+  \return 0 - SUCCESS
+          1 - FAILURE (for more coorect info look in "common.hpp")
+
+       <b> Note: this function fails when front image out of boders of background image
+       Add checking borders, to avoid it.<b>
+*/
+
+int Blend_not_optimized (Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
     {
     assert(front_img);
     assert(back_img);
@@ -37,38 +57,22 @@ int Blend(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
 
         for (unsigned x_coord = 0; x_coord < front_width; x_coord++)
             {
-            //uint8_t alpha_back  =  back_arr->alpha_mask;
-            
             uint64_t  back_color = (uint64_t)  *back_arr; 
             uint64_t front_color = (uint64_t) *front_arr;
 
             uint8_t alpha_front = (uint8_t) (front_color >> 24);
            
-            uint64_t new_red_green = ((front_color & 0x00FF00FF) * (alpha_front) + (back_color & 0x00FF00FF) * (256 - alpha_front)) >> 8;
-            uint64_t new_alph_blue = ((front_color & 0xFF00FF00) * (alpha_front) + (back_color & 0xFF00FF00) * (256 - alpha_front)) >> 8;
+            uint64_t new_red_green = ((front_color & 0x00FF00FF) * (alpha_front) + 
+                                       (back_color & 0x00FF00FF) * (256 - alpha_front)) 
+                                     >> 8;
+
+            uint64_t new_alph_blue = ((front_color & 0xFF00FF00) * (alpha_front) + 
+                                       (back_color & 0xFF00FF00) * (256 - alpha_front)) 
+                                     >> 8;
             
             new_red_green &= 0x00FF00FF;
             new_alph_blue &= 0xFF00FF00;
-
-            /*
-            RGBA back_pixel = {
-                               .blue  = (byte) (back_arr->blue  * (255 - alpha_back) >> 8),
-                               .red   = (byte) (back_arr->red   * (255 - alpha_back) >> 8),
-                               .green = (byte) (back_arr->green * (255 - alpha_back) >> 8),
-                               .alpha_mask = (byte) (back_arr->alpha_mask * (255 - alpha_back) >> 8), 
-                              };
-
-            RGBA front_pixel = {
-                                .blue  = (byte) (front_arr->blue  * alpha_front >> 8),
-                                .red   = (byte) (front_arr->red   * alpha_front >> 8),  
-                                .green = (byte) (front_arr->green * alpha_front >> 8),
-                                .alpha_mask = (byte) (front_arr->alpha_mask * alpha_front >> 8),  
-                               };
-            */
-
-
-            //*back_arr = {.red = back_pixel.red + front_pixel.red};
-            
+           
             *back_arr = (uint32_t) (new_red_green + new_alph_blue); 
 
             back_arr++;

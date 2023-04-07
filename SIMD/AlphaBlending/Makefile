@@ -1,4 +1,4 @@
-CFLAGS  := -g   -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				-Wcast-qual    				-Wcast-align   					   \
+CFLAGS  := -g  -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				-Wcast-qual    				-Wcast-align   					   \
 				-Weffc++   -Wfloat-equal 	-Wchar-subscripts  					-Wconversion   			-Woverloaded-virtual   		-Wstack-protector				   \
 				-Wformat-nonliteral    		-Wempty-body     					-Wformat-security       -Wformat=2	   				-Wformat-signedness	   			   \
 			    -Wlogical-op           		-Wopenmp-simd    					-Wnon-virtual-dtor 	    -Winline	   				-Wconditionally-supported          \
@@ -11,17 +11,14 @@ CFLAGS  := -g   -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				
 				-Wno-varargs           		-fcheck-new     					-fsized-deallocation    -fno-omit-frame-pointer 									   \
 				-Wlarger-than=8192     		-Wstack-usage=8192 					-pie -fPIE 				-fext-numeric-literals
 
-
 all: separator clear
 	@clear
-	@g++ -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images.cpp ./src/gui.cpp -o alphaBlending.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -O2 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
-1: separator clear
-	@clear
-	@g++ -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/gui.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+
 	
 run:
-	./alphaBlending.out  table.bmp AskhatCat.bmp 300 220
+	./alphaBlending.out  table.bmp table.bmp 0 0
 clear:
 	rm -rf alphaBlending.out 
 
