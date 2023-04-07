@@ -13,7 +13,7 @@ CFLAGS  := -g  -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				-
 
 all: separator clear
 	@clear
-	@g++ -O2 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -O2 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp ./src/Measure_time.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
 
 	

@@ -1,16 +1,13 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/time.h>
 
 #include "gui.hpp"
 #include "bmp.hpp"
 #include "blend_images.hpp"
+#include "Measure_time.hpp"
 
 void help();
-
-const int NUMBER_OF_ITERATIONS_FOR_MEASURMENT = 10000;
-int Measure_perfomance_difference(Image* front_img, Image* back_img, unsigned x_start, unsigned y_start);
 
 int main(int argc, const char* argv[])
     {
@@ -72,40 +69,3 @@ void help()
 
     return;
   }
-
-int Measure_perfomance_difference (Image* front_img, Image* back_img, unsigned x_start, unsigned y_start)
-    {
-    assert(front_img);
-    assert( back_img);
-
-    timeval start {};
-    timeval end   {};
-
-    double used_time_not_optimized = 0;
-    double used_time_optimized     = 0;
-    
-    gettimeofday (&start, nullptr);
-
-    for (int i = 0; i < NUMBER_OF_ITERATIONS_FOR_MEASURMENT; i++)
-        Blend_not_optimized (front_img, back_img, x_start, y_start);
-    
-    gettimeofday (&end, nullptr);
-    used_time_not_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec);
-    
-    printf ("Not optimized function time for %d iterations = %lg\n", NUMBER_OF_ITERATIONS_FOR_MEASURMENT, used_time_not_optimized);
-   
-    gettimeofday(&start, nullptr);
-
-    for (int i = 0; i < NUMBER_OF_ITERATIONS_FOR_MEASURMENT; i++)
-        Blend_optimized (front_img, back_img, x_start, y_start);
-    
-    gettimeofday (&end, nullptr);
-
-    used_time_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec);
-    printf ("Optimized function time for %d iterations     = %lg\n", NUMBER_OF_ITERATIONS_FOR_MEASURMENT, used_time_optimized);
-    
-    printf ("\nSpeed up factor = %lg\n", used_time_not_optimized / used_time_optimized);
-
-    return SUCCESS;
-    }
-
