@@ -55,7 +55,7 @@ int Measure_perfomance_difference (pixel_color* color_array, unsigned width, uns
         CalculateMandalbrot_not_optimized (color_array, width, height);
     
     gettimeofday (&end, nullptr);
-    used_time_not_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec);
+    used_time_not_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000000.0;
     
     printf ("Not optimized function time for %d iterations = %lg\n", NUMBER_OF_ITERATIONS_FOR_MEASURMENT, used_time_not_optimized);
    
@@ -66,8 +66,8 @@ int Measure_perfomance_difference (pixel_color* color_array, unsigned width, uns
     
     gettimeofday (&end, nullptr);
 
-    used_time_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec);
-    printf ("Optimized function time for %d iterations     = %lg\n", NUMBER_OF_ITERATIONS_FOR_MEASURMENT, used_time_optimized);
+    used_time_optimized = (double) ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000000.0;
+    printf ("Optimized     function time for %d iterations = %lg\n", NUMBER_OF_ITERATIONS_FOR_MEASURMENT, used_time_optimized);
     
     printf ("\nSpeed up factor = %lg\n", used_time_not_optimized / used_time_optimized);
 
