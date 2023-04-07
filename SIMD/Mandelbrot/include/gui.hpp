@@ -19,4 +19,6 @@ const float  BLUE_CONSTANT = 08.4f;
 const sf::Color VOID_COLOR = sf::Color::Black;
 //  sf::Color::Magenta;
 
-int ManageWindow (sf::RenderWindow* window, const pixel_color* color_array, unsigned* width, unsigned* height);
+int Display (pixel_color* color_array, unsigned width, unsigned height);
+
+//int ManageWindow (sf::RenderWindow* window, const pixel_color* color_array, unsigned* width, unsigned* height);

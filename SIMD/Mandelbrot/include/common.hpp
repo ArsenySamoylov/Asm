@@ -8,7 +8,7 @@ enum RET_STATUS
 
 struct WindowCtx
     {
-    // sf::RenderWindow* window;
+    void*    window;
     unsigned width;
     unsigned height;
 
@@ -17,13 +17,14 @@ struct WindowCtx
 
 const unsigned char MAX_ITERATION_TIMES = 50;
 
-const int DEF_WIDTH  = 800;
-const int DEF_HEIGHT = 600;
+const int DEF_WIDTH  = 1200;
+const int DEF_HEIGHT = 900;
 
-typedef char pixel_color;
+typedef unsigned char pixel_color;
 
 #pragma GCC diagnostic ignored "-Wswitch-enum"
 
 
 #define $ { printf("I am working in %s:%d\n", __FILE__, __LINE__); }
 
+typedef unsigned int uint;

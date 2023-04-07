@@ -6,15 +6,15 @@
 
 // x_(i+1) = 2*x_i*y_i + x_0
 // y_(i+1) = x_i^2 - y_i^2 +y_0
-int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
+int CalculateMandalbrot_not_optimized (pixel_color* color_array, unsigned screen_width, unsigned screen_height)
     {
     assert(color_array);
 
     float x_delta = (X_MAX - X_MIN) / (float) screen_width;
     float y_delta = (Y_MAX - Y_MIN) / (float) screen_height;
 
-    printf("X_delta: %f, Y_delta: %f\n", x_delta, y_delta);
-    printf("Screen width %u, Height: %u\n", screen_width, screen_height);
+    //printf("X_delta: %f, Y_delta: %f\n", x_delta, y_delta);
+    //printf("Screen width %u, Height: %u\n", screen_width, screen_height);
 
     unsigned y_screen_coord = 0;
     unsigned x_screen_coord = 0;
@@ -51,4 +51,3 @@ int CalculateMandalbrot (pixel_color* color_array, unsigned screen_width, unsign
     
     return SUCCESS;
     }
-
