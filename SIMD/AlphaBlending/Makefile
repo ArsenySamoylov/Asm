@@ -11,12 +11,17 @@ CFLAGS  := -g  -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				-
 				-Wno-varargs           		-fcheck-new     					-fsized-deallocation    -fno-omit-frame-pointer 									   \
 				-Wlarger-than=8192     		-Wstack-usage=8192 					-pie -fPIE 				-fext-numeric-literals
 
-all: separator clear
+not_optimazed: separator clear
+	@clear
+	@g++  -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp ./src/Measure_time.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+
+
+optimized: separator clear
 	@clear
 	@g++ -O2 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp ./src/Measure_time.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
 
-	
+
 run:
 	./alphaBlending.out  ./resources/table1.bmp ./resources/cat1.bmp 0 0
 clear:
