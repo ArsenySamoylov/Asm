@@ -17,8 +17,8 @@ struct WindowCtx
 
 const unsigned char MAX_ITERATION_TIMES = 50;
 
-const int DEF_WIDTH  = 800;
-const int DEF_HEIGHT = 600;
+const int DEF_WIDTH  = 1200;
+const int DEF_HEIGHT = 900;
 
 typedef unsigned char pixel_color;
 
