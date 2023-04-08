@@ -44,17 +44,17 @@ int Measure_perfomance_difference (pixel_color* color_array, unsigned width, uns
         }
 
     double not_optimized_time = Measure_function (&CalculateMandalbrot_not_optimized, color_array, width, height, 
-                                                  "CalculateMamdalbrot_not_optimized");
+                                                  "CalculateMandalbrot_not_optimized");
 
-    double optimized_time     = Measure_function (&CalculateMandalbrot_optimized, color_array, width, height, 
-                                                  "CalculateMamdalbrot_optimized");
+//    double optimized_time     = Measure_function (&CalculateMandalbrot_optimized, color_array, width, height, 
+  //                                                "CalculateMandalbrot_optimized");
 
     double optimized_time_avx = Measure_function (&CalculateMandalbrot_optimized_avx, color_array, width, height, 
-                                                  "CalculateMamdalbrot_optimized_avx");
+                                                  "CalculateMandalbrot_optimized_avx");
 
 
-    printf ("\nSpeed up factor 1/2 = %lg\n", not_optimized_time / optimized_time);
-    printf (  "Speed up factor 2/3 = %lg\n", optimized_time     / optimized_time_avx);
+    //printf ("\nSpeed up factor 1/2 = %lg\n", not_optimized_time / optimized_time);
+    //printf (  "Speed up factor 2/3 = %lg\n", optimized_time     / optimized_time_avx);
     printf (  "Speed up factor 1/3 = %lg\n", not_optimized_time / optimized_time_avx);
     
     return SUCCESS;
