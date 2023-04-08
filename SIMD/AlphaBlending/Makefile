@@ -18,12 +18,16 @@ not_optimazed: separator clear
 
 optimized: separator clear
 	@clear
-	@g++ -O2 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp ./src/Measure_time.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -O3 -I./include ./src/main.cpp ./src/bmp.cpp ./src/blend_images2.cpp ./src/blend_images.cpp ./src/gui.cpp ./src/Measure_time.cpp -o alphaBlending.out -mavx2 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
 
 
 run:
 	./alphaBlending.out  ./resources/table1.bmp ./resources/cat1.bmp 0 0
+
+example:
+	./alphaBlending.out  ./resources/table.bmp ./resources/AskhatCat.bmp 300 230
+
 clear:
 	rm -rf alphaBlending.out 
 
