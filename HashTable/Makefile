@@ -15,7 +15,7 @@ SANYTIZER = -fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overfl
 LFLAGS   := -lpthread  -lasan -pg
 
 INCLUDE_PATH 	 = ./include 
-FILES_TO_COMPILE = ./src/main.cpp ./src/HashTable.cpp ./src/ProcessData.cpp
+FILES_TO_COMPILE = ./src/main.cpp ./src/HashTable.cpp ./src/ProcessData.cpp ./src/HashFunctions.cpp
 
 ATC_INCLUDE = ./ATC/RandomStuff/ ./ATC/Logger ./ATC/Buffer ./ATC/ConsoleColors ./ATC/Utils ./ATC/Debug
 ATC_FILES   = ./ATC/Buffer/my_buffer.cpp ./ATC/Logger/Logger.cpp ./ATC/Logger/tostring.cpp ./ATC/Logger/FunctionLogger.cpp  

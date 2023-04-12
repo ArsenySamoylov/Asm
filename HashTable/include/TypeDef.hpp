@@ -10,5 +10,5 @@ typedef index_ (*hash_func_ptr) (const data*);
 struct processed_data
     {
     data* data_array;
-    int number_of_keys;
+    size_t number_of_keys;
     };

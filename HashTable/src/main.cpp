@@ -42,11 +42,17 @@ int main(int argc, const char* argv[])
     free (raw_src_data);
     raw_src_data = NULL;
 
-    if (SetHashTable (&table, ready_data, &hash1_always_1) != SUCCESS)
+    if (SetHashTable (&table, ready_data, &hash2_ascii) != SUCCESS)
         {
         report ("Couldn't set HashTable from file '%s']\n", path_to_src_data);
         goto FAILURE_EXIT;
         }
+    
+    DumpHashTable (&table, "logs/hash_table_dump.txt");
+    
+    DeleteHashTable (&table);
+    free (ready_data->data_array);
+    free (ready_data);
 
     return SUCCESS;
 
@@ -55,7 +61,12 @@ FAILURE_EXIT:
         free (raw_src_data);
     
     if (ready_data)
+        {
+        if (!ready_data->data_array)
+            free(data_array);
+
         free (ready_data->data_array);
+        }
 
     return FAILURE;
     }

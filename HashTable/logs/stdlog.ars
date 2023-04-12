@@ -1,8 +1,8 @@
-Tue Apr 11 23:48:56 2023
+Wed Apr 12 22:06:46 2023
 
 main::
   {
-  LOG CALLOC:     {0x7f6322eb2800} = calloc (182757, 1 = 182757) from GetSrcFile:31, at ./ATC/Buffer/my_buffer.cpp:31
+  LOG CALLOC:     {0x7f6f8c004800} = calloc (182757, 1 = 182757) from GetSrcFile:31, at ./ATC/Buffer/my_buffer.cpp:31
   ProcessData::
     {
     AddWordToDataBuffer::
@@ -260367,3 +260367,8 @@ main::
 
     }
 
+  }
+
+*********************************************************************
+		Log Successfuly ended, on Wed Apr 12 22:06:48 2023
+*********************************************************************

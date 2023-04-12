@@ -36,7 +36,7 @@ processed_data* ProcessData (raw_data* raw_src_data)
                       };
     temp_buf = NULL;
 
-    int number_of_words = 0;
+    size_t number_of_words = 0;
     while (*raw_src_data != '\0')
         {
         int word_lenght  = AddWordToDataBuffer    (&buffer, raw_src_data);
