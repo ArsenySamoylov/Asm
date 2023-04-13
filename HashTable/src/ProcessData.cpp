@@ -5,6 +5,7 @@
 
 #include "CommonEnums.h"
 #include "ProcessData.hpp"
+#include "my_buffer.h"
 
 struct DataBuffer
     {
@@ -100,4 +101,39 @@ static raw_data* SkipUnnecessarySymbols (raw_data* data_ptr)
         data_ptr++;
 
     return data_ptr;
+    }
+
+void DeleteProcessedData (processed_data* proc_data)
+    {
+    if (proc_data)
+        {
+        if  (proc_data->data_array)
+            free (proc_data->data_array);
+        
+        free (proc_data);
+        }
+
+    return;
+    }
+
+processed_data* GetProcessedData (const char* path_to_src_data)
+    {
+    assert(path_to_src_data);
+    
+    raw_data*       raw_src_data = NULL;
+    processed_data* ready_data   = NULL; 
+
+    if (!(raw_src_data = GetSrcFile (path_to_src_data)))
+        {
+        report ("Couldn't read source data from '%s'\n", path_to_src_data);
+        return NULL;
+        }
+    
+    if (!(ready_data = ProcessData (raw_src_data)))
+        report ("Couldn't process data from file '%s'\n", path_to_src_data);
+
+    free (raw_src_data);
+    raw_src_data = NULL;
+
+    return ready_data;
     }
