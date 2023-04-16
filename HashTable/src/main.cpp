@@ -7,7 +7,7 @@
 #include "HashTable.hpp"
 #include "ProcessData.hpp"
 #include "HashFunctions.hpp"
-#include "Measure_time.hpp"
+#include "Measurements.hpp"
 
 void help();
 
@@ -30,20 +30,11 @@ int main(int argc, const char* argv[])
         return FAILURE;
         }
 
-    HashTable table{};
-    
-    DumpHashTable (&table, "logs/hash_table_dump.txt");
-    MakeMeasurments (&table, ready_data, "resources/temp.csv");  
-//    DeleteHashTable (&table);
+    MakeMeasurments (ready_data, "resources/temp.csv");  
+  
     DeleteProcessedData (ready_data);
 
     return SUCCESS;
-/*
-FAILURE_EXIT:
-    DeleteHashTable(&table);
-    DeleteProcessedData(ready_data);
-*/
-    return FAILURE;
     }
 
 

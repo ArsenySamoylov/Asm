@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "Measure_time.hpp"
+#include "Measurements.hpp"
 #include "HashFunctions.hpp"
 #include "CommonEnums.h"
 
@@ -12,13 +12,13 @@ static int MesureHashFunction (HashTable* table, processed_data* src_data, hash_
 #define MEASURE_FUNCTION(func)                                                      \
     do                                                                              \
     {                                                                               \
-    if (MesureHashFunction (table, src_data,  func, #func + 1, result_file) != SUCCESS) \
+    if (MesureHashFunction (&table, src_data,  func, #func + 1, result_file) != SUCCESS) \
         printf("Couldn't measure '%s' function\n", #func);                          \
     } while(0)
 
-int MakeMeasurments (HashTable* table, processed_data* src_data, const char* path_to_result_file)
+int MakeMeasurments (processed_data* src_data, const char* path_to_result_file)
     {
-    assert(table);
+    assert(src_data);
     assert(path_to_result_file);
 
     FILE* result_file = fopen (path_to_result_file, "wb");
@@ -27,6 +27,8 @@ int MakeMeasurments (HashTable* table, processed_data* src_data, const char* pat
         report ("Couldn't open file '%s'\n", path_to_result_file);
         return FAILURE;
         }
+    
+    HashTable table{};
     
     MEASURE_FUNCTION(&hash1_always_1);
     MEASURE_FUNCTION(&hash2_ascii);
