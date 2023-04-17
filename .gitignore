@@ -1,4 +1,7 @@
 *.o
 *.out
 *.exe
+-g
+-D
 .gitignore
+**/logs/

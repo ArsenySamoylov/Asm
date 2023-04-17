@@ -42,11 +42,11 @@ int Measure_perfomance_difference (Image* front_img, Image* back_img, unsigned x
     double not_optimized_time = Measure_function (&Blend_not_optimized, front_img, back_img, x_start, y_start,
                                          "Blend_not_optimized");
     
-    double optimized_avx_time = Measure_function (&Blend_optimized, front_img, back_img, x_start, y_start,
-                                         "Blend_optimized");
+    //double optimized_avx_time = Measure_function (&Blend_optimized, front_img, back_img, x_start, y_start,
+      //                                   "Blend_optimized");
     
     
-    printf ("\nSpeed up factor = %lg\n", not_optimized_time / optimized_avx_time);
+    //printf ("\nSpeed up factor = %lg\n", not_optimized_time / optimized_avx_time);
 
     return SUCCESS;
     }

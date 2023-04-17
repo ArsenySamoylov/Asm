@@ -14,7 +14,7 @@ CFLAGS  := -g   -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				
 
 optimization: separator clear
 	@clear
-	@g++ -O3 -mavx2 -I./include ./src/main.cpp ./src/gui.cpp ./src/Mandelbrot2.cpp ./src/Mandelbrot3.cpp ./src/Mandelbrot.cpp ./src/Measure_time.cpp -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
+	@g++ -O2 -mavx2 -I./include ./src/main.cpp ./src/gui.cpp ./src/Mandelbrot2.cpp ./src/Mandelbrot3.cpp ./src/Mandelbrot.cpp ./src/Measure_time.cpp -o simd.out -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio $(CFLAGS)
 
 no_optimization: separator clear
 	@clear

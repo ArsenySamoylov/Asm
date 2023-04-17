@@ -68,7 +68,7 @@ int Blend_optimized (Image* front_img, Image* back_img, unsigned x_start, unsign
       uint32_t* back_arr  =  back_color_array + y_coord * back_width; 
       uint32_t* front_arr = front_color_array + y_coord * front_width; 
     
-        for (unsigned x_coord = 0; x_coord < front_width; x_coord += 256/32)
+        for (unsigned x_coord = 0; x_coord < front_width - 7; x_coord += 256/32)
             {
            // printf ("X: %u; Y: %u, (back_arr: %d, front_arr: %d)\n", x_coord, y_coord, back_arr, front_arr);
             

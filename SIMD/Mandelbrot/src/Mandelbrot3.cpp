@@ -76,8 +76,9 @@ int CalculateMandalbrot_optimized_avx (pixel_color* color_array, unsigned screen
 
             for (uint i = 0; i < NUMBER_OF_PACKED_INTEGERS; i++)
                 *(color_array++) = (pixel_color) *(color++);
-//               _mm256_storeu_si256 ((__m256i*)color_array, iteration);
-
+           
+            // _mm256_storeu_si256 ( (__m256i*) color, iteration);
+            // color += 8;
             }
         }
     
