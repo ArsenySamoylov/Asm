@@ -2,14 +2,12 @@
 
 #include "TypeDef.hpp"
 
-const int MAX_WORD_LENGTH = 30;
-static_assert(MAX_WORD_LENGTH == 30); // becase of sscanf in AddWordToDataBuffer 
+const int MAX_WORD_LENGTH = sizeof(data) - 1;
 
-const int START_TEMP_BUF_SIZE = 256;
+const int START_NUMBER_OF_ELEMENTS_IN_BUFFER = 256;
 const int BUFFER_GROWTH_RATE  = 2;
 
-processed_data* ProcessData (raw_data* raw_src_data);
+int ProcessData (processed_data* proc_data, raw_data* raw_src_data);
 
-processed_data* GetProcessedData (const char* path_to_src_data);
-void DeleteProcessedData (processed_data* proc_data);
-
+int ProcessedDataCtor (processed_data* proc_data, const char* path_to_src_data);
+int ProcessedDataDtor (processed_data* proc_data);

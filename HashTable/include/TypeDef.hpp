@@ -1,7 +1,9 @@
 #pragma once
  
+#include <immintrin.h>
+
 typedef char raw_data;
-typedef char data;
+typedef __m256i data;
 
 typedef unsigned index_;
 

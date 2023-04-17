@@ -23,16 +23,17 @@ int main(int argc, const char* argv[])
     
     const char* path_to_src_data = argv[1];
 
-    processed_data* ready_data = GetProcessedData (path_to_src_data);
-    if (!ready_data)
+    processed_data ready_data {};
+
+    if (ProcessedDataCtor (&ready_data, path_to_src_data) != SUCCESS)
         {
         report ("Couldn't get data from '%s'\n", path_to_src_data);
         return FAILURE;
         }
 
-    MakeMeasurments (ready_data, "resources/temp.csv");  
+    MakeMeasurments (&ready_data, "resources/temp.csv");  
   
-    DeleteProcessedData (ready_data);
+    ProcessedDataDtor (&ready_data);
 
     return SUCCESS;
     }
