@@ -1,19 +1,19 @@
 #include <assert.h>
 #include <stdio.h>
 
+#include "CommonEnums.h"
+#include "LogMacroses.h"
+
 #include "Measurements.hpp"
 #include "HashFunctions.hpp"
-#include "CommonEnums.h"
-
-#include "LogMacroses.h"
 
 static int MesureHashFunction (HashTable* table, processed_data* src_data, hash_func_ptr func, const char* function_name, FILE* file);
 
-#define MEASURE_FUNCTION(func)                                                      \
-    do                                                                              \
-    {                                                                               \
+#define MEASURE_FUNCTION(func)                                                           \
+    do                                                                                   \
+    {                                                                                    \
     if (MesureHashFunction (&table, src_data,  func, #func + 1, result_file) != SUCCESS) \
-        printf("Couldn't measure '%s' function\n", #func);                          \
+        report ("Couldn't measure '%s' function\n", #func + 1);                          \
     } while(0)
 
 int MakeMeasurments (processed_data* src_data, const char* path_to_result_file)
@@ -63,4 +63,3 @@ static int MesureHashFunction (HashTable* table, processed_data* src_data, hash_
     DeleteHashTable (table);
     return SUCCESS;
     }
-
