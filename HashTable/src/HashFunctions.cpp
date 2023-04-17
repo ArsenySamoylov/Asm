@@ -63,10 +63,18 @@ index_ hash6_ror (const data* key)
     return hash_value;
     }
 
-//index_ hash7_custom   (const data* key);
-    
+index_ hash7_djb2 (const data* key)
+    {
+    assert(key);
 
+    index_ hash = 5381;
+    char c = 0;
 
+    while (c = *(key++))
+        hash = ((hash << 5) + hash) + c;
+
+    return hash;
+    }
 
 static inline index_ rol (index_ val, unsigned shift)
     {

@@ -36,6 +36,8 @@ int MakeMeasurments (processed_data* src_data, const char* path_to_result_file)
     MEASURE_FUNCTION(&hash4_hash_sum);
     MEASURE_FUNCTION(&hash5_rol);
     MEASURE_FUNCTION(&hash6_ror);
+    
+    MEASURE_FUNCTION(&hash7_djb2);
 
     return SUCCESS;
     }
@@ -54,12 +56,12 @@ static int MesureHashFunction (HashTable* table, processed_data* src_data, hash_
         return  FAILURE;
         }
     
-    fprintf(file, "%s ", function_name);
+    fprintf(file, "%s", function_name);
 
     for (size_t i = 0; i < table->number_of_lists; i++)
         {
         List* list = table->list_array + i;
-        fprintf(file, " ,%lu%c", list->number_of_elements, NUMBERS_SEPARATOR);
+        fprintf(file, " %c%lu", NUMBERS_SEPARATOR, list->number_of_elements);
         }
 
     fprintf(file, "\n");

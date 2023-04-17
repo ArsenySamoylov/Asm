@@ -8,4 +8,4 @@ index_ hash3_strlen   (const data* key);
 index_ hash4_hash_sum (const data* key);
 index_ hash5_rol      (const data* key);
 index_ hash6_ror      (const data* key);
-//index_ hash7_custom   (const data* key);
+index_ hash7_djb2   (const data* key);
