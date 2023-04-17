@@ -11,8 +11,8 @@ CFLAGS  :=  -g -D _DEBUG  -std=c++20 		-Wall  -Wc++14-compat  				-Wextra  				-
 				-Wno-varargs           		-fcheck-new     					-fsized-deallocation    -fno-omit-frame-pointer 									   \
 				-Wlarger-than=16384    		-Wstack-usage=168384 					-pie -fPIE 				-fext-numeric-literals
 
-SANYTIZER = -fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overflow,float-divide-by-zero,integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return>
-LFLAGS   := -lpthread  -lasan -pg
+SANYTIZER = # -fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overflow,float-divide-by-zero,integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return>
+LFLAGS   := #-lpthread  -lasan -pg
 
 INCLUDE_PATH 	 = ./include 
 FILES_TO_COMPILE = ./src/main.cpp ./src/HashTable.cpp ./src/ProcessData.cpp ./src/HashFunctions.cpp ./src/Measurements.cpp ./src/List.cpp

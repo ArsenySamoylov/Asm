@@ -32,7 +32,11 @@ int MakeMeasurments (processed_data* src_data, const char* path_to_result_file)
     
     MEASURE_FUNCTION(&hash1_always_1);
     MEASURE_FUNCTION(&hash2_ascii);
-    
+    MEASURE_FUNCTION(&hash3_strlen);
+    MEASURE_FUNCTION(&hash4_hash_sum);
+    MEASURE_FUNCTION(&hash5_rol);
+    MEASURE_FUNCTION(&hash6_ror);
+
     return SUCCESS;
     }
  
@@ -43,7 +47,7 @@ static int MesureHashFunction (HashTable* table, processed_data* src_data, hash_
     assert(func);
     assert(function_name);
     assert(file);
-
+    
     if (SetHashTable (table, src_data, func) != SUCCESS)
         {
         report ("Couldn't set HashTable with function '%s']\n", function_name);

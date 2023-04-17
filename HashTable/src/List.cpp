@@ -83,8 +83,8 @@ Node* FindElementInList (List* list, data* element)
         return NULL;
 
     Node* current_node = list->first_node;
-    
-    while (current_node->next)
+     
+    while (current_node)
         {
         if (!strcmp(current_node->data_ptr, element))
                 {
@@ -95,11 +95,6 @@ Node* FindElementInList (List* list, data* element)
         current_node = current_node->next;
         }
     
-    if (!current_node->next && current_node != list->last_node)
-        report ("Ebat`, %p node supposed to be last node in list '%p', " 
-                "but it doesn't match with last_node ptr in list '%p'\n", 
-                current_node, list, list->last_node);
-        
     return NULL;
     }
 

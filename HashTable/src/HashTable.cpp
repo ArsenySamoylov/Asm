@@ -36,7 +36,7 @@ int AddElementToHashTable (HashTable* table, data* element, index_ table_index)
     
     if (table_index >= (index_) table->number_of_lists)
         {
-        report ("Index '%d' out of range in HashTable (size: %lu) (Element '%s')\n", 
+        report ("Index '%u' out of range in HashTable (size: %lu) (Element '%s')\n", 
                 table_index, table->number_of_lists, element);
         
         return FAILURE;

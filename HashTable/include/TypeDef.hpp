@@ -3,7 +3,7 @@
 typedef char raw_data;
 typedef char data;
 
-typedef int index_;
+typedef unsigned index_;
 
 typedef index_ (*hash_func_ptr) (const data*);
 
