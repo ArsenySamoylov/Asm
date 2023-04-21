@@ -14,6 +14,10 @@ struct HashTable
 
 int SetHashTable (HashTable* table, const processed_data* src_data, 
                   const hash_func_ptr hash_function);
+
 int  AddElementToHashTable (HashTable* table, data* element, index_ table_index);
 void DumpHashTable         (HashTable* table, const char* path_to_file);
-int DeleteHashTable        (HashTable* table);
+int  DeleteHashTable       (HashTable* table);
+
+data* FindElementInHashTable (const HashTable* table, const data* element, 
+                              const hash_func_ptr func);

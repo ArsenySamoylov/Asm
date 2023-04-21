@@ -46,7 +46,8 @@ int ProcessData (processed_data* proc_data, raw_data* raw_src_data)
     
     proc_data->data_array     = buffer.data_array;
     proc_data->number_of_keys = buffer.current_number_of_elements;
-             
+    
+    report ("Data array: %p\n", proc_data->data_array);
     return SUCCESS;
     }
 

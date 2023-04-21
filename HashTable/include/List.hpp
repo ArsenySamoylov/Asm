@@ -18,11 +18,11 @@ struct List
     size_t number_of_elements;
     };
 
-int    AddElementToList (List* list, data* element);
-Node* FindElementInList (List* list, data* element);
+int    AddElementToList (List* list, const data* element);
+Node* FindElementInList (const List* list, const data* element);
 
 int DeleteList (List* list);
-int CheckList  (List* list);
+int CheckList  (const List* list);
 
 #define CHECK_LIST(list, what_to_do_on_failure)              \
     if (CheckList(list) != SUCCESS)                          \

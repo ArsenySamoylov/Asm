@@ -2,12 +2,16 @@
 #include <string.h>
 #include <assert.h>
 
+#include "immintrin.h"
+
 #include "LogMacroses.h"
 #include "CommonEnums.h"
 
 #include "List.hpp"
 
-int CheckList (List* list)
+static int cmp_vectors (__m256i a, __m256i b);
+
+int CheckList (const List* list)
     {
     if (!list)
         {
@@ -34,7 +38,7 @@ int CheckList (List* list)
     return SUCCESS;
     }
 
-int AddElementToList (List* list, data* element)
+int AddElementToList (List* list, const data* element)
     {
     assert(element);
     CHECK_LIST(list, return FAILURE);
@@ -51,7 +55,9 @@ int AddElementToList (List* list, data* element)
         list->last_node  = new_node;
         list->first_node = new_node;
 
-        new_node->data_ptr = element;
+        #pragma GCC diagnostic ignored "-Wcast-qual"
+        new_node->data_ptr = (data*) element;
+        #pragma GCC diagnostic warning "-Wcast-qual"
 
         return SUCCESS;
         }
@@ -69,24 +75,31 @@ int AddElementToList (List* list, data* element)
     list->last_node = new_node;
 
     new_node->prev = last_element;
-    new_node->data_ptr = element;
+    
+    #pragma GCC diagnostic ignored "-Wcast-qual"
+    new_node->data_ptr = (data*) element;
+    #pragma GCC diagnostic warning "-Wcast-qual"
 
     return SUCCESS;
     }
 
-Node* FindElementInList (List* list, data* element)
+Node* FindElementInList (const List* list, const data* element)
     {
     assert(element); 
     CHECK_LIST(list, return NULL);
     
     if (list->number_of_elements == 0)
         return NULL;
-
+    
+    //report ("Element: %p\n", element);
+    __m256i element_data = _mm256_loadu_si256 (element);
     Node* current_node = list->first_node;
-     
+    
     while (current_node)
         {
-        if (!strcmp(current_node->data_ptr, element))
+        __m256i current_node_data = _mm256_loadu_si256 (current_node->data_ptr); 
+        
+        if (cmp_vectors(current_node_data, element_data))
                 {
                // report ("Found match: '%s' '%s'\n", current_node->data_ptr, element);
                 return current_node;
@@ -97,6 +110,10 @@ Node* FindElementInList (List* list, data* element)
     
     return NULL;
     }
+
+#pragma GCC diagnostic ignored "-Wcast-qual"
+#pragma GCC diagnostic warning "-Wcast-qual"
+
 
 int DeleteList (List* list)
     { 
@@ -132,6 +149,13 @@ int DeleteList (List* list)
     list->last_node  = NULL;
 
     return SUCCESS;
+    }
+
+static int cmp_vectors (__m256i a, __m256i b)
+    {
+    __m256i pcmp = _mm256_cmpeq_epi8(a, b); 
+    unsigned bitmask = (unsigned) _mm256_movemask_epi8(pcmp);
+    return (bitmask == 0xffffffffU);
     }
 
 

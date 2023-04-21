@@ -16,7 +16,8 @@ index_ hash1_always_1 (const data* key)
     return 1;
     }
 
-index_ hash2_ascii    (const data* key)
+/*
+index_ hash2_ascii (const data* key)
     {
     assert(key);
     return (index_) *key;
@@ -62,19 +63,24 @@ index_ hash6_ror (const data* key)
 
     return hash_value;
     }
+*/
 
+#pragma GCC diagnostic ignored "-Wparentheses"
 index_ hash7_djb2 (const data* key)
     {
     assert(key);
 
     index_ hash = 5381;
     char c = 0;
+    
+    const char* temp = (const char*) key;
 
-    while (c = *(key++))
-        hash = ((hash << 5) + hash) + c;
+    while (c = *(temp++))
+        hash = ((hash << 5) + hash) + (index_) c;
 
     return hash;
     }
+
 
 static inline index_ rol (index_ val, unsigned shift)
     {

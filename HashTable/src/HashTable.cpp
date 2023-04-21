@@ -13,17 +13,18 @@ int SetHashTable (HashTable* table, const processed_data* src_data, hash_func_pt
     assert(src_data);
     assert(hash_function);
     
-    data* src_data_array = src_data->data_array;
-    
-    for (size_t i = 0; i < src_data->number_of_keys; i++)
+    data* src_data_array      = src_data->data_array;
+    size_t number_of_elements = src_data->number_of_keys;
+
+    for (size_t i = 0; i < number_of_elements; i++)
         {
+        
+     //  report ("Adding element number '%lu', %p, '%.10s', hash index: \n", i, src_data_array, (char*) src_data_array);
         index_ hash_index = (*hash_function) (src_data_array) % (index_) table->number_of_lists;
-        // TODO check index
         AddElementToHashTable (table, src_data_array, hash_index);
         
-        //report ("Adding element '%lu', '%.10s', hash index: %d\n", i, src_data_array, hash_index);
         
-        src_data_array += strlen(src_data_array) + 1;
+        ++src_data_array;
         }
 
     return SUCCESS;
@@ -37,7 +38,7 @@ int AddElementToHashTable (HashTable* table, data* element, index_ table_index)
     if (table_index >= (index_) table->number_of_lists)
         {
         report ("Index '%u' out of range in HashTable (size: %lu) (Element '%s')\n", 
-                table_index, table->number_of_lists, element);
+                table_index, table->number_of_lists, (char*) element);
         
         return FAILURE;
         }
@@ -64,7 +65,26 @@ int DeleteHashTable (HashTable* table)
 
     return SUCCESS;
     }
+ 
+data* FindElementInHashTable (const HashTable* table, const data* element, 
+                              const hash_func_ptr func)
+    {
+    assert(table);
+    assert(element);
+    assert(func);
+    
+    index_ hash_index = ((*func) (element)) % ((index_) table->number_of_lists);
+        
+    Node* result = FindElementInList (table->list_array + hash_index, element);
+    
+    if (!result)
+        return NULL;
 
+    return result->data_ptr;
+    }     
+
+
+// deprecated due to new type of elements
 void DumpHashTable (HashTable* table, const char* path_to_file)
     {
     assert(table);
@@ -95,7 +115,7 @@ void DumpHashTable (HashTable* table, const char* path_to_file)
                 break;
                 }
 
-            fprintf (dump_file, "'%s' ", current_node->data_ptr);
+            fprintf (dump_file, "'%s' ", (char*) current_node->data_ptr);
             current_node = current_node->next;
             }
 
