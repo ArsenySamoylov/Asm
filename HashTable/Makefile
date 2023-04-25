@@ -19,11 +19,11 @@ FILES_TO_COMPILE = ./src/main.cpp ./src/ProcessData.cpp ./src/HashTable.cpp ./sr
 
 ATC_INCLUDE = ./ATC/RandomStuff/ ./ATC/Logger ./ATC/Buffer ./ATC/ConsoleColors ./ATC/Utils ./ATC/Debug
 ATC_FILES   = ./ATC/Buffer/my_buffer.cpp ./ATC/Logger/Logger.cpp ./ATC/Logger/tostring.cpp ./ATC/Logger/FunctionLogger.cpp  
-
+  
 OUT_NAME = table.out
 
 all: separator clear clear_screen
-	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O2 -save-temps $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS)
+	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O2 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS)
 
 run:
 	nice -n 19 ./$(OUT_NAME) resources/Hamlet.txt resources/Alice.txt
