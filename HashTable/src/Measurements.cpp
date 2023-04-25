@@ -30,14 +30,17 @@ int MakeMeasurments (const processed_data* src_data, const char* path_to_result_
     
     HashTable table{};
     
-     MEASURE_FUNCTION(&hash1_always_1);
-   // MEASURE_FUNCTION(&hash2_ascii);
-   // MEASURE_FUNCTION(&hash3_strlen);
-   // MEASURE_FUNCTION(&hash4_hash_sum);
-   // MEASURE_FUNCTION(&hash5_rol);
-   // MEASURE_FUNCTION(&hash6_ror);
+    MEASURE_FUNCTION(&hash1_always_1);
+    MEASURE_FUNCTION(&hash2_ascii);
+    MEASURE_FUNCTION(&hash3_strlen);
+    MEASURE_FUNCTION(&hash4_hash_sum);
+    MEASURE_FUNCTION(&hash5_rol);
+    MEASURE_FUNCTION(&hash6_ror);
     
     MEASURE_FUNCTION(&hash7_djb2);
+   
+    MEASURE_FUNCTION(&hash8_crc32);  
+    MEASURE_FUNCTION(&GetCRCHash);
 
     return SUCCESS;
     }
@@ -66,11 +69,12 @@ static int MesureHashFunction (HashTable* table, const processed_data* src_data,
 
     fprintf(file, "\n");
     
+    DumpHashTable( table, "DUMP.txt");
     DeleteHashTable (table);
     return SUCCESS;
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////:////////////////////////////////
 //######################################################################################//
 //////////////////////////////////////////////////////////////////////////////////////////
 #include <sys/time.h>
@@ -84,6 +88,7 @@ int MeasureFindingTime (const processed_data* src_data, const processed_data* te
     {
     assert(src_data);
     assert(test_data);
+    return 0;
 
     HashTable hash_table {};
 
@@ -113,6 +118,7 @@ int MeasureFindingTime (const processed_data* src_data, const processed_data* te
     return SUCCESS;
     }
 
+#pragma GCC diagnostic ignored "-Wunused-variable"
 static int TestFindTime (const HashTable* table, const processed_data* test_data)
     {
     assert(table);

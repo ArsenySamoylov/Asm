@@ -9,7 +9,7 @@
 
 #include "List.hpp"
 
-static int cmp_vectors (__m256i a, __m256i b);
+static inline int cmp_vectors (__m256i a, __m256i b);
 
 int CheckList (const List* list)
     {
@@ -101,7 +101,7 @@ Node* FindElementInList (const List* list, const data* element)
         
         if (cmp_vectors(current_node_data, element_data))
                 {
-               // report ("Found match: '%s' '%s'\n", current_node->data_ptr, element);
+                //report ("Found match: '%s' '%s'\n", current_node->data_ptr, element);
                 return current_node;
                 }
 
@@ -151,7 +151,7 @@ int DeleteList (List* list)
     return SUCCESS;
     }
 
-static int cmp_vectors (__m256i a, __m256i b)
+static inline int cmp_vectors (__m256i a, __m256i b)
     {
     __m256i pcmp = _mm256_cmpeq_epi8(a, b); 
     unsigned bitmask = (unsigned) _mm256_movemask_epi8(pcmp);

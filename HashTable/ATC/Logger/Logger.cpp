@@ -238,7 +238,7 @@ void* Logger::RECAL_LOG (void* ptr, size_t size,  const char* file, const char* 
         }
     
     if (size > old_size)
-        memset(result + old_size, '\0', size - old_size);
+        memset((char *)result + old_size, '\0', size - old_size);
 
     return result;
     } 

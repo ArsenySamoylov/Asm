@@ -5,7 +5,6 @@ Edited by Barbara A. Mowat and Paul Werstine
 Folger Shakespeare Library
 
 Characters in the Play
-======================
 THE GHOST
 HAMLET, Prince of Denmark, son of the late King Hamlet and Queen Gertrude
 QUEEN GERTRUDE, widow of King Hamlet, now married to Claudius
@@ -40,10 +39,10 @@ Attendants, Lords, Guards, Musicians, Laertes's Followers, Soldiers, Officers
 
 
 ACT 1
-=====
+
 
 Scene 1
-=======
+
 [Enter Barnardo and Francisco, two sentinels.]
 
 
@@ -345,7 +344,7 @@ Where we shall find him most convenient.
 [They exit.]
 
 Scene 2
-=======
+
 [Flourish. Enter Claudius, King of Denmark, Gertrude the
 Queen, the Council, as Polonius, and his son Laertes,
 Hamlet, with others, among them Voltemand and
@@ -763,7 +762,7 @@ eyes.
 [He exits.]
 
 Scene 3
-=======
+
 [Enter Laertes and Ophelia, his sister.]
 
 
@@ -959,7 +958,7 @@ OPHELIA  I shall obey, my lord.
 [They exit.]
 
 Scene 4
-=======
+
 [Enter Hamlet, Horatio, and Marcellus.]
 
 
@@ -1119,7 +1118,6 @@ MARCELLUS  Nay, let's follow him.
 [They exit.]
 
 Scene 5
-=======
 [Enter Ghost and Hamlet.]
 
 
@@ -1431,10 +1429,10 @@ Nay, come, let's go together.
 
 
 ACT 2
-=====
+
 
 Scene 1
-=======
+
 [Enter old Polonius with his man Reynaldo.]
 
 
@@ -1629,7 +1627,7 @@ Come.
 [They exit.]
 
 Scene 2
-=======
+
 [Flourish. Enter King and Queen, Rosencrantz and
 Guildenstern and Attendants.]
 
@@ -2493,10 +2491,9 @@ Wherein I'll catch the conscience of the King.
 
 
 ACT 3
-=====
+
 
 Scene 1
-=======
 [Enter King, Queen, Polonius, Ophelia, Rosencrantz,
 Guildenstern, and Lords.]
 
@@ -2774,7 +2771,7 @@ Madness in great ones must not unwatched go.
 [They exit.]
 
 Scene 2
-=======
+
 [Enter Hamlet and three of the Players.]
 
 
@@ -3404,7 +3401,7 @@ To give them seals never, my soul, consent.
 [He exits.]
 
 Scene 3
-=======
+
 [Enter King, Rosencrantz, and Guildenstern.]
 
 
@@ -3538,7 +3535,7 @@ Words without thoughts never to heaven go.
 [He exits.]
 
 Scene 4
-=======
+
 [Enter Queen and Polonius.]
 
 
@@ -3881,10 +3878,10 @@ Good night, mother.
 
 
 ACT 4
-=====
+
 
 Scene 1
-=======
+
 [Enter King and Queen, with Rosencrantz and
 Guildenstern.]
 
@@ -3953,7 +3950,7 @@ My soul is full of discord and dismay.
 [They exit.]
 
 Scene 2
-=======
+
 [Enter Hamlet.]
 
 
@@ -4013,7 +4010,7 @@ all after!
 [They exit.]
 
 Scene 3
-=======
+
 [Enter King and two or three.]
 
 
@@ -4139,7 +4136,7 @@ Howe'er my haps, my joys will ne'er begin.
 [He exits.]
 
 Scene 4
-=======
+
 [Enter Fortinbras with his army over the stage.]
 
 
@@ -4243,7 +4240,7 @@ My thoughts be bloody or be nothing worth!
 [He exits.]
 
 Scene 5
-=======
+
 [Enter Horatio, Queen, and a Gentleman.]
 
 
@@ -4418,7 +4415,8 @@ O, this is counter, you false Danish dogs!
 
 KING  The doors are broke.
 
-[Enter Laertes with others.]
+[Enter Laertes with others.
+]
 
 LAERTES
 Where is this king?--Sirs, stand you all without.
@@ -4596,7 +4594,7 @@ I pray you, go with me.
 [They exit.]
 
 Scene 6
-=======
+
 [Enter Horatio and others.]
 
 
@@ -4646,7 +4644,7 @@ To him from whom you brought them.
 [They exit.]
 
 Scene 7
-=======
+
 [Enter King and Laertes.]
 
 
@@ -4935,10 +4933,10 @@ Therefore, let's follow.
 
 
 ACT 5
-=====
+
 
 Scene 1
-=======
+
 [Enter Gravedigger and Another.]
 
 
@@ -5398,7 +5396,7 @@ Till then in patience our proceeding be.
 [They exit.]
 
 Scene 2
-=======
+
 [Enter Hamlet and Horatio.]
 
 

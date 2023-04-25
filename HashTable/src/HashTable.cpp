@@ -19,11 +19,11 @@ int SetHashTable (HashTable* table, const processed_data* src_data, hash_func_pt
     for (size_t i = 0; i < number_of_elements; i++)
         {
         
-     //  report ("Adding element number '%lu', %p, '%.10s', hash index: \n", i, src_data_array, (char*) src_data_array);
-        index_ hash_index = (*hash_function) (src_data_array) % (index_) table->number_of_lists;
+            index_ hash_index = (*hash_function) (src_data_array) % (index_) table->number_of_lists;
         AddElementToHashTable (table, src_data_array, hash_index);
         
-        
+       //  report ("Adding element number '%lu', %p, '%.10s', hash index: %u\n", i, src_data_array, (char*) src_data_array, hash_index);
+
         ++src_data_array;
         }
 
@@ -37,8 +37,8 @@ int AddElementToHashTable (HashTable* table, data* element, index_ table_index)
     
     if (table_index >= (index_) table->number_of_lists)
         {
-        report ("Index '%u' out of range in HashTable (size: %lu) (Element '%s')\n", 
-                table_index, table->number_of_lists, (char*) element);
+       // report ("Index '%u' out of range in HashTable (size: %lu) (Element '%s')\n", 
+        //        table_index, table->number_of_lists, (char*) element);
         
         return FAILURE;
         }

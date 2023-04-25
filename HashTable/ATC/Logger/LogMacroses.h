@@ -72,7 +72,7 @@
                                            __FILE__, __LINE__, __PRETTY_FUNCTION__);                                              \
                                 LOG__.log("It matches to error: (code %d) %s\n\n", error_code, strerror(error_code));    \
                                 LOG__.log("Shutting down the system (%s:%d)", __func__, __LINE__);                       \
-                                           system("echo LOX\n");                                                            \
+                                                                                                                         \
                                 return_expression;                                                                       \
                                 }                                                                                        \
                                                                                                                          \
