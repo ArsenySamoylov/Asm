@@ -30,17 +30,21 @@ int MakeMeasurments (const processed_data* src_data, const char* path_to_result_
     
     HashTable table{};
     
+   /*
     MEASURE_FUNCTION(&hash1_always_1);
     MEASURE_FUNCTION(&hash2_ascii);
     MEASURE_FUNCTION(&hash3_strlen);
     MEASURE_FUNCTION(&hash4_hash_sum);
+    */
+
     MEASURE_FUNCTION(&hash5_rol);
-    MEASURE_FUNCTION(&hash6_ror);
+    
+    //MEASURE_FUNCTION(&hash6_ror);
     
     MEASURE_FUNCTION(&hash7_djb2);
    
     MEASURE_FUNCTION(&hash8_crc32);  
-    MEASURE_FUNCTION(&GetCRCHash);
+   // MEASURE_FUNCTION(&GetCRCHash);
 
     return SUCCESS;
     }
