@@ -26,7 +26,11 @@ all: separator clear clear_screen
 	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O2 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS)
 
 run:
+<<<<<<< HEAD:HashTable/Makefile(optimized)
 	nice -n 19 ./$(OUT_NAME) resources/Hamlet.txt resources/Alice.txt
+=======
+	./$(OUT_NAME) resources/Hamlet.txt
+>>>>>>> refs/remotes/Asm/master:HashTable/Makefile
 
 profile:
 	nice -n 19 valgrind --tool=callgrind ./table.out resources/Hamlet.txt resources/Alice.txt 
