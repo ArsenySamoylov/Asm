@@ -27,6 +27,10 @@ all: separator clear clear_screen
 
 run:
 	./$(OUT_NAME) resources/Hamlet.txt
+
+profile:
+	nice -n 19 valgrind --tool=callgrind ./table.out resources/Hamlet.txt resources/Alice.txt 
+
 clear:
 	rm -rf $(OUT_NAME) 
 	
