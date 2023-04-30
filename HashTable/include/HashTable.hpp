@@ -1,6 +1,7 @@
 #pragma once
 
 #include "List.hpp"
+#include "ProcessData.hpp"
 
 const int NUMBER_OF_LISTS_IN_HASH_TABLE = 227;
 const int MAX_NUMBER_OF_WORD_IN_LIST_IN_DUMP = 16;

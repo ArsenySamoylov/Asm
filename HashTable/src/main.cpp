@@ -1,61 +1,56 @@
 #include <stdio.h>
-  
+#include <assert.h>
+
 #include "CommonEnums.h"
 #include "LogMacroses.h"
 
 #include "HashTable.hpp"
 #include "ProcessData.hpp"
 #include "HashFunctions.hpp"
-#include "Measurements.hpp"
+#include "Tests.hpp"
 
 void help();
 
-int main(int argc, const char* argv[])
+int main(const int argc, const char* argv[])
     {
     $log(RELEASE)
 
-    if (argc < 3)
+    if (argc < 2 || argc > 3)
         {
         help ();
         return FAILURE;
         }
-    
-    const char* path_to_src_data = argv[1];
-    processed_data ready_data {};
 
-    if (ProcessedDataCtor (&ready_data, path_to_src_data) != SUCCESS)
+    if (argc == 2)
         {
-        report ("Couldn't get data from '%s'\n", path_to_src_data);
-        return FAILURE;
-        }
-
-    MakeMeasurments (&ready_data, "resources/temp.csv");  
-    
-    const char* path_to_test_data = argv[2];
-    processed_data test_data {};
-
-    if (ProcessedDataCtor (&test_data, path_to_test_data) != SUCCESS)
-        {
-        report ("Couldn't get data from '%s'\n", path_to_test_data);
-        goto FAILURE_EXIT;
-        }
-
-    MeasureFindingTime (&ready_data, &test_data);
+        const char* path_to_src_data = argv[1];
         
-    ProcessedDataDtor (&ready_data);
-    ProcessedDataDtor (&test_data);
+        report ("Startig Hash functions distribution testing\n");
+        return TestHashFunctionsDistribution (path_to_src_data, "resources/temp.csv");
+        }
 
-    return SUCCESS;
-
-FAILURE_EXIT:
-
-    ProcessedDataDtor(&ready_data);
+    if (argc == 3)
+        {
+        const char* path_to_src_data = argv[1];
+        const char* path_to_test_data = argv[2];
+        
+        report ("Starting HashTable perfomance testing\n");
+        return TestHashTablePerfomance (path_to_src_data, path_to_test_data);
+        }
+    
+    report ("Error, you shouldn't reach here =/\n");
     return FAILURE;
     }
 
-
 void help()
     {
-    report ("Path file to set HashTable\n");
+    report ("This app specializes in testing HashTable model.\n"
+            
+            "To test hash functions ditribution pass one argument: "
+            "file with text, to set HashTable.\n"
+            
+            "To test HashTable perfomance pass two arguments: "
+            "files with text to set HasTAble and text with data for searching.\n");
+
     return;
     }
