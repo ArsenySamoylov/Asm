@@ -24,9 +24,15 @@ Node* FindElementInList (const List* list, const data* element);
 int ClearList (List* list);
 int CheckList  (const List* list);
 
-#define CHECK_LIST(list, what_to_do_on_failure)              \
-    if (CheckList(list) != SUCCESS)                          \
-        {                                                    \
-        report("CheckList failed on %p list\n", list);       \
-        what_to_do_on_failure ;                             \
-        }
+#ifndef NDEBUG
+    #define CHECK_LIST(list, what_to_do_on_failure)              \
+        if (CheckList(list) != SUCCESS)                          \
+            {                                                    \
+            report("CheckList failed on %p list\n", list);       \
+            what_to_do_on_failure ;                             \
+            }
+
+
+#else
+    #define CHECK_LIST(list, what_to_do_on_failure) 
+#endif

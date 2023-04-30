@@ -9,7 +9,7 @@
 #include "ProcessData.hpp"
 
 const int NUMBER_OF_ITERATIONS_FOR_MEASURMENTS = 1000;
-const hash_func_ptr TESTING_HASH_FUNCTION = hash8_crc32_not_optimized;
+const hash_func_ptr TESTING_HASH_FUNCTION = hash8_crc32_inline_as;
 
 static int TestFindTime (const HashTable* table, const processed_data* test_data);
 
@@ -79,6 +79,7 @@ int MeasureFindingTime (const processed_data* src_data, const processed_data* te
     report ("'Function time for %d iterations = %lg sec\n", 
             NUMBER_OF_ITERATIONS_FOR_MEASURMENTS, used_time);
     
+    ResetHashTable (&hash_table);
     return SUCCESS;
     }
 

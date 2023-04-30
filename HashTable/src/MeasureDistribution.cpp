@@ -83,7 +83,7 @@ static int MesureHashFunctionDistribution (HashTable* table, const processed_dat
     fprintf(file, "\n");
     
     //DumpHashTable( table, "DUMP.txt");
-    ClearHashTable (table);
+    ResetHashTable (table);
 
     return SUCCESS;
     }

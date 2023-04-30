@@ -115,17 +115,5 @@ index_  hash8_crc32_not_optimized (const data* key)
     return hash;
   }
 
-#pragma GCC diagnostic ignored "-Wconversion"
  
-index_ hash8_crc32_intrinsics (const data* key)
-    {
-    __m256i element = _mm256_loadu_si256 (key);
-    
-    index_ hash = _mm_crc32_u32(0, _mm256_extract_epi64 (element, 0));
-    
-    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 1));
-    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 2));
-    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 3));
-    
-    return hash;
-    }
+

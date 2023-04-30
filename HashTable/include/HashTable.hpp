@@ -18,7 +18,7 @@ int SetHashTable (HashTable* table, const processed_data* src_data,
  
 int  AddElementToHashTable (HashTable* table, data* element, index_ table_index);
 void DumpHashTable         (HashTable* table, const char* path_to_file);
-int  ClearHashTable        (HashTable* table);
+int  ResetHashTable        (HashTable* table);
 
 data* FindElementInHashTable (const HashTable* table, const data* element, 
                               const hash_func_ptr func);

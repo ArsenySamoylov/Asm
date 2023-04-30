@@ -83,7 +83,7 @@ int AddElementToList (List* list, const data* element)
     return SUCCESS;
     }
 
-Node* FindElementInList_optimized (const List* list, const data* element)
+Node* FindElementInList (const List* list, const data* element)
     {
     assert(element); 
     CHECK_LIST(list, return NULL);
@@ -111,7 +111,7 @@ Node* FindElementInList_optimized (const List* list, const data* element)
     return NULL;
     }
 
-Node* FindElementInList (const List* list, const data* element)
+Node* FindElementInList_not_optimized (const List* list, const data* element)
     {
     assert(element); 
     CHECK_LIST(list, return NULL);
@@ -179,6 +179,7 @@ static inline int cmp_vectors (__m256i a, __m256i b)
     {
     __m256i pcmp = _mm256_cmpeq_epi8(a, b); 
     unsigned bitmask = (unsigned) _mm256_movemask_epi8(pcmp);
+    
     return (bitmask == 0xffffffffU);
     }
 

@@ -52,7 +52,7 @@ int AddElementToHashTable (HashTable* table, data* element, index_ table_index)
     return SUCCESS;
     }
  
-int ClearHashTable (HashTable* table)
+int ResetHashTable (HashTable* table)
     {
     assert(table);
 

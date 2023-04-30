@@ -23,7 +23,7 @@ ATC_FILES   = ./ATC/Buffer/my_buffer.cpp ./ATC/Logger/Logger.cpp ./ATC/Logger/to
 OUT_NAME = table.out
 
 all: separator clear clear_screen
-	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O3 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS) crc32.o 
+	@g++ -DNDEBUG $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O3 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS) crc32.o 
 
 run:
 	@echo ---------------------------------------------------------------- 
