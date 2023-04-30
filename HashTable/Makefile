@@ -23,7 +23,7 @@ ATC_FILES   = ./ATC/Buffer/my_buffer.cpp ./ATC/Logger/Logger.cpp ./ATC/Logger/to
 OUT_NAME = table.out
 
 all: separator clear clear_screen
-	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O2 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS)
+	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(FILES_TO_COMPILE) $(ATC_FILES) -o $(OUT_NAME) -mavx2 -O3 $(SANYTIZER) $(CFLAGS) $(LFLAGS) $(LFLAGS) crc32.o 
 
 run:
 	@echo ---------------------------------------------------------------- 
@@ -32,6 +32,7 @@ run:
 	
 	@echo ---------------------------------------------------------------- 
 	@echo 2 test
+	@nice -n 19 ./table.out resources/Hamlet.txt resources/Alice.txt 
 	@nice -n 19 valgrind --tool=callgrind ./table.out resources/Hamlet.txt resources/Alice.txt 
 	@echo ---------------------------------------------------------------- 
 

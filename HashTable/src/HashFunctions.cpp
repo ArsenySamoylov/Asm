@@ -5,10 +5,8 @@
 
 #include "HashFunctions.hpp"
 
-static inline index_ rol (index_ val, unsigned shift);
-static inline index_ ror (index_ val, unsigned shift);
-
-const int NUMBER_OF_BITS_IN_INDEX = sizeof(index_) * 8;
+static inline index_ rol (index_ val);
+static inline index_ ror (index_ val);
 
 index_ hash1_always_1 (const data* key)
     {
@@ -49,7 +47,7 @@ index_ hash5_rol (const data* key)
     const char* temp = (const char*) key;
 
     while (*temp)
-        hash_value = rol (hash_value, 1) ^ (index_) *(temp++);
+        hash_value = rol (hash_value) ^ (index_) *(temp++);
 
     return hash_value;
     }
@@ -62,7 +60,7 @@ index_ hash6_ror (const data* key)
     const char* temp = (const char*) key;
 
     while (*temp)
-        hash_value = ror (hash_value, 1) ^ (index_) *(temp++);
+        hash_value = ror (hash_value) ^ (index_) *(temp++);
 
     return hash_value;
     }
@@ -83,17 +81,17 @@ index_ hash7_djb2 (const data* key)
     return hash;
     }
 
-static inline index_ rol (index_ val, unsigned shift)
+static inline index_ rol (index_ val)
     {
-    return ((val << shift) | (val >> (NUMBER_OF_BITS_IN_INDEX - shift)));
+    return ((val << 1) | (val >> 31));
     }
 
-static inline index_ ror (index_ val, unsigned shift)
+static inline index_ ror (index_ val)
     {
-    return ((val >> shift) | (val << (NUMBER_OF_BITS_IN_INDEX - shift)));
+    return ((val >> 1) | (val << 31));
     }
 
-index_ GetCRCHash(const data* key)
+index_  hash8_crc32_not_optimized (const data* key)
   {
     if (!key) return 0;
 
@@ -105,7 +103,7 @@ index_ GetCRCHash(const data* key)
 
     while (*reference)
       {
-        for (int i = 7; i >= 0; i--)
+            for (int i = 7; i >= 0; i--)
           {
             hash = (hash << 1) + ((*reference >> i) & 1);
             if (hash & polOldBit)
@@ -117,3 +115,17 @@ index_ GetCRCHash(const data* key)
     return hash;
   }
 
+#pragma GCC diagnostic ignored "-Wconversion"
+ 
+index_ hash8_crc32_intrinsics (const data* key)
+    {
+    __m256i element = _mm256_loadu_si256 (key);
+    
+    index_ hash = _mm_crc32_u32(0, _mm256_extract_epi64 (element, 0));
+    
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 1));
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 2));
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 3));
+    
+    return hash;
+    }

@@ -83,7 +83,7 @@ int AddElementToList (List* list, const data* element)
     return SUCCESS;
     }
 
-Node* FindElementInList (const List* list, const data* element)
+Node* FindElementInList_optimized (const List* list, const data* element)
     {
     assert(element); 
     CHECK_LIST(list, return NULL);
@@ -111,11 +111,35 @@ Node* FindElementInList (const List* list, const data* element)
     return NULL;
     }
 
+Node* FindElementInList (const List* list, const data* element)
+    {
+    assert(element); 
+    CHECK_LIST(list, return NULL);
+    
+    if (list->number_of_elements == 0)
+        return NULL;
+
+    Node* current_node = list->first_node;
+     
+    while (current_node)
+        {
+        if (!strcmp( (const char*) current_node->data_ptr, (const char*) element))
+                {
+               // report ("Found match: '%s' '%s'\n", current_node->data_ptr, element);
+                return current_node;
+                }
+
+        current_node = current_node->next;
+        }
+    
+    return NULL;
+    }
+
 #pragma GCC diagnostic ignored "-Wcast-qual"
 #pragma GCC diagnostic warning "-Wcast-qual"
 
 
-int DeleteList (List* list)
+int ClearList (List* list)
     { 
     CHECK_LIST(list, return FAILURE);
 

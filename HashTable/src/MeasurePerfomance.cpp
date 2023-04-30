@@ -8,8 +8,8 @@
 #include "Tests.hpp"
 #include "ProcessData.hpp"
 
-const int NUMBER_OF_ITERATIONS_FOR_MEASURMENTS = 100;
-const hash_func_ptr TESTING_HASH_FUNCTION = &hash7_djb2;
+const int NUMBER_OF_ITERATIONS_FOR_MEASURMENTS = 1000;
+const hash_func_ptr TESTING_HASH_FUNCTION = hash8_crc32_not_optimized;
 
 static int TestFindTime (const HashTable* table, const processed_data* test_data);
 
@@ -53,11 +53,10 @@ int MeasureFindingTime (const processed_data* src_data, const processed_data* te
     {
     assert(src_data);
     assert(test_data);
-    return 0;
 
     HashTable hash_table {};
 
-    if (SetHashTable (&hash_table, src_data, TESTING_HASH_FUNCTION) != SUCCESS)
+    if (SetHashTable (&hash_table, src_data) != SUCCESS)
         {
         report ("Couldn't set HashTable\n");
         return  FAILURE;
@@ -95,7 +94,7 @@ static int TestFindTime (const HashTable* table, const processed_data* test_data
     for (size_t i = 0; i < number_of_elements; i++)
          {
          volatile const data* temp = 
-             FindElementInHashTable (table,  test_data_array++, TESTING_HASH_FUNCTION);
+             FindElementInHashTable (table,  test_data_array++);
        
         /*
         #pragma GCC diagnostic ignored "-Wcast-qual"

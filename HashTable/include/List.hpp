@@ -21,7 +21,7 @@ struct List
 int    AddElementToList (List* list, const data* element);
 Node* FindElementInList (const List* list, const data* element);
 
-int DeleteList (List* list);
+int ClearList (List* list);
 int CheckList  (const List* list);
 
 #define CHECK_LIST(list, what_to_do_on_failure)              \

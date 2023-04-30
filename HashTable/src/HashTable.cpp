@@ -6,7 +6,8 @@
 
 #include "CommonEnums.h"
 #include "HashTable.hpp"
-      
+#include "HashFunctions.hpp"
+
 int SetHashTable (HashTable* table, const processed_data* src_data, hash_func_ptr hash_function)
     {
     assert(table);
@@ -51,7 +52,7 @@ int AddElementToHashTable (HashTable* table, data* element, index_ table_index)
     return SUCCESS;
     }
  
-int DeleteHashTable (HashTable* table)
+int ClearHashTable (HashTable* table)
     {
     assert(table);
 
@@ -59,7 +60,7 @@ int DeleteHashTable (HashTable* table)
         {
         List* list = table->list_array + i;
 
-        if (DeleteList(list) != SUCCESS)
+        if (ClearList(list) != SUCCESS)
                 return FAILURE;
         }
 
@@ -83,8 +84,8 @@ data* FindElementInHashTable (const HashTable* table, const data* element,
     return result->data_ptr;
     }     
 
+  
 
-// deprecated due to new type of elements
 void DumpHashTable (HashTable* table, const char* path_to_file)
     {
     assert(table);
@@ -125,3 +126,43 @@ void DumpHashTable (HashTable* table, const char* path_to_file)
     fclose(dump_file);
     return;
     }
+
+
+// this is version with hardcored crc32 hash function
+int SetHashTable (HashTable* table, const processed_data* src_data)
+    {
+    assert(table);
+    assert(src_data);
+    
+    data* src_data_array      = src_data->data_array;
+    size_t number_of_elements = src_data->number_of_keys;
+
+    for (size_t i = 0; i < number_of_elements; i++)
+        {
+        
+            index_ hash_index = hash8_crc32_inline_as (src_data_array) % (index_) table->number_of_lists;
+        AddElementToHashTable (table, src_data_array, hash_index);
+        
+       //  report ("Adding element number '%lu', %p, '%.10s', hash index: %u\n", i, src_data_array, (char*) src_data_array, hash_index);
+
+        ++src_data_array;
+        }
+
+    return SUCCESS;
+    }
+
+// this is version with hardcored crc32 hash function
+data* FindElementInHashTable (const HashTable* table, const data* element)
+    {
+    assert(table);
+    assert(element);
+    
+    index_ hash_index = (hash8_crc32_inline_as(element)) % ((index_) table->number_of_lists);
+        
+    Node* result = FindElementInList (table->list_array + hash_index, element);
+    
+    if (!result)
+        return NULL;
+
+    return result->data_ptr;
+    }   

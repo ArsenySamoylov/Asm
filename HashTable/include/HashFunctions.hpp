@@ -14,8 +14,14 @@ index_ hash6_ror      (const data* key);
 index_ hash7_djb2  (const data* key);
 
 
-inline index_ hash8_crc32 (const data* key);
-inline index_ hash8_crc32 (const data* key)
+
+index_ hash8_crc32_not_optimized (const data* key);
+
+           index_ hash8_crc32_intrinsics (const data* key);
+    inline index_ hash8_crc32_inline_as  (const data* key);
+extern "C" index_ hash8_crc32_assembler  (const data* key);
+
+inline index_ hash8_crc32_inline_as (const data* key)
     {
     int64_t res = 0;
     
@@ -23,7 +29,7 @@ inline index_ hash8_crc32 (const data* key)
         R"(
          .intel_syntax noprefix
           cmp %1, 0x0
-          je .end
+          je 1f
           
           xor %0, %0
 
@@ -31,16 +37,14 @@ inline index_ hash8_crc32 (const data* key)
           crc32 %0, qword ptr [%1 + 0x08 ]
           crc32 %0, qword ptr [%1 + 0x10 ]
           crc32 %0, qword ptr [%1 + 0x18 ]
-        .end:
+        1:
        
         .att_syntax prefix
         )"
-            : "=r"(res)
+            : 
             : "r"(key), "r"(res) 
       );
 
     return (index_) res;
     }
 
-
-index_ GetCRCHash(const data* key);
