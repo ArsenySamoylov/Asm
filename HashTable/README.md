@@ -566,7 +566,7 @@ Node* FindElementInList (const List* list, const data* element)
 
 После этого, были сделаны предположения по возможным сценариям использования хеш-таблицы. И, исходя из этого, были произведены оптимизации, позволившие ускорить работу с хеш-таблицой в 1.74 раза. 
 
-## Источники
+## Ресурсы
 [^1]: https://codechick.io/tutorials/dsa/dsa-hash-table
 [^2]: https://medium.com/swlh/why-should-the-length-of-your-hash-table-be-a-prime-number-760ec65a75d1
 [^3]: https://habr.com/ru/articles/167837/
