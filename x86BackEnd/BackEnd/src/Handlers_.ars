@@ -1,0 +1,651 @@
+static int VarInitialization (AsmCtx* ctx, const Token* token, int init_globals = false);
+
+static int AssigmentHandler  (AsmCtx* ctx, const Token* token);
+static int ExpressionHandler (AsmCtx* ctx, const Token* token);
+
+static int NameHandler           (AsmCtx* ctx, const Token* token);
+static int FunctionHandler       (AsmCtx* ctx, const Token* token);
+
+static int CallHandler           (AsmCtx* ctx, const Token* token);
+static int ArgumentHandler       (AsmCtx* ctx, const Token* token);
+
+static int InstructionHandler    (AsmCtx* ctx, const Token* token);
+static int MathOperationsHandler (AsmCtx* ctx, const Token* token);
+static int NativeFunctionHandler (AsmCtx* ctx, const Token* token);
+static int FunctionReturnHandler (AsmCtx* ctx, const Token* token);
+static int ParametrHandler       (AsmCtx* ctx, const Token* token);
+static int ConstantHandler       (AsmCtx* ctx, const Token* token);
+
+static int VarInitialization (AsmCtx* ctx, const Token* token, int init_globals)
+    {
+    $log(1)
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    assertlog(ctx, EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    
+    if (TYPE(token) != INITIALIZATOR)
+        {
+        report_translator_error("Not a initializator token\n");
+        return LFAILURE;
+        }
+
+    Token* var_name = LEFT(token);
+    CHECK_TYPE(var_name, NAME, return LFAILURE);
+
+    Label* label = LABEL_PTR(var_name);
+
+    if (NAME_ID(var_name) != label->name_id)
+        {
+        report_translator_error("Label has different name id (label '%s', name '%s')\n", STRING_ARR(ctx)[label->name_id], STRING_ARR(ctx)[NAME_ID(var_name)]);
+        return LFAILURE;
+        }
+
+    if (init_globals == false)
+        {
+        if (label->local_type == GLOBAL)
+            {
+            label->global_initialization = token;
+            
+            CopyLabel(label, GLOBAL_VARS(ctx));
+            ctx->number_of_global_vars++;
+            
+            return SUCCESS;
+            }
+
+        assprint("; '%s' - local var init\n", STRING_ARR(ctx)[label->name_id]);
+
+        if (RIGHT(token))
+            return AssigmentHandler(ctx, token);
+
+        return SUCCESS;
+
+        YOU_SHALL_NOT_PASS
+        return LFAILURE;
+        }
+
+    if (init_globals == true)
+        {
+        if (label->local_type == LOCAL)
+            {
+            report_translator_error("NOT A GLOBAL VARIABLE\n");
+            return LFAILURE;
+            }
+
+        assprint("; '%s' - global var init\n", STRING_ARR(ctx)[label->name_id]);
+
+        if (RIGHT(token))
+             return AssigmentHandler(ctx, token);
+
+        return SUCCESS;
+        YOU_SHALL_NOT_PASS
+        return LFAILURE;
+
+        }
+
+    YOU_SHALL_NOT_PASS
+    return LFAILURE;
+    }
+
+static int AssigmentHandler  (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    if (TYPE(token) != ASSIGMENT && TYPE(token) != INITIALIZATOR)
+        {
+        report_translator_error("Wrong token type for assigment\n");
+        return LFAILURE;
+        }
+
+    assprint("; assigment\n");
+
+    CHECK(ExpressionHandler(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+
+    assprint("pop ");
+
+    CHECK(NameHandler(ctx, LEFT(token)) == SUCCESS, return LFAILURE);
+
+    assprint("\n");
+
+    return SUCCESS;
+    }
+
+static int ExpressionHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    switch (TYPE(token))
+        {
+        case CONSTANT:   
+                return ConstantHandler(ctx, token);
+
+        case NAME:       
+                assprint("push ");
+                return NameHandler(ctx, token);
+
+        case CALL:
+                CHECK(CallHandler(ctx, token) == SUCCESS, return LFAILURE);
+
+                assprint(";AAAAAAAAAAAAAAAAA\n");
+                PUSH_REG(RETURN_VALUE_REG);
+
+                return SUCCESS;
+
+        case OPERATOR:
+                return MathOperationsHandler(ctx, token);
+
+        case NATIVE_FUNCTION:
+                if (NATIVE_FUNC(token) == FIN || NATIVE_FUNC(token) == FOUT)
+                    {
+                    report_translator_error("Fin and Fout can't in expression\n");
+                    return LFAILURE;
+                    }
+
+                CHECK(NativeFunctionHandler(ctx, token) == SUCCESS, return LFAILURE);
+
+                return SUCCESS;
+
+
+        default:
+                report_translator_error("Wrong type\n");
+                // func_message("Token type: %d\n", TYPE(token));
+                return LFAILURE;
+        }
+
+    YOU_SHALL_NOT_PASS
+
+    return LFAILURE;
+    }
+
+
+static int NameHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+
+    CHECK_TYPE(token, NAME, return LFAILURE);
+
+    Label* label = LABEL_PTR(token);
+
+        if (TYPE(label) == FUNCTION)
+            {
+            func_message("Ebat! What Should I so with function label ??? \n");
+            return LFAILURE;
+            }
+
+        if (label->local_type == GLOBAL)
+            {
+            assprint(" [ %d ] ", label->var_number + START_RAM_ADDRESS_FOR_GLOBAL_VARS);
+
+            #ifdef SHOW_VAR_NAME
+            assprint("; global var '%s' (name handler) \n", STRING_ARR(ctx)[label->name_id]);
+            #endif
+            }
+
+        if (label->local_type == LOCAL)
+            {
+            assprint(" [ %d + r%cx ] ", label->var_number, VARIABLES_ADDRESS_REG + 'a' - 1);
+
+            #ifdef SHOW_VAR_NAME
+            assprint("; local var '%s'\n", STRING_ARR(ctx)[label->name_id]);
+            #endif
+            }
+
+    return SUCCESS;
+    }
+
+static int FunctionHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, FUNCTION, return LFAILURE);
+
+    Token* name     = LEFT(token);
+    Token* ret_type = RIGHT(name);
+
+    Label* func = LABEL_PTR(name);
+
+    if (func->type != FUNCTION)
+        {
+        report_translator_error("Label for function '%s' not a function label\n", STRING_ARR(ctx)[NAME_ID(name)]);
+        return LFAILURE;
+        }
+
+    if (NAME_ID(name) != func->name_id)
+        {
+        report_translator_error("Label has different name id (label '%s', name '%s')\n", STRING_ARR(ctx)[func->name_id], STRING_ARR(ctx)[NAME_ID(name)]);
+        return LFAILURE;
+        }
+
+    if (func->ret_type != RET_TYPE(ret_type))
+        {
+        report_translator_error("Label has different ret type '%s', (than '%s')\n", FUNCTION_RET_TYPES[func->ret_type], FUNCTION_RET_TYPES[RET_TYPE(ret_type)]);
+        return LFAILURE;
+        }
+    
+    STACK_FRAME_OFFSET = func->number_of_vars;
+
+    // FUNCTION LABEL
+    assprint("\t\t: %s\n\n", STRING_ARR(ctx)[NAME_ID(name)]);
+
+    // SET PARAMETRS
+    CHECK(AddToAsm(ctx,  LEFT(name)) == SUCCESS, return LFAILURE);
+
+    // SET BODY
+    CHECK(AddToAsm(ctx, RIGHT(token)) == SUCCESS, return LFAILURE);
+    
+    return SUCCESS;
+    }
+
+static int CallHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, CALL, return LFAILURE);
+
+    Token* name = LEFT(token);
+
+    // LOOK IN SetToken line 86
+    // in nutshell: prototypes
+    if (LABEL_PTR(name))
+    {
+    Label* func = LABEL_PTR(name);
+
+    if (func->type != FUNCTION)
+        {
+        report_translator_error("Label for function '%s' not a function label\n", STRING_ARR(ctx)[NAME_ID(name)]);
+        return LFAILURE;
+        }
+
+    if (NAME_ID(name) != func->name_id)
+        {
+        report_translator_error("Label has different name id (label '%s', name '%s')\n", STRING_ARR(ctx)[func->name_id], STRING_ARR(ctx)[NAME_ID(name)]);
+        return LFAILURE;
+        }
+    }
+
+    // SET ARGUMENTS
+    int number_of_parametrs = ArgumentHandler(ctx, LEFT(name));
+    if (number_of_parametrs < 0)
+        return LFAILURE;
+
+    // SET STACK FRAME
+    assprint ("\n; Setting Stack Frame\n");
+    assprint ("push %d + r%cx\n", STACK_FRAME_OFFSET, VARIABLES_ADDRESS_REG + 'a' - 1);
+    assprint ("pop r%cx\n\n",     VARIABLES_ADDRESS_REG + 'a' - 1);
+
+    // CALL
+    assprint("call :%s\n\n", STRING_ARR(ctx)[NAME_ID(name)]);
+    
+    // SET STACK FRAME BACK
+    assprint ("; Setting Stack Frame Back\n");
+    assprint ("push %d\n",   STACK_FRAME_OFFSET);
+    assprint ("push r%cx\n", VARIABLES_ADDRESS_REG + 'a' - 1);
+    assprint ("sub\n\n");
+    assprint ("pop r%cx\n\n", VARIABLES_ADDRESS_REG + 'a' - 1);
+
+    /*
+    // SET RET VAL
+    assprint("; push ret val
+    assprint ("push t%c
+    */
+
+    return SUCCESS;
+    }
+
+static int ArgumentHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+
+    if (!token) return SUCCESS;
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, PARAMETR, return LFAILURE);
+
+    if(!LEFT(token))
+        {
+        report_translator_error("No arguments for parametr\n");
+        return LFAILURE;
+        }
+    
+    int number_of_parametrs = 0;
+    const Token* current_param = token;
+
+    assprint(";Setting parametrs for call\n");
+    
+    while (current_param)
+        {
+        CHECK(ExpressionHandler(ctx, LEFT(current_param)) == SUCCESS, return FAILURE);
+
+        assprint ("pop  [ %d + r%cx ]; %d - param pos, %d - stack frame offset\n", 
+                number_of_parametrs + STACK_FRAME_OFFSET,  
+                VARIABLES_ADDRESS_REG + 'a' - 1,
+                number_of_parametrs, STACK_FRAME_OFFSET);
+ 
+        number_of_parametrs++;
+
+        current_param = RIGHT(current_param);
+        }
+
+    return number_of_parametrs;
+    }
+
+static int InstructionHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, INSTRUCTION, return LFAILURE);
+
+    static int number_of_instructions = 0;
+        
+    int current_instruction = number_of_instructions++;
+
+    assprint("; instruction\n");
+
+    switch (INSTR(token))
+        {
+        case ELSE:
+            {
+            YOU_SHALL_NOT_PASS
+            TODO("to do else\n");
+            return LFAILURE;
+            }
+        case IF:
+            {
+            if (IS_INSTRUCTION(RIGHT(token)) && INSTR(RIGHT(token)) == ELSE)
+                {
+                Token*   if_body =  LEFT(RIGHT(token));
+                Token* else_body = RIGHT(RIGHT(token));
+
+                assprint ("; condition for %s_%d with else \n", INSTR_STR(token), current_instruction); 
+                CHECK(ExpressionHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+
+                assprint("\n");
+                PUSH_CONST(0);
+                assprint ("je : else_label_%d\n", current_instruction);
+                // assprint ("; end of condition\n\n");
+
+                assprint("; if body\n");
+                CHECK(AddToAsm(ctx, if_body) == SUCCESS, return FAILURE);
+                assprint ("jmp : else_end_label_%d\n", current_instruction);
+
+                assprint("; else body\n");
+                assprint(": else_label_%d\n", current_instruction);
+                CHECK(AddToAsm(ctx, else_body) == SUCCESS, return FAILURE);
+
+                assprint (": else_end_label_%d\n", current_instruction);
+                }
+            else
+                {
+                assprint ("; condition for %s_%d\n", INSTR_STR(token), current_instruction); 
+                CHECK(ExpressionHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+
+                assprint("\n");
+                PUSH_CONST(0);
+                assprint ("je : %s_end_label_%d\n", INSTR_STR(token), current_instruction);
+                assprint ("; end of condition\n\n");
+
+                assprint("; %s body\n", INSTR_STR(token));
+                CHECK(AddToAsm(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+                assprint (": %s_end_label_%d\n", INSTR_STR(token), current_instruction);
+                }
+            
+            break;
+            }
+        case WHILE:
+            {
+            assprint ("; condition for %s_%d\n", INSTR_STR(token), current_instruction); 
+            CHECK(AddToAsm(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+
+            assprint("\n");
+            PUSH_CONST(0);
+            assprint ("je : %s_end_label_%d\n", INSTR_STR(token), current_instruction);
+            assprint ("; end of condition\n\n");
+
+            assprint("; %s body\n", INSTR_STR(token));
+            CHECK(AddToAsm(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+            assprint (": %s_end_label_%d\n", INSTR_STR(token), current_instruction);
+
+            break;
+            }
+        
+        default:
+            YOU_SHALL_NOT_PASS
+            TODO("to do instructions default\n");
+            return LFAILURE;
+        }
+
+    assprint("\n");
+
+    return SUCCESS;
+    }
+
+static int MathOperationsHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, OPERATOR, return LFAILURE);
+
+    switch (OP(token))
+        {
+        case ADD:
+        case SUB:
+        case MUL:
+        case DIV:
+
+            CHECK(ExpressionHandler (ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+            CHECK(ExpressionHandler (ctx,  LEFT(token)) == SUCCESS, return FAILURE);
+            ASM_OP_CMD (token);
+            
+            return SUCCESS;
+
+        case BIGGER:
+        case LESS:
+
+             CHECK(ExpressionHandler (ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+             CHECK(ExpressionHandler (ctx,  LEFT(token)) == SUCCESS, return FAILURE);
+            
+            static int bool_cnt = 0;
+
+            assprint ("j%c : true_%d", OP(token) == BIGGER ? 'a' : 'b', bool_cnt); 
+            assprint ("\npush 0\n");
+            assprint ("jmp :true_end_%d\n", bool_cnt);
+            assprint (": true_%d\n", bool_cnt);
+            assprint ("push %d\n", 1 * SOFT_CPU_PRECISION);
+            assprint (": true_end_%d\n", bool_cnt);
+
+            bool_cnt++;
+
+            return SUCCESS;
+        default:
+            printf("Wrong operator %c\n", OP(token));
+            TODO("nill ptr\n");
+            PrintToken(token, NULL); // be carefull !!!!
+
+            return LFAILURE;
+        }
+        
+    YOU_SHALL_NOT_PASS
+    return LFAILURE;
+    }
+
+static int NativeFunctionHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, NATIVE_FUNCTION, return LFAILURE);
+
+    switch (NATIVE_FUNC(token))
+        {
+        case FOUT:
+            {
+            if (LEFT(token))
+                CHECK(ParametrHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+            
+            // if (
+            assprint("FOUT\n");
+            
+            return SUCCESS;
+            }
+
+        case FIN:
+            {
+            assprint("FIN\n");
+
+            Token* var = LEFT(LEFT(token));
+
+            if (RIGHT(LEFT(token)))
+                {
+                func_message("FIN USES ONLY ONE PARAMETR !!!!\n");
+                }
+
+            assprint("; BBBBBBBBBBBBBBBBBBBBBB\n");
+            assprint("pop ");
+            CHECK(NameHandler(ctx, var) == SUCCESS, return LFAILURE);
+
+            
+            // if (LEFT(token))
+                //  CHECK(ParametrHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+            
+            // assprint(
+            return SUCCESS;
+            }
+        case SIN:
+        case COS:
+            CHECK(ParametrHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+
+            assprint ("%s\n", NATIVE_FUNC(token) == SIN ? "sin" : "cos");
+
+            return SUCCESS;
+            
+        case POW:
+            // CHECK(ParametrHandler(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+            CHECK(ParametrHandler(ctx,  LEFT(token)) == SUCCESS, return FAILURE);
+
+            assprint ("pow\n", NATIVE_FUNC(token) == SIN ? "sin" : "cos");
+
+            return SUCCESS;
+
+        default:
+            YOU_SHALL_NOT_PASS
+            TODO("to do native functions default\n");
+            return LFAILURE;
+        }
+    
+    YOU_SHALL_NOT_PASS
+    return LFAILURE;
+    }
+
+static int FunctionReturnHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, FUNCTION_RET_TYPE, return LFAILURE);
+
+    assprint("\n; return ;\n");
+
+    if (!LEFT(token))
+        PUSH_CONST(0);    
+    else
+        {
+        if (TYPE(LEFT(token)) == NAME)
+            assprint ("push ");
+
+        CHECK(AddToAsm(ctx, LEFT(token)) == SUCCESS, return LFAILURE)
+        }
+
+    assprint("\npop r%cx ;ret reg\n", RETURN_VALUE_REG + 'a' -1);
+    assprint("ret\n\n");
+
+    ASM_SEPARATOR
+    // func_message("NOT READY YET\n");
+
+    return SUCCESS;
+    }
+
+static int ParametrHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, PARAMETR, return LFAILURE);
+
+    // if (TYPE(LEFT(token)) == NAME)
+    //     assprint("push");
+
+    if (TYPE(LEFT(token)) != INITIALIZATOR)
+        CHECK(ExpressionHandler(ctx, LEFT(token)) == SUCCESS, return FAILURE);
+
+    if (RIGHT(token) && TYPE(RIGHT(token)) != INITIALIZATOR)
+        CHECK(ParametrHandler(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
+
+    return SUCCESS;
+    }
+
+static int ConstantHandler (AsmCtx* ctx, const Token* token)
+    {
+    $log(1)
+
+    assertlog(ctx,   EFAULT, return BAD_ARGUMENT);
+    assertlog(token, EFAULT, return BAD_ARGUMENT);
+
+    $LOG_TOKEN(token, STRING_ARR(ctx))
+
+    CHECK_TYPE(token, CONSTANT, return LFAILURE);
+
+    PUSH_CONST(CONST(token));
+
+    return SUCCESS;
+    }

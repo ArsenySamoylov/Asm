@@ -1,0 +1,47 @@
+#define report_translator_error(format, ...)                                \
+        do                                                                  \
+            {                                                               \
+            printf(redcolor "Report translator ERORR\n" yellowcolor);       \
+            logf("Translator ERROR\n");                                     \
+            logf("");                                                       \
+            LOG__.log_dup_console(format __VA_OPT__(,) __VA_ARGS__);        \
+            printf("In: " purplecolor);                                     \
+            /*printl(token->ptr_to_src_code, '\n');*/                       \
+            printf(resetconsole "\n");                                      \
+            printf("%s:%d\n", __FILE__, __LINE__);                          \
+            PrintToken(token);                                              \
+            }                                                               \
+        while(0);
+
+
+/*
+void report_token_error(const Token* token, const char* format, ...)
+    {
+    assertlog(format, EFAULT, return);
+*/
+
+
+#define CHECK_TYPE(TOKEN, ENUM_TYPE, ...)                           \
+    do                                                              \
+    {                                                               \
+    if (TYPE(TOKEN) != ENUM_TYPE)                                   \
+        {                                                           \
+        report_translator_error("Not a %s type\n", #ENUM_TYPE)      \
+                                                                    \
+        __VA_ARGS__ __VA_OPT__(;)                                   \
+        }                                                           \
+    }while(0)
+
+static void assprint(const char* format, ...);
+
+static void assprint (const char* format, ...)
+    {
+    va_list ptr;
+    va_start(ptr, format);
+
+    vfprintf (ASM_FILE, format, ptr);
+
+    va_end(ptr);
+    
+    return;
+    }
