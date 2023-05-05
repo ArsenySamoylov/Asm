@@ -392,8 +392,8 @@ volatile index_ temp = hash8_crc32_assembler (test_data_array++);
 #### **таблица 5.** Сравнение инлайн функций
 Функция                  | Время для *10000* итераций, секунды
 -------------------------|---------------------------------
-`hash8_crc32_assembler`  (not inlined)  | 2.31 
-`hash8_crc32_inline_as`  (inlined)      | 9.17 
+`hash8_crc32_assembler`  (not inlined)  | 9.17 
+`hash8_crc32_inline_as`  (inlined)      | 2.31 
 `hash8_crc32_intrinsics` (inlined)      | 4.24
 
 Из таблицы видно, что даже функция, написанная на интринсиках, заметно быстрее функции, написанной на простом ассемблере. 
@@ -548,8 +548,6 @@ Node* FindElementInList (const List* list, const data* element)
 <br /> 
 
 Инлайн функция `cmp_vectors` уже оптимизирована с помощью интринсиков. Поэтому единственный способ оптимизировать эту функцию, это поменять алгоритм поиска элемента внутри списка, что превосходит наши задачи по оптимизации.
-
-## #pragma GCC diagnostic ignored "-Wconversion"
 
 Подведем итоги всех оптимизаций
 
