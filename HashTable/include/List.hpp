@@ -19,7 +19,9 @@ struct List
     };
 
 int    AddElementToList (List* list, const data* element);
-Node* FindElementInList (const List* list, const data* element);
+
+Node* FindElementInList_optimized     (const List* list, const data* element);
+Node* FindElementInList_not_optimized (const List* list, const data* element);
 
 int ClearList (List* list);
 int CheckList  (const List* list);

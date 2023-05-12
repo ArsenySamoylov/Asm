@@ -1,0 +1,55 @@
+///////////////////////////////////////////////////
+// Distribution				    	 //
+///////////////////////////////////////////////////
+	227
+hash1_always_1 		118341
+hash2_ascii 		4639
+hash3_strlen 		15770
+hash4_hash_sum 		265
+hash5_rol 		25.18
+hash6_ror 		54.09
+hash7_gnu		25.72
+hash8_crc32 		23.99
+
+	1013
+hash1_always_1  	216404
+hash2_ascii  		126212
+hash3_strlen  		21565
+hash4_hash_sum  	104
+hash5_rol  		21.68
+hash6_ror  		36.38
+hash7_gnu  		14.99
+hash8_crc32  		14.76
+
+	10007
+hash4_hash_sum  	30333
+hash5_rol		102		
+hash6_ror 		489
+hash7_gnu		20.52 	
+hash8_crc32 		20.85
+		
+///////////////////////////////////////////////////
+// Otimizations					 //
+///////////////////////////////////////////////////
+no opt 
+			29.38 | 29.28
+
+opt 1 
+	assembler 	29.02
+	inline as	19.46 | 19.25 | 19.46
+	intrinsics 	15.68
+	
+opt 1.5 (inlining)
+	inline as 	19.02 | 18.96
+	intrinsics	15.29 | 15.45 | 15.38
+	
+opt 2 (vector cmp)
+			11.63 | 11.72 | 11.73
+	
+opt 3 (NDEBUG)
+			11.42 | 11.52 | 11.47
+	
+opt 4 (Adding constan in %)
+			10.85 | 10.88 | 10.979
+	
+///////////////////////////////////////////////////

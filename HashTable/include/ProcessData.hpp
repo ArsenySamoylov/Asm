@@ -4,7 +4,8 @@
 
 const int MAX_WORD_LENGTH = sizeof(data) - 1;
 
-const int START_NUMBER_OF_ELEMENTS_IN_BUFFER = 256;
+const int ALIGMENT  = 256;
+const int START_NUMBER_OF_ELEMENTS_IN_BUFFER = ALIGMENT;
 const int BUFFER_GROWTH_RATE  = 2;
 
 struct processed_data

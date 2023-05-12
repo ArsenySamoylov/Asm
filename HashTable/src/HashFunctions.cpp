@@ -5,103 +5,95 @@
 
 #include "HashFunctions.hpp"
 
-static inline index_ rol (index_ val);
-static inline index_ ror (index_ val);
+static inline index_t rol (index_t val);
+static inline index_t ror (index_t val);
 
-index_ hash1_always_1 (const data* key)
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+index_t hash1_always_1 (const data* key)
     {
     assert(key);
     return 1;
     }
+#pragma GCC diagnostic warning "-Wunused-parameter"
 
-index_ hash2_ascii (const data* key)
+index_t hash2_ascii (const data* key)
     {
     assert(key);
-    return (index_) *( (const char *) key);
+    return (index_t) *( (const char *) key);
     }
 
-index_ hash3_strlen   (const data* key)
+index_t hash3_strlen   (const data* key)
     {
     assert(key);
-    return assert(key), (index_) strlen( (const char*) key);
+    return assert(key), (index_t) strlen( (const char*) key);
     }
 
-index_ hash4_hash_sum (const data* key)
+index_t hash4_hash_sum (const data* key)
     {
     assert(key);
 
     const char* temp = (const char*) key;
-    index_ hash_sum = (index_) *temp;
+    index_t hash_sum = (index_t) *temp;
 
-    for (size_t i = strlen(temp) - 1; i > 0; i--)
-        hash_sum += (index_) *(temp + i);
+    while (*temp)
+        hash_sum += (index_t) *temp++;
 
     return hash_sum;
     }
 
-index_ hash5_rol (const data* key)
+index_t hash5_rol (const data* key)
     {
     assert(key);
     
-    index_ hash_value = 0;
+    index_t hash_value = 0;
     const char* temp = (const char*) key;
 
     while (*temp)
-        hash_value = rol (hash_value) ^ (index_) *(temp++);
+        hash_value = rol (hash_value) ^ (index_t) *(temp++);
 
     return hash_value;
     }
 
-index_ hash6_ror (const data* key)
+index_t hash6_ror (const data* key)
     {
     assert(key);
     
-    index_ hash_value = 0;
+    index_t hash_value = 0;
     const char* temp = (const char*) key;
 
     while (*temp)
-        hash_value = ror (hash_value) ^ (index_) *(temp++);
+        hash_value = ror (hash_value) ^ (index_t) *(temp++);
 
     return hash_value;
     }
 
 #pragma GCC diagnostic ignored "-Wparentheses"
-index_ hash7_djb2 (const data* key)
+index_t hash7_gnu (const data* key)
     {
     assert(key);
 
-    index_ hash = 5381;
+    index_t hash = 5381;
     char c = 0;
     
     const char* temp = (const char*) key;
 
     while (c = *(temp++))
-        hash = ((hash << 5) + hash) + (index_) c;
+        hash = ((hash << 5) + hash) + (index_t) c;
 
     return hash;
     }
 
-static inline index_ rol (index_ val)
-    {
-    return ((val << 1) | (val >> 31));
-    }
-
-static inline index_ ror (index_ val)
-    {
-    return ((val >> 1) | (val << 31));
-    }
-
-index_  hash8_crc32_not_optimized (const data* key)
+index_t  hash8_crc32_not_optimized (const data* key)
   {
     if (!key) return 0;
 
-    const index_ polynomial = 0x04C11DB7;
-    const index_ polOldBit  = 1 << 26;
+    const index_t polynomial = 0x04C11DB7;
+    const index_t polOldBit  = 1 << 26;
 
-    index_ hash = 0;
+    index_t hash = 0;
     const char* reference = (const char*) key;
 
-    while (*reference)
+    while (*reference)  
       {
             for (int i = 7; i >= 0; i--)
           {
@@ -115,5 +107,53 @@ index_  hash8_crc32_not_optimized (const data* key)
     return hash;
   }
 
- 
+index_t hash8_crc32_inline_as (const data* key)
+    {
+    int64_t res = 0;
+    
+    asm (
+        R"(
+         .intel_syntax noprefix
+          cmp %1, 0x0
+          je 1f
+          
+          xor %0, %0
 
+          crc32 %0, qword ptr [%1 + 0x00 ]
+          crc32 %0, qword ptr [%1 + 0x08 ]
+          crc32 %0, qword ptr [%1 + 0x10 ]
+          crc32 %0, qword ptr [%1 + 0x18 ]
+        1:
+       
+        .att_syntax prefix
+        )"
+            : "=r"(res)
+            : "r"(key), "r"(res) 
+      );
+
+    return (index_t) res;
+    } 
+
+#pragma GCC diagnostic ignored "-Wconversion"
+index_t hash8_crc32_intrinsics (const data* key)
+    {
+    __m256i element = _mm256_load_si256 (key);
+    
+    index_t hash = _mm_crc32_u32(0, _mm256_extract_epi64 (element, 0));
+    
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 1));
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 2));
+    hash = _mm_crc32_u32(hash, _mm256_extract_epi64 (element, 3));
+    
+    return hash;
+    }
+
+static inline index_t rol (index_t val)
+    {
+    return ((val << 1) | (val >> 31));
+    }
+
+static inline index_t ror (index_t val)
+    {
+    return ((val >> 1) | (val << 31));
+    }

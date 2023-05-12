@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <assert.h>
 #include "LogMacroses.h"
@@ -32,7 +33,7 @@ int ProcessData (processed_data* proc_data, raw_data* raw_src_data)
                         .maximum_number_of_elements = START_NUMBER_OF_ELEMENTS_IN_BUFFER,
                       };
     
-    buffer.data_array = (data*) calloc (START_NUMBER_OF_ELEMENTS_IN_BUFFER, sizeof(data));
+    buffer.data_array = (data*) aligned_alloc (ALIGMENT, START_NUMBER_OF_ELEMENTS_IN_BUFFER * sizeof(data));
     assert (buffer.data_array);
 
     while (*raw_src_data != '\0')
@@ -65,7 +66,7 @@ static int AddWordToDataBuffer (DataBuffer* buffer, raw_data* src_raw_data_ptr)
            (char*) (buffer->data_array + buffer->current_number_of_elements), &word_length);
     
     if (word_length > MAX_WORD_LENGTH)
-        report ("Warning: '%s' is longer than MAX_WORD_LENGHT (%d)\n", src_raw_data_ptr, MAX_WORD_LENGTH);
+        report ("Warning: '%.30s' is longer than MAX_WORD_LENGHT (%d)\n", src_raw_data_ptr, MAX_WORD_LENGTH);
 
     buffer->current_number_of_elements++;
     return word_length;
@@ -85,21 +86,21 @@ static int ResizeBuffer (DataBuffer* buffer)
         }
     else
         {
-        buffer->maximum_number_of_elements = buffer->current_number_of_elements;
-        new_size = buffer->current_number_of_elements;
+        size_t temp = (buffer->current_number_of_elements / ALIGMENT) + 1;
+
+        new_size = (temp + 1) * ALIGMENT;
+        buffer->maximum_number_of_elements = new_size;
         }
 
-    data* temp = (data*) realloc (buffer->data_array, 
-                                  new_size * sizeof(temp[0]));
-    if (!temp)
-        {
-        report ("Pizdec\n");
-        
-        free (buffer->data_array);
-        abort();
-        }
+    // data* temp = (data*) realloc (buffer->data_array, new_size * sizeof(temp[0]));
+    data* temp = (data*) aligned_alloc (ALIGMENT, new_size * sizeof(temp[0]));
+    memcpy (temp, buffer->data_array, buffer->current_number_of_elements * sizeof(temp[0]));
 
+    free (buffer->data_array);
     buffer->data_array = temp;
+
+    temp = NULL;
+
     return SUCCESS;
     }
 

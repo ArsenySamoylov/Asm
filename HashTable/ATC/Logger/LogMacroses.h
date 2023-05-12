@@ -11,7 +11,7 @@
 #include "LinuxColors.h"
 #include "Utils.h"
 
-#define report(format, ...) printf (yellowcolor "(%s:%d)" resetconsole " " format, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
+#define report(format, ...) printf (cyancolor "(%s:%d)" resetconsole " " format, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
 #define LOG__ Logger::getInstance()
 
 #define log_function        LOG__.log("%s: ", __func__)

@@ -4,11 +4,10 @@
 #include "HashTable.hpp"
 #include "HashFunctions.hpp"
 
-const char NUMBERS_SEPARATOR = ',';
+const char NUMBERS_SEPARATOR = '\n';
 
 
 int TestHashFunctionsDistribution (const char* path_to_src_data, 
                                    const char* path_to_file_where_store_results);
 
 int TestHashTablePerfomance       (const char* path_to_src_data, const char* path_to_test_data);
-

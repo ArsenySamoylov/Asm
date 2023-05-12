@@ -5,7 +5,7 @@
 typedef char raw_data;
 typedef __m256i data;
 
-typedef unsigned index_;
+typedef unsigned index_t;
 
-typedef index_ (*hash_func_ptr) (const data*);
+typedef index_t (*hash_func_ptr) (const data*);
 
