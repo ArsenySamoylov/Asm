@@ -15,7 +15,7 @@ index_t hash7_gnu  (const data* key);
 
 index_t hash8_crc32_not_optimized (const data* key);
 
-extern "C" inline index_t hash8_crc32_assembler  (const data* key);
+extern "C" index_t hash8_crc32_assembler  (const data* key);
            index_t hash8_crc32_intrinsics (const data* key);
            index_t hash8_crc32_inline_as  (const data* key);
 

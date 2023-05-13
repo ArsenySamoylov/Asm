@@ -9,7 +9,7 @@
 
 #include "List.hpp"
 
-int __attribute__ ((noinline)) cmp_vectors (__m256i a, __m256i b);
+static inline int cmp_vectors (__m256i a, __m256i b);
 
 int CheckList (const List* list)
     {
@@ -172,7 +172,7 @@ int ClearList (List* list)
     }
 
 
-int __attribute__ ((noinline)) cmp_vectors (__m256i a, __m256i b)
+static inline int cmp_vectors (__m256i a, __m256i b)
     {
     __m256i pcmp = _mm256_cmpeq_epi8(a, b); 
     unsigned bitmask = (unsigned) _mm256_movemask_epi8(pcmp);

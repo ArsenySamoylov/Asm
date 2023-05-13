@@ -7,8 +7,8 @@
 #include "Tests.hpp"
 #include "ProcessData.hpp"
 
-const hash_func_ptr HASH_FUNCTIONS_TO_TEST[] = {  hash6_ror,  };
-const char*         HASH_FUNCTIONS_NAMES[]   = {  "hash6_ror", };
+const hash_func_ptr HASH_FUNCTIONS_TO_TEST[] = {  hash2_ascii,  };
+const char*         HASH_FUNCTIONS_NAMES[]   = {  "hash2_ascii", };
 
 static_assert(sizeof(HASH_FUNCTIONS_TO_TEST) / sizeof(HASH_FUNCTIONS_TO_TEST[0]) == sizeof(HASH_FUNCTIONS_NAMES)   / sizeof(HASH_FUNCTIONS_NAMES[0]));
 
