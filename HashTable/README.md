@@ -586,9 +586,6 @@ Node* FindElementInList (const List* list, const data* element)
 
 Посмотрим на исходники следующей по ресурсозатратности функции `FindElementInHashTable`:
 
-<details> 
-<summary> Функция поиска элемента в хеш-таблице </summary>
-
 ```
 data* FindElementInHashTable (const HashTable* table, const data* element)
     {
@@ -606,9 +603,6 @@ data* FindElementInHashTable (const HashTable* table, const data* element)
     return result->data_ptr;
     }   
 ```
-
-</details>
-<br /> 
 
 Так как это уже финальная версия программы, то можно отключить дополнительные проверки:
 - `CheckList`, проверяющая структуру `List` (контейнер или список в наших терминах) на возможные ошибки,
