@@ -7,8 +7,8 @@
 #include "Tests.hpp"
 #include "ProcessData.hpp"
 
-const hash_func_ptr HASH_FUNCTIONS_TO_TEST[] = {  hash2_ascii,  };
-const char*         HASH_FUNCTIONS_NAMES[]   = {  "hash2_ascii", };
+const hash_func_ptr HASH_FUNCTIONS_TO_TEST[] = {  hash1_always_1,   hash2_ascii,   hash3_strlen,   hash4_hash_sum,   hash5_rol,   hash6_ror,   hash7_gnu,   hash8_crc32_inline_as};
+const char*         HASH_FUNCTIONS_NAMES[]   = { "hash1_always_1", "hash2_ascii", "hash3_strlen", "hash4_hash_sum", "hash5_rol", "hash6_ror", "hash7_gnu", "hash8_crc32"};
 
 static_assert(sizeof(HASH_FUNCTIONS_TO_TEST) / sizeof(HASH_FUNCTIONS_TO_TEST[0]) == sizeof(HASH_FUNCTIONS_NAMES)   / sizeof(HASH_FUNCTIONS_NAMES[0]));
 
@@ -79,7 +79,7 @@ static int MesureHashFunctionDistribution (HashTable* table, const processed_dat
         }
     report ("Ended setting hash_table\n");
 
-    fprintf(file, "%s\n", function_name);
+    fprintf(file, "%s ", function_name);
 
     for (size_t i = 0; i < table->number_of_lists; i++)
         {

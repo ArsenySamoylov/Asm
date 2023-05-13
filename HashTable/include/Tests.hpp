@@ -4,7 +4,7 @@
 #include "HashTable.hpp"
 #include "HashFunctions.hpp"
 
-const char NUMBERS_SEPARATOR = '\n';
+const char NUMBERS_SEPARATOR = ',';
 
 
 int TestHashFunctionsDistribution (const char* path_to_src_data, 
