@@ -28,16 +28,16 @@ all: separator clear clear_screen
 run:
 	@echo ---------------------------------------------------------------- 
 	@echo 1 test
-	@nice -n 19 ./$(OUT_NAME) resources/Hamlet.txt
+	@nice -n 19 ./$(OUT_NAME) resources/test_data/Hamlet.txt
 	@echo ---------------------------------------------------------------- 
 
 second:
-	@nice -n 19 ./table.out resources/Holy.txt resources/Holy.txt 
+	@nice -n 19 ./table.out resources/test_data/Holy.txt resources/test_data/Holy.txt 
 
 profile:
 	@echo ---------------------------------------------------------------- 
 	@echo 2 test
-	@nice -n 19 valgrind --tool=callgrind ./table.out resources/Holy.txt resources/Holy.txt
+	@nice -n 19 valgrind --tool=callgrind ./table.out resources/test_data/Holy.txt resources/test_data/Holy.txt
 	@echo ---------------------------------------------------------------- 
 
 clear:

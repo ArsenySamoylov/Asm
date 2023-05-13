@@ -24,10 +24,6 @@
 
 Именно этот метод будем использовать в данной работе.
 
-Визуализация хеш-таблицы методом цепочек, взятом из [данного источника](https://www.geeksforgeeks.org/implementing-our-own-hash-table-with-separate-chaining-in-java/?type=article&id=137749)[^1] (там же можно подробнее узнать о том, как работает хеш-таблица).
-
-![hash table visualization](resources/readme_pic/hashatable_exmp.png)
-
 # Ход работы
 
 ## **Первая часть**
