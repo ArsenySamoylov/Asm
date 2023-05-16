@@ -6,6 +6,7 @@
 
 #define  LEFT(node)   node->left_child
 #define RIGHT(node)   node->right_child
+
 //////////////////////////////////////////////////////////////////
 #define NewConstNode(value)                NewDefNode (CONSTANT, {.t_constant = value})
 #define NewOpNode(op, left, right)         NewDefNode (OPERATOR, {.t_operator = op}, left, right)
@@ -17,9 +18,8 @@
 #define  LEFT_CONST(node)  CONST( LEFT(node))
 #define RIGHT_CONST(node)  CONST(RIGHT(node))
 
-#define       OP(node)     node->value.t_operator
-
-#define       VAR(node)    node->value.t_variable
+#define OP(node)  node->value.t_operator
+#define VAR(node) node->value.t_variable
 
 #define INSTR(node)        node->value.t_instruction
 #define INSTR_STR(node)    (IS_INSTRUCTION(node) ? INSTRUCTIONS[INSTR(node)] : "NOT A INSTRUCTION")
@@ -42,6 +42,7 @@
 #define  LEFT_FUNC(node)   FUNC( LEFT(node))
 #define RIGHT_FUNC(node)   FUNC(RIGHT(node))
 */
+
 ///////////////////////////////////////////////////////////////////
 // #define OP_IS(op) ( ( (NODE) && (NODE->type == OPERATOR) && (NODE->value.t_operator == op)) ? true : false )
 

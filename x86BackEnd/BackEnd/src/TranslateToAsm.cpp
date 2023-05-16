@@ -128,7 +128,7 @@ static int AddToAsm (AsmCtx* ctx, const Token *const token)
                  CHECK(AddToAsm(ctx, RIGHT(token)) == SUCCESS, return FAILURE);
 
             return SUCCESS;
-            }
+             }
             
         default:
             report_translator_error("Wrong token type\n");

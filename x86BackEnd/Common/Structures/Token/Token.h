@@ -26,7 +26,7 @@ struct Token
 
     int type; 
 
-    TokenValue value;
+    union TokenValue value;
 
     Label* t_label_ptr;
     

@@ -1,0 +1,84 @@
+#pragma once
+
+const size_t START_ARR_SIZE = 16;
+const size_t GROWTH_RATE    = 2;
+
+#define ARR_CTOR(struct_name, base_struct)                                    \
+int struct_name##Ctor (struct_name* arr)                                      \
+    {                                                                         \
+    assert(arr);                                                              \
+                                                                              \
+    arr->arr = (base_struct*) calloc (START_ARR_SIZE, sizeof(arr->arr[0]));   \
+    assert(arr->arr);                                                         \
+                                                                              \
+    arr->size     = 0;                                                        \
+    arr->capacity = START_ARR_SIZE;                                           \
+                                                                              \
+    return SUCCESS;                                                           \
+    }
+
+#define ARR_DTOR(struct_name, base_struct)                      \
+int struct_name##Dtor (struct_name* arr)                        \
+    {                                                           \
+    assert(arr);                                                \
+                                                                \
+    if (arr->capacity == 0)                                     \
+        {                                                       \
+        report ("Capacity can't be 0 in Dtor\n");               \
+        return FAILURE;                                         \
+        }                                                       \
+                                                                \
+    free (arr->arr);                                            \
+                                                                \
+    arr->capacity = 0;                                          \
+    arr->size     = 0;                                          \
+    arr->arr      = NULL;                                       \
+                                                                \
+    return SUCCESS;                                             \
+    }
+
+#define ARR_RESIZE(struct_name, base_struct)                                                 \
+static int struct_name##Resize  (struct_name* arr)                                          \
+    {                                                                                       \
+    assert(arr);                                                                            \
+                                                                                            \
+    size_t new_size = arr->capacity * GROWTH_RATE;                                          \
+                                                                                            \
+    base_struct* temp = (base_struct*) realloc (arr->arr, new_size * sizeof(temp[0]));      \
+    assert(temp);                                                                           \
+                                                                                            \
+    arr->capacity = new_size;                                                               \
+    arr->arr      = temp;                                                                   \
+                                                                                            \
+    return SUCCESS;                                                                         \
+    }
+
+#pragma GCC diagnostic ignored "-Wclass-memaccess"
+
+#define ADD_TO_ARR(struct_name, add_struct)                 \
+int AddTo##struct_name (struct_name *arr, add_struct* val)  \
+    {                                                       \
+    assert(val);                                            \
+                                                            \
+    if (arr->size >= arr->capacity)                         \
+        struct_name##Resize (arr);                          \
+                                                            \
+    memcpy (arr->arr + arr->size++, val, sizeof(val[0]));   \
+                                                            \
+    return SUCCESS;                                         \
+    }
+
+#define FIND_IN_ARR(struct_name, find_struct, cmp_function)              \
+find_struct* Find##find_struct (struct_name* arr, find_struct* find)     \
+    {                                                                    \
+    assert(arr);                                                         \
+    assert(find);                                                        \
+                                                                         \
+    for (size_t i = 0; i < arr->size; i++)                               \
+        {                                                                \
+        if (cmp_function(find, arr->arr + i))                            \
+            return arr->arr + i;                                         \
+        }                                                                \
+                                                                         \
+    return NULL;                                                         \
+    }

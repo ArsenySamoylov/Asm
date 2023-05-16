@@ -561,7 +561,7 @@ Node* FindElementInList (const List* list, const data* element)
     {
     assert(list);
     assert(element);
-
+    
     if (list->number_of_elements == 0)
         return NULL;
     
