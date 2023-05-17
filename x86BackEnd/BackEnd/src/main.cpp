@@ -17,12 +17,7 @@
 
 void help();
 
-int AstToIR (Program* program, Module* dest_mod);
-
-int AstToIR (Program* program, Module* dest_mod)
-  {
-  return 0;
-  }
+// int AstToIR (Program* program, Module* dest_mod);
 
 int main(int argc, const char* argv[])
   {

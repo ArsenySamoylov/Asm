@@ -49,20 +49,20 @@ int FunctionDtor (Function* func)
 #include "ArrayTemplate.h"
 
 ARR_CTOR (ValueArr,       Value)
-ARR_CTOR (BaseBlockArr,   BaseBlock)
 ARR_CTOR (InstructionArr, Instruction)
+ARR_CTOR (BaseBlockArr,   BaseBlock)
 
 ARR_DTOR (ValueArr,       Value)
-ARR_DTOR (BaseBlockArr,   BaseBlock)
 ARR_DTOR (InstructionArr, Instruction)
+ARR_DTOR (BaseBlockArr,   BaseBlock)
 
 ARR_RESIZE (ValueArr,       Value)
-ARR_RESIZE (BaseBlockArr,   BaseBlock)
 ARR_RESIZE (InstructionArr, Instruction)
+ARR_RESIZE (BaseBlockArr,   BaseBlock)
 
 ADD_TO_ARR (ValueArr,       Value)
-ADD_TO_ARR (BaseBlockArr,   BaseBlock)
 ADD_TO_ARR (InstructionArr, Instruction)
+ADD_TO_ARR (BaseBlockArr,   BaseBlock)
 
 #undef ARR_CTOR
 #undef ARR_DTOR

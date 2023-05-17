@@ -4,13 +4,13 @@
 
 enum class InstructionType 
     {
-    STORE,
-    LOAD, 
+    Store,
+    Load, 
 
-    OPERATOR,
-    BRANCH, 
-    CALL,
-    RETURN,
+    Operator,
+    Branch, 
+    Call,
+    Return,
     };
 
 struct Instruction : public Value
@@ -32,9 +32,10 @@ struct Load : public Instruction
 
 struct Branch : public Instruction
     {
-    Value*            condition;
-    BaseBlockArr    true_branch;
-    BaseBlockArr   false_branch;
+    Value* condition;
+    
+    BaseBlock* true_branch;
+    BaseBlock* false_branch;
     };
 
 struct Call : public Instruction

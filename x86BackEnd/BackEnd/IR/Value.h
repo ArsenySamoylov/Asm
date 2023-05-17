@@ -9,14 +9,15 @@ struct Instruction;
 
 struct InstructionArr
     {
-    Instruction* arr;
+    Instruction** arr;
+
     size_t size;
     size_t capacity;
     };
 
 int InstructionArrCtor  (InstructionArr* arr);
 int InstructionArrDtor  (InstructionArr* arr);
-int AddToInstructionArr (InstructionArr* arr, Instruction* inst);
+int AddToInstructionArr (InstructionArr* arr, Instruction* inst, size_t instr_size);
 
 enum class ValueType
     {
@@ -44,7 +45,7 @@ int BaseBlockDtor (BaseBlock* block);
 //////////////////////////////////////////////////////
 struct ValueArr
     {
-    Value* arr;
+    Value** arr;
     
     size_t size;
     size_t capacity;
@@ -52,11 +53,11 @@ struct ValueArr
 
 int ValueArrCtor   (ValueArr* arr);
 int ValueArrDtor   (ValueArr* arr);
-int AddToValueArr  (ValueArr* arr, Value* val);
+int AddToValueArr  (ValueArr* arr, Value* val, size_t val_size);
 
 struct BaseBlockArr
     {
-    BaseBlock* arr;
+    BaseBlock** arr;
 
     size_t size;
     size_t capacity;
@@ -64,7 +65,7 @@ struct BaseBlockArr
 
 int BaseBlockArrCtor   (BaseBlockArr* arr);
 int BaseBlockArrDtor   (BaseBlockArr* arr);
-int AddToBaseBlockArr      (BaseBlockArr* arr, BaseBlock* block);
+int AddToBaseBlockArr  (BaseBlockArr* arr, BaseBlock* block, size_t block_size = sizeof(BaseBlock));
 
 //////////////////////////////////////////////////////
 // Higher level sh*t
@@ -75,17 +76,16 @@ enum class VariableType
     Int, // just kidding 
     };
 
+struct Constant : public Value
+    {
+    data_t data;
+    };
+    
 struct GlobalVar : public Value
     {
     enum VariableType type;
-    Value*        init_val;
+    Constant*        init_val;
     };
-
-struct Constant : public Value
-    {
-    const data_t value;
-    };
-    
 
 enum class FunctionRetType
     {
