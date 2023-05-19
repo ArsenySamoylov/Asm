@@ -4,11 +4,14 @@
 #include "CommonEnums.h"
 #include "LogMacroses.h"
 #include "EasyDebug.h"
+#include "StringPool.h"
 
 #undef assert
 #include <assert.h>
 
 #include "DebugIR.h"
+
+#include "Program.h" // for create string
 
 int BuilderCtor (Builder* buildog, Module* mod)
     {
@@ -51,7 +54,10 @@ int SetFunction (Builder* buildog, Function* func, ValueLabel* func_label)
     buildog->body_blocks = &func->body;
     
     ValueArrCtor (buildog->body_blocks, ValueType::BaseBlock);
-    InsertNewBaseBlock (buildog);
+    BaseBlock* entry_block = InsertNewBaseBlock (buildog);
+    assert(entry_block);
+    
+    entry_block->name = CreateString("entry_%s", func->name);
 
     return SUCCESS;
     }
@@ -132,6 +138,25 @@ int AddGlobalVar (Builder* buildog, GlobalVar* var)
     return SUCCESS;
     }
 
+Value* FindValue (Builder* buildog, int name_id)
+    {
+    assert (buildog);
+    
+    ValueLabel* temp = FindValueLabel (&buildog->global, name_id);
+
+    if (temp)
+        return temp->val;
+
+    if (buildog->current_function)
+        {
+        temp = FindValueLabel (&buildog->local, name_id);
+
+        if (temp)
+            return temp->val;
+        }
+
+    return NULL;
+    }
 
 // int CopyInstruction (Builder* buildog, Instruction* instruction)
 //     {

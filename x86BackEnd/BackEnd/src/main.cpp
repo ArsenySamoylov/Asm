@@ -61,10 +61,10 @@ SET_FAILURE_EXIT(BAD_SRC_FILE)
   report ("Bad src file '%s'\n", path_to_awp_file);
   goto CLEAR_RESOURCES;
 
-SET_FAILURE_EXIT(BAD_TOKEN_TREE)
+// SET_FAILURE_EXIT(BAD_TOKEN_TREE)
 
-  report ("Error, while setting token tree (from '%s' file)\n", path_to_awp_file);
-  goto CLEAR_RESOURCES;
+//   report ("Error, while setting token tree (from '%s' file)\n", path_to_awp_file);
+//   goto CLEAR_RESOURCES;
 
 SET_FAILURE_EXIT(IR_ERROR)
 

@@ -24,7 +24,6 @@ ARR_RESIZE  (ValueNameTable, ValueLabel);
 ValueLabel* FindValueLabel (ValueNameTable* table, int name_id)
     {
     assert(table);
-    assert(name_id);
 
     for (size_t i = 0; i < table->size; i++)
         {

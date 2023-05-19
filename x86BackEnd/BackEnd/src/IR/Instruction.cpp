@@ -26,7 +26,7 @@ int InstructionDtor (Instruction* inst)
 int StoreCtor (Store* store, name_t name, Value* val)
     {
     assert(store);
-    assert(val);
+    // assert(val);
 
     InstructionCtor (store, InstructionType::Store);
     
@@ -82,11 +82,16 @@ int BranchDtor (Branch* branch)
 
 //////////////////////////////////////////////////////
 // Call
-int CallCtor (Call* call)
+int CallCtor (Call* call, const Function* func)
     {
     assert(call);
+    assert(func);
 
     InstructionCtor (call, InstructionType::Call);
+    call->function = func;
+
+    ValueArrCtor (&call->argv, ValueType::Value);
+
     return SUCCESS;
     }
 

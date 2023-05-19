@@ -53,10 +53,10 @@ int BranchDtor (Branch* branch);
 struct Call : public Instruction
     {
     ValueArr   argv;
-    Function* function;
+    const Function* function;
     };
 
-int CallCtor (Call* call);
+int CallCtor (Call* call, const Function* func);
 int CallDtor (Call* call);
 
 struct Return : public Instruction 

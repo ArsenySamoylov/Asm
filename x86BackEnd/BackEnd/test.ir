@@ -1,10 +1,120 @@
-Func main: ()
-	Block:::: (null) ::::, (size 2)
-	Mul left: (Constant) 'nil' , right: (Constant) 'nil' 
-	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
-	Block:::: (null) ::::, (size 3)
-	return  'nil' 
-	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
-	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
-	Block:::: (null) ::::, (size 1)
-	return  'nil' 
+Declare function 'LinearEquationSolver' (param a, param c):
+entry_LinearEquationSolver:
+	%op_0 = Unknown a, 0
+	%op_1 = Unknown a, 0
+	%op_2 = add %op_0, %op_1
+	br %op_2, label than_0, label else_0
+
+than_0:
+	%op_3 = mul -1, c
+	%op_4 = div %op_3, a
+	%c_5 = call: fout (param %op_4)
+
+	return 1
+	br label merge_0
+
+else_0:
+	%op_6 = Unknown c, 0
+	%op_7 = Unknown c, 0
+	%op_8 = add %op_6, %op_7
+	br %op_8, label than_1, label else_1
+
+than_1:
+	%c_9 = call: fout (param 0)
+
+	return 1
+	br label merge_1
+
+else_1:
+	%c_10 = call: fout (param 8)
+
+	return 3
+	br label merge_1
+
+merge_1:
+	br label merge_0
+
+merge_0:
+
+	return -1
+
+Declare function 'SquareEquationSolver' (param a, param b, param c):
+entry_SquareEquationSolver:
+	%op_11 = Unknown a, 0
+	%op_12 = Unknown a, 0
+	%op_13 = add %op_11, %op_12
+	br %op_13, label than_2, label else_2
+
+than_2:
+	br label merge_2
+
+else_2:
+	%c_14 = call: LinearEquationSolver (param b, param c)
+
+	return %c_14
+	br label merge_2
+
+merge_2:
+	%c_15 = call: pow (param b, param 2)
+	%op_16 = mul 4, a
+	%op_17 = mul %op_16, c
+	%op_18 = sub %c_15, %op_17
+	dis = store(%op_18)
+	%op_19 = Unknown dis, 0
+	br %op_19, label than_3, label merge_3
+
+than_3:
+	%c_20 = call: fout (param -666)
+
+	return -1
+	br label merge_3
+
+merge_3:
+	%op_21 = Unknown dis, 0
+	%op_22 = Unknown dis, 0
+	%op_23 = add %op_21, %op_22
+	br %op_23, label than_4, label else_4
+
+than_4:
+	%c_24 = call: pow (param dis, param 0.5)
+	sqrtdis = store(%c_24)
+	%op_25 = mul -1, b
+	%op_26 = add %op_25, sqrtdis
+	%op_27 = mul 2, a
+	%op_28 = div %op_26, %op_27
+	%c_29 = call: fout (param %op_28)
+	%op_30 = mul -1, b
+	%op_31 = sub %op_30, sqrtdis
+	%op_32 = mul 2, a
+	%op_33 = div %op_31, %op_32
+	%c_34 = call: fout (param %op_33)
+
+	return 2
+	br label merge_4
+
+else_4:
+	%op_35 = mul -1, b
+	%op_36 = mul 2, a
+	%op_37 = div %op_35, %op_36
+	%c_38 = call: fout (param %op_37)
+
+	return 1
+	br label merge_4
+
+merge_4:
+
+	return -1
+
+Declare function 'main' ():
+entry_main:
+	a = store(0)
+	b = store(0)
+	c = store(0)
+	%c_39 = call: fin (param a)
+	%c_40 = call: fin (param b)
+	%c_41 = call: fin (param c)
+	%c_42 = call: SquareEquationSolver (param a, param b, param c)
+	status = store(%c_42)
+
+	return status
+

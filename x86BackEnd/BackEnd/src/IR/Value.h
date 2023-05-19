@@ -12,6 +12,8 @@ enum class ValueType
     BaseBlock,
     Constant,
     Instruction,
+
+    Value
     };
 
 struct Value : public NoCopyable

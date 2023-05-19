@@ -28,5 +28,6 @@ BaseBlock* InsertNewBaseBlock  (Builder* buildog);
 int AddInstruction (Builder* buildog, Instruction* instruction);
 int AddGlobalVar   (Builder* buildog, GlobalVar* var);
 
+Value* FindValue (Builder* buildog, int name_id);
 // deprecated
 // int CopyInstruction (Builder* buildog, Instruction* instruction);
