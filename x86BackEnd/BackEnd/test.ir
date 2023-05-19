@@ -1,0 +1,10 @@
+Func main: ()
+	Block:::: (null) ::::, (size 2)
+	Mul left: (Constant) 'nil' , right: (Constant) 'nil' 
+	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
+	Block:::: (null) ::::, (size 3)
+	return  'nil' 
+	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
+	branch:  than: (BaseBlock) 'nil' , else:  'nil' 
+	Block:::: (null) ::::, (size 1)
+	return  'nil' 

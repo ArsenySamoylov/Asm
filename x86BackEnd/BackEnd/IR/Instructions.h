@@ -18,11 +18,17 @@ struct Instruction : public Value
     enum InstructionType type;
     };
 
+int InstructionCtor (Instruction* inst, InstructionType type);
+int InstructionDtor (Instruction* inst);
+
 //////////////////////////////////////////////////////
 struct Store : public Instruction
     {
     Value* val;
     };
+
+int StoreCtor (Store* store, name_t name, Value* val);
+int StoreDtor (Store* store);
 
 struct Load : public Instruction
     {
@@ -30,13 +36,19 @@ struct Load : public Instruction
     Value* src;
     };
 
+int LoadCtor (Load* load, Value* dest, Value* src);
+int LoadDtor (Load* load);
+
 struct Branch : public Instruction
     {
     Value* condition;
     
-    BaseBlock* true_branch;
-    BaseBlock* false_branch;
+    BaseBlock* true_block;
+    BaseBlock* false_block;
     };
+
+int BranchCtor (Branch* branch);
+int BranchDtor (Branch* branch);
 
 struct Call : public Instruction
     {
@@ -44,7 +56,35 @@ struct Call : public Instruction
     Function* function;
     };
 
+int CallCtor (Call* call);
+int CallDtor (Call* call);
+
 struct Return : public Instruction 
     {
     Value* value;
     };
+
+int ReturnCtor (Return* ret);
+int ReturnDtor (Return* ret);
+
+
+enum class OperatorType
+    {
+    Add,
+    Sub,
+    Mul,
+    Div,
+
+    Unknown
+    };
+
+struct Operator : public Instruction
+    {
+    enum OperatorType type;
+    
+    Value* left_op;
+    Value* right_op;
+    };
+
+int OperatorCtor (Operator* op, OperatorType type, Value* left, Value* right);
+int OperatorDtor (Operator* op);

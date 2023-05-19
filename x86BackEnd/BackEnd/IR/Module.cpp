@@ -8,8 +8,8 @@ int ModuleCtor (Module* mod)
     {
     assert(mod);
 
-    ValueArrCtor(&mod->global_vars);
-    ValueArrCtor(&mod->functions);
+    ValueArrCtor(&mod->global_vars, ValueType::GlobalVar);
+    ValueArrCtor(&mod->functions,   ValueType::Function);
 
     return SUCCESS;
     }

@@ -58,8 +58,9 @@ static int struct_name##Resize (struct_name* arr)                               
 
 #pragma GCC diagnostic ignored "-Wclass-memaccess"
 
-#define ADD_TO_ARR(struct_name, add_struct)                                  \
-int AddTo##struct_name (struct_name *arr, add_struct *val, size_t val_size)  \
+
+#define COPY_TO_ARR(struct_name, add_struct)                                  \
+add_struct* Copy##struct_name (struct_name *arr, add_struct *val, size_t val_size)  \
     {                                                       \
     assert(arr);                                            \
     assert(val);                                            \
@@ -70,11 +71,26 @@ int AddTo##struct_name (struct_name *arr, add_struct *val, size_t val_size)  \
     add_struct* temp = (add_struct*) calloc (1, val_size);  \
     assert(temp);                                           \
                                                             \
-    memcpy (temp, val, sizeof(val[0]));                     \
+    memcpy (temp, val, val_Size);                           \
                                                             \
     arr->arr[arr->size++] = temp;                           \
+    return temp;                                            \
+    }
+
+/*
+#define MOVE_TO_ARR(struct_name, add_struct)                \
+int MoveTo##struct_name (struct_name *arr, add_struct *val) \
+    {                                                       \
+    assert(arr);                                            \
+    assert(val);                                            \
+                                                            \
+    if (arr->size >= arr->capacity)                         \
+        struct_name##Resize (arr);                          \
+                                                            \
+    arr->arr[arr->size++] = val;                            \
     return SUCCESS;                                         \
     }
+*/
 
 #define FIND_IN_ARR(struct_name, find_struct, cmp_function)              \
 find_struct* Find##find_struct (struct_name* arr, find_struct* find)     \

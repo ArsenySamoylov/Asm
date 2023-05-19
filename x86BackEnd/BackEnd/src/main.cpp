@@ -1,7 +1,11 @@
 #include "TranslateToAsm.h"
 
 #include "Program.h"
+
 #include "Module.h"
+#include "AstToIR.h"
+#include "DebugIR.h"
+
 #include "StandartAWP.h"
 #include "SetTokenTree.h"
 
@@ -16,8 +20,6 @@
 #define CHECK_SUCCESS(condition, exit_name) if ((condition) != SUCCESS)  { GOTO_FAILURE_EXIT(exit_name)}
 
 void help();
-
-// int AstToIR (Program* program, Module* dest_mod);
 
 int main(int argc, const char* argv[])
   {
@@ -41,10 +43,11 @@ int main(int argc, const char* argv[])
   CHECK_SUCCESS(GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
 
   MakeImg("kek_back_End", &program); 
-  
-  CHECK_SUCCESS (SetTokenTree(&program), BAD_TOKEN_TREE);   // don't kill name tables, store pointer to label in token
-  
-  // CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
+
+  // CHECK_SUCCESS (SetTokenTree(&program), BAD_TOKEN_TREE);   // don't kill name tables, store pointer to label in token
+
+  CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
+  DumpIR (&program_module, "test.ir");
   
   ProgramDtor(&program);
   ModuleDtor(&program_module);
@@ -56,29 +59,24 @@ int main(int argc, const char* argv[])
 SET_FAILURE_EXIT(BAD_SRC_FILE)
 
   report ("Bad src file '%s'\n", path_to_awp_file);
-  ProgramDtor(&program);
-  ModuleDtor(&program_module);
-  return FAILURE;
+  goto CLEAR_RESOURCES;
 
 SET_FAILURE_EXIT(BAD_TOKEN_TREE)
 
-  report ("Error, while seting token tree (from '%s' file)\n", path_to_awp_file);
-  ProgramDtor(&program);
-  ModuleDtor(&program_module);
-  return FAILURE;
-
-// SET_FAILURE_EXIT(TRANSLATOR_ERROR)
-
-//   report ("Couldn't translate file '%s'\n", path_to_awp_file);
-//   ProgramDtor(&program);
-//   ModuleDtor(&program_module);
-//   return FAILURE;
+  report ("Error, while setting token tree (from '%s' file)\n", path_to_awp_file);
+  goto CLEAR_RESOURCES;
 
 SET_FAILURE_EXIT(IR_ERROR)
 
-  report ("Couldnt translate AST to IR\n");
+  report ("Couldn't translate AST to IR\n");
+  goto CLEAR_RESOURCES;
+
+CLEAR_RESOURCES:
+
+  $$
   ProgramDtor(&program);
   ModuleDtor(&program_module);
+
   return FAILURE;
   }
 

@@ -23,7 +23,7 @@ enum SSresize
     if (flag_err)                                                     \
         {                                                             \
         /* SSdump (soldat, flag_err);*/                  \
-         printf("Legacy code is shit\n");\
+         printf("%s:%d Legacy code is shit\n", __FILE__, __LINE__);\
         exit(-999);                                           \
         }                                                             \
     } while (0)

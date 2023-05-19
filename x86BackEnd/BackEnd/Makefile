@@ -4,7 +4,8 @@ SANYTIZER = #-fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overf
 LINK_FLAGS = #-lpthread  -lasan -pg
 
 INCLUDE_PATH 	 = ./include ./IR
-FILES_TO_COMPILE = ./src/main.cpp ./src/AsmCtx.cpp ./src/SetTokenTree.cpp ./IR/Value.cpp ./IR/Module.cpp #./src/AstToIR.cpp #./src/TranslateToAsm.cpp
+FILES_TO_COMPILE = ./src/main.cpp ./src/AsmCtx.cpp ./src/SetTokenTree.cpp \
+				   ./IR/Value.cpp ./IR/Module.cpp ./src/Builder.cpp ./IR/ValueLabel.cpp ./src/AstToIR.cpp ./IR/Instruction.cpp ./src/DebugIR.cpp #./src/TranslateToAsm.cpp
 
 ATC_INCLUDE = ./ATC/RandomStuff/ ./ATC/Logger ./ATC/Buffer ./ATC/ConsoleColors ./ATC/Utils ./ATC/Debug ./ATC/SuperStack ./ATC/my_safety/
 ATC_FILES   = ./ATC/Buffer/my_buffer.cpp ./ATC/Logger/Logger.cpp ./ATC/Logger/tostring.cpp ./ATC/Logger/FunctionLogger.cpp ./ATC/SuperStack/SuperStack.cpp ./ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 
@@ -21,7 +22,7 @@ all: separator clear clear_screen
 run:
 	@echo ---------------------------------------------------------------- 
 	@echo Poleteli!!!!
-	@nice -n 19 ./$(OUT_NAME) $(ARGS)
+	./$(OUT_NAME) $(ARGS)
 	
 clear:
 	rm -rf $(OUT_NAME) 

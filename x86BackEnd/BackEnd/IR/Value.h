@@ -5,26 +5,13 @@
 #include "NoCopyable.h"
 #include "TypeDefs.h"
 
-struct Instruction;
-
-struct InstructionArr
-    {
-    Instruction** arr;
-
-    size_t size;
-    size_t capacity;
-    };
-
-int InstructionArrCtor  (InstructionArr* arr);
-int InstructionArrDtor  (InstructionArr* arr);
-int AddToInstructionArr (InstructionArr* arr, Instruction* inst, size_t instr_size);
-
 enum class ValueType
     {
-    Instruction, // -> Call, Ret, MathOp
     Function,
-    GlobalVar,   // type
+    GlobalVar,
+    BaseBlock,
     Constant,
+    Instruction,
     };
 
 struct Value : public NoCopyable
@@ -33,59 +20,58 @@ struct Value : public NoCopyable
     name_t         name;
     };
 
-struct BaseBlock : public Value
-    {
-    unsigned       n_instr;
-    InstructionArr inst_arr;
-    };
+int ValueCtor (Value* val, ValueType type, name_t name = NULL);
+int ValueDtor (Value* val);
 
-int BaseBlockCtor (BaseBlock* block);
-int BaseBlockDtor (BaseBlock* block);
-
-//////////////////////////////////////////////////////
 struct ValueArr
     {
+    enum ValueType base_type;
     Value** arr;
     
     size_t size;
     size_t capacity;
     };
 
-int ValueArrCtor   (ValueArr* arr);
+int ValueArrCtor   (ValueArr* arr, ValueType base_type);
 int ValueArrDtor   (ValueArr* arr);
-int AddToValueArr  (ValueArr* arr, Value* val, size_t val_size);
 
-struct BaseBlockArr
+Value* AddValue   (ValueArr* arr, Value* val);
+Value* AllocValue (ValueArr* arr, size_t val_size);
+
+//////////////////////////////////////////////////////
+struct BaseBlock : public Value
     {
-    BaseBlock** arr;
-
-    size_t size;
-    size_t capacity;
+    ValueArr inst_arr;
     };
 
-int BaseBlockArrCtor   (BaseBlockArr* arr);
-int BaseBlockArrDtor   (BaseBlockArr* arr);
-int AddToBaseBlockArr  (BaseBlockArr* arr, BaseBlock* block, size_t block_size = sizeof(BaseBlock));
+int BaseBlockCtor (BaseBlock* block);
+int BaseBlockDtor (BaseBlock* block);
 
 //////////////////////////////////////////////////////
 // Higher level sh*t
 //////////////////////////////////////////////////////
+struct Constant : public Value
+    {
+    data_t data;
+    };
+    
+int ConstantCtor (Constant* constant, data_t value);
+int ConstantDtor (Constant* constant);
+
 enum class VariableType
     {
     Double,
     Int, // just kidding 
     };
 
-struct Constant : public Value
-    {
-    data_t data;
-    };
-    
 struct GlobalVar : public Value
     {
     enum VariableType type;
-    Constant*        init_val;
+    Constant*      init_val;
     };
+
+int GlobalVarCtor (GlobalVar* var, name_t name, Constant* init_val);
+int GlobalVarDtor (GlobalVar* var);
 
 enum class FunctionRetType
     {
@@ -97,26 +83,9 @@ struct Function : public Value
     {
     enum FunctionRetType type;
 
-    ValueArr     argv;    
-    BaseBlockArr body;
+    ValueArr argv;    
+    ValueArr body;
     };
 
-int FunctionCtor (Function* func);
+int FunctionCtor (Function* func, name_t name);
 int FunctionDtor (Function* func);
-
-
-enum class OperatorType
-    {
-    Add,
-    Sub,
-    Mul,
-    Div,
-    };
-
-struct Operator : public Value
-    {
-    enum OperatorType type;
-    
-    Value* left_op;
-    Value* right_op;
-    };

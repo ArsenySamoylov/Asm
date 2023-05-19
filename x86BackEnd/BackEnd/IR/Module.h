@@ -3,7 +3,7 @@
 #include "Value.h"
 #include "Instructions.h"
 
-struct Module : NoCopyable
+struct Module
     {
     ValueArr global_vars;
     ValueArr functions;  

@@ -10,11 +10,13 @@
 //#pragma GCC diagnostic ignored "-Wcast-qual"
 #define $p(pointer)     do {printf("\t%s: %p\t\t(%s:%d)\n", #pointer, (void*)pointer, __FILE__, __LINE__); } while(0);
 
+#ifndef assert
 #define assert(condition)   do                          \
                             {                           \
                             if (!(condition))           \
                                 printf ("\033[91mASSERT\033[0m %s: Dyrachok, (%s) - is wrong condition (in line %d)\n", __func__, #condition, __LINE__); \
                             } while(0);
+#endif
 
 #define $                                                                                       \
     do                                                                                          \
@@ -30,7 +32,7 @@
 #define $$                                                          \
     do                                                              \
     {                                                               \
-    printf("Enter any key to continue (line %d, func %s)\n", __LINE__, __func__);       \
+    printf("Enter any key to continue (%s:%d)\n", __FILE__, __LINE__);       \
     getchar();                                                      \
     } while (0);  
     
