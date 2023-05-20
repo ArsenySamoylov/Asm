@@ -90,8 +90,6 @@ const Function* FindNativeFunction (Builder* buildog, int native_func_num)
     return NULL;
     }
         
-
-
 //////////////////////////////////////////////////////
 static Constant*  EmitConstant  (Builder* buildog, const Token* token);
 static Constant*  EmitConstant  (Builder* buildog, const Token* token)

@@ -82,7 +82,7 @@ static int ValueArrResize (ValueArr* arr)
     assert(temp);                                                                           
                                                                                             
     arr->capacity = new_size;                                                               
-    arr->arr      = temp;                                                                   
+arr->arr      = temp;                                                                   
                                                                                             
     return SUCCESS;                                                                         
     }

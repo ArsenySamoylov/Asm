@@ -10,7 +10,7 @@ struct ElfHeaders
     Elf64_Ehdr elf_header;
     
     Elf64_Phdr code_phdr;
-    Elf64_Phdr rodata_phdr;
+    Elf64_Phdr data_phdr;
     };
 
 int SetElfHeaders (ElfHeaders* elf);
@@ -20,7 +20,7 @@ struct Elf
     ElfHeaders headers;
     
     Buffer code_buf;
-    Buffer rodata_buf;
+    Buffer data_buf;
 
     Buffer program_buf; 
     };

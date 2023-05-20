@@ -8,7 +8,7 @@ int struct_name##Ctor (struct_name* arr)                                      \
     {                                                                         \
     assert(arr);                                                              \
                                                                               \
-    arr->arr = (base_struct**) calloc (START_ARR_SIZE, sizeof(base_struct**));\
+    arr->arr = (base_struct*) calloc (START_ARR_SIZE, sizeof(base_struct**));\
     assert(arr->arr);                                                         \
                                                                               \
     arr->size     = 0;                                                        \
@@ -29,7 +29,7 @@ int struct_name##Dtor (struct_name* arr)                        \
         }                                                       \
                                                                 \
     for (size_t i = 0; i < arr->size; i++)                      \
-        free(arr->arr[i]);                                      \
+        free(arr->arr + i);                                     \
                                                                 \
     free (arr->arr);                                            \
                                                                 \
@@ -47,7 +47,7 @@ static int struct_name##Resize (struct_name* arr)                               
                                                                                             \
     size_t new_size = arr->capacity * GROWTH_RATE;                                          \
                                                                                             \
-    base_struct** temp = (base_struct**) realloc (arr->arr, new_size * sizeof(temp[0]));    \
+    base_struct* temp = (base_struct*) realloc (arr->arr, new_size * sizeof(temp[0]));    \
     assert(temp);                                                                           \
                                                                                             \
     arr->capacity = new_size;                                                               \
@@ -86,7 +86,7 @@ int Add##add_struct (struct_name *arr, add_struct *val) \
     if (arr->size >= arr->capacity)                         \
         struct_name##Resize (arr);                          \
                                                             \
-    arr->arr[arr->size++] = val;                            \
+    arr->arr + arr->size++ = val;                            \
     return SUCCESS;                                         \
     }
 

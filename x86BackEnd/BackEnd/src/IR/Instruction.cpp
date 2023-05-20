@@ -32,7 +32,7 @@ int StoreCtor (Store* store, name_t name, Value* val)
     
     store->Value::name = name;
     store->Store::val = val;
-
+    
     return SUCCESS;
     }
 

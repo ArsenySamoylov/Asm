@@ -20,7 +20,7 @@
 #define CHECK_SUCCESS(condition, exit_name) if ((condition) != SUCCESS)  { GOTO_FAILURE_EXIT(exit_name)}
 
 void help();
-
+ 
 int main(int argc, const char* argv[])
   {
   $log(RELEASE)
