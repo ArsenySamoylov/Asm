@@ -13,67 +13,153 @@
 
 const size_t BAD_ADD = 0xBAD;
 
-static int PutMathOperation (int operation, GPRegisterNumber dest , GPRegisterNumber src); 
-static int PutJump  (int type, size_t address);
-static int PutCall  (size_t address);
-static int PutPush  (size_t address, GPRegisterNumber  reg);
-static int PutPushX (size_t address, XMMRegisterNumber reg);
-
-static int PutPop   (size_t address);
-static int PutPop   (GPRegisterNumber  reg);
-
-static int PutMov   (GPRegisterNumber dest, GPRegisterNumber src); 
-
-static int MovToGPReg (const Value* val, GPRegisterNumber num);
-
-
-//////////////////////////////////////////////////////
-static size_t DecreaseUsage (UsageTable* table, const Value* val);
-static size_t DecreaseUsage (UsageTable* table, const Value* val)
+static const char* GetOperationName (OperatorType type)
     {
-    assert(table);
-    assert(val);
-    
-    Usage*  usage = FindUsage (table, val->name);
-    assert (usage);
-    assert (usage->n_usage);
+    switch(type)
+        {
+        case OperatorType::Add: return "add";
+        case OperatorType::Sub: return "sub";
+        case OperatorType::Mul: return "mul";
+        case OperatorType::Div: return "div";
 
-    usage->n_usage--;
-    return usage->n_usage;
-    };
+        case OperatorType::Unknown: 
+        default:
+            return ("Unknown"); 
+        }
+    }
+
+static const char* GetRegName (GPRegisterNumber reg);
+static const char* GetRegName (GPRegisterNumber reg)
+    {
+    switch (reg)
+        {
+        case RAX: return "rax";
+        
+        case RDI: return "rdi";
+        case RSI: return "rsi";
+        case RDX: return "rdx";
+        case RCX: return "rcx";
+        case R8:  return "r8";
+        case R9:  return "r9";
+        
+        case RSP: return "rsp";
+        
+        case RBX: return "rbx";
+        case RBP: return "rbp";
+        case R10: return "r10";
+        case R11: return "r11";
+        case R12: return "r12";
+        case R13: return "r13";
+        case R14: return "r14";
+        case R15: return "r15";
+
+        default: return "unknown";
+        }
+    }
+
+static FILE* DUMP = NULL;
+const char* DUMP_FILE = "logs/dump.s";
+
+#define print(format, ...)                          \
+    do                                              \
+    {                                               \
+    fprintf(DUMP, "\t");                       \
+                                                    \
+    fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);      \
+    }while(0);
+
+#define print_rip()           fprintf(DUMP, "%x:\n", ctx->rip)
+#define print_label(VALUE)    fprintf(DUMP, "%s:\n", (VALUE)->name)
+#define print_ni(format, ...) fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);   
+
+static int PutMathOperation (OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest); 
+static int PutMathOperation (OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
+    {
+    print_ni ("%s %s -> %s\n", GetOperationName(operation), GetRegName(src), GetRegName(dest));
+    return 0;
+    }
+    
+static int PutJump  (int type, size_t address);
+static int PutJump  (int type, size_t address)
+    {
+    assert(type); // just for warning
+    print_ni ("%s %lu", "jmp" /*GetJ0umpName(type)*/, address);
+    return 0;
+    }
+
+static int PutCall  (size_t address);    
+static int PutCall  (size_t address)
+    {
+    print_ni ("call %lu", address);
+    return 0;
+    }
+
+static int PutPushR  (GPRegisterNumber reg);
+static int PutPushMR  (size_t address, GPRegisterNumber dest)
+    {
+    print_ni ("move %lu -> %s\n", address, GetRegName(dest));
+    return 0;
+    }
+
+static int PutPopM (size_t address);
+
+static int PutPopR (GPRegisterNumber  reg);
+
+static int PutMovRR (GPRegisterNumber src, GPRegisterNumber dest); 
+static int PutMovRR (GPRegisterNumber src, GPRegisterNumber dest)
+    {
+    print_ni ("mov %s -> %s\n", GetRegName(src), GetRegName(dest));
+    return 0;
+    }
 
 static GPRegisterNumber PutToGPReg (Context* ctx, const Value* val)
     {
     assert(ctx);
     assert(val);
+
+    Location* loc = FindLocation (ctx->value_usage, val->name);
+    assert(loc);
+
+    if (loc->type == LocationType::Register)
+        return loc->reg.number;
     
-    Usage*  usage = FindUsage (ctx->value_usage, val->name);
-    assert (usage);
+    Reg* free_reg = AllocateGPReg();
+    assert (free_reg->number > 0);
 
-    Location* location = &usage->location;
-
-    switch (location->type)
+    if (loc->type == LocationType::Stack)
         {
-        case LocationType::Stack:
-                            {
-                            GPRegisterNumber reg_num = AllocateGPReg(ctx, location);
-                            MovToGPReg (val, reg_num);
-
-                            location->type = LocationType::Register;
-                            location->reg.number = reg_num;
-
-                            return reg_num;
-                            }
-
-        case LocationType::Register:
-                            assert(location->reg.type == RegisterLocationType::GeneralPurpose);
-                            return (GPRegisterNumber) location->reg.number;
-
-        default:
-            assert(0);
+        print ("get from stack -> %s\n", GetRegName(free_reg->number));
         }
+    
+    if (loc->type == LocationType::Memory)
+        {
+        print ("get from mem -> %s\n", GetRegName(free_reg->number));
+        }
+
+    free_reg->loc = loc;
+
+    loc->type       = LocationType::Register;
+    loc->reg.number = free_reg->number;
+
+    return free_reg->number;
     }
 
+//////////////////////////////////////////////////////
+size_t DecreaseUsage (LocationTable* table, const Value* val);
+size_t DecreaseUsage (LocationTable* table, const Value* val)
+    {
+    assert(table);
+    assert(val);
+    
+    Location*  location = FindLocation (table, val->name);
+    assert (location);
+    assert (location->n_usage);
+
+    if (--location->n_usage == 0)
+        FreeReg (location->reg.number);
+
+    return location->n_usage;
+    };
 
 static int PutGlobalVars (Context* ctx, const ValueArr* global_vars);
 static int PutGlobalVar  (Context* ctx, const GlobalVar* var);
@@ -96,8 +182,17 @@ int PutIRinElf (const Module* mod, Elf* elf)
     Context ctx = {};
     ContextCtor (&ctx, elf);
 
+    DUMP = fopen (DUMP_FILE, "w");
+    assert (DUMP);
+    setvbuf (DUMP, NULL, _IONBF, 0);
+
+
     PutGlobalVars (&ctx, &mod->global_vars);
     PutFunctions  (&ctx, &mod->functions);
+
+
+    fclose(DUMP);
+    DUMP = NULL;
 
     return SUCCESS;
     }
@@ -122,13 +217,12 @@ static int PutGlobalVar  (Context* ctx, const GlobalVar* var)
     Address* var_ad = (Address*) calloc (1, sizeof(var_ad[0]));
     assert(var_ad);
 
-    var_ad->val = var;
-    var_ad->va  = GetVa (ctx, VAR_SIZE);
+    var_ad->name = var->name;
+    var_ad->va   = GetVa (ctx, VAR_SIZE);
 
     AddAddress (&ctx->global_vars, var_ad);
     return SUCCESS;
     }
-
 
 static int PutFunctions  (Context* ctx, const ValueArr* functions)
     {
@@ -140,21 +234,41 @@ static int PutFunctions  (Context* ctx, const ValueArr* functions)
 
     return SUCCESS;
     }
-    
+
+static int SetStackFrame (Context* ctx, size_t n_locals)
+    {
+    assert(ctx);
+
+    Reg* rbp = GetReg (RBP);
+    rbp->status = BUSY;
+
+    PutPushR  (rbp->number);
+    PutMovRR (RBP, RSP);
+
+    return SUCCESS;
+    }
+
 static int PutFunction (Context* ctx, const Function* function)
     {
     assert(function);
-    
+    print_label (function);
+
     Address* func_ad = (Address*) calloc (1, sizeof(func_ad[0]));
     assert(func_ad);
 
-    func_ad->val = function;    
-    func_ad->va  = GetVa (ctx, 0);
+    func_ad->name = function->name;    
+    func_ad->va   = GetVa (ctx, 0);
 
     AddAddress (&ctx->functions, func_ad);
 
     SetCtxForFunction (ctx);
-    SetValueUsage (ctx->value_usage,  function);
+    SetValuesUsage    (ctx->value_usage,  function);
+    
+    // SaveRegisters  ();
+    ResetRegisters ();
+
+    SetParametersRegisters (ctx, &function->argv);
+    SetStackFrame          (ctx, ctx->value_usage->n_local_vars);
 
     const ValueArr* body = &function->body;
     for (size_t i = 0; i < body->size; i++)
@@ -167,14 +281,15 @@ static int PutFunction (Context* ctx, const Function* function)
 static int PutBaseBlock  (Context* ctx, const BaseBlock* block)
     {
     assert(block);
-
+    print_label(block);
+    
     ctx->n_pushes = 0;
 
     Address* add = (Address*) calloc (1, sizeof(add[0]));
       assert(add);
 
-    add->val = block;
-    add->va  = GetVa (ctx, 0);
+    add->name = block->name;
+    add->va   = GetVa (ctx, 0);
 
     AddAddress (ctx->baseblocks, add);
 
@@ -185,6 +300,40 @@ static int PutBaseBlock  (Context* ctx, const BaseBlock* block)
     return SUCCESS;
     }
 
+static int PutOperator (Context* ctx, const Operator* op)
+    {
+    assert(ctx);
+    assert(op);
+
+    const Value* left_val  = op->left_op; 
+          assert(left_val);
+
+    const Value* right_val = op->right_op;
+          assert(right_val);
+
+    GPRegisterNumber left  = PutToGPReg (ctx, left_val);
+    GPRegisterNumber right = PutToGPReg (ctx, right_val);
+
+    DecreaseUsage (ctx->value_usage, left_val);
+    DecreaseUsage (ctx->value_usage, right_val);
+
+    GPRegisterNumber result = PutToGPReg (ctx, op);
+    
+    if (result == left)
+        {
+        PutMathOperation (op->type, right, left);
+        return 0;
+        }
+
+    if (result == right)
+        {
+        PutMathOperation (op->type, left, right);
+        return 0;
+        }
+
+    assert(0);
+    }
+        
 
 static int PutInstruction (Context* ctx, const Instruction* instr)
     {
@@ -200,7 +349,7 @@ static int PutInstruction (Context* ctx, const Instruction* instr)
                             return SUCCESS;
 
         case InstructionType::Operator:
-                            
+                            PutOperator (ctx, (const Operator*) instr);
                             return SUCCESS;
 
         case InstructionType::Branch:

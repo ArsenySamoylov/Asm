@@ -7,7 +7,7 @@
 
 struct Address
     {
-    const Value* val;
+    name_t name;
     size_t va;
     };
 
@@ -55,7 +55,7 @@ struct Context
 
     AddressTable* baseblocks;
     ReferenceArr* jump_refs;
-    UsageTable*   value_usage;
+    LocationTable*   value_usage;
 
     size_t rip;
 
@@ -73,19 +73,28 @@ int ContextDtor (Context* ctx);
 int SetCtxForFunction     (Context* ctx);
 int ClearCtxAfterFunction (Context* ctx);
 
+//////////////////////////////////////////////////////
+enum RegStatus
+    {
+    FREE,
+    BUSY,
+    };
+
+struct Reg
+    {
+    GPRegisterNumber number;
+    
+    Location* loc;
+    int status;
+    };
+
+Reg* GetReg (int number);
+int ResetRegisters ();
+int SetParametersRegisters (Context* ctx, const ValueArr* argv);
+
+int FreeReg (int number);
 
 // TODO instead of for loops MUST be Stack and Que respectively (because can be bugs with freeing last allocated reg);
-// XMMRegisterNumber AllocateXMMReg (Context* ctx, Location* loc);
-GPRegisterNumber AllocateGPReg (Context* ctx, Location* loc);
+Reg* AllocateGPReg (int status = 0);
 
-size_t GetVa (Context* ctx, size_t increase);
-
-#define print(format, ...)                          \
-    do                                              \
-    {                                               \
-    fprintf(DUMP_FILE, "\t");                       \
-                                                    \
-    fprintf(ctx->dump, format __VA_OPT__(,) __VA_ARGS__);      \
-    }while(0);
-
-#define print_rip() fprintf("%x:\n", ctx->rip)
+size_t GetVa (Context* ctx, size_t increase);   

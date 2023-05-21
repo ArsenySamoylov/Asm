@@ -4,18 +4,12 @@
 
 //////////////////////////////////////////////////////
 //              Location
-// stack                        register 
+// stack                        register        memory
 // -> offset                    -> reg_num
-// -> type                      -> type
-//      -> stack_offset               -> general purpose
-//      -> rbp offset                 -> XMM
+// -> type                      
+//      -> stack_offset               
+//      -> rbp offset                 
 //////////////////////////////////////////////////////
-enum class RegisterLocationType
-    {
-    GeneralPurpose, 
-    XMM, 
-    };
-
 enum GPRegisterNumber
     {
     // return value
@@ -32,41 +26,20 @@ enum GPRegisterNumber
     RSP = 7,
 
     // callee saved
-    RBX = 8, // temp register if needed    
-    RBP = 9,
+    RBX = 8, // 1 
+    RBP = 9, // 
 
-    R10 = 10,
-    R11 = 11,
-    R12 = 12,
-    R13 = 13,
-    R14 = 14,
-    R15 = 15,
+    R10 = 10, // 2
+    R11 = 11, // 3
+    R12 = 12, // 4
+    R13 = 13, // 5
+    R14 = 14, // 6
+    R15 = 15, // 7
     };
     
-enum XMMRegisterNumber
-    {
-    XMM0 = 0,
-    XMM1 = 1,  
-    XMM2 = 2, 
-    XMM3 = 3,   
-    XMM4 = 4, 
-    XMM5 = 5, 
-    XMM6 = 6, 
-    XMM7 = 7,
-    XMM8 = 8,     
-    XMM9 = 9,
-    XMM10 = 10,
-    XMM11 = 11,
-    XMM12 = 12,
-    XMM13 = 13,
-    XMM14 = 14,
-    XMM15 = 15,
-    };
-
 struct RegisterLocation
     {
-    enum RegisterLocationType type;
-    size_t number;
+    GPRegisterNumber number;
     };
 
 //////////////////////////////////////////////////////
@@ -87,6 +60,7 @@ enum class LocationType
     {
     Stack,
     Register,
+    Memory,
     NoWhere
     };
 
@@ -96,20 +70,14 @@ struct Location
 
     StackLocation stack;
     RegisterLocation reg;
-    };
-//////////////////////////////////////////////////////
-
-struct Usage
-    {
-    Value* val;
+    
     size_t n_usage;
-
-    Location location;
+    name_t name;
     };
 
-struct UsageTable
+struct LocationTable
     {
-    Usage** arr;
+    Location** arr;
 
     size_t size;
     size_t capacity;
@@ -117,10 +85,10 @@ struct UsageTable
     size_t n_local_vars = 0;
     };
 
-int UsageTableCtor (UsageTable* arr);
-int UsageTableDtor (UsageTable* arr);
+int LocationTableCtor (LocationTable* arr);
+int LocationTableDtor (LocationTable* arr);
 
-int AddUsage (UsageTable* arr, Usage* use);
-Usage* FindUsage (UsageTable* arr, const char* name);
+int AddLocation (LocationTable* arr, Location* use);
+Location* FindLocation (LocationTable* arr, name_t name);
 
-int SetValueUsage (UsageTable* table, const Function* func);
+int SetValuesUsage (LocationTable* table, const Function* func);

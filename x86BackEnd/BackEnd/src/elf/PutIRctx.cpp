@@ -29,8 +29,6 @@ ARR_ADD    (ReferenceArr, Reference)
 #undef COPY_TO_ARR
 
 //////////////////////////////////////////////////////
-const char* DUMP_FILE = "logs/dump.s";
-
 int ContextCtor (Context* ctx, Elf* elf)
     {
     assert(ctx);
@@ -47,10 +45,6 @@ int ContextCtor (Context* ctx, Elf* elf)
 
     ctx->code = &elf->code_buf;
     ctx->data = &elf->data_buf;
-
-    ctx->dump = fopen (DUMP_FILE, "w");
-    assert(ctx->dump);
-    setvbuf (ctx->dump, NULL, _IONBF, 0);
 
     return SUCCESS;
     }
@@ -71,9 +65,6 @@ int ContextDtor (Context* ctx)
     ctx->code = NULL;
     ctx->data = NULL;
 
-    fclose(ctx->dump);
-    ctx->dump = NULL;
-
     return SUCCESS;
     }
 
@@ -91,9 +82,9 @@ int SetCtxForFunction (Context* ctx)
               assert(jump_refs);
     ReferenceArrCtor(jump_refs);
 
-    UsageTable*    table = (UsageTable*) calloc (1, sizeof(table[0])) ;
+    LocationTable*    table = (LocationTable*) calloc (1, sizeof(table[0])) ;
            assert (table);
-    UsageTableCtor(table);
+    LocationTableCtor(table);
 
     ctx->baseblocks  = baseblocks_table;
     ctx->jump_refs   = jump_refs;
@@ -114,90 +105,147 @@ int ClearCtxAfterFunction (Context* ctx)
     ReferenceArrDtor (ctx->jump_refs);
     free (ctx->jump_refs);
 
-    UsageTableDtor (ctx->value_usage);
+    LocationTableDtor (ctx->value_usage);
     free (ctx->value_usage);
 
     return SUCCESS;
     }
 
 //////////////////////////////////////////////////////
-struct Reg
-    {
-    enum RegisterLocationType type;
-    GPRegisterNumber number;
-    Location* loc;
-    };
-
 Reg GeneralPurposeRegs[] = {
-{RegisterLocationType::GeneralPurpose, RAX, NULL}, 
-{RegisterLocationType::GeneralPurpose, RDI, NULL}, 
-{RegisterLocationType::GeneralPurpose, RSI, NULL}, 
-{RegisterLocationType::GeneralPurpose, RDX, NULL}, 
-{RegisterLocationType::GeneralPurpose, RCX, NULL}, 
-{RegisterLocationType::GeneralPurpose, R8, NULL}, 
-{RegisterLocationType::GeneralPurpose, R8, NULL}, 
+{ RAX, NULL, FREE }, 
+
+{ RDI, NULL, FREE }, 
+{ RSI, NULL, FREE }, 
+{ RDX, NULL, FREE }, 
+{ RCX, NULL, FREE }, 
+{ R8,  NULL, FREE }, 
+{ R9,  NULL, FREE },
+
+{ RSP, NULL, BUSY },
+
+{ RBX, NULL, FREE }, 
+{ RBP, NULL, FREE }, 
+{ R10, NULL, FREE }, 
+{ R11, NULL, FREE }, 
+{ R12, NULL, FREE }, 
+{ R13, NULL, FREE }, 
+{ R14, NULL, FREE }, 
+{ R15, NULL, FREE }, 
 };
 
-const int NUMBER_OF_GP_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
+const int NUMBER_OF_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
 
 // TODO instead of for loops MUST be Stack and Que respectively (because can be bugs with freeing last allocated reg);
-GPRegisterNumber AllocateGPReg (Context* ctx, Location* loc)
+static int FreeUnusedLocations ();
+static int FreeUnusedLocations ()
     {
-    assert(ctx);
-    assert(loc->type != LocationType::Register);
+    int number_of_frees_regs = 0;
 
-    static int n_free_regs = NUMBER_OF_GP_REGS;
-    static int n_busy_regs = 0;
-
-    for (int i = 0; i < NUMBER_OF_GP_REGS; i++)
+    for (size_t i = 0; i < NUMBER_OF_REGS; i++)
         {
-        Reg reg = GeneralPurposeRegs[i];
-
-        if (reg.loc)
+        Reg reg  = GeneralPurposeRegs[i];
+        
+        if (reg.status == FREE)
             continue;
         
-        reg.loc = loc;
+        Location* loc = reg.loc;
+        assert(loc);
 
-        loc->type       = LocationType::Register;
-        loc->reg.type   = RegisterLocationType::GeneralPurpose;
-        loc->reg.number = reg.number;
+        if (loc->n_usage > 0)
+            continue;
+
+        reg.loc    = NULL;
+        reg.status = FREE;
+
+        number_of_frees_regs++;
+        }
+    
+    return number_of_frees_regs;
+    }
+
+Reg* AllocateGPReg (int status)
+    {
+    static int n_free_regs = NUMBER_OF_REGS;
+    static int n_busy_regs = 0;
+
+    for (int i = 0; i < NUMBER_OF_REGS; i++)
+        {
+        Reg*    reg = GeneralPurposeRegs + i;
+        assert (reg);
+
+        if (reg->status == BUSY)
+            continue;
+
+        assert(reg->loc == NULL);
 
         n_free_regs--;
         n_busy_regs++;
 
-        return reg.number;
+        reg->status = BUSY;
+
+        return reg;
         }
 
-    UsageTable* table = ctx->value_usage;
-
-    for (size_t i = 0; i < table->size; i++)
-        {
-        Usage*  temp = table->arr[i];
-        assert (temp);
-
-        if (temp->n_usage != 0)
-            continue;
-
-        Location* temp_loc = &temp->location;
-
-        if (temp_loc->type != LocationType::Register)
-            continue;
-
-        if (temp_loc->reg.type != RegisterLocationType::GeneralPurpose)
-            continue;
-
-        GPRegisterNumber reg_num = (GPRegisterNumber) temp_loc->reg.number;
-        temp_loc->type = LocationType::NoWhere;
-
-        Reg reg  = GeneralPurposeRegs[reg_num];
-        assert (reg_num == reg.number);
-
-        reg.loc = loc;
-        return reg_num;
-        }
+    assert (status == SUCCESS); // to prevent recursion
+    if (FreeUnusedLocations () > 0)
+        return AllocateGPReg (FAILURE);
     
     // TODO: locate space on stack and push, or put local
     assert(0);
+    }
+
+Reg* GetReg (int number)
+    {
+    assert(number >= 0 && number < NUMBER_OF_REGS); 
+    return GeneralPurposeRegs + number;
+    }
+
+int ResetRegisters ()
+    {
+    for (int i =0; i < NUMBER_OF_REGS; i++)
+        {
+        if (i == RSP)
+            continue;
+
+        FreeReg (i);
+        }
+    
+    return SUCCESS;
+    }
+
+int SetParametersRegisters (Context* ctx, const ValueArr* argv)
+    {
+    assert(ctx);
+    assert(argv);
+
+    size_t n_param = argv->size;
+    assert(n_param <= 6);
+
+    report ("Argv = %lu\n", n_param);
+
+    for (size_t i = RDI; i < n_param; i++)
+        {
+        Reg* param =  GeneralPurposeRegs + i;
+        assert(param);
+
+        param->status = BUSY;
+        }
+
+    return SUCCESS;
+    }
+
+int FreeReg (int number)
+    {
+    assert(number >= 0 && number < NUMBER_OF_REGS); 
+
+    Reg*  reg = GeneralPurposeRegs + number;
+    assert(reg);
+
+    reg->loc    = NULL;
+    reg->status = FREE;
+    
+    return SUCCESS;
     }
 
 size_t GetVa (Context* ctx, size_t increase)

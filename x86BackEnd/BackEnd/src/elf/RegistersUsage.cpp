@@ -12,10 +12,10 @@
 
 #include "ArrayTemplate.h"
 
-ARR_CTOR   (UsageTable, Usage)
-ARR_DTOR   (UsageTable, Usage)
-ARR_RESIZE (UsageTable, Usage)
-ARR_ADD    (UsageTable, Usage)
+ARR_CTOR   (LocationTable, Location)
+ARR_DTOR   (LocationTable, Location)
+ARR_RESIZE (LocationTable, Location)
+ARR_ADD    (LocationTable, Location)
 
 #undef ARR_CTOR   
 #undef ARR_DTOR   
@@ -24,17 +24,17 @@ ARR_ADD    (UsageTable, Usage)
 #undef FIND_IN_ARR
 #undef COPY_TO_ARR
 
-Usage* FindUsage (UsageTable* arr, const char* name)
+Location* FindLocation (LocationTable* arr, const char* name)
     {
     assert(arr);
     assert(name);
 
     for (size_t i = 0; i < arr->size; i++)
         {
-        Usage* temp = arr->arr[i];
+        Location* temp = arr->arr[i];
         assert(temp);
 
-        const char* temp_name = temp->val->name;
+        const char* temp_name = temp->name;
         
         if (!temp_name)
             continue;
@@ -46,11 +46,10 @@ Usage* FindUsage (UsageTable* arr, const char* name)
     return NULL;
     }
 
-static int CountUsage (UsageTable* table, const Instruction* instr);
-static int CheckUsage (UsageTable* table, const Value* val);
+static int CountLocation (LocationTable* table, const Instruction* instr);
+static int CheckLocation (LocationTable* table, const Value* val);
 
-
-int SetValueUsage (UsageTable* table, const Function* func)
+int SetValuesUsage (LocationTable* table, const Function* func)
     {
     assert(func);
     assert(table);
@@ -63,46 +62,46 @@ int SetValueUsage (UsageTable* table, const Function* func)
         
         const ValueArr* inst_arr = &block->inst_arr;
         for (size_t j = 0; j < inst_arr->size; j++)
-            CountUsage (table, (const Instruction*) inst_arr->arr[j]);
+            CountLocation (table, (const Instruction*) inst_arr->arr[j]);
         }
 
     return SUCCESS;
     }
 
-static int CountUsage (UsageTable* table, const Instruction* instr)
+static int CountLocation (LocationTable* table, const Instruction* instr)
     {
     assert(table);
     assert(instr);
 
-    CheckUsage(table, instr);
+    CheckLocation(table, instr);
 
     switch (instr->Instruction::type)
         {
         case InstructionType::Store:
-                            CheckUsage (table, ((const Store*)instr)->val);
+                            CheckLocation (table, ((const Store*)instr)->val);
                             return SUCCESS; 
                             
         case InstructionType::Load:
-                            CheckUsage (table, ((const Load*)instr)->dest);  
-                            CheckUsage (table, ((const Load*)instr)->src);
+                            CheckLocation (table, ((const Load*)instr)->dest);  
+                            CheckLocation (table, ((const Load*)instr)->src);
 
                             return SUCCESS;
 
         case InstructionType::Operator:
-                            CheckUsage (table, ((const Operator*)instr)->left_op);
-                            CheckUsage (table, ((const Operator*)instr)->right_op);
+                            CheckLocation (table, ((const Operator*)instr)->left_op);
+                            CheckLocation (table, ((const Operator*)instr)->right_op);
 
                             return SUCCESS;
 
         case InstructionType::Branch:
-                            CheckUsage (table, ((const Branch*)instr)->condition);
+                            CheckLocation (table, ((const Branch*)instr)->condition);
                             return SUCCESS;
 
         case InstructionType::Call: 
                             return SUCCESS;
 
         case InstructionType::Return: 
-                            CheckUsage (table, ((const Return*)instr)->value);
+                            CheckLocation (table, ((const Return*)instr)->value);
                             return  SUCCESS;
 
         default:
@@ -113,7 +112,7 @@ static int CountUsage (UsageTable* table, const Instruction* instr)
     return FAILURE;
     }
 
-static int CheckUsage (UsageTable* table, const Value* val)
+static int CheckLocation (LocationTable* table, const Value* val)
     {
     assert(table);
     assert(val);
@@ -123,35 +122,33 @@ static int CheckUsage (UsageTable* table, const Value* val)
 
     name_t name = val->name;
 
-    Usage* val_usage = FindUsage (table, name);
+    Location* val_location = FindLocation (table, name);
 
-    if (val_usage)
+    if (val_location)
         {
-        val_usage->n_usage++;
+        val_location->n_usage++;
         return SUCCESS;
         }
 
-    val_usage = (Usage*) calloc (1, sizeof(val_usage[0]));
-    assert(val_usage);
+    val_location = (Location*) calloc (1, sizeof(val_location[0]));
+    assert(val_location);
 
-    val_usage->val    =  0;
-    val_usage->n_usage = 0;
-
-    Location* location = &val_usage->location;
+    val_location->name       = name;
+    val_location->n_usage    = 0;
     
     if (                     val ->type == ValueType      ::Instruction && 
         ((const Instruction*)val)->type == InstructionType::Store) 
         {
-        location->type = LocationType::Stack;
+        val_location->type = LocationType::Stack;
         
-        location->stack.type    = StackLocationType::Local;
-        location->stack.offset  = table->n_local_vars++; 
+        val_location->stack.type    = StackLocationType::Local;
+        val_location->stack.offset  = table->n_local_vars++; 
         }
     else
         {
-        location->type = LocationType::NoWhere;
+        val_location->type = LocationType::NoWhere;
         }
 
-    AddUsage (table, val_usage);
+    AddLocation (table, val_location);
     return SUCCESS;
     }
