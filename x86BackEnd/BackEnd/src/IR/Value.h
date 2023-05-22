@@ -52,6 +52,8 @@ int BaseBlockDtor (BaseBlock* block);
 //////////////////////////////////////////////////////
 // Higher level sh*t
 //////////////////////////////////////////////////////
+const int PRECISION = 100;
+
 struct Constant : public Value
     {
     data_t data;

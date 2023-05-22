@@ -1,37 +1,9 @@
-Declare function 'fucktorial' (param number, param fff):
-entry_fucktorial:
-	%op_0 = Unknown number, 1
-	br %op_0, label than_0, label merge_0
-
-than_0:
-	temp = store(number)
-	%op_1 = Unknown number, 0
-	%op_2 = Unknown number, 0
-	%op_3 = add %op_1, %op_2
-	%c_4 = call: fout (param %op_3)
-	%op_5 = sub number, 1
-	%c_6 = call: fucktorial (param %op_5, param -666)
-	%op_7 = mul temp, %c_6
-
-	return %op_7
-	br label merge_0
-
-merge_0:
-
-	return 1
-	ded = store(-1)
-
-Declare function 'main' (param argc, param argv):
+Declare function 'main' ():
 entry_main:
-	%op_8 = mul  'No value' , 10
-	%op_9 = add 0, 1
-	%c_10 = call: fucktorial (param %op_8, param %op_9)
-	test = store(%c_10)
-	%op_11 = mul 1, test
-	test = load %op_11
+	ded = store(0)
+	%c_0 = call: fin ()
+	ded = load %c_0
+	call: fout (param ded)
 
 	return 0
-	%c_12 = call: fucktorial (param 1, param 7)
-	%op_13 = mul 84, %c_12
-	uselles = store(%op_13)
 

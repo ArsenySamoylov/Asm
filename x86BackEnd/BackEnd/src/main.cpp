@@ -11,7 +11,7 @@
 
 #include "DefGraphVis.h"
 
-#include "my_buffer.h"
+// #include "my_buffer.h"
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 
@@ -21,6 +21,9 @@
 
 void help();
  
+#include "Elf.hpp"
+int PutIRinElf (const Module* mod, Elf* elf);
+
 int main(int argc, const char* argv[])
   {
   $log(RELEASE)
@@ -40,15 +43,21 @@ int main(int argc, const char* argv[])
   Module program_module;
   ModuleCtor (&program_module);
 
+  Elf elf = {};
+  ElfCtor (&elf);
+
   CHECK_SUCCESS(GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
 
   MakeImg("kek_back_End", &program); 
-
+  printf ("\n");
+  
   // CHECK_SUCCESS (SetTokenTree(&program), BAD_TOKEN_TREE);   // don't kill name tables, store pointer to label in token
 
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
   DumpIR (&program_module, "test.ir");
-  
+
+  CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
+
   ProgramDtor(&program);
   ModuleDtor(&program_module);
   

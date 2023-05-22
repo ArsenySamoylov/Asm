@@ -5,6 +5,7 @@
         "Ehdr",
         "fout",
         "Initializator",
+        "movzbl",
         "rodata"
     ]
 }

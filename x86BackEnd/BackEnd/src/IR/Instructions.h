@@ -75,6 +75,9 @@ enum class OperatorType
     Mul,
     Div,
 
+    Bigger,
+    Less,
+
     Unknown
     };
 

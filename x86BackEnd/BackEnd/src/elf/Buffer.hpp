@@ -6,11 +6,9 @@ struct Buffer
     {
     byte* buffer;
     
-    size_t current_size;
-    size_t max_size;
+    size_t size;
+    size_t capacity;
     };
-
-
 
 int BufferCtor (Buffer* buf);
 int BufferDtor (Buffer* buf);

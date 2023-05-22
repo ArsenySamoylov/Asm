@@ -294,7 +294,7 @@ void setindent (int indent)
 
 int BufferCtor (Buffer* buf, const char* string)
     {
-    $log(DEBUG_ALL)
+    //$log(DEBUG_ALL)
     CHECK (buf, return LFAILURE);
 
     buf->buffer = string; 
@@ -308,7 +308,7 @@ int BufferCtor (Buffer* buf, const char* string)
 
 int BufferCtor (Buffer* buf, int size)
     {
-    $log(DEBUG_ALL)
+    //$log(DEBUG_ALL)
     assertlog (buf, EFAULT, return LFAILURE);
 
     buf->buffer = (const char*) CALLOC (size, sizeof(buf->buffer[0])); 
@@ -446,7 +446,7 @@ int  BufferPutDouble (Buffer* buf, double val)
 int  BufferPutChar   (Buffer* buf, char   ch)
     {
     assert(buf);
-
+`
     int n = 0;
     if ((sprintf(buf->str, "%c%n", ch, &n) == 0) && n == 0)
         return LFAILURE;

@@ -80,7 +80,7 @@ static int DumpGlobalVar  (const GlobalVar* var)
     print("declare %s = ", var->name);
 
     if (var->init_val)
-        print_ni("%lg\n", var->init_val->data);
+        print_ni("%lg\n", ((double)var->init_val->data) / PRECISION);
     else
         print_ni("NILL\n");
 
@@ -213,7 +213,12 @@ static int DumpInstruction (const Instruction* instr)
                             }
 
         case InstructionType::Call:
-                            print     ("%s = call: ", instr->name);
+                            if (((const Call*) instr)->function->type == FunctionRetType::Double)
+                                 { print ("%s = ", instr->name); } 
+                            else
+                                 { print (""); }
+
+                            print_ni  ("call: ");
                             PrintName (((const Call*) instr) ->function);
                             print_ni  (" ");
 
@@ -247,7 +252,7 @@ static int PrintName (const Value* val)
         return SUCCESS;
         }
     
-    if (val->name)
+    if (val->name && val->type != ValueType::Constant)
         {
         print_ni("%s", val->name);
         return SUCCESS;
@@ -260,7 +265,8 @@ static int PrintName (const Value* val)
                 break;
 
         case ValueType::Constant:
-            print_ni ("%lg", ((const Constant*) val)->data);
+            print_ni ("%lg", ((double) ((const Constant*) val)->data) / PRECISION);
+            //  print_ni(" (%s)", val->name);
             break;
 
         case ValueType::Instruction:
@@ -351,6 +357,9 @@ static int PrintOperator (const Operator* op)
         case OperatorType::Mul: print_ni ("mul"); return SUCCESS;
         case OperatorType::Div: print_ni ("div"); return SUCCESS;
 
+        case OperatorType::Bigger: print_ni ("bigger"); return SUCCESS;
+        case OperatorType::Less:   print_ni ("less");   return SUCCESS;
+
         case OperatorType::Unknown: 
         default:
             print_ni ("Unknown"); 
@@ -369,11 +378,120 @@ int PrintValue (const Value* val)
     DUMP_FILE = stdout;
     setvbuf(DUMP_FILE, NULL, _IONBF, 0);
     
-    print ("Value %p:", val);
-    PrintName (val);
+    print ("Value %p: ", val);
+    // PrintName (val);
+    PrintFullType (val);
     print_ni ("\n");
 
     DUMP_FILE = temp;
 
     return SUCCESS;
+    }
+
+
+
+static int DumpInstructionForFile (const Instruction* instr);
+
+int WriteToFile (FILE* out, const Instruction* instr)
+    {
+    assert(out);
+    assert(instr);
+    
+    FILE* temp = DUMP_FILE;
+
+    DUMP_FILE = out;
+    DumpInstructionForFile (instr);
+    DUMP_FILE = temp;
+
+    return SUCCESS;
+    }
+
+static int DumpInstructionForFile (const Instruction* instr)
+    {
+    assert(instr);
+
+    switch (instr->Instruction::type)
+        {
+        case InstructionType::Store:
+                            print ("%s = store(", instr->name);
+                            PrintName(((const Store*) instr) ->val);
+                            print_ni(")");
+
+                            return SUCCESS; 
+                            
+        case InstructionType::Load:
+                            print     ("");
+                            PrintName (((const Load*) instr) ->dest);
+                            print_ni  (" = load ");
+                            PrintName (((const Load*) instr) ->src);
+
+                            return SUCCESS;
+
+        case InstructionType::Operator:
+                            print          ("");
+                            PrintName      (instr);
+                            print_ni       (" = "); 
+                            PrintOperator  ((const Operator*) instr);
+                            
+                            print_ni   (" ");
+                            PrintName  (((const Operator*) instr) ->left_op);
+                            print_ni   (", ");
+                            PrintName  (((const Operator*) instr)     ->right_op);
+
+                            return SUCCESS;
+
+        case InstructionType::Branch:
+                            {
+                            print("br ");
+
+                            Value* condition = ((const Branch*) instr)->condition;
+
+                            if (condition)
+                                {
+                                PrintName (condition);
+                                print_ni  (", ");    
+                                }
+
+                            print_ni  ("label ");  
+                            PrintName (((const Branch*) instr)   ->true_block);
+
+                            if (condition)
+                                {
+                                print_ni  (", label ");
+                                PrintName (((const Branch*) instr) ->false_block);
+                                }
+
+                            return SUCCESS;
+                            }
+
+        case InstructionType::Call:
+                            if (((const Call*) instr)->function->type == FunctionRetType::Double)
+                                {
+                                print ("%s = ", instr->name);
+                                }
+                            else
+                                {
+                                print ("");
+                                }
+
+                            print_ni     ("call: ");
+                            PrintName (((const Call*) instr) ->function);
+                            print_ni  (" ");
+
+                            DumpParameters (&(((const Call*) instr) ->argv));
+
+                            return SUCCESS;
+
+        case InstructionType::Return: 
+                            print     ("return ");
+                            PrintName (((const Return*) instr) ->value);
+
+                            return  SUCCESS;
+
+        default:
+            report ("Unkown Instruction type\n");
+            break;
+        }
+
+    return FAILURE;
     }

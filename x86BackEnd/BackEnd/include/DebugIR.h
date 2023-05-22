@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdio.h>
+
 #include "Module.h"
 
 int DumpIR (const Module* mod, const char* out_file);
@@ -9,3 +11,6 @@ int DumpIR (const Module* mod, const char* out_file);
     PrintValue(val);
 
 int PrintValue (const Value* val);
+
+int WriteToFile (FILE* out, const Instruction* instr);
+

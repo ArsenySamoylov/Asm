@@ -24,7 +24,7 @@ int SetElfHeaders (ElfHeaders* elf)
 
     SetPhdr (&elf->code_phdr,     CODE_VIRTUAL_ADDRESS, PF_X | PF_R);
     printf("setting VirAdd: 0x%x\n", elf->code_phdr.p_vaddr);
-    SetPhdr (&elf->rodata_phdr, RODATA_VIRTUAL_ADDRESS, PF_R);
+    SetPhdr (&elf->data_phdr, RODATA_VIRTUAL_ADDRESS, PF_R);
     
     return SUCCESS;
     }
@@ -98,10 +98,10 @@ int ElfCtor (Elf* elf)
     assert(elf);
 
     SetElfHeaders(&elf->headers);
-     printf("ElfXCtor VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
+    printf("ElfXCtor VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
 
     BufferCtor (&elf->code_buf);
-    BufferCtor (&elf->rodata_buf);
+    BufferCtor (&elf->data_buf);
     
     BufferCtor (&elf->program_buf);
 
@@ -113,7 +113,7 @@ int ElfDtor (Elf* elf)
     assert(elf);
 
     BufferDtor (&elf->code_buf);
-    BufferDtor (&elf->rodata_buf);
+    BufferDtor (&elf->data_buf);
     
     BufferDtor (&elf->program_buf);
 
@@ -133,17 +133,17 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
     assert(out_file);
     
     printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
-    SetPhdrSize (&elf->headers.code_phdr,   elf->code_buf.current_size); 
-    SetPhdrSize (&elf->headers.rodata_phdr, elf->rodata_buf.current_size);
+    SetPhdrSize (&elf->headers.code_phdr, elf->code_buf.size); 
+    SetPhdrSize (&elf->headers.data_phdr, elf->data_buf.size);
      printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
 
     size_t program_size = sizeof(ElfHeaders); 
     printf ("Write elf: program_size 0x%x\n", program_size);
     SetPhdrOffset (&elf->headers.code_phdr,   program_size);
-           program_size += elf->code_buf.current_size;
+           program_size += elf->code_buf.size;
 
-    SetPhdrOffset (&elf->headers.rodata_phdr, program_size);
-           program_size += elf->rodata_buf.current_size;
+    SetPhdrOffset (&elf->headers.data_phdr, program_size);
+           program_size += elf->data_buf.size;
 
     FlushHeaders      (elf);
     FlushSegmentsData (elf);
@@ -161,7 +161,7 @@ static int FlushSegmentData (Elf64_Phdr* segment, Buffer* src, Buffer* program_b
     assert(program_buf);
 
     Elf64_Off segment_off = segment->p_offset;
-    uint64_t data_size    = src->current_size;
+    uint64_t data_size    = src->size;
     
     //printf("FlushSegmentData: segment_off: 0x%x, data_size: 0x%x\n", segment_off, data_size);
     //printf("data: %.4s\n", (char*) src->buffer);
@@ -176,8 +176,8 @@ static int FlushSegmentsData (Elf* elf)
     {
     assert(elf);
     
-    FlushSegmentData (&elf->headers.code_phdr,   &elf->code_buf,   &elf->program_buf);
-    FlushSegmentData (&elf->headers.rodata_phdr, &elf->rodata_buf, &elf->program_buf);
+    FlushSegmentData (&elf->headers.code_phdr, &elf->code_buf, &elf->program_buf);
+    FlushSegmentData (&elf->headers.data_phdr, &elf->data_buf, &elf->program_buf);
     
     return SUCCESS;
     }
@@ -192,6 +192,7 @@ static int FlushHeaders (Elf* elf)
     };
 
 
+/*
 #pragma GCC diagnostic ignored "-Wnarrowing"
 
 char test_op_codes[] = { 0x48, 0x83, 0xc4, 0x08, 
@@ -204,7 +205,7 @@ int main()
     ElfCtor (&elf);
 
     elf.code_buf.buffer       = (byte*) test_op_codes;
-    elf.code_buf.current_size = sizeof(test_op_codes);
+    elf.code_buf.size = sizeof(test_op_codes);
     
     printf("ElfHdr = 0x%X, 2 * Phdr = 2* 0x%X, Total: 0x%x\n", 
            sizeof(Elf64_Ehdr), sizeof(Elf64_Phdr), sizeof(Elf64_Ehdr) + NUMBER_OF_SEGMENTS * sizeof(Elf64_Phdr));
@@ -214,7 +215,7 @@ int main()
 
     return SUCCESS;
 
-    /*
+    
     FILE* test = fopen ("test.out", "wr");
     assert(test);
 
@@ -237,10 +238,7 @@ int main()
     fclose (test);
     
 // chmod +rwxXst test.out
-    */
+
     return 0;
     }
-
-
-
-
+*/

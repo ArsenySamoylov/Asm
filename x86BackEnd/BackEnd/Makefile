@@ -9,7 +9,7 @@ COMMON_INCLUDE  = ../Common/ ../Common/StandartAWP  ../Common/Structures/ ../Com
 
 FILES_TO_COMPILE = src/main.cpp src/AsmCtx.cpp src/SetTokenTree.cpp 
 IR_FILES 		 = src/IR/StringPool.cpp src/IR/Value.cpp src/IR/Module.cpp src/IR/Builder.cpp src/IR/ValueLabel.cpp src/IR/AstToIR.cpp src/IR/Instruction.cpp src/IR/DebugIR.cpp 
-ELF_FILES = src/elf/RegistersUsage.cpp src/elf/PutIRctx.cpp src/elf/PutIRinElf.cpp
+ELF_FILES = src/elf/RegistersUsage.cpp src/elf/PutIRctx.cpp src/elf/PutIRinElf.cpp src/elf/Elf.cpp src/elf/Buffer.cpp
 
 ATC_FILES = ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 	
 ATC_OBJ	  = 		   my_buffer.o				Logger.o 			  tostring.o			  FunctionLogger.o					SuperStack.o				  DebugFunctions.o        			 my_safety.o 
@@ -28,10 +28,11 @@ build:
 	@g++ $(addprefix -I, $(INCLUDE_PATH)) $(addprefix -I, $(ATC_INCLUDE)) $(addprefix -I, $(COMMON_INCLUDE))   $(ATC_FILES) $(COMMONT_COMPILE)	  -c $(SANYTIZER) $(CFLAGS)
 	@g++ $(addprefix -I, $(ATC_INCLUDE))  $(addprefix -I, $(COMMON_INCLUDE))  -c $(SANYTIZER) $(LFLAGS)
 
-run:
+run: 
 	@echo ---------------------------------------------------------------- 
 	@echo Poleteli!!!!
 	./$(OUT_NAME) $(ARGS)
+	gcc logs/dump.s logs/fin.o logs/fout.o -o asm.out
 	
 clear:
 	rm -rf $(OUT_NAME) 

@@ -44,6 +44,8 @@ static int AddNativeFunctions (Builder* buildog)
     return SUCCESS;
     }
 
+static int FIN_NAME_ID = 0;
+
 static int AddNativeFunction (ValueNameTable* name_table, const NativeFunctionStruct* native_func)
     {
     assert(name_table);
@@ -55,6 +57,9 @@ static int AddNativeFunction (ValueNameTable* name_table, const NativeFunctionSt
                   func->Function::type = GetRetType (native_func->ret_type);
 
     int name_id = AddString (native_func->str);
+
+    if (!strcmp(native_func->str, "fin"))
+        FIN_NAME_ID = name_id;
 
     ValueLabel function_label = {.name_id = name_id,
                                  .type    = FUNCTION,
@@ -91,6 +96,8 @@ const Function* FindNativeFunction (Builder* buildog, int native_func_num)
     }
         
 //////////////////////////////////////////////////////
+unsigned N_CONSTANT = 0;
+
 static Constant*  EmitConstant  (Builder* buildog, const Token* token);
 static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     {
@@ -98,8 +105,9 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     assert(token);
 
     Constant* constant = (Constant*) calloc (1, sizeof(constant[0]));
-    ConstantCtor (constant, CONST(token));
+    ConstantCtor (constant, (int) (CONST(token) * 100));
 
+    constant->name = CreateString ("const_%d", N_CONSTANT++);
     return constant;
     }
 
@@ -203,8 +211,9 @@ OperatorType GetOperatorType (int type)
         case SUB: return OperatorType::Sub;
         case MUL: return OperatorType::Mul;
         case DIV: return OperatorType::Div;
-        case BIGGER:
-        case LESS:
+        
+        case BIGGER: return OperatorType::Bigger;
+        case LESS:   return OperatorType::Less; 
 
         default:
             report("Unknow operator type (%d)\n", type);
@@ -348,7 +357,7 @@ static Function* AddFunction (Builder* buildog, const Token* token)
     FunctionCtor(func, GetString(NAME_ID(function_name)));
 
     func->Function::type = RET_TYPE(function_ret_type) == DOUBLE ? FunctionRetType::Double : FunctionRetType::Void;
-
+    
     ValueLabel function_label = {.name_id = NAME_ID(function_name),
                                  .type    = FUNCTION,
                                  .val     = func
@@ -498,6 +507,28 @@ int AstToIR (Program* program, Module* dest_mod)
     return SUCCESS;
     };
 
+static Value* AddFin (Builder* buildog, const Token* token);
+static Value* AddFin (Builder* buildog, const Token* token)
+    {
+    assert (buildog);
+    assert (token);
+
+    Token*  param_token = LEFT(token);
+    assert (param_token);
+
+    Token*  param_name  = LEFT(param_token);
+    assert (param_name);
+
+    static Token fin_name = {NULL,      NULL, NAME, {.t_name_id = FIN_NAME_ID}};
+    static Token call     = {&fin_name, NULL, CALL, };
+     
+     TYPE(param_token) = ASSIGMENT;
+     LEFT(param_token) = param_name;
+    RIGHT(param_token) = &call;
+
+    return AstVisitor (buildog, param_token);
+    }
+
 static Value* AstVisitor (Builder* buildog, const Token* token)
     {
     assert(buildog);
@@ -536,12 +567,16 @@ static Value* AstVisitor (Builder* buildog, const Token* token)
 
         case FUNCTION:      return AddFunction (buildog, token);
         
-        case CALL:        
-        case NATIVE_FUNCTION:  return AddCall (buildog, token);
+        case CALL:              return AddCall (buildog, token);
+        case NATIVE_FUNCTION:  
+                if (NATIVE_FUNC(token) == FIN)
+                    return AddFin (buildog, token);
+
+                return AddCall (buildog, token);
         
-        case INITIALIZATOR: return CreateInitializator (buildog, token);
-        case OPERATOR:      return AddOperator (buildog, token);
-        case ASSIGMENT:     return AddLoad     (buildog, token);
+        case INITIALIZATOR:     return CreateInitializator (buildog, token);
+        case OPERATOR:          return AddOperator (buildog, token);
+        case ASSIGMENT:         return AddLoad     (buildog, token);
         case FUNCTION_RET_TYPE: return AddReturn (buildog, token);
 
         default:

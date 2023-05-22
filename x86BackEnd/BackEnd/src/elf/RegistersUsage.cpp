@@ -27,7 +27,7 @@ ARR_ADD    (LocationTable, Location)
 Location* FindLocation (LocationTable* arr, const char* name)
     {
     assert(arr);
-    assert(name);
+    if (!name) return NULL;
 
     for (size_t i = 0; i < arr->size; i++)
         {
@@ -46,6 +46,7 @@ Location* FindLocation (LocationTable* arr, const char* name)
     return NULL;
     }
 
+static int CheckValueArr (LocationTable* table, const ValueArr* arr);
 static int CountLocation (LocationTable* table, const Instruction* instr);
 static int CheckLocation (LocationTable* table, const Value* val);
 
@@ -61,11 +62,32 @@ int SetValuesUsage (LocationTable* table, const Function* func)
         assert(block);
         
         const ValueArr* inst_arr = &block->inst_arr;
-        for (size_t j = 0; j < inst_arr->size; j++)
-            CountLocation (table, (const Instruction*) inst_arr->arr[j]);
+        CheckValueArr (table, inst_arr); 
         }
 
     return SUCCESS;
+    }
+
+static int CheckValueArr (LocationTable* table, const ValueArr* arr)
+    {
+    assert (table);
+    assert (arr);
+
+    for (size_t i = 0; i < arr->size; i++)
+            CountLocation (table, (const Instruction*) arr->arr[i]);
+
+    return 0;
+    }
+
+static int CheckArgv (LocationTable* table, const ValueArr* argv)
+    {
+    assert (table);
+    assert (argv);
+
+    for (size_t i = 0; i < argv->size; i++)
+            CheckLocation (table, argv->arr[i]);
+
+    return 0;
     }
 
 static int CountLocation (LocationTable* table, const Instruction* instr)
@@ -98,7 +120,12 @@ static int CountLocation (LocationTable* table, const Instruction* instr)
                             return SUCCESS;
 
         case InstructionType::Call: 
+                            {
+                            const ValueArr* arr = &((const Call*) instr)->argv;
+                            
+                            CheckArgv (table, arr);
                             return SUCCESS;
+                            }
 
         case InstructionType::Return: 
                             CheckLocation (table, ((const Return*)instr)->value);
@@ -115,9 +142,11 @@ static int CountLocation (LocationTable* table, const Instruction* instr)
 static int CheckLocation (LocationTable* table, const Value* val)
     {
     assert(table);
-    assert(val);
+    
+    if (!val)
+        return SUCCESS;
 
-    if (val->Value::type == ValueType::Constant)
+    if (!val->name)
         return SUCCESS;
 
     name_t name = val->name;
@@ -127,6 +156,7 @@ static int CheckLocation (LocationTable* table, const Value* val)
     if (val_location)
         {
         val_location->n_usage++;
+        // report ("%s->n_usage = %lu\n", val->name,  val_location->n_usage);
         return SUCCESS;
         }
 
@@ -139,14 +169,15 @@ static int CheckLocation (LocationTable* table, const Value* val)
     if (                     val ->type == ValueType      ::Instruction && 
         ((const Instruction*)val)->type == InstructionType::Store) 
         {
-        val_location->type = LocationType::Stack;
-        
+        val_location->type          = LocationType::Stack;
+        val_location->variable_type = LOCAL;
         val_location->stack.type    = StackLocationType::Local;
         val_location->stack.offset  = table->n_local_vars++; 
         }
     else
         {
-        val_location->type = LocationType::NoWhere;
+        val_location->type          = LocationType::NoWhere;
+        val_location->variable_type = TEMP;
         }
 
     AddLocation (table, val_location);

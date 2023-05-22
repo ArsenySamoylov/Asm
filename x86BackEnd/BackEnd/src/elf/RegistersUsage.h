@@ -64,6 +64,13 @@ enum class LocationType
     NoWhere
     };
 
+enum VariableLocationType
+    {
+    LOCAL,
+    GLOBAL,
+    TEMP
+    };
+
 struct Location 
     {
     enum LocationType type;
@@ -73,6 +80,8 @@ struct Location
     
     size_t n_usage;
     name_t name;
+
+    int variable_type;
     };
 
 struct LocationTable

@@ -29,7 +29,7 @@ struct Reference
     size_t position;
     size_t va;
 
-    Value* reference;
+    name_t reference;
     };
 
 struct ReferenceArr 
@@ -52,7 +52,7 @@ struct Context
     AddressTable functions;
 
     ReferenceArr call_refs;
-
+    
     AddressTable* baseblocks;
     ReferenceArr* jump_refs;
     LocationTable*   value_usage;
@@ -73,11 +73,13 @@ int ContextDtor (Context* ctx);
 int SetCtxForFunction     (Context* ctx);
 int ClearCtxAfterFunction (Context* ctx);
 
+int ResolveReferences (Buffer* buf, AddressTable* functions, ReferenceArr* refs);
 //////////////////////////////////////////////////////
 enum RegStatus
     {
     FREE,
     BUSY,
+    LOCKED, // can't be freed
     };
 
 struct Reg
@@ -90,11 +92,21 @@ struct Reg
 
 Reg* GetReg (int number);
 int ResetRegisters ();
-int SetParametersRegisters (Context* ctx, const ValueArr* argv);
+size_t SetParametersRegisters (Context* ctx, const ValueArr* argv);
 
 int FreeReg (int number);
 
 // TODO instead of for loops MUST be Stack and Que respectively (because can be bugs with freeing last allocated reg);
-Reg* AllocateGPReg (int status = 0);
+Reg* AllocateReg ();
+int SetReg (Location* loc, Reg* reg);
+
+int ResetTempLocations ();
 
 size_t GetVa (Context* ctx, size_t increase);   
+
+#define PRINT_REG(NUMBER) printf ("%s:%d ", __FILE__, __LINE__); PrintReg(NUMBER);
+
+int PrintReg (int number);
+int PrintLocation (Location* loc);
+
+const char* GetRegName (GPRegisterNumber reg);
