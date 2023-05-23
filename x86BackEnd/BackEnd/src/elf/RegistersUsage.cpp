@@ -46,6 +46,7 @@ Location* FindLocation (LocationTable* arr, const char* name)
     return NULL;
     }
 
+static int CheckArgv (LocationTable* table, const ValueArr* argv);
 static int CheckValueArr (LocationTable* table, const ValueArr* arr);
 static int CountLocation (LocationTable* table, const Instruction* instr);
 static int CheckLocation (LocationTable* table, const Value* val);
@@ -55,6 +56,8 @@ int SetValuesUsage (LocationTable* table, const Function* func)
     assert(func);
     assert(table);
     
+    CheckArgv (table, &func->argv);
+
     const ValueArr* body = &func->body;
     for (size_t i = 0; i < body->size; i++)
         {
@@ -156,7 +159,7 @@ static int CheckLocation (LocationTable* table, const Value* val)
     if (val_location)
         {
         val_location->n_usage++;
-        // report ("%s->n_usage = %lu\n", val->name,  val_location->n_usage);
+        report ("%s->n_usage = %lu\n", val->name,  val_location->n_usage);
         return SUCCESS;
         }
 
@@ -172,7 +175,7 @@ static int CheckLocation (LocationTable* table, const Value* val)
         val_location->type          = LocationType::Stack;
         val_location->variable_type = LOCAL;
         val_location->stack.type    = StackLocationType::Local;
-        val_location->stack.offset  = table->n_local_vars++; 
+        val_location->stack.offset  = ++table->n_local_vars; 
         }
     else
         {

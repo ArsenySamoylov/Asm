@@ -42,10 +42,10 @@ Logger::Logger (const char* log_name) : my_log(NULL), level(0), indent(0), logna
             {
             static Logger logger{STD_LOG_NAME}; // this way you could have only one Logger
 
-            return logger;//ars::Logger &log = ars::Logger::getInstance();
+            return logger; //ars::Logger &log = ars::Logger::getInstance();
             }
 
-Logger:: ~Logger()
+Logger::~Logger()
     {
     time_t NewYorkTime = time(NULL);
 

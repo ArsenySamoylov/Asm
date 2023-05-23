@@ -1,139 +1,65 @@
-#include <assert.h>
-
 #include "Instructions.h"
 
-#include "CommonEnums.h"
 //////////////////////////////////////////////////////
 // Instruction
-int InstructionCtor (Instruction* inst, InstructionType type)
-    {
-    assert(inst);
+//////////////////////////////////////////////////////
+Instruction::Instruction (name_t name_param, InstructionType type_param) :
+    Value (ValueType::Instruction, name_param),
+    type  (type_param) 
+    {}
 
-    ValueCtor(inst, ValueType::Instruction);
-
-    inst->Instruction::type = type;
-    return SUCCESS;
-    }
-
-int InstructionDtor (Instruction* inst)
-    {
-    assert(inst);
-    return SUCCESS;
-    }
 
 //////////////////////////////////////////////////////
 // Store
-int StoreCtor (Store* store, name_t name, Value* val)
-    {
-    assert(store);
-    // assert(val);
-
-    InstructionCtor (store, InstructionType::Store);
-    
-    store->Value::name = name;
-    store->Store::val = val;
-    
-    return SUCCESS;
-    }
-
-int StoreDtor (Store* store)
-    {
-    assert(store);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Store::Store (name_t name_param, const Value* val_param) :
+    Instruction (name_param, InstructionType::Store),
+    val         (val_param) 
+    {}
 
 //////////////////////////////////////////////////////
 // Load
-int LoadCtor (Load* load, Value* dest, Value* src)
-    {
-    assert(load);
-    assert(dest);
-    assert(src);
-
-    InstructionCtor (load, InstructionType::Load);
-
-    load->dest = dest;
-    load->src  = src;
-
-    return SUCCESS;
-    }
-
-int LoadDtor (Load* load)
-    {
-    assert(load);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Load::Load (name_t name_param, const Value* dest_param, const Value* src_param) :
+    Instruction (name_param, InstructionType::Load),
+    dest        (dest_param),
+    src         (src_param) 
+    {}
 
 //////////////////////////////////////////////////////
 // Branch
-int BranchCtor (Branch* branch)
-   {
-    assert(branch);
-
-    InstructionCtor (branch, InstructionType::Branch);
-    return SUCCESS;
-    }
-
-int BranchDtor (Branch* branch)
-    {
-    assert(branch);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Branch::Branch (name_t name_param, const Value* condition_param, const BaseBlock* true_block_param, const BaseBlock* false_block_param) :
+   Instruction (name_param, InstructionType::Branch),
+   condition   (condition_param),
+   true_block  (true_block_param),
+   false_block (false_block_param) 
+   {}
 
 //////////////////////////////////////////////////////
 // Call
-int CallCtor (Call* call, const Function* func)
-    {
-    assert(call);
-    assert(func);
+//////////////////////////////////////////////////////
+Call::Call (name_t name_param, const Function* function_param) :
+    Instruction (name_param, InstructionType::Call),
+    argv        (ValueType::Instruction),
+    function    (function_param)  
+    {}
 
-    InstructionCtor (call, InstructionType::Call);
-    call->function = func;
-
-    ValueArrCtor (&call->argv, ValueType::Value);
-
-    return SUCCESS;
-    }
-
-int CallDtor (Call* call)
-    {
-    assert(call);
-    return SUCCESS;
-    }
 
 //////////////////////////////////////////////////////
 // Return
-int ReturnCtor (Return* ret)
-   {
-    assert(ret);
-
-    InstructionCtor (ret, InstructionType::Return);
-    return SUCCESS;
-    }
-
-int ReturnDtor (Return* ret)
-    {
-    assert(ret);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Return::Return (name_t name_param, const Value* ret_value_param) :
+    Instruction (name_param, InstructionType::Return),
+    ret_value   (ret_value_param) 
+    {}
 
 //////////////////////////////////////////////////////
 // Operator
-int OperatorCtor (Operator* op, OperatorType type, Value* left, Value* right)
-    {
-    assert(op);
-
-    InstructionCtor (op, InstructionType::Operator);
-
-    op->Operator::type = type;
-    op-> left_op = left;
-    op->right_op = right;
-
-    return SUCCESS;
-    }
-
-int OperatorDtor (Operator* op)
-    {
-    assert(op);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Operator::Operator (name_t name_param, enum OperatorType op_type_param, const Value* left_param, const Value* right_param) :
+    Instruction (name_param, InstructionType::Operator),
+    op_type  (op_type_param),
+    left_op  (left_param),
+    right_op (right_param) 
+    {}

@@ -1,9 +1,28 @@
+Declare function 'fucktorial' (param number):
+entry_fucktorial:
+	%op_0 = bigger number, 1
+	br %op_0, label than_0, label merge_0
+
+than_0:
+	temp = store(number)
+	%op_1 = sub number, 1
+	%c_2 = call: fucktorial (param %op_1)
+	%op_3 = mul temp, %c_2
+
+	return %op_3
+	br label merge_0
+
+merge_0:
+
+	return 1
+
 Declare function 'main' ():
 entry_main:
-	ded = store(0)
-	%c_0 = call: fin ()
-	ded = load %c_0
-	call: fout (param ded)
+	ded = store(2)
+	%c_4 = call: fucktorial (param ded)
+	test = store(%c_4)
+	call: fout (param test)
 
 	return 0
 
+// 

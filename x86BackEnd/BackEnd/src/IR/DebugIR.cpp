@@ -11,38 +11,42 @@
 static unsigned  INDENT = 0;
 static FILE* DUMP_FILE = NULL;
 
-#define increase_indent() ++INDENT;
-#define decrease_indent() --INDENT;
+#define increase_indent() ++INDENT
+#define decrease_indent() --INDENT
 
-#define print(format, ...)                          \
-    do                                              \
-    {                                               \
-    for(unsigned i = 0; i < INDENT; i++)            \
-        fprintf(DUMP_FILE, "\t");                   \
-                                                    \
+#define print(format, ...)                                     \
+    do                                                         \
+    {                                                          \
+    for(unsigned i = 0; i < INDENT; i++)                       \
+        fprintf(DUMP_FILE, "\t");                              \
+                                                               \
     fprintf(DUMP_FILE, format __VA_OPT__(,) __VA_ARGS__);      \
-    }while(0);
+    }while(0)
 
-#define print_ni(format, ...) fprintf(DUMP_FILE, format __VA_OPT__(,) __VA_ARGS__)
+#define print_raw(format, ...) fprintf(DUMP_FILE, format __VA_OPT__(,) __VA_ARGS__)
 
-static int DumpGlobalVars (const ValueArr* global_vars);
-static int DumpGlobalVar  (const GlobalVar* var);
+void Module::dumpGlobalVars () const;
+void Module::dumpFunctions  () const;
 
-static int DumpFunctions  (const ValueArr* functions);
-static int DumpFunction   (const Function* function);
-static int DumpParameters (const ValueArr* argv);
+/*
+void GlobalVar::dump  () const;
 
-static int DumpBaseBlock  (const BaseBlock* block);
-static int DumpInstruction (const Instruction* instr);
+void Function::dump   () const;
+void DumpParameters (const ValueArr* argv);
 
-static int PrintName      (const Value* val);
-static int PrintFullType (const Value* val);
+void DumpBaseBlock  (const BaseBlock* block);
+void DumpInstruction (const Instruction* instr);
+void PrintOperator (const Operator* op);
+*/
 
-static int PrintOperator (const Operator* op);
+void DumpParameters (const ValueArr* argv);
+void PrintFullType  (const Value* val);
+void PrintName      (const Value* val);
 
-int DumpIR (const Module* mod, const char* out_file)
+#pragma GCC diagnostic ignored "-Wformat-zero-length"
+
+void Module::dump (const char* out_file)
     {
-    assert(mod);
     assert(out_file);
 
     DUMP_FILE = fopen (out_file, "w");
@@ -54,275 +58,191 @@ int DumpIR (const Module* mod, const char* out_file)
 
     setvbuf(DUMP_FILE, NULL, _IONBF, 0);
 
-    DumpGlobalVars (&mod->global_vars);
-    DumpFunctions  (&mod->functions);
+    for (size_t i = 0; i < global_vars->size; i++)
+        global_vars->arr[i].dump();
+
+    for (size_t i = 0; i < functions->size; i++)
+        functions->arr[i].dump();
 
     fclose(DUMP_FILE);
     DUMP_FILE = NULL;
-
-    return SUCCESS;
     }
 
-static int DumpGlobalVars (const ValueArr* global_vars)
+void GlobalVar::dump  () const
     {
-    assert(global_vars);
-
-    for (size_t i = 0; i < global_vars->size; i++)
-        DumpGlobalVar ( (const GlobalVar*) global_vars->arr[i]);
-
-    return SUCCESS;
-    }
-
-static int DumpGlobalVar  (const GlobalVar* var)
-    {
-    assert(var);
-
-    print("declare %s = ", var->name);
+    print("declare %s = ", name);
 
     if (var->init_val)
-        print_ni("%lg\n", ((double)var->init_val->data) / PRECISION);
+        print_raw("%lg\n", ((double)init_val->data) / PRECISION);
     else
-        print_ni("NILL\n");
+        print_raw("NILL\n");
 
-    return SUCCESS;
     }
 
-static int DumpFunctions  (const ValueArr* functions)
+void Function::dump () const 
     {
-    assert(functions);
-
-    for (size_t i = 0; i < functions->size; i++)
-        DumpFunction ( (const Function*) (functions->arr[i]));
-
-    return SUCCESS;
-    }
+    print ("Declare function '%s' ", name);
+    DumpParameters (&argv);
+    print_raw(":\n");
     
-static int DumpFunction (const Function* function)
-    {
-    assert(function);
-    
-    print ("Declare function '%s' ", function->name);
-    DumpParameters (&function->argv);
-    print_ni(":\n");
-    
-    const ValueArr* body = &function->body;
     for (size_t i = 0; i < body->size; i++)
-        DumpBaseBlock ( (const BaseBlock*) body->arr[i]);
+        body->arr[i].dump();
 
-    print_ni("\n");
-    return SUCCESS;
+    print_raw("\n");
     }
 
-static int DumpParameters (const ValueArr* argv)
+void BaseBlock::dump  () const
     {
-    assert(argv);
-
-    print_ni("(");
-
-    for (size_t i = 0; i < argv->size; i++)
-        {
-        print_ni("param ");
-        PrintName (argv->arr[i]);
-
-        if (i < argv->size - 1)
-            print_ni (", ");
-        }
-
-    print_ni(")");
-    return SUCCESS;
-    }
-
-static int DumpBaseBlock  (const BaseBlock* block)
-    {
-    assert(block);
-
-    PrintName (block);
+    PrintName (this);
     print(":\n");
     increase_indent();
 
-    const ValueArr* inst_arr = &block->inst_arr;
-
     for (size_t i = 0; i < inst_arr->size; i++)
-        DumpInstruction ( (const Instruction*) inst_arr->arr[i]);
+        inst_arr->arr[i].dump();
+
     decrease_indent();
-
-    return SUCCESS;
     }
 
-#pragma GCC diagnostic ignored "-Wformat-zero-length"
-
-static int DumpInstruction (const Instruction* instr)
+void Store::dump () const
     {
-    assert(instr);
-
-    switch (instr->Instruction::type)
-        {
-        case InstructionType::Store:
-                            print ("%s = store(", instr->name);
-                            PrintName(((const Store*) instr) ->val);
-                            print_ni(")\n");
-
-                            return SUCCESS; 
+    print ("%s = store(", name);
+    PrintName(val);
+    print_raw(")\n");
+    }
                             
-        case InstructionType::Load:
-                            print     ("");
-                            PrintName (((const Load*) instr) ->dest);
-                            print_ni  (" = load ");
-                            PrintName (((const Load*) instr) ->src);
-
-                            print_ni ("\n");
-                            return SUCCESS;
-
-        case InstructionType::Operator:
-                            print          ("");
-                            PrintName      (instr);
-                            print_ni       (" = "); 
-                            PrintOperator  ((const Operator*) instr);
-                            
-                            print_ni   (" ");
-                            PrintName  (((const Operator*) instr) ->left_op);
-                            print_ni   (", ");
-                            PrintName  (((const Operator*) instr)     ->right_op);
-
-                            print_ni ("\n");
-                            return SUCCESS;
-
-        case InstructionType::Branch:
-                            {
-                            print("br ");
-
-                            Value* condition = ((const Branch*) instr)->condition;
-
-                            if (condition)
-                                {
-                                PrintName (condition);
-                                print_ni  (", ");    
-                                }
-
-                            print_ni  ("label ");  
-                            PrintName (((const Branch*) instr)   ->true_block);
-
-                            if (condition)
-                                {
-                                print_ni  (", label ");
-                                PrintName (((const Branch*) instr) ->false_block);
-                                }
-
-                            print_ni("\n\n");
-                            return SUCCESS;
-                            }
-
-        case InstructionType::Call:
-                            if (((const Call*) instr)->function->type == FunctionRetType::Double)
-                                 { print ("%s = ", instr->name); } 
-                            else
-                                 { print (""); }
-
-                            print_ni  ("call: ");
-                            PrintName (((const Call*) instr) ->function);
-                            print_ni  (" ");
-
-                            DumpParameters (&(((const Call*) instr) ->argv));
-
-                            print_ni ("\n");
-                            return SUCCESS;
-
-        case InstructionType::Return: 
-                            print_ni  ("\n");
-                            print     ("return ");
-                            PrintName (((const Return*) instr) ->value);
-
-                            print_ni ("\n");
-                            return  SUCCESS;
-
-        default:
-            report ("Unkown Instruction type\n");
-            break;
-        }
-
-    return FAILURE;
+void Load::dump () const
+    {
+    print     ("");
+    PrintName (dest);
+    print_raw (" = load ");
+    PrintName (src);
+    print_raw ("\n");
     }
 
-static int PrintName (const Value* val)
+void Operator::dump () const
     {
-    // assert(val);
-    if (!val)
-        {
-        print_ni (" 'No value' ");
-        return SUCCESS;
-        }
+    print          ("");
+    PrintName      (this);
+    print_raw       (" = "); 
+    PrintOperator  (this);
     
-    if (val->name && val->type != ValueType::Constant)
-        {
-        print_ni("%s", val->name);
-        return SUCCESS;
-        }
+    print_raw   (" ");
+    PrintName  (left_op);
+    print_raw   (", ");
+    PrintName  (right_op);
 
-    switch (val->type)
-        {
-        case ValueType::BaseBlock:
-                print_ni ("%%%p", val);
-                break;
-
-        case ValueType::Constant:
-            print_ni ("%lg", ((double) ((const Constant*) val)->data) / PRECISION);
-            //  print_ni(" (%s)", val->name);
-            break;
-
-        case ValueType::Instruction:
-            PrintFullType (val);
-            break;
-        
-        default:
-            assert(0);
-        }
-
-    return SUCCESS;
+    print_raw ("\n");
     }
 
-static int PrintFullType (const Value* val)
+void Branch::dump () const
+    {
+    print("br ");
+
+    if (condition)
+        {
+        PrintName (condition);
+        print_raw  (", ");    
+        }
+
+    print_raw  ("label ");  
+    PrintName (true_block);
+
+    if (condition)
+        {
+        print_raw (", label ");
+        PrintName (false_block);
+        }
+
+    print_raw("\n\n");
+    }
+
+void Call::dump () const
+    {
+    if (function->type == FunctionRetType::Double)
+            { print ("%s = ", name); } 
+    else
+            { print (""); }
+
+    print_raw  ("call: ");
+    PrintName (function);
+    print_raw  (" ");
+
+    DumpParameters (&argv));
+
+    print_raw ("\n");
+    }
+
+void Return::dump () const
+    {
+    print_raw  ("\n");
+    print     ("return ");
+    PrintName (ret_value);
+
+    print_raw ("\n");
+    }
+
+void Operator::dump ()
+    {
+    switch(this->Operator::type)
+        {
+        case OperatorType::Add: print_raw ("add"); break;
+        case OperatorType::Sub: print_raw ("sub"); break;
+        case OperatorType::Mul: print_raw ("mul"); break;
+        case OperatorType::Div: print_raw ("div"); break;
+
+        case OperatorType::Bigger: print_raw ("bigger"); break;
+        case OperatorType::Less:   print_raw ("less");   break;
+
+        case OperatorType::Unknown: 
+        default:
+            print_raw ("Unknown"); 
+            break;
+        }
+    }
+
+void PrintFullType (const Value* val)
     {
     assert(val);
 
-    print_ni("(");
+    print_raw("(");
 
     switch (val->type)
         {
 
-        case ValueType::Function:   print_ni ("Function"); break;
-        case ValueType::GlobalVar:  print_ni ("GlobalVar"); break;
-        case ValueType::BaseBlock:  print_ni ("BaseBlock"); break;
-        case ValueType::Constant:   print_ni ("Constant"); break;
+        case ValueType::Function:   print_raw ("Function"); break;
+        case ValueType::GlobalVar:  print_raw ("GlobalVar"); break;
+        case ValueType::BaseBlock:  print_raw ("BaseBlock"); break;
+        case ValueType::Constant:   print_raw ("Constant"); break;
 
         case ValueType::Instruction:
-            print_ni ("Instruction::"); 
+            print_raw ("Instruction::"); 
 
             switch (((const Instruction*) val) ->Instruction::type)
                 {
                 case InstructionType::Store:
-                                    print_ni ("Store");
+                                    print_raw ("Store");
                                     break;
 
                 case InstructionType::Load:
-                                    print_ni ("Load");
+                                    print_raw ("Load");
                                     break;
 
                 case InstructionType::Operator:
-                                    print_ni ("Operator::");
+                                    print_raw ("Operator::");
 
                                     PrintOperator((const Operator*) val);
                                     break;
 
                 case InstructionType::Branch:
-                                    print_ni ("Branch");
+                                    print_raw ("Branch");
                                     break;
 
                 case InstructionType::Call:
-                                    print_ni ("Call");
+                                    print_raw ("Call");
                                     break;
 
                 case InstructionType::Return: 
-                                    print_ni ("Return");
+                                    print_raw ("Return");
                                     break;
 
                 default:
@@ -338,37 +258,70 @@ static int PrintFullType (const Value* val)
         }
     
     if (val->name)
-        print_ni("::'%s'", val->name);
+        print_raw("::'%s'", val->name);
 
 
-    print_ni(")");
+    print_raw(")");
 
     return SUCCESS;
     }
 
-static int PrintOperator (const Operator* op)
+void DumpParameters (const ValueArr* argv)
     {
-    assert(op);
+    assert(argv);
 
-    switch(op->Operator::type)
+    print_raw("(");
+
+    for (size_t i = 0; i < argv->size; i++)
         {
-        case OperatorType::Add: print_ni ("add"); return SUCCESS;
-        case OperatorType::Sub: print_ni ("sub"); return SUCCESS;
-        case OperatorType::Mul: print_ni ("mul"); return SUCCESS;
-        case OperatorType::Div: print_ni ("div"); return SUCCESS;
+        print_raw("param ");
+        PrintName (argv->arr[i]);
 
-        case OperatorType::Bigger: print_ni ("bigger"); return SUCCESS;
-        case OperatorType::Less:   print_ni ("less");   return SUCCESS;
-
-        case OperatorType::Unknown: 
-        default:
-            print_ni ("Unknown"); 
-            break;
+        if (i < argv->size - 1)
+            print_raw (", ");
         }
 
-    return FAILURE;
+    print_raw(")");
+    return SUCCESS;
     }
 
+void PrintName (const Value* val)
+    {
+    assert(val);
+    if (!val)
+        {
+        print_raw (" 'No value' ");
+        return SUCCESS;
+        }
+    
+    if (val->name && val->type != ValueType::Constant)
+        {
+        print_raw("%s", val->name);
+        return SUCCESS;
+        }
+
+    switch (val->type)
+        {
+        case ValueType::BaseBlock:
+                print_raw ("%%%p", val);
+                break;
+
+        case ValueType::Constant:
+            print_raw ("%lg", ((double) ((const Constant*) val)->data) / PRECISION);
+            //  print_raw(" (%s)", val->name);
+            break;
+
+        case ValueType::Instruction:
+            PrintFullType (val);
+            break;
+        
+        default:
+            assert(0);
+        }
+
+    return SUCCESS;
+    }
+//////////////////////////////////////////////////////
 int PrintValue (const Value* val)
     {
     assert(val);
@@ -381,7 +334,7 @@ int PrintValue (const Value* val)
     print ("Value %p: ", val);
     // PrintName (val);
     PrintFullType (val);
-    print_ni ("\n");
+    print_raw ("\n");
 
     DUMP_FILE = temp;
 
@@ -390,7 +343,7 @@ int PrintValue (const Value* val)
 
 
 
-static int DumpInstructionForFile (const Instruction* instr);
+void DumpInstructionForFile (const Instruction* instr);
 
 int WriteToFile (FILE* out, const Instruction* instr)
     {
@@ -406,7 +359,7 @@ int WriteToFile (FILE* out, const Instruction* instr)
     return SUCCESS;
     }
 
-static int DumpInstructionForFile (const Instruction* instr)
+void DumpInstructionForFile (const Instruction* instr)
     {
     assert(instr);
 
@@ -415,14 +368,14 @@ static int DumpInstructionForFile (const Instruction* instr)
         case InstructionType::Store:
                             print ("%s = store(", instr->name);
                             PrintName(((const Store*) instr) ->val);
-                            print_ni(")");
+                            print_raw(")");
 
                             return SUCCESS; 
                             
         case InstructionType::Load:
                             print     ("");
                             PrintName (((const Load*) instr) ->dest);
-                            print_ni  (" = load ");
+                            print_raw  (" = load ");
                             PrintName (((const Load*) instr) ->src);
 
                             return SUCCESS;
@@ -430,12 +383,12 @@ static int DumpInstructionForFile (const Instruction* instr)
         case InstructionType::Operator:
                             print          ("");
                             PrintName      (instr);
-                            print_ni       (" = "); 
+                            print_raw       (" = "); 
                             PrintOperator  ((const Operator*) instr);
                             
-                            print_ni   (" ");
+                            print_raw   (" ");
                             PrintName  (((const Operator*) instr) ->left_op);
-                            print_ni   (", ");
+                            print_raw   (", ");
                             PrintName  (((const Operator*) instr)     ->right_op);
 
                             return SUCCESS;
@@ -449,15 +402,15 @@ static int DumpInstructionForFile (const Instruction* instr)
                             if (condition)
                                 {
                                 PrintName (condition);
-                                print_ni  (", ");    
+                                print_raw  (", ");    
                                 }
 
-                            print_ni  ("label ");  
+                            print_raw  ("label ");  
                             PrintName (((const Branch*) instr)   ->true_block);
 
                             if (condition)
                                 {
-                                print_ni  (", label ");
+                                print_raw  (", label ");
                                 PrintName (((const Branch*) instr) ->false_block);
                                 }
 
@@ -474,9 +427,9 @@ static int DumpInstructionForFile (const Instruction* instr)
                                 print ("");
                                 }
 
-                            print_ni     ("call: ");
+                            print_raw     ("call: ");
                             PrintName (((const Call*) instr) ->function);
-                            print_ni  (" ");
+                            print_raw  (" ");
 
                             DumpParameters (&(((const Call*) instr) ->argv));
 

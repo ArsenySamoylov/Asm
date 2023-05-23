@@ -122,11 +122,11 @@ int ResolveReferences (Buffer* code, AddressTable* functions, ReferenceArr* refs
 
 //////////////////////////////////////////////////////
 Reg GeneralPurposeRegs[] = {
-{ RAX, NULL, FREE }, 
+{ RAX, NULL, LOCKED }, 
 
-{ RDI, NULL, FREE }, 
-{ RSI, NULL, FREE }, 
-{ RDX, NULL, FREE }, 
+{ RDI, NULL, LOCKED }, 
+{ RSI, NULL, FREE   }, 
+{ RDX, NULL, LOCKED }, 
 { RCX, NULL, FREE }, 
 { R8,  NULL, FREE }, 
 { R9,  NULL, FREE },
@@ -145,6 +145,7 @@ Reg GeneralPurposeRegs[] = {
 };
 
 const int NUMBER_OF_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
+
 
 #include <stack>
 
@@ -179,10 +180,9 @@ static int FreeUnusedLocations ()
 
 Reg* AllocateReg ()
     {
-    int n_free = FreeUnusedLocations ();
-    
     if (FreeRegs.empty())
         {
+        int n_free = FreeUnusedLocations ();
         assert (n_free > 0);
          // TODO: locate space on stack and push, or put local
         }
@@ -190,13 +190,19 @@ Reg* AllocateReg ()
     Reg* free_reg = FreeRegs.top();
     FreeRegs.pop();
 
+    if (free_reg->status == LOCKED)
+        {
+        report ("%s\n", GetRegName (free_reg->number));
+        assert(0);
+        }
+    
     return free_reg;
     }
 
 int SetReg (Location* loc, Reg* reg)
     {
     $log(DEBUG)
-    // report ("%s -> %s\n", loc->name, GetRegName (reg->number));
+    report ("%s -> %s\n", loc->name, GetRegName (reg->number));
 
     assert (loc);
     assert (reg->number >= 0);
@@ -205,7 +211,9 @@ int SetReg (Location* loc, Reg* reg)
         FreeReg (loc->reg.number);
 
     reg->loc    = loc;
-    reg->status = BUSY;
+
+    if (reg->status != LOCKED)
+        reg->status = BUSY;
      
     loc->type       = LocationType::Register;
     loc->reg.number = reg->number;
@@ -216,6 +224,7 @@ int SetReg (Location* loc, Reg* reg)
 Reg* GetReg (int number)
     {
     assert(number >= 0 && number < NUMBER_OF_REGS); 
+    report ("Get Reg: %s\n", GetRegName( (GPRegisterNumber)  number));
     return GeneralPurposeRegs + number;
     }
 
@@ -223,7 +232,8 @@ int ResetRegisters ()
     {
     for (int i = 0; i < NUMBER_OF_REGS; i++)
         {
-        if (i == RSP || i == RAX)
+        Reg* reg = GetReg ( (GPRegisterNumber) i);
+        if (reg->status == LOCKED)
             continue;
 
         FreeReg (i);
@@ -275,6 +285,7 @@ size_t SetParametersRegisters (Context* ctx, const ValueArr* argv)
     assert (n_params == argv->size);
     assert(n_params <= 6);
 
+    report ("n_params: %lu \n", n_params);
     return n_params;
     }
 
@@ -282,10 +293,15 @@ int FreeReg (int number)
     {
     assert(number >= 0 && number < NUMBER_OF_REGS); 
 
+    report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
     Reg*  reg = GeneralPurposeRegs + number;
     assert(reg);
 
     reg->loc    = NULL;
+
+    if (reg->status == LOCKED)
+        return 0;
+
     reg->status = FREE;
     
     FreeRegs.push (reg);
@@ -300,12 +316,21 @@ int ResetTempLocations ()
         Reg* reg = GeneralPurposeRegs + i;
 
         if (reg->status == FREE || reg->status == LOCKED)
+            {
+            reg->loc = NULL;
             continue;
+            }
         
-        // PRINT_REG  (i);
-        assert (reg->loc);
-        if (reg->loc->variable_type == TEMP)
-            FreeReg (i);
+        // assert (reg->loc);
+        // if (!reg->loc)
+            // FreeReg (i);
+
+        // if (reg->loc->variable_type == TEMP)
+            // FreeReg (i);
+
+        report (":::::::FREE BASE BLOCK:::::::::::\n");
+        FreeReg    (i);
+        PRINT_REG  (i);
         }
     
     return 0;

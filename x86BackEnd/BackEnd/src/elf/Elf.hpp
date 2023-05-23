@@ -26,7 +26,7 @@ struct Elf
     };
 
 
-const Elf64_Addr ENTRY_POINT        = 0x41000 + sizeof(ElfHeaders);
+const Elf64_Addr ENTRY_POINT        = 0x401000 + sizeof(ElfHeaders);
 const uint16_t   NUMBER_OF_SEGMENTS = 2; 
 const Elf64_Addr PHDR_TABLE_OFFSET  = sizeof(Elf64_Ehdr);
 

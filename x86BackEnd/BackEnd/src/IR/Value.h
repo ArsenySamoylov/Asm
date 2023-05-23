@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stddef.h>
+#include <cstddef>
 
 #include "NoCopyable.h"
 #include "TypeDefs.h"
@@ -16,80 +16,136 @@ enum class ValueType
     Value
     };
 
-struct Value : public NoCopyable
+class Value : public NoCopyable
     {
-    enum ValueType type;
-    name_t         name;
-    };
+    protected:
 
-int ValueCtor (Value* val, ValueType type, name_t name = NULL);
-int ValueDtor (Value* val);
+        const enum ValueType type;
+        name_t name;
 
-struct ValueArr
-    {
-    enum ValueType base_type;
-    Value** arr;
+        Value (ValueType type_param, name_t name_param);
     
-    size_t size;
-    size_t capacity;
+    public:
+
+        virtual ~Value ()          = default;
+
+        virtual void      dump     () const;
+        virtual ValueType get_type () const = 0;
     };
 
-int ValueArrCtor   (ValueArr* arr, ValueType base_type);
-int ValueArrDtor   (ValueArr* arr);
+/* virtual void dump() const  (Value* this) = 0; */
 
-Value* AddValue   (ValueArr* arr, Value* val);
-Value* AllocValue (ValueArr* arr, size_t val_size);
+// int ValueCtor (Value* val, ValueType type, name_t name = NULL);
+// int ValueDtor (Value* val);
+
+class ValueArr
+    {
+    private:
+        const enum ValueType base_type;
+        Value** arr;
+    
+        size_t size;
+        size_t capacity;
+
+        const size_t START_ARR_SIZE = 16;
+        const size_t GROWTH_RATE    = 2;
+
+    void resize ();
+
+    public:
+        ValueArr (ValueType base_type_param);
+       ~ValueArr ();
+
+        Value* add (Value* val);
+        // Value* AddValue   (Value* val);
+   
+    };
+
+// int ValueArrCtor   (ValueArr* arr, ValueType base_type);
+// int ValueArrDtor   (ValueArr* arr);
+
 
 //////////////////////////////////////////////////////
-struct BaseBlock : public Value
+class BaseBlock : public Value
     {
-    ValueArr inst_arr;
+    private:
+        ValueArr inst_arr;
+    
+    public:
+        BaseBlock (name_t name_param);
+       ~BaseBlock () override = default;
+
+        void      dump     () const override;
+        ValueType get_type () const override;
     };
 
-int BaseBlockCtor (BaseBlock* block);
-int BaseBlockDtor (BaseBlock* block);
+// int BaseBlockCtor (BaseBlock* block);
+// int BaseBlockDtor (BaseBlock* block);
 
 //////////////////////////////////////////////////////
 // Higher level sh*t
 //////////////////////////////////////////////////////
 const int PRECISION = 100;
 
-struct Constant : public Value
+class Constant : public Value
     {
-    data_t data;
+    private:
+        const data_t data;
+
+    public:
+        Constant (name_t name_param, const data_t data_param);
+       ~Constant () override = default;
+
+       void      dump     () const override;
+       ValueType get_type () const override;
     };
     
-int ConstantCtor (Constant* constant, data_t value);
-int ConstantDtor (Constant* constant);
+// int ConstantCtor (Constant* constant, data_t value);
+// int ConstantDtor (Constant* constant);
 
 enum class VariableType
     {
     Double,
-    Int, // just kidding 
     };
 
-struct GlobalVar : public Value
+class GlobalVar : public Value
     {
-    enum VariableType type;
-    Constant*      init_val;
+    private:
+        const enum VariableType var_type;
+        const Constant*         init_val;
+
+    public:
+        GlobalVar (name_t name_param, VariableType var_type_param, const Constant* init_val_param);
+       ~GlobalVar () override = default;
+
+       void      dump     () const override;
+       ValueType get_type () const override;
     };
 
-int GlobalVarCtor (GlobalVar* var, name_t name, Constant* init_val);
-int GlobalVarDtor (GlobalVar* var);
+// int GlobalVarCtor (GlobalVar* var, name_t name, Constant* init_val);
+// int GlobalVarDtor (GlobalVar* var);
 
 enum class FunctionRetType
     {
     Double,
     Void,
-    };
+     };
 
-struct Function : public Value
+class Function : public Value
     {
-    enum FunctionRetType type;
+    private:
+        const enum FunctionRetType ret_type;
 
-    ValueArr argv;    
-    ValueArr body;
+        ValueArr argv;    
+        ValueArr body;
+
+    public:
+        Function (name_t name_param, FunctionRetType ret_type_param);
+       ~Function () override = default;
+
+       void      dump     () const override;
+       ValueType get_type () const override;
     };
 
-int FunctionCtor (Function* func, name_t name);
-int FunctionDtor (Function* func);
+// int FunctionCtor (Function* func, name_t name);
+// int FunctionDtor (Function* func);

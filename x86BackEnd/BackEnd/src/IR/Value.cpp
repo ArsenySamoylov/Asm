@@ -1,204 +1,114 @@
-#include <assert.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <cassert>
 
 #include "Value.h"
 #include "Instructions.h"
 
-#include "CommonEnums.h"
-#include "LogMacroses.h"
-#include "EasyDebug.h"
-
-#include "DebugIR.h"
 //////////////////////////////////////////////////////
 // Value
-int ValueCtor(Value* val, ValueType type, name_t name) 
-    {
-    val->type = type;
-    val->name = name;
-
-    return SUCCESS;
-    }
-
-int ValueDtor(Value* val) 
-    {
-    assert(val);
-    return SUCCESS;
-    }
+//////////////////////////////////////////////////////
+Value::Value (ValueType param_type, name_t param_name) : 
+    type(param_type), 
+    name(param_name) 
+    {}
 
 //////////////////////////////////////////////////////
 // ValueArr
-const size_t START_ARR_SIZE = 16;
-const size_t GROWTH_RATE    = 2;
-
-static int ValueArrResize (ValueArr* arr);
-
-int ValueArrCtor (ValueArr* arr, ValueType type)
+//////////////////////////////////////////////////////
+ValueArr::ValueArr (ValueType base_type_param) :
+    base_type(base_type_param)
     {
-    assert(arr);
-
-    arr->base_type = type;
-
-    arr->arr = (Value**) calloc (START_ARR_SIZE, sizeof(arr->arr[0]));
-    assert(arr->arr);                                                         
+    arr = (Value**) calloc (START_ARR_SIZE, sizeof(arr[0]));
                                                                               
-    arr->size     = 0;                                                        
-    arr->capacity = START_ARR_SIZE;                                           
-                                                                              
-    return SUCCESS;                                                           
-    return SUCCESS;
+    size     = 0;                                                        
+    capacity = START_ARR_SIZE;                                           
     }
 
-int ValueArrDtor (ValueArr* arr)
+ValueArr::~ValueArr ()
     {
-    assert(arr);                                                
-                                                                
-    if (arr->capacity == 0)                                     
+    if (capacity == 0)                                     
         {                                                       
-        report ("Capacity can't be 0 in Dtor\n");               
-        return FAILURE;                                         
+        printf ("%s:%d, Capacity can't be 0 in Dtor\n", __FILE__, __LINE__);               
+        return;                                         
         }                                                       
                                                                 
-    for (size_t i = 0; i < arr->size; i++)                      
-        free(arr->arr[i]);                                      
+    for (size_t i = 0; i < size; i++)                      
+        delete arr[i];                                      
                                                                 
-    free (arr->arr);                                            
+    free (arr);                                            
                                                                 
-    arr->capacity = 0;                                          
-    arr->size     = 0;                                          
-    arr->arr      = NULL;                                       
-                                                                
-    return SUCCESS;                                             
+    capacity = 0;                                          
+    size     = 0;                                          
+    arr      = NULL;                                       
     }
 
-static int ValueArrResize (ValueArr* arr)                                          
-    {                                                                                       
-    assert(arr);                                                                            
+void ValueArr::resize ()                                          
+    {                                                                                            
+    size_t new_size = capacity * GROWTH_RATE;                                          
                                                                                             
-    size_t new_size = arr->capacity * GROWTH_RATE;                                          
-                                                                                            
-    Value** temp = (Value**) realloc (arr->arr, new_size * sizeof(temp[0]));    
+    Value** temp = (Value**) realloc (arr, new_size * sizeof(temp[0]));    
     assert(temp);                                                                           
                                                                                             
-    arr->capacity = new_size;                                                               
-arr->arr      = temp;                                                                   
-                                                                                            
-    return SUCCESS;                                                                         
+    capacity = new_size;                                                               
+    arr      = temp;                                                                   
     }
 
-Value* AddValue (ValueArr* arr, Value* val)  
+Value* ValueArr::add (Value* val)  
     {               
-    assert(arr);                                            
     assert(val);                                            
 
     // PRINT_VALUE(val);                                        
     // report ("Arr %p, Val %p, ArrSize %lu\n", arr, val, arr->size);
 
-    if (arr->size >= arr->capacity)                         
-        ValueArrResize (arr);                          
+    if (size >= capacity)                         
+        this->resize ();                          
 
-    (arr->arr)[arr->size++] = val;   
+    arr[size++] = val;   
 
     return val;                                            
     }
 
-Value* AllocValue (ValueArr* arr, size_t val_size)
-    {
-    assert(arr);
-
-    if (arr->size >= arr->capacity)                         
-        ValueArrResize (arr);                          
-                                                            
-    Value* temp = (Value*) calloc (1, val_size);  
-    assert(temp);                                           
-                                                            
-    arr->arr[arr->size++] = temp;                           
-    
-    return temp;                                            
-    }
-
 //////////////////////////////////////////////////////
 // BaseBlock
-int BaseBlockCtor (BaseBlock* block)
-    {
-    assert(block);
+//////////////////////////////////////////////////////
+BaseBlock::BaseBlock (name_t name_param) :
+    Value    (ValueType::BaseBlock, name_param), 
+    inst_arr (ValueType::Instruction) 
+    {}
 
-    ValueCtor (block, ValueType::BaseBlock);
-    ValueArrCtor (&block->inst_arr, ValueType::Instruction);
-
-    return SUCCESS;
-    }
-
-int BaseBlockDtor (BaseBlock* block)
-    {
-    assert(block);
-
-    ValueArrDtor (&block->inst_arr);
-    return SUCCESS;
-    }
+// BaseBlock::~BaseBlock ()  {}
 
 //////////////////////////////////////////////////////
 // Constant
-int ConstantCtor (Constant* constant, data_t value)
-    {
-    assert(constant);
+//////////////////////////////////////////////////////
+Constant::Constant (name_t name_param, const data_t value) :
+    Value (ValueType::Constant, name_param),
+    data  (value)   
+    {}
 
-    ValueCtor (constant, ValueType::Constant);
-
-    constant->Constant::data = value;
-    return SUCCESS;
-    }
-
-int ConstantDtor (Constant* constant) 
-    {
-    assert(constant);
-    return SUCCESS;
-    }
+// Constant::~Constant () {}
 
 //////////////////////////////////////////////////////
 // Global var
-int GlobalVarCtor (GlobalVar* var, name_t name, Constant* init_val)
-    {
-    assert(var);
-    assert(name);
-    assert(init_val);
+//////////////////////////////////////////////////////
+GlobalVar::GlobalVar (name_t name_param, VariableType var_type_param, const Constant* init_val_param) :
+    Value    (ValueType::GlobalVar, name_param),
+    var_type (var_type_param),
+    init_val (init_val_param)  
+    {}
 
-    ValueCtor (var, ValueType::GlobalVar);
-
-    var->Value::name = name;
-    var->GlobalVar::init_val = init_val;
-
-    return SUCCESS;
-    }
-
-int GlobalVarDtor (GlobalVar* var)
-    {
-    assert(var);
-
-    return SUCCESS;
-    }
+//  GlobalVar::~GlobalVar () {}
 
 //////////////////////////////////////////////////////
 // Function
-int FunctionCtor (Function* func, name_t name)
-    {
-    assert(func);
+//////////////////////////////////////////////////////
+Function::Function (name_t name_param, FunctionRetType ret_type_param) :
+    Value    (ValueType::Function, name_param),
+    ret_type (ret_type_param),    
+    argv     (ValueType::Instruction),
+    body     (ValueType::Instruction)  
+    {}
 
-    ValueCtor (func, ValueType::Function, name);
-    
-    ValueArrCtor (&func->argv, ValueType::GlobalVar);
-    ValueArrCtor (&func->body, ValueType::BaseBlock);
-
-    return SUCCESS;
-    }
-
-int FunctionDtor (Function* func)
-    {
-    assert(func);
-
-    ValueArrDtor (&func->argv);
-    ValueArrDtor (&func->body);
-
-    return SUCCESS;
-    }
+// Function::~Function () {}

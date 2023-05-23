@@ -41,7 +41,8 @@ int BuilderDtor (Builder* buildog)
     return SUCCESS;
     }
 
-int SetFunction (Builder* buildog, Function* func, ValueLabel* func_label)
+//////////////////////////////////////////////////////
+int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_label)
     {
     assert(buildog);
     assert(func);
@@ -50,8 +51,8 @@ int SetFunction (Builder* buildog, Function* func, ValueLabel* func_label)
     CopyValueLabel (&buildog->global, func_label);
     ValueNameTableCtor (&buildog->local); 
 
-    buildog->current_function = func; 
-    buildog->body_blocks = &func->body;
+    buildog->current_function  = func; 
+    buildog->body_blocks       = &func->body;
     
     ValueArrCtor (buildog->body_blocks, ValueType::BaseBlock);
     BaseBlock* entry_block = InsertNewBaseBlock (buildog);
@@ -70,6 +71,7 @@ int AddFunctionToModule (Builder* buildog)
     return SUCCESS;
     }
 
+//////////////////////////////////////////////////////
 BaseBlock* GetCurrentBaseBlock (Builder* buildog)
     {
     assert(buildog);
@@ -114,6 +116,7 @@ BaseBlock* InsertNewBaseBlock (Builder* buildog)
     return new_block;
     }   
 
+//////////////////////////////////////////////////////
 int AddInstruction (Builder* buildog, Instruction* instruction)
     {
     assert(buildog);
@@ -138,6 +141,7 @@ int AddGlobalVar (Builder* buildog, GlobalVar* var)
     return SUCCESS;
     }
 
+//////////////////////////////////////////////////////
 Value* FindValue (Builder* buildog, int name_id)
     {
     assert (buildog);
@@ -158,18 +162,103 @@ Value* FindValue (Builder* buildog, int name_id)
     return NULL;
     }
 
-// int CopyInstruction (Builder* buildog, Instruction* instruction)
-//     {
-//     assert(buildog);
-//     assert(instruction);
+//////////////////////////////////////////////////////
+static int FIN_NAME_ID = 0; 
 
-//     if (!buildog->current_function)
-//         {
-//         report ("Error, Null current_function\n");
-//         return FAILURE;
-//         }
+static int             AddNativeFunction  (ValueNameTable* name_table, const NativeFunctionStruct* func);
+static FunctionRetType GetRetType         (int type);
 
-//     BaseBlock* current_block = GetCurrentBaseBlock(buildog);
+static int AddNativeFunctions (Builder* buildog)
+    {
+    assert(buildog);
 
-//     return MoveToInstructionArr (&current_block->inst_arr, instruction, size);
-//     }
+    for (size_t i = 0; i < NUMBER_OF_NATIVE_FUNCTIONS_STRUCT; i++)
+        AddNativeFunction (&buildog->global, NATIVE_FUNCTIONS + i);
+
+    return SUCCESS;
+    }
+
+static int AddNativeFunction (ValueNameTable* name_table, const NativeFunctionStruct* native_func)
+    {
+    assert(name_table);
+    assert(native_func);
+
+    Function*     func = (Function*) calloc (1, sizeof(func[0]));
+           assert(func);
+    FunctionCtor (func, native_func->str);
+                  func->Function::type = GetRetType (native_func->ret_type);
+
+    int name_id = AddString (native_func->str);
+
+    if (!strcmp(native_func->str, "fin"))
+        FIN_NAME_ID = name_id;
+
+    ValueLabel function_label = {.name_id = name_id,
+                                 .type    = FUNCTION,
+                                 .val     = func
+                                };
+
+    CopyValueLabel (name_table, &function_label);
+    return SUCCESS;
+    }
+
+static FunctionRetType GetRetType (int type)
+    {
+    return  (type == DOUBLE) ? FunctionRetType::Double : FunctionRetType::Void;
+    }
+
+//////////////////////////////////////////////////////
+// Constant
+//////////////////////////////////////////////////////
+CreateConstant (builder, const_val, const_name);
+
+//////////////////////////////////////////////////////
+// Function
+//////////////////////////////////////////////////////
+static int GetParametersDeclaration (Builder* buildog, ValueArr* argv, Token* token);
+
+Function* CreateFunction (Builder* buildog, int name_id, int ret_type)
+    {
+    assert (buildog);
+
+    name_t  func_name = GetString (name_id);
+    assert (func_name);
+
+    FunctionRetType ret_type = GetRetType (ret_type);
+
+    Function func = new Function (func_name, ret_type);
+
+    ValueLabel function_label = {.name_id = NAME_ID(function_name),
+                                 .type    = FUNCTION,
+                                 .val     = func
+                                };
+
+    SetBuilderForFunction    (buildog, func, &function_label);
+    GetParametersDeclaration (buildog, &func->argv, LEFT(function_name));
+    
+    AstVisitor (buildog, RIGHT(token)); // adding function body
+
+    AddFunctionToModule(buildog);
+    return func;
+    }
+
+static int GetParametersDeclaration (Builder* buildog, ValueArr* argv,Token* token)
+    {
+    assert(buildog);
+    assert(argv);
+
+    if (!token) return SUCCESS;
+
+    Token* param = token;
+    while (param)
+        {
+        Value* param_val = AstVisitor (buildog, LEFT(param));
+        assert(param_val);
+                         
+        AddValue (argv, param_val);
+
+        param = RIGHT(param);
+        }
+
+    return SUCCESS;
+    }
