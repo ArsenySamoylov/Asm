@@ -1,8 +1,5 @@
 #include "TranslateToAsm.h"
 
-#include "Program.h"
-
-#include "Module.h"
 #include "AstToIR.h"
 #include "DebugIR.h"
 
@@ -15,6 +12,7 @@
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 
+
 #define GOTO_FAILURE_EXIT(exit_name)        goto fail_exit_label_##exit_name;
 #define SET_FAILURE_EXIT(exit_name)              fail_exit_label_##exit_name:
 #define CHECK_SUCCESS(condition, exit_name) if ((condition) != SUCCESS)  { GOTO_FAILURE_EXIT(exit_name)}
@@ -22,6 +20,7 @@
 void help();
  
 #include "Elf.hpp"
+
 int PutIRinElf (const Module* mod, Elf* elf);
 
 int main(int argc, const char* argv[])
@@ -40,8 +39,7 @@ int main(int argc, const char* argv[])
   Program program{};
   ProgramCtor(&program, path_to_awp_file);
   
-  Module program_module;
-  ModuleCtor (&program_module);
+  Module program_module {};
 
   Elf elf = {};
   ElfCtor (&elf);
@@ -54,12 +52,11 @@ int main(int argc, const char* argv[])
   // CHECK_SUCCESS (SetTokenTree(&program), BAD_TOKEN_TREE);   // don't kill name tables, store pointer to label in token
 
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
-  DumpIR (&program_module, "test.ir");
+  program_module.dump("test.ir");
 
-  CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
+  // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
   ProgramDtor(&program);
-  ModuleDtor(&program_module);
   
   return SUCCESS;
 
@@ -84,7 +81,6 @@ CLEAR_RESOURCES:
 
   $$
   ProgramDtor(&program);
-  ModuleDtor(&program_module);
 
   return FAILURE;
   }

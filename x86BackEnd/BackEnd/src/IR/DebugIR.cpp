@@ -25,27 +25,14 @@ static FILE* DUMP_FILE = NULL;
 
 #define print_raw(format, ...) fprintf(DUMP_FILE, format __VA_OPT__(,) __VA_ARGS__)
 
-void Module::dumpGlobalVars () const;
-void Module::dumpFunctions  () const;
-
-/*
-void GlobalVar::dump  () const;
-
-void Function::dump   () const;
-void DumpParameters (const ValueArr* argv);
-
-void DumpBaseBlock  (const BaseBlock* block);
-void DumpInstruction (const Instruction* instr);
-void PrintOperator (const Operator* op);
-*/
-
-void DumpParameters (const ValueArr* argv);
-void PrintFullType  (const Value* val);
-void PrintName      (const Value* val);
+static void DumpParameters (const ValueArr* argv);
+static void PrintFullType  (const Value* val);
+static void PrintName      (const Value* val);
+static void PrintOperator  (OperatorType op_type);
 
 #pragma GCC diagnostic ignored "-Wformat-zero-length"
 
-void Module::dump (const char* out_file)
+void Module::dump (const char* out_file) const
     {
     assert(out_file);
 
@@ -53,16 +40,16 @@ void Module::dump (const char* out_file)
     if (!DUMP_FILE)
         {
         report("Can't open file '%s'\n", out_file);
-        return FAILURE;
+        return;
         }
 
     setvbuf(DUMP_FILE, NULL, _IONBF, 0);
 
-    for (size_t i = 0; i < global_vars->size; i++)
-        global_vars->arr[i].dump();
+    for (size_t i = 0; i < global_vars.get_size(); i++)
+        global_vars.get_const_value(i)->dump();
 
-    for (size_t i = 0; i < functions->size; i++)
-        functions->arr[i].dump();
+    for (size_t i = 0; i < functions.get_size(); i++)
+        functions.get_const_value(i)  ->dump();
 
     fclose(DUMP_FILE);
     DUMP_FILE = NULL;
@@ -72,11 +59,13 @@ void GlobalVar::dump  () const
     {
     print("declare %s = ", name);
 
-    if (var->init_val)
-        print_raw("%lg\n", ((double)init_val->data) / PRECISION);
-    else
-        print_raw("NILL\n");
+    if (init_val)
+        init_val->dump();
+    }
 
+void Constant::dump () const
+    {
+    print_raw("%lg\n", ((double) get_data()) / PRECISION);
     }
 
 void Function::dump () const 
@@ -85,8 +74,8 @@ void Function::dump () const
     DumpParameters (&argv);
     print_raw(":\n");
     
-    for (size_t i = 0; i < body->size; i++)
-        body->arr[i].dump();
+    for (size_t i = 0; i < body.get_size(); i++)
+        body.get_const_value(i)->dump();
 
     print_raw("\n");
     }
@@ -97,13 +86,13 @@ void BaseBlock::dump  () const
     print(":\n");
     increase_indent();
 
-    for (size_t i = 0; i < inst_arr->size; i++)
-        inst_arr->arr[i].dump();
+    for (size_t i = 0; i < inst_arr.get_size(); i++)
+        inst_arr.get_const_value(i)->dump();
 
     decrease_indent();
     }
 
-void Store::dump () const
+void Store::dump () const 
     {
     print ("%s = store(", name);
     PrintName(val);
@@ -124,7 +113,7 @@ void Operator::dump () const
     print          ("");
     PrintName      (this);
     print_raw       (" = "); 
-    PrintOperator  (this);
+    PrintOperator  (op_type);
     
     print_raw   (" ");
     PrintName  (left_op);
@@ -158,7 +147,7 @@ void Branch::dump () const
 
 void Call::dump () const
     {
-    if (function->type == FunctionRetType::Double)
+    if (function->get_ret_type() == FunctionRetType::Double)
             { print ("%s = ", name); } 
     else
             { print (""); }
@@ -167,7 +156,7 @@ void Call::dump () const
     PrintName (function);
     print_raw  (" ");
 
-    DumpParameters (&argv));
+    DumpParameters (&argv);
 
     print_raw ("\n");
     }
@@ -181,9 +170,9 @@ void Return::dump () const
     print_raw ("\n");
     }
 
-void Operator::dump ()
+static void PrintOperator (OperatorType op_type)
     {
-    switch(this->Operator::type)
+    switch (op_type)
         {
         case OperatorType::Add: print_raw ("add"); break;
         case OperatorType::Sub: print_raw ("sub"); break;
@@ -200,13 +189,18 @@ void Operator::dump ()
         }
     }
 
+
 void PrintFullType (const Value* val)
     {
     assert(val);
 
+    print_raw ("TODO\n");
+
+    return;
+    /*
     print_raw("(");
 
-    switch (val->type)
+    switch (val->get_type())
         {
 
         case ValueType::Function:   print_raw ("Function"); break;
@@ -230,7 +224,7 @@ void PrintFullType (const Value* val)
                 case InstructionType::Operator:
                                     print_raw ("Operator::");
 
-                                    PrintOperator((const Operator*) val);
+                                    // PrintOperator((const Operator*) val)->op_type);
                                     break;
 
                 case InstructionType::Branch:
@@ -264,6 +258,7 @@ void PrintFullType (const Value* val)
     print_raw(")");
 
     return SUCCESS;
+    */
     }
 
 void DumpParameters (const ValueArr* argv)
@@ -272,17 +267,16 @@ void DumpParameters (const ValueArr* argv)
 
     print_raw("(");
 
-    for (size_t i = 0; i < argv->size; i++)
+    for (size_t i = 0; i < argv->get_size(); i++)
         {
         print_raw("param ");
-        PrintName (argv->arr[i]);
+        PrintName (argv->get_const_value(i));
 
-        if (i < argv->size - 1)
+        if (i < argv->get_size() - 1)
             print_raw (", ");
         }
 
     print_raw(")");
-    return SUCCESS;
     }
 
 void PrintName (const Value* val)
@@ -291,23 +285,23 @@ void PrintName (const Value* val)
     if (!val)
         {
         print_raw (" 'No value' ");
-        return SUCCESS;
+        return;
         }
     
-    if (val->name && val->type != ValueType::Constant)
+    if (val->get_name() && val->get_type() != ValueType::Constant)
         {
-        print_raw("%s", val->name);
-        return SUCCESS;
+        print_raw("%s", val->get_name());
+        return;
         }
 
-    switch (val->type)
+    switch (val->get_type())
         {
         case ValueType::BaseBlock:
                 print_raw ("%%%p", val);
                 break;
 
         case ValueType::Constant:
-            print_raw ("%lg", ((double) ((const Constant*) val)->data) / PRECISION);
+            print_raw ("%lg", ((double) ((const Constant*) val)->get_data()) / PRECISION);
             //  print_raw(" (%s)", val->name);
             break;
 
@@ -319,7 +313,7 @@ void PrintName (const Value* val)
             assert(0);
         }
 
-    return SUCCESS;
+    return;
     }
 //////////////////////////////////////////////////////
 int PrintValue (const Value* val)
@@ -363,6 +357,8 @@ void DumpInstructionForFile (const Instruction* instr)
     {
     assert(instr);
 
+    return;
+    /*
     switch (instr->Instruction::type)
         {
         case InstructionType::Store:
@@ -447,4 +443,5 @@ void DumpInstructionForFile (const Instruction* instr)
         }
 
     return FAILURE;
+    */
     }

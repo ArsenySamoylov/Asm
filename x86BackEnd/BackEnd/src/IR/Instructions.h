@@ -24,14 +24,11 @@ class Instruction : public Value
 
       ~Instruction () = default;
 
-       virtual void      dump      () const = 0;
-               ValueType get_type  () const override;
+       virtual void            dump           () const override  = 0;
+       virtual InstructionType get_instr_type () const           = 0;
+        
+       ValueType get_type  () const override final;
     };
-
-/*
-int InstructionCtor (Instruction* inst, InstructionType type);
-int InstructionDtor (Instruction* inst);
-*/
 
 //////////////////////////////////////////////////////
 class Store : public Instruction
@@ -42,19 +39,13 @@ class Store : public Instruction
     public:
 
          Store (name_t name_param, const Value* val_param);
-        ~Store ();
+        ~Store () = default; 
 
-       void      dump     () const override;
-       ValueType get_type () const override;
-
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
     };
 
-// int StoreCtor (Store* store, name_t name, Value* val);
-// int StoreDtor (Store* store);
-
-// GetType возвращать тип override
-// проверка первого поля 
-
+//////////////////////////////////////////////////////
 class Load : public Instruction
     {
     private:
@@ -65,49 +56,49 @@ class Load : public Instruction
         Load (name_t name_param, const Value* dest_param, const Value* src_param);
        ~Load () = default;
 
-       void      dump     () const override;
-       ValueType get_type () const override;
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
     };
 
-// int LoadCtor (Load* load, Value* dest, Value* src);
-// int LoadDtor (Load* load);
-
+//////////////////////////////////////////////////////
 class Branch : public Instruction
     {
     private:
         const Value* condition;
     
-        const BaseBlock* true_block;
-        const BaseBlock* false_block;
+        BaseBlock* true_block;
+        BaseBlock* false_block;
 
     public:
-        Branch (name_t name_param, const Value* condition_param, const BaseBlock* true_block_param, const BaseBlock* false_block_param);
+        Branch (name_t name_param, const Value* condition_param, BaseBlock* true_block_param, BaseBlock* false_block_param);
        ~Branch () = default;
 
-       void      dump     () const override;
-       ValueType get_type () const override;
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
+
+        BaseBlock* set_true_block  (BaseBlock* true_block_param);
+        BaseBlock* set_false_block (BaseBlock* false_block_param);
     };
 
-// int BranchCtor (Branch* branch);
-// int BranchDtor (Branch* branch);
-
+//////////////////////////////////////////////////////
 class Call : public Instruction
     {
     private:
-        const ValueArr   argv;
+        ValueArr   argv;
         const Function* function;
 
     public:
         Call (name_t name_param, const Function* function_param);
-       ~Call () = default;
+       ~Call ();
 
-       void      dump     () const override;
-       ValueType get_type () const override;
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
+
+             ValueArr* get_argv ();
+       const ValueArr* get_const_argv () const;
     };
 
-// int CallCtor (Call* call, const Function* func);
-// int CallDtor (Call* call);
-
+//////////////////////////////////////////////////////
 struct Return : public Instruction 
     {
     private:
@@ -117,14 +108,11 @@ struct Return : public Instruction
         Return (name_t name_param, const Value* ret_value_param);
        ~Return () = default;
 
-       void      dump     () const override;
-       ValueType get_type () const override; 
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
     };
 
-// int ReturnCtor (Return* ret);
-// int ReturnDtor (Return* ret);
-
-
+//////////////////////////////////////////////////////
 enum class OperatorType
     {
     Add,
@@ -150,9 +138,6 @@ struct Operator : public Instruction
         Operator (name_t name_param, enum OperatorType op_type_param, const Value* left_param, const Value* right_param);
        ~Operator () = default;
 
-       void      dump     () const override;
-       ValueType get_type () const override; 
+       void            dump           () const override;
+       InstructionType get_instr_type () const override;
     };
-
-// int OperatorCtor (Operator* op, OperatorType type, Value* left, Value* right);
-// int OperatorDtor (Operator* op);

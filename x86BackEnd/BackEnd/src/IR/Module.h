@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Value.h"
-// #include "Instructions.h"
+#include "Instructions.h"
 
 class Module
     {
@@ -11,10 +11,13 @@ class Module
     
     public:
          Module ();
-        ~Module () = default;
+        ~Module ();
 
-        void dump (const char* out_file);
+        void dump (const char* out_file) const;
+        
+        void add_func (Function*  func);
+        void add_var  (GlobalVar* var);
+
+        void dumpGlobalVars () const;
+        void dumpFunctions  () const;
     };
-
-// int ModuleCtor (Module* mod);
-// int ModuleDtor (Module* mod);

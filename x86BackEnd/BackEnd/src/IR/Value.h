@@ -29,15 +29,14 @@ class Value : public NoCopyable
 
         virtual ~Value ()          = default;
 
-        virtual void      dump     () const;
+        virtual void      dump     () const = 0;
         virtual ValueType get_type () const = 0;
+
+        name_t get_name() const;
     };
 
 /* virtual void dump() const  (Value* this) = 0; */
-
-// int ValueCtor (Value* val, ValueType type, name_t name = NULL);
-// int ValueDtor (Value* val);
-
+//////////////////////////////////////////////////////
 class ValueArr
     {
     private:
@@ -56,14 +55,12 @@ class ValueArr
         ValueArr (ValueType base_type_param);
        ~ValueArr ();
 
-        Value* add (Value* val);
-        // Value* AddValue   (Value* val);
-   
+        Value* add       (Value* val);
+        Value* get_value (size_t index);
+        size_t get_size  () const;
+
+        const Value* get_const_value (size_t index) const;
     };
-
-// int ValueArrCtor   (ValueArr* arr, ValueType base_type);
-// int ValueArrDtor   (ValueArr* arr);
-
 
 //////////////////////////////////////////////////////
 class BaseBlock : public Value
@@ -73,17 +70,14 @@ class BaseBlock : public Value
     
     public:
         BaseBlock (name_t name_param);
-       ~BaseBlock () override = default;
+       ~BaseBlock () override;
 
         void      dump     () const override;
         ValueType get_type () const override;
+
+        Value* add_instr (Value* instr);
     };
 
-// int BaseBlockCtor (BaseBlock* block);
-// int BaseBlockDtor (BaseBlock* block);
-
-//////////////////////////////////////////////////////
-// Higher level sh*t
 //////////////////////////////////////////////////////
 const int PRECISION = 100;
 
@@ -98,11 +92,11 @@ class Constant : public Value
 
        void      dump     () const override;
        ValueType get_type () const override;
-    };
-    
-// int ConstantCtor (Constant* constant, data_t value);
-// int ConstantDtor (Constant* constant);
 
+       data_t get_data () const;
+    };
+
+//////////////////////////////////////////////////////
 enum class VariableType
     {
     Double,
@@ -122,9 +116,7 @@ class GlobalVar : public Value
        ValueType get_type () const override;
     };
 
-// int GlobalVarCtor (GlobalVar* var, name_t name, Constant* init_val);
-// int GlobalVarDtor (GlobalVar* var);
-
+//////////////////////////////////////////////////////
 enum class FunctionRetType
     {
     Double,
@@ -141,11 +133,16 @@ class Function : public Value
 
     public:
         Function (name_t name_param, FunctionRetType ret_type_param);
-       ~Function () override = default;
+       ~Function () override;
 
        void      dump     () const override;
        ValueType get_type () const override;
-    };
 
-// int FunctionCtor (Function* func, name_t name);
-// int FunctionDtor (Function* func);
+       ValueArr* get_body ();
+       ValueArr* get_argv ();
+
+       const ValueArr* get_const_body () const;
+       const ValueArr* get_const_argv () const;
+
+       FunctionRetType get_ret_type () const;
+    };

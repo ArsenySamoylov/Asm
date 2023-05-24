@@ -1,7 +1,6 @@
 #include <assert.h>
 
-#include "Module.h"
-#include "Program.h"
+#include "AstToIR.h"
 
 #include "Builder.h"
 #include "StringPool.h"
@@ -14,6 +13,7 @@
 #include "EasyDebug.h"
 
 #include "Program.h" // for create string
+
 
 
 static Value* AstVisitor (Builder* buildog, const Token* token);
@@ -72,10 +72,10 @@ static Value* AstVisitor (Builder* buildog, const Token* token)
         case FUNCTION:          return EmitFunction        (buildog, token);
         case CALL:              return EmitCall            (buildog, token);
         case NATIVE_FUNCTION:   return EmitNativeFunction  (buildog, token);  
-        case INITIALIZATOR:     return CreateInitializator (buildog, token);
+        case INITIALIZATOR:     return EmitInitializator   (buildog, token);
         case OPERATOR:          return EmitOperator        (buildog, token);
         case ASSIGMENT:         return EmitAssigment       (buildog, token);
-        case FUNCTION_RET_TYPE: return AddReturn           (buildog, token);
+        case FUNCTION_RET_TYPE: return EmitReturn          (buildog, token);
 
         default:
             report ("Wrong token type\n");
@@ -107,7 +107,8 @@ static Value* EmitName (Builder* buildog, const Token* token)
 static unsigned NUMBER_OF_IF = 0;
 
 static Instruction* EmitIf        (Builder* buildog, const Token* token);
-static Instruction* AddIfAndElse  (Builder* buildog, const Token* token)
+static Instruction* EmitOnlyIf    (Builder* buildog, Branch* branch, BaseBlock* than_block, const Token* token, unsigned if_number);
+static Instruction* EmitIfAndElse (Builder* buildog, Branch* branch, BaseBlock* than_block, const Token* token, unsigned if_number);
 
 static Value* EmitInstruction (Builder* buildog, const Token* token)
     { 
@@ -134,99 +135,90 @@ static Instruction* EmitIf (Builder* buildog, const Token* token)
         return NULL;
         }
 
-    if(IS_INSTRUCTION(RIGHT(token)) && INSTR(RIGHT(token)) == ELSE)
-        return EmitIfAndElse (buildog, token);
-
-    return EmitOnlyIf (buildog, token);
-    } 
-
-static Instruction* EmitOnlyIf (Builder* buildog, const Token* token)
-    {
-    assert(buildog);
-    assert(token);
-
     // get condition
-    Value* condition = AstVisitor(buildog, LEFT(token));
-    assert(condition);
+    Value*  condition = AstVisitor(buildog, LEFT(token));
+    assert (condition);
 
     //Create branch, as last instruction in current BaseBlock
-    Branch* branch = AddBranch (buildog, condition);
+    Branch* branch = CreateBranch (buildog, NULL, condition, NULL, NULL);
+
+    // Set 'than' block
+    unsigned if_number     = NUMBER_OF_IF++;
+    name_t than_block_name = CreateString ("than_%u", if_number);
+
+    BaseBlock* than_block = InsertNewBaseBlock (buildog, than_block_name); // insert block ant switch to it
+        assert(than_block);
+
+    if (IS_INSTRUCTION(RIGHT(token)) && INSTR(RIGHT(token)) == ELSE)
+        return EmitIfAndElse (buildog, branch, than_block, token, if_number);
+
+    return EmitOnlyIf (buildog, branch, than_block, token, if_number);
+    } 
+
+static Instruction* EmitOnlyIf (Builder* buildog, Branch* branch, BaseBlock* than_block, const Token* token, unsigned if_number)
+    {
+    assert (buildog);
+    assert (branch);
+    assert (token);
 
     Token* than_body = RIGHT(token);
 
-    // Set 'than' block
-    unsigned if_number = NUMBER_OF_IF++;
-
-    BaseBlock* than_block       = InsertNewBaseBlock (buildog); // insert block ant switch to it
-        assert(than_block);
-               than_block->name = CreateString ("than_%u", if_number);
-
     AstVisitor(buildog, than_body);  // get `than` body
 
-    Branch* than_branch = AddBranch (buildog, NULL); // add branch as last instruction to `than` body 
+    Branch* than_branch = CreateBranch (buildog, NULL, NULL, NULL, NULL); // add branch as last instruction to `than` body 
      assert(than_branch);
 
-    BaseBlock* merge_block      = InsertNewBaseBlock (buildog);
+    name_t  merge_block_name = CreateString ("merge_%u", if_number);
+    assert (merge_block_name);
+
+    BaseBlock* merge_block = InsertNewBaseBlock (buildog, merge_block_name);
         assert(merge_block); 
-              merge_block->name = CreateString ("merge_%u", if_number);
 
-    branch->true_block = than_block;
-    branch->false_block = merge_block;
+    branch->set_true_block  (than_block);
+    branch->set_false_block (merge_block);
 
-    than_branch->true_block = merge_block;
+    than_branch->set_true_block  (merge_block);
 
     return NULL;
     }
 
-static Instruction* EmitIfAndElse  (Builder* buildog, const Token* token)
+static Instruction* EmitIfAndElse  (Builder* buildog, Branch* branch, BaseBlock* than_block, const Token* token, unsigned if_number)
     {
-    assert(buildog);
-    assert(token);
+    assert (buildog);
+    assert (token);
 
-    // get condition
-    Value* condition = AstVisitor(buildog, LEFT(token));
-    assert(condition);
-
-    //Create branch, as last instruction in current BaseBlock
-    Branch* branch = AddBranch (buildog, condition);
-    assert(branch);
-    
     Token* than_body = LEFT (RIGHT(token));
     Token* else_body = RIGHT(RIGHT(token));
 
-    unsigned if_number = NUMBER_OF_IF++;
-
-    // Set 'than'
-    BaseBlock* than_block       = InsertNewBaseBlock (buildog); // insert block and switch to it
-        assert(than_block);
-               than_block->name = CreateString ("than_%u", if_number);
-
     AstVisitor(buildog, than_body);  // get `than` body
     
-    Branch* than_branch = AddBranch (buildog, NULL); // add branch as last instruction to `than` body 
-     assert(than_branch);
+    Branch* than_branch = CreateBranch (buildog, NULL, NULL, NULL, NULL); // add branch as last instruction to `than` body 
+    assert (than_branch);
 
     // Set 'else'
-    BaseBlock* else_block       = InsertNewBaseBlock (buildog); // insert block and switch to it
-        assert(else_block);
-               else_block->name = CreateString ("else_%u", if_number);
+    name_t  else_block_name = CreateString ("else_%u", if_number);
+    assert (else_block_name);
+
+    BaseBlock* else_block = InsertNewBaseBlock (buildog, else_block_name); // insert block and switch to it
+       assert (else_block);
 
     AstVisitor(buildog, else_body);  // get `else` body
     
-    Branch* else_branch = AddBranch (buildog, NULL); // add branch as last instruction to `than` body 
+    Branch* else_branch = CreateBranch (buildog, NULL, NULL, NULL, NULL); // add branch as last instruction to `than` body 
      assert(else_branch);
 
     // Set 'merge'
-    BaseBlock* merge_block       = InsertNewBaseBlock (buildog);
+    name_t  merge_block_name = CreateString ("merge_%u", if_number);
+    assert (merge_block_name);
+
+    BaseBlock* merge_block = InsertNewBaseBlock (buildog, merge_block_name);
         assert(merge_block); 
-               merge_block->name = CreateString ("merge_%u", if_number);
 
+    than_branch->set_true_block (merge_block);
+    else_branch->set_true_block (merge_block);
 
-    than_branch->true_block = merge_block;
-    else_branch->true_block = merge_block;
-
-    branch->true_block = than_block;
-    branch->false_block = else_block;
+    branch->set_true_block  (than_block);
+    branch->set_false_block (else_block);
 
     return NULL;
     }
@@ -234,17 +226,17 @@ static Instruction* EmitIfAndElse  (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Constant
 //////////////////////////////////////////////////////
-static unsigned N_CONSTANT = 0;
+static unsigned TEMP_VAR_NUMBER = 0;
 
 static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     {
     assert(buildog);
     assert(token);
 
-    data   const_val  = (int) (CONST(token) * 100);
-    name_t const_name = CreateString ("const_%d", N_CONSTANT++);
+    data_t const_val  = (int) (CONST(token) * 100);
+    name_t const_name = CreateString ("const_%d", TEMP_VAR_NUMBER++);
     
-    Constant* constant = CreateConstant (builder, const_val, const_name);
+    Constant* constant = CreateConstant (buildog, const_name, const_val);
 
     return constant;
     }
@@ -252,7 +244,7 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
-static FunctionRetType GetFunctionRetType (int type);
+static int GetParametersDeclaration (Builder* buildog, ValueArr* argv, Token* token);
 
 static Function* EmitFunction (Builder* buildog, const Token* token)
     {
@@ -262,12 +254,40 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     Token* function_name     =  LEFT(token);
     Token* function_ret_type = RIGHT(function_name);
 
-    Function* func = CreateFunction (builder, NAME_ID(function_name), RET_TYPE(function_ret_type));
+    name_t  func_name = GetString (NAME_ID(function_name));
+    assert (func_name);
 
+    Function* func = CreateFunction (buildog, func_name, RET_TYPE(function_ret_type), NAME_ID(function_name));
+
+    GetParametersDeclaration (buildog, func->get_argv(), LEFT(function_name));
+    
+    AstVisitor (buildog, RIGHT(token)); // adding function body
+
+    AddFunctionToModule (buildog);
 
     return func;
     }
 
+static int GetParametersDeclaration (Builder* buildog, ValueArr* argv,Token* token)
+    {
+    assert(buildog);
+    assert(argv);
+
+    if (!token) return SUCCESS;
+
+    Token* param = token;
+    while (param)
+        {
+        Value* param_val = AstVisitor (buildog, LEFT(param));
+        assert(param_val);
+                         
+        argv->add(param_val);
+
+        param = RIGHT(param);
+        }
+
+    return SUCCESS;
+    }
 //////////////////////////////////////////////////////
 // Call
 //////////////////////////////////////////////////////
@@ -303,27 +323,30 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         assert(func);
         }
 
+    assert(func);
+
+    name_t  call_name = CreateString ("%%c_%u", TEMP_VAR_NUMBER++);
+    assert (call_name);
+
     // PrintToken (func_name, GetStringPool());
     // report ("%s, %d\n\n", GetString(NAME_ID(func_name)), NAME_ID(func_name));
 
-    Call* call = CreateCall (
-    // Call*     call = (Call*) calloc (1, sizeof(call[0]));
-    // assert   (call);
-    // CallCtor (call, func);
+    Call*   call = CreateCall (buildog, call_name, func);
+    assert (call);
 
-    // Token* param = LEFT (func_name);
-    // while (param)
-    //     {
-    //     Value* param_val = AstVisitor (buildog, LEFT(param));
-    //     assert(param_val);
+    ValueArr* argv = call->get_argv();
+    assert   (argv);
 
-    //     AddValue (&call->argv, param_val);
+    Token* param = LEFT (func_name);
+    while (param)
+        {
+        Value* param_val = AstVisitor (buildog, LEFT(param));
+        assert(param_val);
 
-    //     param = RIGHT(param);
-    //     }
+        argv->add(param_val);
 
-    // call->name = CreateString ("%%c_%u", OPERATOR_NUMBER++);
-    // AddInstruction (buildog, call);
+        param = RIGHT(param);
+        }
 
     return call;
     }
@@ -342,7 +365,7 @@ const Function* FindNativeFunction (Builder* buildog, int native_func_num)
         assert(label);
 
         const Value* val =  label->val;
-        if (!strcmp(val->name, native_func))
+        if (!strcmp(val->get_name(), native_func))
             return (const Function*) val;
         }
 
@@ -390,7 +413,7 @@ static Value* RearrangeFinTokens (Builder* buildog, const Token* token)
 // EmitInitializator
 //////////////////////////////////////////////////////
 static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token);
-static Store*     AddStore     (Builder* buildog, const Token* token);
+static Store*     AddLocalVar     (Builder* buildog, const Token* token);
 
 static Value* EmitInitializator (Builder* buildog, const Token* token) // add to ValueNameTable and call Create Global Var or Store
     {
@@ -401,7 +424,7 @@ static Value* EmitInitializator (Builder* buildog, const Token* token) // add to
     if (!buildog->current_function)
         return AddGlobalVar (buildog, token);
 
-    return AddStore (buildog, token); // creating store 
+    return AddLocalVar (buildog, token); // creating store 
     }
 
 static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
@@ -409,35 +432,39 @@ static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
     assert(buildog);
     assert(token);
     
-    Token* var_name = LEFT(token);
+    Token* var_name_token = LEFT(token);
 
     Constant* init_val  = (Constant*) (AstVisitor(buildog, RIGHT(token)));
-    
-    GlobalVar* var = (GlobalVar*) calloc (1, sizeof(var[0]));
-    GlobalVarCtor (var, GetString(NAME_ID(var_name)), init_val); 
+    assert (init_val->get_type() == ValueType::Constant);
 
-    ValueLabel var_label = {.name_id = NAME_ID(var_name),
+    name_t  var_name = GetString(NAME_ID(var_name_token));
+    assert (var_name);
+
+    GlobalVar* var = CreateGlobalVar (buildog, var_name, init_val);
+    assert    (var);
+
+    ValueLabel var_label = {.name_id = NAME_ID(var_name_token),
                             .type    = VARIABLE,
                             .val     = var,
                            };
     
     CopyValueLabel (&buildog->global, &var_label);
-    AddGlobalVar (buildog, var);
 
     return var;
     };
 
-static Store* AddStore (Builder* buildog, const Token* token)
+static Store* AddLocalVar (Builder* buildog, const Token* token)
     {
     assert(buildog);
     assert(token);
 
-    Token* name = LEFT(token);
+    Token*  name      = LEFT(token);
+    name_t  var_name  = GetString (NAME_ID(name));
+    assert (var_name);
 
     Value* store_val = AstVisitor (buildog, RIGHT(token));
     
-    Store* store = (Store*) calloc (1, sizeof(store[0]));
-    StoreCtor (store, GetString (NAME_ID(name)), store_val); 
+    Store* store = CreateStore (buildog, var_name, store_val);
 
     ValueLabel label = { .name_id = NAME_ID(name),
                          .type    = VARIABLE,
@@ -445,10 +472,6 @@ static Store* AddStore (Builder* buildog, const Token* token)
                        };
     
     CopyValueLabel (&buildog->local, &label);
-
-
-    if (store_val)
-        AddInstruction (buildog, store);
     
     return store;
     };
@@ -456,11 +479,10 @@ static Store* AddStore (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Operator
 //////////////////////////////////////////////////////
-static unsigned OPERATOR_NUMBER = 0;
 
 static OperatorType GetOperatorType (int type);
 
-static Operator* AddOperator (Builder* buildog, const Token* token)
+static Operator* EmitOperator (Builder* buildog, const Token* token)
     {
     assert(buildog);
     assert(token);
@@ -468,11 +490,12 @@ static Operator* AddOperator (Builder* buildog, const Token* token)
     Value* left  = AstVisitor (buildog,  LEFT(token));
     Value* right = AstVisitor (buildog, RIGHT(token));
 
-    Operator* op = (Operator*) calloc (1, sizeof(op[0]));
-    OperatorCtor (op, GetOperatorType (OP(token)), left, right);
-    
-    op->name = CreateString ("%%op_%u", OPERATOR_NUMBER++);
-    AddInstruction (buildog, op);
+    name_t  op_name = CreateString ("%%op_%u", TEMP_VAR_NUMBER++);
+    assert (op_name);
+
+    Operator* op = CreateOperator (buildog, op_name, GetOperatorType(OP(token)), left, right);
+    assert   (op);
+
     return op;
     }
 
@@ -505,10 +528,9 @@ static Value* EmitAssigment (Builder* buildog, const Token* token)
     Value* dest = AstVisitor(buildog,  LEFT(token));
     Value* src  = AstVisitor(buildog, RIGHT(token));
 
-    Load* load = (Load*) calloc (1, sizeof(load[0]));
-    LoadCtor (load, dest, src);
+    Load*   load = CreateLoad (buildog, NULL, dest, src);
+    assert (load);
 
-    AddInstruction (buildog, load);
     return load;
     }
 
@@ -520,35 +542,10 @@ static Return*   EmitReturn    (Builder* buildog, const Token* token)
     assert(buildog);
     assert(token);
 
-    Return* ret = (Return*) calloc (1, sizeof(ret[0]));
-    ReturnCtor(ret);
+    Value* ret_val = AstVisitor (buildog, LEFT(token));
 
-    ret->value = AstVisitor (buildog, LEFT(token));
-    AddInstruction (buildog, ret);
+    Return* ret = CreateReturn (buildog, NULL, ret_val);
+    assert (ret);
+
     return ret;
-    }
-
-//////////////////////////////////////////////////////
-static Branch* AddBranch (Builder* buildog, 
-                            Value* condition        = NULL,
-                            BaseBlock* true_branch  = NULL,
-                            BaseBlock* false_branch = NULL);
-
-
-static Branch* AddBranch (Builder* buildog, 
-                            Value* condition,
-                            BaseBlock* true_branch,
-                            BaseBlock* false_branch)
-    {
-    assert(buildog);
-
-    Branch* branch = (Branch*) calloc (1, sizeof(branch[0]));
-    BranchCtor (branch); 
-    
-    branch->condition   = condition;
-    branch-> true_block = true_branch;
-    branch->false_block = false_branch;
-
-    AddInstruction (buildog, branch);
-    return branch;
     }
