@@ -26,7 +26,10 @@ class Instruction : public Value
 
        virtual void            dump           () const override  = 0;
        virtual InstructionType get_instr_type () const           = 0;
-        
+
+       virtual void count_location     (LocationTable* table) const override  = 0;
+       virtual void translate_x86      (Context* ctx)         const override  = 0;
+
        ValueType get_type  () const override final;
     };
 
@@ -43,6 +46,11 @@ class Store : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+
+       void count_location (LocationTable* table) const override;
+       void add_location   (LocationTable* table) const override;
+       
+       void translate_x86 (Context* ctx)         const override;
     };
 
 //////////////////////////////////////////////////////
@@ -58,6 +66,10 @@ class Load : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+
+       void count_location (LocationTable* table) const override;
+       
+       void translate_x86  (Context* ctx)         const override;
     };
 
 //////////////////////////////////////////////////////
@@ -75,9 +87,13 @@ class Branch : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+       
+       void count_location (LocationTable* table) const override;
+       
+       void translate_x86  (Context* ctx) const override;
 
-        BaseBlock* set_true_block  (BaseBlock* true_block_param);
-        BaseBlock* set_false_block (BaseBlock* false_block_param);
+       BaseBlock* set_true_block  (BaseBlock* true_block_param);
+       BaseBlock* set_false_block (BaseBlock* false_block_param);
     };
 
 //////////////////////////////////////////////////////
@@ -89,10 +105,13 @@ class Call : public Instruction
 
     public:
         Call (name_t name_param, const Function* function_param);
-       ~Call ();
+       ~Call () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+
+       void count_location (LocationTable* table) const override;
+       void translate_x86  (Context* ctx)         const override;
 
              ValueArr* get_argv ();
        const ValueArr* get_const_argv () const;
@@ -110,6 +129,8 @@ struct Return : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+       void count_location     (LocationTable* table) const override;
+       void translate_x86      (Context* ctx)         const override;
     };
 
 //////////////////////////////////////////////////////
@@ -140,4 +161,7 @@ struct Operator : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
+       
+       void count_location     (LocationTable* table) const override;
+       void translate_x86      (Context* ctx)         const override;
     };

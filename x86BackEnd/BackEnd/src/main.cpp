@@ -56,7 +56,8 @@ int main(int argc, const char* argv[])
 
   // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
-  ProgramDtor(&program);
+  ProgramDtor (&program);
+  ElfDtor     (&elf);
   
   return SUCCESS;
 
@@ -80,7 +81,8 @@ SET_FAILURE_EXIT(IR_ERROR)
 CLEAR_RESOURCES:
 
   $$
-  ProgramDtor(&program);
+  ProgramDtor (&program);
+  ElfDtor     (&elf);
 
   return FAILURE;
   }

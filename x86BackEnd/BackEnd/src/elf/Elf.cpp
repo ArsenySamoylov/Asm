@@ -23,7 +23,7 @@ int SetElfHeaders (ElfHeaders* elf)
     
 
     SetPhdr (&elf->code_phdr,     CODE_VIRTUAL_ADDRESS, PF_X | PF_R);
-    printf("setting VirAdd: 0x%x\n", elf->code_phdr.p_vaddr);
+    // printf("setting VirAdd: 0x%x\n", elf->code_phdr.p_vaddr);
     SetPhdr (&elf->data_phdr, RODATA_VIRTUAL_ADDRESS, PF_R);
     
     return SUCCESS;
@@ -59,7 +59,7 @@ static int SetPhdr (Elf64_Phdr* header, Elf64_Addr segment_virtual_add, uint32_t
     {
     assert(header);
     
-    printf ("VirAdd: %x\n", segment_virtual_add);
+    // printf ("VirAdd: %x\n", segment_virtual_add);
 
     *header = { .p_type  = PT_LOAD, 
                 .p_flags = rights_flags, 
@@ -73,7 +73,7 @@ static int SetPhdrSize (Elf64_Phdr* header, uint64_t size)
     {
     assert(header);
     
-    printf ("Phdr size: 0x%x\n", size);
+    // printf ("Phdr size: 0x%x\n", size);
 
     header->p_filesz = size;
     header->p_memsz  = size;
@@ -85,7 +85,7 @@ static int SetPhdrOffset (Elf64_Phdr* segment_hdr, Elf64_Off segment_offset)
     {
     assert(segment_hdr);
     
-    printf ("Setting offset: 0x%x\n", segment_offset);
+    // printf ("Setting offset: 0x%x\n", segment_offset);
 
     segment_hdr->p_offset = segment_offset;
 
@@ -98,7 +98,7 @@ int ElfCtor (Elf* elf)
     assert(elf);
 
     SetElfHeaders(&elf->headers);
-    printf("ElfXCtor VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
+    // printf("ElfXCtor VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
 
     BufferCtor (&elf->code_buf);
     BufferCtor (&elf->data_buf);
@@ -132,13 +132,13 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
     FILE* out_file = fopen(path_to_out_file, "w");
     assert(out_file);
     
-    printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
+    // printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
     SetPhdrSize (&elf->headers.code_phdr, elf->code_buf.size); 
     SetPhdrSize (&elf->headers.data_phdr, elf->data_buf.size);
-     printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
+    //  printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
 
     size_t program_size = sizeof(ElfHeaders); 
-    printf ("Write elf: program_size 0x%x\n", program_size);
+    // printf ("Write elf: program_size 0x%x\n", program_size);
     SetPhdrOffset (&elf->headers.code_phdr,   program_size);
            program_size += elf->code_buf.size;
 

@@ -38,9 +38,6 @@ int BuilderDtor (Builder* buildog)
     assert(buildog);
 
     ValueNameTableDtor(&buildog->global);
-    
-    if (buildog->local.arr)
-        ValueNameTableDtor(&buildog->local);
 
     return SUCCESS;
     }
@@ -65,6 +62,18 @@ int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_la
     assert    (entry_block);
 
     return SUCCESS;
+    }
+
+int ResetBuilderAfterFunction (Builder* buildog)
+    {
+    assert (buildog);
+
+    ValueNameTableDtor(&buildog->local);
+
+    buildog -> current_function = NULL;
+    buildog -> body_blocks      = NULL;
+
+    return 0;
     }
 
 int AddFunctionToModule (Builder* buildog)
@@ -168,7 +177,7 @@ Value* FindValue (Builder* buildog, int name_id)
     }
 
 //////////////////////////////////////////////////////
-static int             AddNativeFunction  (ValueNameTable* name_table, const NativeFunctionStruct* func);
+static int             AddNativeFunction  (Module* mod, ValueNameTable* name_table, const NativeFunctionStruct* func);
 static FunctionRetType GetRetType         (int type);
 
 int AddNativeFunctions (Builder* buildog)
@@ -176,15 +185,16 @@ int AddNativeFunctions (Builder* buildog)
     assert(buildog);
 
     for (size_t i = 0; i < NUMBER_OF_NATIVE_FUNCTIONS_STRUCT; i++)
-        AddNativeFunction (&buildog->global, NATIVE_FUNCTIONS + i);
+        AddNativeFunction (buildog->mod, &buildog->global, NATIVE_FUNCTIONS + i);
 
     return SUCCESS;
     }
 
-static int AddNativeFunction (ValueNameTable* name_table, const NativeFunctionStruct* native_func)
+static int AddNativeFunction (Module* mod, ValueNameTable* name_table, const NativeFunctionStruct* native_func)
     {
-    assert(name_table);
-    assert(native_func);
+    assert (mod);
+    assert (name_table);
+    assert (native_func);
 
     Function* func = new Function (native_func->str, GetRetType (native_func->ret_type));
 
@@ -199,6 +209,8 @@ static int AddNativeFunction (ValueNameTable* name_table, const NativeFunctionSt
                                 };
 
     CopyValueLabel (name_table, &function_label);
+
+    mod->add_func (func);
     return SUCCESS;
     }
 
@@ -249,10 +261,7 @@ Call* CreateCall (Builder* buildog, name_t call_name, const Function* func)
     {
     assert(buildog);
 
-    Call* call = new Call(call_name, func);
-
-    AddInstruction (buildog, call);
-    
+    Call* call = new Call(call_name, func);    
     return call;
     }
 

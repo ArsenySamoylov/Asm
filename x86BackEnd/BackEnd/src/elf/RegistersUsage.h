@@ -2,14 +2,6 @@
 
 #include "Value.h"
 
-//////////////////////////////////////////////////////
-//              Location
-// stack                        register        memory
-// -> offset                    -> reg_num
-// -> type                      
-//      -> stack_offset               
-//      -> rbp offset                 
-//////////////////////////////////////////////////////
 enum GPRegisterNumber
     {
     // return value
@@ -37,23 +29,6 @@ enum GPRegisterNumber
     R15 = 15, // 7
     };
     
-struct RegisterLocation
-    {
-    GPRegisterNumber number;
-    };
-
-//////////////////////////////////////////////////////
-enum class StackLocationType
-    {
-    Local, // Local variable
-    Stack, // value on stack
-    };
-
-struct StackLocation
-    {
-    enum StackLocationType type;
-    size_t offset;
-    };
 //////////////////////////////////////////////////////
 
 enum class LocationType
@@ -75,9 +50,9 @@ struct Location
     {
     enum LocationType type;
 
-    StackLocation stack;
-    RegisterLocation reg;
-    
+    GPRegisterNumber reg_num; // if in register
+    size_t offset;            // if in stack
+
     size_t n_usage;
     name_t name;
 
@@ -96,8 +71,51 @@ struct LocationTable
 
 int LocationTableCtor (LocationTable* arr);
 int LocationTableDtor (LocationTable* arr);
+int AddLocation       (LocationTable* arr, Location* use);
 
-int AddLocation (LocationTable* arr, Location* use);
 Location* FindLocation (LocationTable* arr, name_t name);
 
-int SetValuesUsage (LocationTable* table, const Function* func);
+// int SetValuesUsage (LocationTable* table, const Function* func);
+
+//////////////////////////////////////////////////////
+enum RegStatus
+    {
+    FREE,
+    BUSY,
+    };
+
+enum AllocationStatus
+    {
+    Allocatable,
+    NotAllocatable,
+    };
+
+struct Reg
+    {
+    const GPRegisterNumber number;
+    
+    int                  status;
+    const int allocation_status;
+    };
+
+int         ResetRegisters ();
+Reg*        GetReg         (int number);
+const char* GetRegName     (int number);
+
+int     PrintReg (int number);
+#define PRINT_REG(NUMBER) do { printf ("%s:%d ", __FILE__, __LINE__); PrintReg(NUMBER); } while (0);
+
+//////////////////////////////////////////////////////
+Reg* AllocateReg     (LocationTable* table);
+int  SetLocation     (Location* loc, Reg* reg);
+int  FreeLocationReg (Location* loc);
+
+// int    ResetTempLocations     (LocationTable* loc_table);
+size_t SetParametersRegisters (LocationTable* table, const ValueArr* argv);
+
+int     PrintLocation (Location* loc);
+#define PRINT_LOCATION(LOC) do  {                                       \
+                                printf ("%s:%d ", __FILE__, __LINE__);  \
+                                PrintLocation (LOC);                    \
+                                printf ("\n");                          \
+                                } while (0);

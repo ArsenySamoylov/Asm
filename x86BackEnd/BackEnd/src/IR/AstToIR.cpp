@@ -49,6 +49,8 @@ int AstToIR (Program* program, Module* dest_mod)
     program->string_arr        = GetStringPool(); 
     program->number_of_strings = (int) GetStringPoolSize(); // warning!!! size != capacity from this point
 
+    BuilderDtor (&buildog);
+
     return SUCCESS;
     };
 
@@ -238,6 +240,7 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     
     Constant* constant = CreateConstant (buildog, const_name, const_val);
 
+    buildog->mod->add_const (constant);
     return constant;
     }
 
@@ -264,8 +267,10 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     AstVisitor (buildog, RIGHT(token)); // adding function body
 
     AddFunctionToModule (buildog);
+    
+    ResetBuilderAfterFunction (buildog);
 
-    return func;
+    return NULL;
     }
 
 static int GetParametersDeclaration (Builder* buildog, ValueArr* argv,Token* token)
@@ -348,6 +353,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         param = RIGHT(param);
         }
 
+    AddInstruction (buildog, call);
     return call;
     }
 
@@ -420,6 +426,8 @@ static Value* EmitInitializator (Builder* buildog, const Token* token) // add to
     assert(buildog);
     assert(token);
 
+    // report ("Init var %s\n", GetString (NAME_ID(LEFT(token))));
+
     // if Builder doesn't have current Function*, than it is GlobalVar,
     if (!buildog->current_function)
         return AddGlobalVar (buildog, token);
@@ -434,12 +442,13 @@ static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
     
     Token* var_name_token = LEFT(token);
 
-    Constant* init_val  = (Constant*) (AstVisitor(buildog, RIGHT(token)));
+    Constant* init_val  = EmitConstant (buildog, RIGHT(token));
     assert (init_val->get_type() == ValueType::Constant);
 
     name_t  var_name = GetString(NAME_ID(var_name_token));
     assert (var_name);
 
+    // report ("Global var %s\n", var_name);
     GlobalVar* var = CreateGlobalVar (buildog, var_name, init_val);
     assert    (var);
 
@@ -530,7 +539,8 @@ static Value* EmitAssigment (Builder* buildog, const Token* token)
 
     Load*   load = CreateLoad (buildog, NULL, dest, src);
     assert (load);
-
+    // printf ("Load %s\n", GetString (NAME_ID(LEFT(token))));
+    
     return load;
     }
 

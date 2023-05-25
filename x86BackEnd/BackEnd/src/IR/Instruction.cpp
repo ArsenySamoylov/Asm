@@ -11,7 +11,11 @@ Instruction::Instruction (name_t name_param, InstructionType type_param) :
     type  (type_param) 
     {}
 
-ValueType Instruction::get_type () const {return ValueType::Instruction;}
+ValueType Instruction::get_type () const 
+    {
+    assert (Value::type == ValueType::Instruction); 
+    return ValueType::Instruction;
+    }
 
 //////////////////////////////////////////////////////
 // Store
@@ -21,7 +25,12 @@ Store::Store (name_t name_param, const Value* val_param) :
     val         (val_param) 
     {}
 
-InstructionType Store::get_instr_type () const {return InstructionType::Store;}
+InstructionType Store::get_instr_type () const 
+    {
+    assert (Value::      type == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Store);
+    return InstructionType::Store;
+    }
 
 //////////////////////////////////////////////////////
 // Load
@@ -32,7 +41,12 @@ Load::Load (name_t name_param, const Value* dest_param, const Value* src_param) 
     src         (src_param) 
     {}
 
-InstructionType Load::get_instr_type () const {return InstructionType::Load;}
+InstructionType Load::get_instr_type () const 
+    {
+    assert (Value::      type == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Load);
+    return InstructionType::Load;
+    }
 
 //////////////////////////////////////////////////////
 // Branch
@@ -44,7 +58,12 @@ Branch::Branch (name_t name_param, const Value* condition_param, BaseBlock* true
    false_block (false_block_param) 
    {}
 
-InstructionType Branch::get_instr_type () const {return InstructionType::Branch;}
+InstructionType Branch::get_instr_type () const 
+    {
+    assert (Value::type       == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Branch);
+    return InstructionType::Branch;
+    }
 
 BaseBlock* Branch::set_true_block  (BaseBlock* true_block_param) 
     {
@@ -73,12 +92,12 @@ Call::Call (name_t name_param, const Function* function_param) :
     function    (function_param)  
     {}
 
-Call::~Call ()
+InstructionType Call::get_instr_type () const 
     {
-    printf ("Call dtor\n");
+    assert (Value::type       == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Call);
+    return InstructionType::Call;
     }
-
-InstructionType Call::get_instr_type () const {return InstructionType::Call;}
 
       ValueArr* Call::get_argv       ()       {return &argv;};
 const ValueArr* Call::get_const_argv () const {return &argv;};
@@ -91,7 +110,12 @@ Return::Return (name_t name_param, const Value* ret_value_param) :
     ret_value   (ret_value_param) 
     {}
 
-InstructionType Return::get_instr_type () const {return InstructionType::Return;}
+InstructionType Return::get_instr_type () const 
+    {
+    assert (Value::type       == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Return);
+    return InstructionType::Return;
+    }
 
 //////////////////////////////////////////////////////
 // Operator
@@ -103,4 +127,9 @@ Operator::Operator (name_t name_param, enum OperatorType op_type_param, const Va
     right_op (right_param) 
     {}
 
-InstructionType Operator::get_instr_type () const {return InstructionType::Operator;}
+InstructionType Operator::get_instr_type () const 
+    {
+    assert (Value::      type == ValueType::Instruction); 
+    assert (Instruction::type == InstructionType::Operator);
+    return InstructionType::Operator;
+    }

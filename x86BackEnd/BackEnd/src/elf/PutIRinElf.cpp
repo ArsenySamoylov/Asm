@@ -9,9 +9,8 @@
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 
-#pragma GCC diagnostic ignored "-Wunused-function"
-
-const size_t BAD_ADD = 0xBAD;
+// const size_t BAD_ADD = 0xBAD;
+const size_t VAR_SIZE = 8;
 
 static const char* GetOperationName (OperatorType type)
     {
@@ -31,175 +30,72 @@ static const char* GetOperationName (OperatorType type)
         }
     }
 
-// warning PARAMETERS FOR FUNCTION MUST NOT BE MODIFIED
-static FILE* DUMP = NULL;
 const char* DUMP_FILE = "logs/dump.s";
-
-#define print(format, ...)                          \
-    do                                              \
-    {                                               \
-    fprintf(DUMP, "\t");                       \
-                                                    \
-    fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);      \
-    }while(0);
 
 #define print_rip()           fprintf(DUMP, "%x:\n", ctx->rip)
 #define print_label(VALUE)    fprintf(DUMP, "%s:\n", (VALUE)->name)
-#define print_ni(format, ...) fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);   
+#define print_raw(format, ...) fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);   
 
-#define PRINT_INSTR_COMM(INSTR) print_ni ("### "); WriteToFile (DUMP, INSTR); print_ni("\n");   
+#define PRINT_INSTR_COMM(INSTR) print_raw ("### "); WriteToFile (DUMP, INSTR); print_raw("\n");   
+
+
+static int MoveToLocalVar   (Context* ctx, const Value* src, const Value* dest);
+static int MoveFromLocalVar (Context* ctx, const Value* srs, Value* dest);
+static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest);
 
 static GPRegisterNumber PutValueToReg (Context* ctx, const Value* val);
-
-static int PutSubRsp (Context* ctx, size_t num);
-static int PutSubRsp (Context* ctx, size_t num)
-    {
-    assert (ctx);
-    print ("sub $%lu, %%rsp\n", num);
-    return 0;
-    }
-
-static int PutAddRsp (Context* ctx, size_t num);
-static int PutAddRsp (Context* ctx, size_t num)
-    {
-    assert (ctx);
-    print ("add $%lu, %%rsp\n", num);
-    return 0;
-    }
-
-static int PutRet (Context* ctx);
-static int PutRet (Context* ctx)
-    {
-    assert(ctx);
-    print ("ret\n")
-    return 0;
-    }
-
-static int PutJump  (Context* ctx, name_t label);
-static int PutJump  (Context* ctx, name_t label)
-    {
-    assert (ctx);
-
-    print ("jmp %s\n\n", label);
-    return 0;
-    }
-
-static int PutCJump (Context* ctx, GPRegisterNumber test, name_t label);
-static int PutCJump (Context* ctx, GPRegisterNumber test, name_t label)
-    {
-    assert (ctx);
-
-    print ("cmp $100, %s\n", GetRegName(test));
-    print ("je %s\n", label);
-
-    return 0;
-    }
-
-static int PutCall  (Context* ctx, name_t label);    
-static int PutCall  (Context* ctx, name_t label)
-    {
-    assert (ctx);
-    print ("call %s\n", label);
-    return 0;
-    }
-
-static int PutPushR  (Context* ctx, GPRegisterNumber reg);
-static int PutPushR  (Context* ctx, GPRegisterNumber reg)
-    {
-    assert (ctx);
-    print ("push %s\n", GetRegName (reg));
-    return 0;
-    }
-
-static int PutPopR (Context* ctx, GPRegisterNumber reg);
-static int PutPopR (Context* ctx, GPRegisterNumber reg)
-    {
-    assert (ctx);
-    print ("pop %s\n", GetRegName (reg));
-    return 0;
-    }
+static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg);
 
 
-static int PutMovRR (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest); 
-static int PutMovRR (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest)
-    {
-    assert (ctx);
-    print ("mov %s, %s\n", GetRegName(src), GetRegName(dest));
-    return 0;
-    }
-
-static int PutMovConstant (Context* ctx, GPRegisterNumber dest, data_t data); 
-static int PutMovConstant (Context* ctx, GPRegisterNumber dest, data_t data)
-    {
-    assert (ctx);
-    print ("movq $%d, %s\n", data, GetRegName(dest));
-    return 0;
-    }
-
-static int MoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset);
-static int MoveToLocalVar (Context* ctx, const Value* src, Location* dest_loc);
-
-static int MoveToLocalVar (Context* ctx, const Value* src, Location* dest_loc)
+static int MoveToLocalVar (Context* ctx, const Value* src, const Value* dest)
     {
     assert (ctx);
     assert (src);
-    assert (dest_loc);
-
-    // assert(dest_loc->type == LocationType::Stack);
-    assert(dest_loc->variable_type == LOCAL);
-
-    report ("3");
-    GPRegisterNumber src_reg = PutValueToReg (ctx, src);
-
-    MoveToStack (ctx, src_reg, dest_loc->stack.offset);
-
-    if (dest_loc->type == LocationType::Register)
-        {
-        FreeReg (dest_loc->reg.number);
-        dest_loc->type = LocationType::Stack;
-        }
-
-    return 0;
-    }
-
-static int MoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset)
-    {
-    assert (ctx);
-    print ("movq %s, -%lu(%%rbp)\n",  GetRegName(src), offset * 8);
-    return 0;
-    }
-
-static int MoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest);
-static int MoveFromLocalVar (Context* ctx, Location* src_loc, Value* dest);
-
-static int MoveFromLocalVar (Context* ctx, Location* src_loc, Value* dest)
-    {
-    assert (ctx);
-    assert (src_loc);
     assert (dest);
 
-    assert (src_loc->type == LocationType::Stack);
-    assert (src_loc->variable_type == LOCAL);
+    Location* dest_loc = FindLocation (ctx->value_usage, dest->get_name());
+    assert   (dest_loc);
+    assert   (dest_loc->type == LocationType::Local);
 
-    report ("4");
-    GPRegisterNumber dest_reg = PutValueToReg (ctx, dest);
-    MoveFromStack (ctx, src_loc->stack.offset, dest_reg);
+    if (dest_loc->status == LocationType::Register)
+        FreeLocationReg (dest_loc);
 
+    PutValueToReg (ctx, src);
+
+    Location* src_loc = FindLocation (ctx->value_usage, src->get_name());
+    assert   (src_loc);
+    assert   (src_loc->status == LocationType::Register);
+
+    MoveToStack (ctx, src_loc->reg_number, dest_loc->stack.offset);
+    
+    dest_loc->status = LocationType::Stack;
     return 0;
     }
 
-static int MoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest)
+static int MoveFromLocalVar (Context* ctx, const Value* src, const Value* dest)
     {
     assert (ctx);
-    print ("movq -%lu(%%rbp), %s\n", offset * 8, GetRegName(dest));
+    assert (src);
+    assert (dest);
+
+    Location* src_loc = FindValue (ctx->value_usage, src->get_name());
+    assert   (src_loc);
+    assert   (src_loc->type == LocationType::Stack);
+    assert   (src_loc->variable_type == LOCAL);
+
+    PutValueToReg (ctx, dest);
+
+    Location* dest_loc = FindValue (ctx->value_usage, dest->get_name ());
+    assert   (dest_loc);
+    assert   (dest_loc->type == LocationType::Register);
+
+    MoveFromStack (ctx, src_loc->offset, dest_loc->reg_number);
+
+    dest_loc->type       = LocationType::Register;
+    dest_loc->reg_number = dest_loc->reg_number;
+
     return 0;
     }
-
-static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest);
-
-static int PutMathAddSub (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest);
-static int PutMulDiv (Context* ctx,  OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest);
-static int PutLogicOp (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest);
 
 static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
     {
@@ -212,119 +108,17 @@ static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNum
                           return PutMathAddSub (ctx, operation, src, dest);
 
         case OperatorType::Mul:
-        case OperatorType::Div:
-                            {
-                            // Reg* rax = GetReg (RAX);
-                            // Reg* rdx = GetReg (RDX);
-                            // Reg* rdi = GetReg (RDI);
+        case OperatorType::Div: return PutMulDiv (ctx, operation, src, dest);
 
-                            // if (rax->status == BUSY)
-                            //     PutPushR (ctx, RDX);
-
-                            // if (rdx->status == BUSY)
-                            //     PutPushR (ctx, RAX);
-                            
-                            // if (rdi->status == BUSY)
-                            //     PutPushR (ctx, RDI);
-                            report ( "src %s, dest %s\n", GetRegName (src), GetRegName(dest));
-                            PutMulDiv (ctx, operation, src, dest);
-
-                            // if (rdx->status == BUSY)
-                            //     PutPopR (ctx, RDX);
-
-                            // if (rax->status == BUSY)
-                            //     PutPopR (ctx, RAX);
-
-                            // if (rdi->status == BUSY)
-                            //     PutPopR (ctx, RDI);
-
-                            print_ni ("\n");
-                          return 0;
-                            }
+        case OperatorType::Bigger:
+        case OperatorType::Less: return PutLogicOp (ctx, operation, src, dest);
         default:
             {
-            // Reg* rax = GetReg (RAX);
-            // Reg* rdx = GetReg (RDX);
-
-            // if (rax->status == BUSY)
-            //     PutPushR (ctx, RDX);
-
-            // if (rdx->status == BUSY)
-            //     PutPushR (ctx, RAX);
-            
-            PutLogicOp (ctx, operation, src, dest);
-
-            // if (rdx->status == BUSY)
-            //     PutPopR (ctx, RDX);
-
-            // if (rax->status == BUSY)
-            //     PutPopR (ctx, RAX);
-            
-            print_ni ("\n");
+            report ("Unknown operator\n");            
             return 0;
             }
         }
     }
-
-static int PutLogicOp (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
-    {
-    assert (ctx);
-
-    // Reg* rax = GetReg (RAX);
-
-    print ("cmpq %s, %s\n", GetRegName(src), GetRegName(dest));
-    print ("%s %%al\n", GetOperationName(operation));
-    print ("movzbq %%al, %%rax\n\n");
-    
-    print ("xor %%rdx, %%rdx # normalize result\n");
-    print ("mov $100, %s\n", GetRegName (dest));
-    print ("mul %s\n", GetRegName (dest));
-
-    PutMovRR (ctx, RAX, dest);
-
-    print_ni ("\n");
-    return 0;
-    }
-    
-static int PutMathAddSub (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
-    {
-    assert(ctx);
-
-    print ("%s %s, %s\n\n", GetOperationName(operation), GetRegName(src), GetRegName(dest));
-        
-    return 0;
-    }
-
-static int PutMulDiv (Context* ctx,  OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
-    {
-    assert (ctx);
-    print ("# generating mul/div\n");
-
-    print ("xor %%rdx, %%rdx\n");
-    print ("mov %s, %%rax\n", GetRegName (dest));
-    // print ("mov %s, %%rdi\n", GetRegName (src));
-
-    print ("%s %s\n", GetOperationName(operation), GetRegName(src));
-
-    print ("# normalize result\n");
-    print ("xor %%rdx, %%rdx\n");    
-    print ("movq $100, %%rdi\n");
-
-    if (operation == OperatorType::Div)
-        {
-        print ("imul %%rdi\n");
-        }
-    else
-        {
-        print ("idiv %%rdi\n");
-        }
-
-    PutMovRR (ctx, RAX, dest);
-
-    return 0;
-    }
-
-static int MoveToReg (Context* ctx, const Value* val, Location* loc, Reg* dest_reg);
 
 static GPRegisterNumber PutValueToReg (Context* ctx, const Value* val)
     {
@@ -333,42 +127,51 @@ static GPRegisterNumber PutValueToReg (Context* ctx, const Value* val)
     assert(val);
 
     Location* loc = FindLocation (ctx->value_usage, val->name);
-    assert(loc);
+    assert   (loc);
 
     if (loc->type == LocationType::Register)
         return loc->reg.number;
     
-    report ("Alloc\n");
-    Reg* free_reg = AllocateReg ();
+    // report ("Alloc\n");
+    Reg*    free_reg = AllocateReg (ctx->usage_table);
+    assert (free_reg);
     assert (free_reg->number >= 0);
 
     // print ("\t#put value to reg, Allocated reg %s\n", GetRegName (free_reg->number));
-    MoveToReg (ctx, val, loc, free_reg);
+    static char comment [MAX_COMMENT_LENGTH + 16] = {};
+
+    snprintf (comment, MAX_COMMENT_LENGTH,"put value to reg: %s -> %s", 
+                                           loc->name, GetRegName (reg->number));
+    
+    MoveToReg (ctx, val, free_reg, comment);
     return free_reg->number;
     }
 
-static int MoveToReg (Context* ctx, const Value* val, Location* loc, Reg* dest_reg)
+static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg, const char* comment)
     {
     $log(DEBUG)
     assert (ctx);
     assert (val);
-    assert (loc);
     assert (dest_reg);
-    
+
+    Location* loc = FindLocation (ctx->value_usage, val->get_name());
+    assert   (loc);
+
     switch (loc->type)
         {
         case LocationType::Register:
-                PutMovRR (ctx, loc->reg.number, dest_reg->number);
+                PutMovRR (ctx, loc->reg.number, dest_reg->number, comment);
+                FreeReg  (loc->reg_num);
                 break;
 
         case LocationType::NoWhere:  
                 // PRINT_VALUE (val);
                 assert(val->type == ValueType::Constant);
-                PutMovConstant (ctx, dest_reg->number, ((const Constant*) val)->data);
+                PutMovConstant (ctx, dest_reg->number, val->get_data(), comment);
                 break;
 
         case LocationType::Stack:
-                MoveFromStack (ctx, loc->stack.offset, dest_reg->number);
+                MoveFromStack (ctx, loc->stack.offset, dest_reg->number, comment);
                 break;
 
         case LocationType::Memory:
@@ -381,8 +184,9 @@ static int MoveToReg (Context* ctx, const Value* val, Location* loc, Reg* dest_r
 
     // report ("\t%s\n", loc->name);
     // assert (loc->type != LocationType::Register);
-    SetReg (loc, dest_reg);
-    return dest_reg->number;
+    SetLocation (loc, dest_reg);
+
+    return 0;
     }
 
 //////////////////////////////////////////////////////
@@ -431,7 +235,7 @@ static int SetStart (Context* ctx)
 
     print (".section .text\n");
 
-    print_ni ("%s:\n", "_start");
+    print_raw ("%s:\n", "_start");
     print    ("# call InitGlobals\n");
     print    ("call main\n");
     print    ("mov $60, %%rax\n");
@@ -485,7 +289,6 @@ static int PutGlobalVars (Context* ctx, const ValueArr* global_vars)
     return SUCCESS;
     }
 
-const size_t VAR_SIZE = 8;
 static int PutGlobalVar  (Context* ctx, const GlobalVar* var)
     {
     assert(ctx);
@@ -524,7 +327,7 @@ static int SetStackFrame (Context* ctx, size_t n_locals)
     PutPushR (ctx, rbp->number);
     PutMovRR (ctx, RSP, RBP);
 
-    print_ni ("\n");
+    print_raw ("\n");
     return SUCCESS;
     }
 
@@ -549,7 +352,7 @@ static int SaveCalleeSaveRegisters  (Context* ctx)
     for (int i = R10; i <= R15; i++)
         PutPushR (ctx, (GPRegisterNumber) i);
 
-    print_ni ("\n");
+    print_raw ("\n");
     return 0;
     }
 
@@ -561,7 +364,7 @@ static int RestoreCalleeSaveRegisters  (Context* ctx)
 
     PutPopR (ctx, RBX);
    
-    print_ni ("\n");
+    print_raw ("\n");
     return 0;
     }
 
@@ -599,7 +402,7 @@ static int PutFunction (Context* ctx, const Function* function)
     
     ClearCtxAfterFunction (ctx);
     
-    print_ni ("\n");
+    print_raw ("\n");
     return SUCCESS;
     }
 

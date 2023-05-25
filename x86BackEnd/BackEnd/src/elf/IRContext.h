@@ -44,21 +44,21 @@ int ReferenceArrCtor (ReferenceArr* arr);
 int ReferenceArrDtor (ReferenceArr* arr);
 
 int AddReference (ReferenceArr* arr, Reference* ref);
+int ResolveReferences (Buffer* buf, AddressTable* functions, ReferenceArr* refs);
 
 ////////////////////////////////////////////////////// 
 struct Context
     {
     AddressTable global_vars;
     AddressTable functions;
-
     ReferenceArr call_refs;
     
-    AddressTable* baseblocks;
-    ReferenceArr* jump_refs;
-    LocationTable*   value_usage;
+    AddressTable baseblocks; 
+    ReferenceArr jump_refs;
+    
+    LocationTable value_usage;
 
     size_t rip;
-
     size_t n_pushes;
 
     Buffer* code;
@@ -73,40 +73,14 @@ int ContextDtor (Context* ctx);
 int SetCtxForFunction     (Context* ctx);
 int ClearCtxAfterFunction (Context* ctx);
 
-int ResolveReferences (Buffer* buf, AddressTable* functions, ReferenceArr* refs);
-//////////////////////////////////////////////////////
-enum RegStatus
-    {
-    FREE,
-    BUSY,
-    LOCKED, // can't be freed
-    };
-
-struct Reg
-    {
-    GPRegisterNumber number;
-    
-    Location* loc;
-    int status;
-    };
-
-Reg* GetReg (int number);
-int ResetRegisters ();
-size_t SetParametersRegisters (Context* ctx, const ValueArr* argv);
-
-int FreeReg (int number);
-
-// TODO instead of for loops MUST be Stack and Que respectively (because can be bugs with freeing last allocated reg);
-Reg* AllocateReg ();
-int SetReg (Location* loc, Reg* reg);
-
-int ResetTempLocations ();
-
 size_t GetVa (Context* ctx, size_t increase);   
 
-#define PRINT_REG(NUMBER) printf ("%s:%d ", __FILE__, __LINE__); PrintReg(NUMBER);
+FILE* DUMP = NULL;
 
-int PrintReg (int number);
-int PrintLocation (Location* loc);
-
-const char* GetRegName (GPRegisterNumber reg);
+#define print(format, ...)                                \
+    do                                                    \
+    {                                                     \
+    fprintf(DUMP, "\t");                                  \
+                                                          \
+    fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);      \
+    }while(0);

@@ -36,7 +36,7 @@ ValueArr::~ValueArr ()
         return;                                         
         }                                                       
 
-    printf ("ValueArr dtor\n");                                                      
+    // printf ("ValueArr dtor\n");                                                      
 
     free (arr);                                            
                                                                 
@@ -96,16 +96,20 @@ BaseBlock::BaseBlock (name_t name_param) :
 
 BaseBlock::~BaseBlock ()
     {
-    printf ("Deleting base block\n");
+    // printf ("\t\t\tDeleting base block\n");
 
-    for (size_t i = printf ("%lu\n", inst_arr.get_size()) - 3; i < inst_arr.get_size(); i++)
+    for (size_t i = 0; i < inst_arr.get_size(); i++)
         {
-        printf ("\tdeleting instruction\n");
+        // printf ("\t\t\t\tdeleting instruction\n");
         delete inst_arr.get_value (i);
         }
     }
 
-ValueType BaseBlock::get_type () const {return ValueType::BaseBlock;}
+ValueType BaseBlock::get_type () const 
+    {
+    assert (type == ValueType::BaseBlock); 
+    return ValueType::BaseBlock;
+    }
 
 Value* BaseBlock::add_instr (Value* instr)
     {
@@ -122,7 +126,11 @@ Constant::Constant (name_t name_param, const data_t value) :
     data  (value)   
     {}
 
-ValueType Constant::get_type () const {return ValueType::Constant;}
+ValueType Constant::get_type () const 
+    {
+    assert (type == ValueType::Constant); 
+    return ValueType::Constant;
+    }
 
 data_t Constant::get_data () const {return data;}
 
@@ -135,7 +143,11 @@ GlobalVar::GlobalVar (name_t name_param, VariableType var_type_param, const Cons
     init_val (init_val_param)  
     {}
 
-ValueType GlobalVar::get_type () const {return ValueType::GlobalVar;}
+ValueType GlobalVar::get_type () const 
+    {
+    assert (type == ValueType::GlobalVar); 
+    return ValueType::GlobalVar;
+    }
 
 //////////////////////////////////////////////////////
 // Function
@@ -149,17 +161,15 @@ Function::Function (name_t name_param, FunctionRetType ret_type_param) :
 
 Function::~Function ()
     {
-    printf ("Function dtor\n");
+    // printf ("\tFunction dtor\n");
 
-    printf ("\tDeleting argv\n");
+    // printf ("\t\tDeleting argv\n");
     for (size_t i = 0; i < argv.get_size(); i++)
         delete argv.get_value(i);
 
-    printf ("\tDeleting function body\n");
+    // printf ("\t\tDeleting function body\n");
     for (size_t i = 0; i < body.get_size(); i++)
-        {
         delete body.get_value(i);
-        }
 
     }
 
@@ -169,5 +179,10 @@ ValueArr* Function::get_argv () {return &argv;}
 const ValueArr* Function::get_const_body () const {return &body;}
 const ValueArr* Function::get_const_argv () const {return &argv;}
 
-ValueType       Function::get_type     () const {return ValueType::Function;}
+ValueType Function::get_type () const 
+    {
+    assert (type == ValueType::Function); 
+    return ValueType::Function;
+    }
+
 FunctionRetType Function::get_ret_type () const {return ret_type;}

@@ -1,6 +1,45 @@
-Declare function 'main' ():
+declare ded = -1
+declare uselles = 0
+Declare function 'fout' ():
+
+Declare function 'fin' ():
+
+Declare function 'sin' ():
+
+Declare function 'cos' ():
+
+Declare function 'pow' ():
+
+Declare function 'fucktorial' (param number, param fff):
+entry_fucktorial:
+	%op_1 = bigger number, 1
+	br %op_1, label than_0, label merge_0
+
+than_0:
+	temp = store(number)
+	%op_4 = bigger number, 0
+	%op_6 = less number, 0
+	%op_7 = add %op_4, %op_6
+	call: fout (param %op_7)
+	%op_10 = sub number, 1
+	%c_8 = call: fucktorial (param %op_10, param -666)
+	%op_12 = mul temp, %c_8
+
+	return %op_12
+	br label merge_0
+
+merge_0:
+
+	return 1
+
+Declare function 'main' (param argc, param argv):
 entry_main:
-	ded = store(2)
-	call: fout (param ded)
+	%op_17 = mul ded, 10
+	%op_20 = add 0, 1
+	%c_15 = call: fucktorial (param %op_17, param %op_20)
+	test = store(%c_15)
+	%op_22 = mul test, 10
+	test = load %op_22
 
 	return 0
+

@@ -16,6 +16,9 @@ enum class ValueType
     Value
     };
 
+struct LocationTable;
+struct Context;
+
 class Value : public NoCopyable
     {
     protected:
@@ -32,7 +35,14 @@ class Value : public NoCopyable
         virtual void      dump     () const = 0;
         virtual ValueType get_type () const = 0;
 
+        virtual void count_location     (LocationTable* table) const = 0;
+        virtual void add_location       (LocationTable* table) const;
+        
+        virtual void translate_x86      (Context* ctx)         const = 0;
+
         name_t get_name() const;
+
+
     };
 
 /* virtual void dump() const  (Value* this) = 0; */
@@ -68,6 +78,8 @@ class BaseBlock : public Value
     private:
         ValueArr inst_arr;
     
+        void add_location (LocationTable* table) const override;
+
     public:
         BaseBlock (name_t name_param);
        ~BaseBlock () override;
@@ -75,7 +87,13 @@ class BaseBlock : public Value
         void      dump     () const override;
         ValueType get_type () const override;
 
+        void count_location     (LocationTable* table) const override;
+        
+        void translate_x86      (Context* ctx)         const override;
+
         Value* add_instr (Value* instr);
+
+        const ValueArr* get_const_inst_arr () const;
     };
 
 //////////////////////////////////////////////////////
@@ -86,12 +104,17 @@ class Constant : public Value
     private:
         const data_t data;
 
+        void count_location (LocationTable* table) const override;
+
     public:
         Constant (name_t name_param, const data_t data_param);
        ~Constant () override = default;
 
        void      dump     () const override;
        ValueType get_type () const override;
+
+       
+       void translate_x86 (Context* ctx) const override;
 
        data_t get_data () const;
     };
@@ -108,12 +131,17 @@ class GlobalVar : public Value
         const enum VariableType var_type;
         const Constant*         init_val;
 
+        void count_location (LocationTable* table) const override;
+
     public:
         GlobalVar (name_t name_param, VariableType var_type_param, const Constant* init_val_param);
        ~GlobalVar () override = default;
 
        void      dump     () const override;
        ValueType get_type () const override;
+
+       
+       void translate_x86 (Context* ctx) const override;
     };
 
 //////////////////////////////////////////////////////
@@ -131,12 +159,18 @@ class Function : public Value
         ValueArr argv;    
         ValueArr body;
 
+        void add_location   (LocationTable* table) const override; 
+
     public:
         Function (name_t name_param, FunctionRetType ret_type_param);
        ~Function () override;
 
        void      dump     () const override;
        ValueType get_type () const override;
+       
+       void count_location (LocationTable* table) const override;
+
+       void translate_x86 (Context* ctx) const override;
 
        ValueArr* get_body ();
        ValueArr* get_argv ();

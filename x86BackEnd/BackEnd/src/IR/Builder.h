@@ -18,8 +18,9 @@ int BuilderCtor (Builder* buildog, Module* mod);
 int BuilderDtor (Builder* buildog);
 
 //////////////////////////////////////////////////////
-int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* label);
-int AddFunctionToModule   (Builder* buildog);
+int SetBuilderForFunction     (Builder* buildog, Function* func, ValueLabel* label);
+int ResetBuilderAfterFunction (Builder* buildog);
+int AddFunctionToModule       (Builder* buildog);
 
 //////////////////////////////////////////////////////
 BaseBlock* GetCurrentBaseBlock (Builder* buildog);
