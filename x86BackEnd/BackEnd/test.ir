@@ -2,14 +2,6 @@ declare ded = -1
 declare uselles = 0
 Declare function 'fout' ():
 
-Declare function 'fin' ():
-
-Declare function 'sin' ():
-
-Declare function 'cos' ():
-
-Declare function 'pow' ():
-
 Declare function 'fucktorial' (param number, param fff):
 entry_fucktorial:
 	%op_1 = bigger number, 1
@@ -21,6 +13,7 @@ than_0:
 	%op_6 = less number, 0
 	%op_7 = add %op_4, %op_6
 	call: fout (param %op_7)
+
 	%op_10 = sub number, 1
 	%c_8 = call: fucktorial (param %op_10, param -666)
 	%op_12 = mul temp, %c_8

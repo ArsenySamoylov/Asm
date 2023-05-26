@@ -46,8 +46,6 @@ Location* FindLocation (LocationTable* arr, const char* name)
     return NULL;
     }
 
-static int CheckArgv     (LocationTable* table, const ValueArr* argv);
-
 void Function::count_location (LocationTable* table) const
     {
     assert(table);
@@ -191,8 +189,8 @@ Reg GeneralPurposeRegs[] = {
 
 { RSP, BUSY, NotAllocatable },
 
-{ RBX, FREE, Allocatable }, 
-{ RBP, FREE, Allocatable }, 
+{ RBX, FREE, Allocatable    }, 
+{ RBP, BUSY, NotAllocatable }, 
 
 { R10, FREE, Allocatable }, 
 { R11, FREE, Allocatable }, 
@@ -203,6 +201,13 @@ Reg GeneralPurposeRegs[] = {
 };
 
 const int NUMBER_OF_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
+
+#include <stack>
+using namespace std;
+static  stack <Reg*> FreeRegs;
+
+static int FreeAllocatableReg    (Reg* reg);
+static int FreeNotAllocatableReg (Reg* reg);
 
 int ResetRegisters ()
     {
@@ -215,7 +220,7 @@ int ResetRegisters ()
         assert (reg);
 
         if (reg->allocation_status == Allocatable)
-            FreeReg (reg);
+            FreeAllocatableReg (reg);
 
         if (reg->allocation_status == NotAllocatable)
             FreeNotAllocatableReg (reg);
@@ -230,6 +235,30 @@ Reg* GetReg (int number)
 
     // report ("Get Reg: %s\n", GetRegName( (GPRegisterNumber)  number));
     return GeneralPurposeRegs + number;
+    }
+
+static int FreeAllocatableReg (Reg* reg)
+    {
+    assert (reg);
+    assert (reg->allocation_status == Allocatable);
+    assert (reg->status == BUSY); // otherwise register will be pushed twice to stack !!!
+
+    // report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
+    reg->status = FREE;
+    
+    FreeRegs.push (reg);
+    return SUCCESS;
+    }
+
+static int FreeNotAllocatableReg (Reg* reg)
+    {
+    assert (reg);
+    assert (reg->allocation_status == NotAllocatable);
+
+    // report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
+    reg->status = FREE;
+
+    return SUCCESS;
     }
 
 const char* GetRegName (int reg)
@@ -272,13 +301,8 @@ int PrintReg (int number)
     }
 
 //////////////////////////////////////////////////////
-#include <stack>
-using namespace std;
-static  stack <Reg*> FreeRegs;
-
-static int FreeUnusedLocations (LocationTable* table);
-static int FreeNotAllocatableReg (Reg* reg);
-static int FreeNotAllocatableReg (Reg* reg);
+// static int FreeUnusedLocations (LocationTable* table);
+static int FreeReg (int reg_number);
 
 Reg* AllocateReg (LocationTable* table)
     {
@@ -286,8 +310,9 @@ Reg* AllocateReg (LocationTable* table)
     
     if (FreeRegs.empty())
         {
-        int n_free = FreeUnusedLocations (table);
-        assert (n_free > 0);
+        // int n_free = FreeUnusedLocations (table);
+        // assert (n_free > 0);
+        assert (0);
          // TODO: locate space on stack and push, or put local
         }
 
@@ -310,7 +335,7 @@ int SetLocation (Location* loc, Reg* reg)
     // report ("%s -> %s\n", loc->name, GetRegName (reg->number));
 
     if (loc->type == LocationType::Register)
-        FreeReg (loc->reg.number);
+        FreeReg (loc->reg_num);
 
     loc->type    = LocationType::Register;
     loc->reg_num = reg->number;
@@ -318,28 +343,59 @@ int SetLocation (Location* loc, Reg* reg)
     return 0;
     }
 
-static int FreeAllocatableReg (Reg* reg)
+size_t DecreaseUsage (LocationTable* table, const Value* val)
     {
-    assert (reg);
-    assert (reg->allocation_status == Allocatable);
+    report ("decreasing usage\n");
 
-    // report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
-    reg->status = FREE
+    assert(table);
+    assert(val);
     
-    FreeRegs.push (reg);
-    return SUCCESS;
-    }
+    Location* location = FindLocation (table, val->get_name());
+    assert   (location);
+    // PrintLocation (location);
+    
+    if (location->n_usage == 0 && location->type == LocationType::Register)
+        FreeReg (location->reg_num);
 
-static int FreeNotAllocatableReg (Reg* reg)
+    if (--location->n_usage == 0 && location->type == LocationType::Register)
+        FreeReg (location->reg_num);
+
+    PrintLocation (location);
+    return location->n_usage;
+    };
+
+Location* FindLocationByReg (LocationTable* table, GPRegisterNumber reg_num)
     {
+    assert (table);
+
+    for (size_t i = 0; i < table->size; i++)
+        {
+        Location* location = table->arr[i];
+        assert   (location);
+
+        if (location->type == LocationType::Register &&
+            location->reg_num == reg_num)
+            return location;
+        }
+    
+    return NULL;
+    }
+
+static int FreeReg (int reg_number)
+    {
+    Reg*    reg = GetReg (reg_number);
     assert (reg);
-    assert (reg->allocation_status == NotAllocatable);
+    assert (reg->status == BUSY);
 
-    // report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
-    reg->status = FREE
+    if (reg->allocation_status == Allocatable)
+        FreeAllocatableReg (reg);
 
+    if (reg->allocation_status == NotAllocatable)
+        FreeNotAllocatableReg (reg);
+    
     return SUCCESS;
     }
+
 
 /*
 int ResetTempLocations ()
@@ -372,38 +428,36 @@ int ResetTempLocations ()
 
 size_t SetParametersRegisters (LocationTable* table, const ValueArr* argv)
     {
-    assert(ctx);
+    assert (table);
     assert(argv);
 
     size_t n_params = 0;
-    const Instruction* param = (const Instruction*) (argv->get_const_value (n_params));
-    
+    const Instruction* param = (const Instruction*) argv->get_const_value (n_params);
+    assert            (param->get_type () == ValueType::Instruction);
+
     for (size_t i = RDI; i < table->n_local_vars; i++, n_params++)
         {
-        assert (param->Value::type        == ValueType::Instruction);
-        assert (param->Instruction::type  == InstructionType::Store);
+        assert (param->get_type()         == ValueType::Instruction);
+        assert (param->get_instr_type()   == InstructionType::Store);
 
-        Location* loc = FindLocation (ctx->value_usage, param->name);
-
+        Location* loc = FindLocation (table, param->get_name());
+        
         if (!loc)
-            report ("Warning: unused parameter '%s'\n", param->name);
+            report ("Warning: unused parameter '%s'\n", param->get_name());
         
         if (loc)
             {    
-            Reg* param_reg =  GeneralPurposeRegs + i;
-            assert(i <= R9);
+            assert (i <= R9);
+            assert (loc->type == LocationType::NoWhere);
             
-            param_reg->loc    = loc;
-            param_reg->status = LOCKED;
-            
-            loc->type       = LocationType::Register;
-            loc->reg.number = param_reg->number;
+            Reg* reg = GetReg ( (int) i);
+            SetLocation (loc, reg); 
             }
 
         param = (const Instruction*) argv->get_const_value (n_params); 
         }
 
-    assert (n_params == argv->size);
+    assert (n_params == argv->get_size());
     assert (n_params <= 6);
 
     // report ("n_params: %lu \n", n_params);
@@ -416,11 +470,11 @@ int PrintLocation (Location* loc)
 
     printf ("location: '%s', n_usage %lu", loc->name, loc->n_usage);
 
-    if (loc->type == locType::Stack)
-        printf (", on stack (offset %d)", loc->offset);
+    if (loc->type == LocationType::Stack)
+        printf (", on stack (offset %lu)", loc->offset);
 
     if (loc->type == LocationType::Register)
-        printf (", in reg %s", GetREgName (loc->number));
+        printf (", in reg %s", GetRegName (loc->reg_num));
 
     if (loc->type == LocationType::Memory)
         printf (", in memory");

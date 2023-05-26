@@ -22,6 +22,8 @@ struct AddressTable
 int AddressTableCtor (AddressTable* arr);
 int AddressTableDtor (AddressTable* arr);
 
+int ResetAddressTable (AddressTable* arr);
+
 int AddAddress (AddressTable* arr, Address* ad);
 //////////////////////////////////////////////////////
 struct Reference 
@@ -42,6 +44,8 @@ struct ReferenceArr
 
 int ReferenceArrCtor (ReferenceArr* arr);
 int ReferenceArrDtor (ReferenceArr* arr);
+
+int ResetReferenceArr (ReferenceArr* arr);
 
 int AddReference (ReferenceArr* arr, Reference* ref);
 int ResolveReferences (Buffer* buf, AddressTable* functions, ReferenceArr* refs);

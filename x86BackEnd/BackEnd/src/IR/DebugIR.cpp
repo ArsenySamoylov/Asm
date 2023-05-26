@@ -28,10 +28,12 @@ static FILE* DUMP_FILE = NULL;
 static void DumpParameters (const ValueArr* argv);
 static void PrintFullType  (const Value* val);
 static void PrintName      (const Value* val);
-static void PrintOperator  (OperatorType op_type);
 
 #pragma GCC diagnostic ignored "-Wformat-zero-length"
 
+//////////////////////////////////////////////////////
+// Module
+//////////////////////////////////////////////////////
 void Module::dump (const char* out_file) const
     {
     assert(out_file);
@@ -55,6 +57,9 @@ void Module::dump (const char* out_file) const
     DUMP_FILE = NULL;
     }
 
+//////////////////////////////////////////////////////
+// GlobalVar
+//////////////////////////////////////////////////////
 void GlobalVar::dump  () const
     {
     print("declare %s = ", name);
@@ -63,11 +68,17 @@ void GlobalVar::dump  () const
         init_val->dump();
     }
 
+//////////////////////////////////////////////////////
+// Constant
+//////////////////////////////////////////////////////
 void Constant::dump () const
     {
     print_raw("%lg\n", ((double) get_data()) / PRECISION);
     }
 
+//////////////////////////////////////////////////////
+// Function
+//////////////////////////////////////////////////////
 void Function::dump () const 
     {
     print ("Declare function '%s' ", name);
@@ -80,6 +91,9 @@ void Function::dump () const
     print_raw("\n");
     }
 
+//////////////////////////////////////////////////////
+// BaseBlock
+//////////////////////////////////////////////////////
 void BaseBlock::dump  () const
     {
     PrintName (this);
@@ -92,13 +106,19 @@ void BaseBlock::dump  () const
     decrease_indent();
     }
 
+//////////////////////////////////////////////////////
+// Store
+//////////////////////////////////////////////////////
 void Store::dump () const 
     {
     print ("%s = store(", name);
     PrintName(val);
     print_raw(")\n");
     }
-                            
+
+//////////////////////////////////////////////////////
+// Load
+//////////////////////////////////////////////////////            
 void Load::dump () const
     {
     print     ("");
@@ -107,6 +127,11 @@ void Load::dump () const
     PrintName (src);
     print_raw ("\n");
     }
+
+//////////////////////////////////////////////////////
+// Operator
+//////////////////////////////////////////////////////
+static void PrintOperator  (OperatorType op_type);
 
 void Operator::dump () const
     {
@@ -119,53 +144,6 @@ void Operator::dump () const
     PrintName  (left_op);
     print_raw   (", ");
     PrintName  (right_op);
-
-    print_raw ("\n");
-    }
-
-void Branch::dump () const
-    {
-    print("br ");
-
-    if (condition)
-        {
-        PrintName (condition);
-        print_raw  (", ");    
-        }
-
-    print_raw  ("label ");  
-    PrintName (true_block);
-
-    if (condition)
-        {
-        print_raw (", label ");
-        PrintName (false_block);
-        }
-
-    print_raw("\n\n");
-    }
-
-void Call::dump () const
-    {
-    if (function->get_ret_type() == FunctionRetType::Double)
-            { print ("%s = ", name); } 
-    else
-            { print (""); }
-
-    print_raw  ("call: ");
-    PrintName (function);
-    print_raw  (" ");
-
-    DumpParameters (&argv);
-
-    print_raw ("\n");
-    }
-
-void Return::dump () const
-    {
-    print_raw  ("\n");
-    print     ("return ");
-    PrintName (ret_value);
 
     print_raw ("\n");
     }
@@ -188,8 +166,64 @@ static void PrintOperator (OperatorType op_type)
             break;
         }
     }
+    
+//////////////////////////////////////////////////////
+// Branch
+//////////////////////////////////////////////////////
+void Branch::dump () const
+    {
+    print("br ");
 
+    if (condition)
+        {
+        PrintName (condition);
+        print_raw  (", ");    
+        }
 
+    print_raw  ("label ");  
+    PrintName (true_block);
+
+    if (condition)
+        {
+        print_raw (", label ");
+        PrintName (false_block);
+        }
+
+    print_raw("\n\n");
+    }
+
+//////////////////////////////////////////////////////
+// Call
+//////////////////////////////////////////////////////
+void Call::dump () const
+    {
+    if (function->get_ret_type() == FunctionRetType::Double)
+            { print ("%s = ", name); } 
+    else
+            { print (""); }
+
+    print_raw  ("call: ");
+    PrintName (function);
+    print_raw  (" ");
+
+    DumpParameters (&argv);
+
+    print_raw ("\n");
+    }
+
+//////////////////////////////////////////////////////
+// Return
+//////////////////////////////////////////////////////
+void Return::dump () const
+    {
+    print_raw  ("\n");
+    print     ("return ");
+    PrintName (ret_value);
+
+    print_raw ("\n");
+    }
+
+//////////////////////////////////////////////////////
 void PrintFullType (const Value* val)
     {
     assert(val);

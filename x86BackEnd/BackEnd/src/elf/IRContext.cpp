@@ -3,7 +3,7 @@
 #include <stddef.h> 
 #include <stdlib.h>
 
-#include "PutIRctx.h"
+#include "IRContext.h"
 #include "Instructions.h"
 
 #include "CommonEnums.h"
@@ -16,11 +16,13 @@ ARR_CTOR   (AddressTable, Address)
 ARR_DTOR   (AddressTable, Address)
 ARR_RESIZE (AddressTable, Address)
 ARR_ADD    (AddressTable, Address)
+RESET_ARR  (AddressTable)
 
 ARR_CTOR   (ReferenceArr, Reference)
 ARR_DTOR   (ReferenceArr, Reference)
 ARR_RESIZE (ReferenceArr, Reference)
 ARR_ADD    (ReferenceArr, Reference)
+RESET_ARR  (ReferenceArr)
 
 #undef ARR_CTOR   
 #undef ARR_DTOR   
@@ -28,6 +30,7 @@ ARR_ADD    (ReferenceArr, Reference)
 #undef ARR_ADD    
 #undef FIND_IN_ARR
 #undef COPY_TO_ARR
+#undef RESET_ARR
 
 int ResolveReferences (Buffer* code, AddressTable* functions, ReferenceArr* refs)
     {
@@ -50,9 +53,10 @@ int ContextCtor (Context* ctx, Elf* elf)
 
     ReferenceArrCtor (&ctx->call_refs);
 
-    ctx->baseblocks  = NULL;
-    ctx->jump_refs   = NULL;
-    ctx->value_usage = NULL;
+    AddressTableCtor (&ctx->baseblocks);
+    ReferenceArrCtor (&ctx->jump_refs);
+    
+    LocationTableCtor (&ctx->value_usage);
 
     ctx->code = &elf->code_buf;
     ctx->data = &elf->data_buf;
@@ -69,9 +73,10 @@ int ContextDtor (Context* ctx)
 
     ReferenceArrDtor (&ctx->call_refs);
 
-    ctx->baseblocks  = NULL;
-    ctx->jump_refs   = NULL;
-    ctx->value_usage = NULL;
+    AddressTableDtor (&ctx->baseblocks);
+    ReferenceArrDtor (&ctx->jump_refs);
+    
+    LocationTableDtor (&ctx->value_usage);
 
     ctx->code = NULL;
     ctx->data = NULL;
@@ -83,10 +88,6 @@ int SetCtxForFunction (Context* ctx)
     {
     assert(ctx);
 
-    AddressTableCtor  (ctx->baseblocks_table);
-    ReferenceArrCtor  (ctx->jump_refs);
-    LocationTableCtor (ctx->value_usage);
-
     return SUCCESS;
     }
 
@@ -94,9 +95,11 @@ int ClearCtxAfterFunction (Context* ctx)
     {
     assert(ctx);
 
-    AddressTableDtor (ctx->baseblocks);
-    ReferenceArrDtor (ctx->jump_refs);
-    LocationTableDtor (ctx->value_usage);
+    ResetAddressTable  (&ctx->baseblocks);
+    ResetReferenceArr  (&ctx->jump_refs);
+
+    ResetLocationTable (&ctx->value_usage);
+    ctx->value_usage.n_local_vars = 0;// cause ResetLocation doesn't do it
 
     return SUCCESS;
     }

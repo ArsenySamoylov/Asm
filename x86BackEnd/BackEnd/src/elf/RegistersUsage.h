@@ -71,6 +71,9 @@ struct LocationTable
 
 int LocationTableCtor (LocationTable* arr);
 int LocationTableDtor (LocationTable* arr);
+
+int ResetLocationTable (LocationTable* table);
+
 int AddLocation       (LocationTable* arr, Location* use);
 
 Location* FindLocation (LocationTable* arr, name_t name);
@@ -108,9 +111,9 @@ int     PrintReg (int number);
 //////////////////////////////////////////////////////
 Reg* AllocateReg     (LocationTable* table);
 int  SetLocation     (Location* loc, Reg* reg);
-int  FreeLocationReg (Location* loc);
+size_t DecreaseUsage (LocationTable* table, const Value* val);
+Location* FindLocationByReg (LocationTable* table, GPRegisterNumber);
 
-// int    ResetTempLocations     (LocationTable* loc_table);
 size_t SetParametersRegisters (LocationTable* table, const ValueArr* argv);
 
 int     PrintLocation (Location* loc);

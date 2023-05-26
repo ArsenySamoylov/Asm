@@ -9,7 +9,7 @@ COMMON_INCLUDE  = ../Common/ ../Common/StandartAWP  ../Common/Structures/ ../Com
 
 FILES_TO_COMPILE = src/main.cpp src/AsmCtx.cpp src/SetTokenTree.cpp 
 IR_FILES 		 = src/IR/Value.cpp src/IR/Instruction.cpp src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp  src/IR/ValueLabel.cpp src/IR/AstToIR.cpp  src/IR/DebugIR.cpp 
-ELF_FILES =  src/elf/Elf.cpp src/elf/Buffer.cpp src/elf/RegistersUsage.cpp #src/elf/PutIRctx.cpp src/elf/PutIRinElf.cpp 
+ELF_FILES =  src/elf/Elf.cpp src/elf/Buffer.cpp src/elf/RegistersUsage.cpp src/elf/IRContext.cpp src/elf/PutIRinElf.cpp src/elf/Commands.cpp
 
 ATC_FILES = ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 	
 ATC_OBJ	  = 		   my_buffer.o				Logger.o 			  tostring.o			  FunctionLogger.o					SuperStack.o				  DebugFunctions.o        			 my_safety.o 

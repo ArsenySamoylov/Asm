@@ -104,3 +104,15 @@ find_struct* Find##find_struct (struct_name* arr, find_struct* find)     \
                                                                          \
     return NULL;                                                         \
     }
+
+#define RESET_ARR(struct_name)                  \
+int Reset##struct_name (struct_name *arr)       \
+    {                                           \
+    assert (arr);                               \
+                                                \
+    for (size_t i = 0; i < arr->size; i++)      \
+        free (arr->arr[i]);                     \
+                                                \
+    arr->size = 0   ;                           \
+    return SUCCESS;                             \
+    }
