@@ -18,10 +18,9 @@ class Instruction : public Value
     protected:
         const enum InstructionType type;
 
-        Instruction (name_t name_param, InstructionType type_param);
 
     public:
-
+       Instruction (name_t name_param, InstructionType type_param);
       ~Instruction () = default;
 
        virtual void            dump           () const override  = 0;
@@ -100,7 +99,7 @@ class Branch : public Instruction
 class Call : public Instruction
     {
     private:
-        ValueArr   argv;
+        ValueArr<Value>   argv;
         const Function* function;
 
     public:
@@ -113,8 +112,8 @@ class Call : public Instruction
        void count_location (LocationTable* table) const override;
        void translate_x86  (Context* ctx)         const override;
 
-             ValueArr* get_argv ();
-       const ValueArr* get_const_argv () const;
+             ValueArr<Value>* get_argv ();
+    //    const ValueArr* get_const_argv () const;
     };
 
 //////////////////////////////////////////////////////

@@ -33,29 +33,12 @@ const char* MakeComment (const char* format, ...)
     return comment;
     }
 
-static const char* GetOperationName (OperatorType type)
-    {
-    switch(type)
-        {
-        case OperatorType::Add: return "add";
-        case OperatorType::Sub: return "sub";
-        case OperatorType::Mul: return "imul";
-        case OperatorType::Div: return "idiv";
-
-        case OperatorType::Bigger: return "setg";
-        case OperatorType::Less:   return "setl"; 
-
-        case OperatorType::Unknown: 
-        default:
-            return ("Unknown"); 
-        }
-    }
-
 const char* DUMP_FILE = "logs/dump.s";
 
 #define print_rip()           fprintf(DUMP, "%x:\n", ctx->rip)
 #define print_label(VALUE)    fprintf(DUMP, "%s:\n", (VALUE)->name)
 #define print_raw(format, ...) fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);   
+#define new_line() print_raw ("\n");
 
 #define PRINT_INSTR_COMM(INSTR) print_raw ("### "); WriteToFile (DUMP, INSTR); print_raw("\n");   
 
@@ -85,12 +68,16 @@ static int MoveToLocalVar (Context* ctx, const Value* src, const Value* dest)
     assert   (dest_loc);
     assert   (dest_loc->variable_type == LOCAL);
 
-    PutMoveToStack (ctx, src_loc->reg_num, dest_loc->offset);
+    const char* comment = MakeComment ("copy '%s' to stack (to '%s')", src->get_name(), dest->get_name());
+    assert     (comment);
+
+    PutMoveToStack (ctx, src_loc->reg_num, dest_loc->offset, comment);
     
     dest_loc->type = LocationType::Stack;
     return 0;
     }
 
+/*
 static int MoveFromLocalVar (Context* ctx, const Value* src, const Value* dest)
     {
     assert (ctx);
@@ -99,7 +86,12 @@ static int MoveFromLocalVar (Context* ctx, const Value* src, const Value* dest)
 
     Location* src_loc = FindLocation (&ctx->value_usage, src->get_name());
     assert   (src_loc);
-    assert   (src_loc->type == LocationType::Stack);
+
+    if (src_loc->type != LocationType::Stack)
+        {
+        report ("Warning '%s' currently not in stack\n", src_loc->name);
+        }
+
     assert   (src_loc->variable_type == LOCAL);
 
     PutValueToReg (ctx, dest);
@@ -115,6 +107,7 @@ static int MoveFromLocalVar (Context* ctx, const Value* src, const Value* dest)
 
     return 0;
     }
+*/
 
 static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)
     {
@@ -153,13 +146,19 @@ static GPRegisterNumber PutValueToReg (Context* ctx, const Value* val)
     Location* loc = FindLocation (&ctx->value_usage, val->get_name());
     assert   (loc);
 
+    if (loc->type == LocationType::Register)
+        {
+        print ("\t\t\t\t\t  # put_value_to_reg: '%s' already in %s\n", loc->name, GetRegName (loc->reg_num));
+        return loc->reg_num;
+        }
+
     // report ("Alloc\n");
     Reg*    free_reg = AllocateReg (&ctx->value_usage);
     assert (free_reg);
     assert (free_reg->number >= 0);
 
     // print ("\t#put value to reg, Allocated reg %s\n", GetRegName (free_reg->number));
-    const char* comment = MakeComment ("put value to reg: %s -> %s", 
+    const char* comment = MakeComment ("put_value_to_reg: '%8s' -> %s", 
                                        loc->name, GetRegName (free_reg->number));
     assert (comment);
 
@@ -184,9 +183,13 @@ static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg, const char*
                 break;
 
         case LocationType::NoWhere:  
-                // PRINT_VALUE (val);
-                assert(val->get_type() == ValueType::Constant);
-                PutMovConstant (ctx, dest_reg->number, ((const Constant*) val)->get_data(), comment);
+                if (val->get_type() != ValueType::Constant) 
+                    {
+                    PRINT_VALUE (val);
+                    assert (0);
+                    }
+
+                PutMovConstant (ctx, dest_reg->number, loc->data, comment);
                 break;
 
         case LocationType::Stack:
@@ -195,6 +198,7 @@ static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg, const char*
 
         case LocationType::Memory:
                 print ("get from mem -> %s\n", GetRegName(dest_reg->number));
+                report ("NOT READY\n");
                 assert (0);
 
         default:
@@ -252,7 +256,7 @@ static int SetStart (Context* ctx)
     print (".section .text\n");
 
     print_raw ("%s:\n", "_start");
-    print    ("# call InitGlobals\n");
+    print    ("# TODO: call InitGlobals\n");
     print    ("call main\n");
     print    ("mov $60, %%rax\n");
     print    ("syscall\n\n");
@@ -288,12 +292,16 @@ void GlobalVar::translate_x86 (Context* ctx) const
 // Function
 //////////////////////////////////////////////////////
 static int SetStackFrame (Context* ctx, size_t n_locals);
-static int ClearStackFrame (Context* ctx, size_t n_locals);
 static int SaveCalleeSaveRegisters  (Context* ctx);
-static int RestoreCalleeSaveRegisters  (Context* ctx);
+static size_t SetParametersRegisters      (Context* ctx, LocationTable* table, const ValueArr<Value>* argv);
 
 void Function::translate_x86 (Context* ctx) const 
     {
+    if (body.get_size() == 0)
+        return;
+        
+    print_label (this);
+
     Address* func_ad = (Address*) calloc (1, sizeof(func_ad[0]));
     assert(func_ad);
 
@@ -310,14 +318,10 @@ void Function::translate_x86 (Context* ctx) const
     SaveCalleeSaveRegisters (ctx);
 
     ResetRegisters ();
-    SetParametersRegisters (&ctx->value_usage, &argv);
+    SetParametersRegisters (ctx, &ctx->value_usage, &argv);
 
     for (size_t i = 0; i < body.get_size(); i++)
         (body.get_const_value(i))->translate_x86 (ctx) ;
-
-    RestoreCalleeSaveRegisters (ctx);
-    ClearStackFrame (ctx, ctx->value_usage.n_local_vars);
-    PutRet (ctx);
 
     ResolveReferences (ctx->code, &ctx->baseblocks, &ctx->jump_refs);
     
@@ -329,6 +333,7 @@ void Function::translate_x86 (Context* ctx) const
 static int SetStackFrame (Context* ctx, size_t n_locals)
     {
     assert(ctx);
+    print ("# set stack frame (%lu local vars)\n", n_locals);
 
     PutSubRsp (ctx, n_locals * 8);
 
@@ -341,20 +346,11 @@ static int SetStackFrame (Context* ctx, size_t n_locals)
     return SUCCESS;
     }
 
-static int ClearStackFrame (Context* ctx, size_t n_locals)
-    {
-    assert(ctx);
-
-    Reg* rbp = GetReg (RBP);
-    
-    PutPopR (ctx, rbp->number);
-    PutAddRsp (ctx, n_locals * 8);
-
-    return SUCCESS;
-    }
-
 static int SaveCalleeSaveRegisters  (Context* ctx)
     {
+    assert (ctx);
+    print ("# save callee-save regs\n");
+
     PutPushR (ctx, RBX);
 
     for (int i = R10; i <= R15; i++)
@@ -364,16 +360,59 @@ static int SaveCalleeSaveRegisters  (Context* ctx)
     return 0;
     }
 
-static int RestoreCalleeSaveRegisters  (Context* ctx)
+static size_t SetParametersRegisters (Context* ctx, LocationTable* table, const ValueArr<Value>* argv)
     {
+    assert (ctx);
+    assert (table);
+    assert (argv);
 
-    for (int i = R15; i >= R10; i--)
-        PutPopR (ctx, (GPRegisterNumber) i);
+    print ("# save param regs on stack\n");
 
-    PutPopR (ctx, RBX);
-   
-    print_raw ("\n");
-    return 0;
+    size_t n_params = 0;
+    int    i = RDI;
+
+    const Value* param = NULL;
+
+    while (n_params < argv->get_size())   
+        {
+        assert (n_params <= 6);
+        assert (i <= R9);
+
+        param = argv->get_const_value (n_params);
+        assert (param);
+
+        Location* loc = FindLocation (table, param->get_name());
+        assert (loc);
+
+        if (loc->n_usage == 0)
+            report ("Warning: unused parameter '%s'\n", param->get_name());
+
+        if (loc->type != LocationType::Stack)
+            {
+            PRINT_LOCATION (loc);
+            assert (0);
+            }
+        
+        Reg* reg = GetReg (i);
+        SetLocation (loc, reg); 
+
+        // report ("Save param  '%s' to stack\n", param->get_name());
+        const char* comment = MakeComment ("Save '%s' on stack", param->get_name());
+        assert     (comment);
+
+        PutMoveToStack (ctx, (GPRegisterNumber) i, loc->offset, comment);
+
+        i++; 
+        n_params++; 
+        }
+
+    assert (n_params == argv->get_size());
+    assert (n_params <= 6);
+
+    // report ("n_params: %lu \n", n_params);
+    print_raw ("\n\n");
+
+    return n_params;
     }
 
 //////////////////////////////////////////////////////
@@ -383,6 +422,7 @@ void BaseBlock::translate_x86 (Context* ctx) const
     {
     assert (ctx);
     
+    print_label (this);
     ctx->n_pushes = 0;
 
     Address* add = (Address*) calloc (1, sizeof(add[0]));
@@ -394,7 +434,24 @@ void BaseBlock::translate_x86 (Context* ctx) const
     AddAddress (&ctx->baseblocks, add);
 
     for (size_t i = 0; i < inst_arr.get_size(); i++)
-        (inst_arr.get_const_value(i))->translate_x86 (ctx);
+        {
+        const Instruction*  val = inst_arr.get_const_value(i);
+        assert (val);
+        
+        PRINT_INSTR_COMM (val);
+        val->translate_x86 (ctx);
+        new_line();
+        }
+    }   
+
+//////////////////////////////////////////////////////
+// Constant
+//////////////////////////////////////////////////////
+void Constant::translate_x86 (Context* ctx) const
+    {
+    assert (ctx);
+
+    report ("It is constant\n");
     }
 
 //////////////////////////////////////////////////////
@@ -403,7 +460,7 @@ void BaseBlock::translate_x86 (Context* ctx) const
 void Operator::translate_x86 (Context* ctx) const
     {
     assert(ctx);
-
+    
     GPRegisterNumber right = PutValueToReg (ctx, right_op);
     GPRegisterNumber left  = PutValueToReg (ctx, left_op);
 
@@ -418,12 +475,19 @@ void Operator::translate_x86 (Context* ctx) const
     Reg*    result_reg = GetReg (left_loc->reg_num);
     assert (result_reg);
 
+    new_line ();
+
     if (left_loc->n_usage > 1)
         {
         Reg* save_left = AllocateReg (&ctx->value_usage);
         assert (save_left);    
 
-        PutMovRR (ctx, left, save_left->number, "# save left");
+        const char* comment = MakeComment ("save '%s' to %s", left_loc->name, GetRegName (save_left->number));
+        assert     (comment);
+
+        PutMovRR (ctx, left, save_left->number, comment);
+        new_line ();
+
         SetLocation   (left_loc, save_left);
         }
 
@@ -440,6 +504,7 @@ void Operator::translate_x86 (Context* ctx) const
 //////////////////////////////////////////////////////
 void Branch::translate_x86 (Context* ctx) const
     {
+    assert (ctx);
 
     Reference* true_ref = (Reference*) calloc (1, sizeof(true_ref[0]));
         assert (true_ref);
@@ -484,7 +549,7 @@ using namespace std;
 static  stack <Reg> PushedRegs;
 
 static int SaveBusyRegs      (Context* ctx);
-static int SetRegsBeforeCall (Context* ctx, const ValueArr* argv);
+static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv);
 static int RestoreBusyRegs   (Context* ctx);
 
 void Call::translate_x86 (Context* ctx) const
@@ -511,7 +576,7 @@ void Call::translate_x86 (Context* ctx) const
         Reg*    call_reg = AllocateReg (&ctx->value_usage);
         assert (call_reg);
 
-        PutMovRR    (ctx, RAX, call_reg->number);
+        PutMovRR    (ctx, RAX, call_reg->number, "save call result from rax");
         SetLocation (call_loc, call_reg);
         }
 
@@ -543,7 +608,7 @@ static int SaveBusyRegs (Context* ctx)
     return 0;
     }
 
-static int SetRegsBeforeCall (Context* ctx, const ValueArr* argv)
+static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv)
     {
     $log(DEBUG)
     assert (ctx);
@@ -610,13 +675,16 @@ void Load::translate_x86 (Context* ctx) const
     {
     assert (ctx);
 
-    MoveFromLocalVar (ctx, src, dest);
+    MoveToLocalVar (ctx, src, dest);
     DecreaseUsage (&ctx->value_usage, src);
     }
 
 //////////////////////////////////////////////////////
 // Return 
 //////////////////////////////////////////////////////
+static int ClearStackFrame (Context* ctx, size_t n_locals);
+static int    RestoreCalleeSaveRegisters  (Context* ctx);
+
 void Return::translate_x86 (Context* ctx) const
     {
     assert (ctx);
@@ -627,5 +695,44 @@ void Return::translate_x86 (Context* ctx) const
     Reg* rax = GetReg (RAX);
     assert (rax);
 
-    MoveToReg (ctx, ret_value, rax); 
+    
+    print ("\n");
+
+    const char* comment = MakeComment ("return %s", ret_value->get_name());
+    assert     (comment);
+
+    MoveToReg (ctx, ret_value, rax, comment);
+
+    RestoreCalleeSaveRegisters (ctx);
+    ClearStackFrame (ctx, ctx->value_usage.n_local_vars);
+
+    PutRet (ctx);
+    }
+
+static int ClearStackFrame (Context* ctx, size_t n_locals)
+    {
+    assert(ctx);
+    print ("# clear stack frame\n");
+
+    Reg* rbp = GetReg (RBP);
+    
+    PutPopR (ctx, rbp->number);
+    PutAddRsp (ctx, n_locals * 8);
+
+    return SUCCESS;
+    }
+
+static int RestoreCalleeSaveRegisters  (Context* ctx)
+    {
+    assert (ctx);
+
+    print ("# restore callee-save regs\n");
+
+    for (int i = R15; i >= R10; i--)
+        PutPopR (ctx, (GPRegisterNumber) i);
+
+    PutPopR (ctx, RBX);
+   
+    print_raw ("\n");
+    return 0;
     }

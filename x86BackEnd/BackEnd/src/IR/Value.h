@@ -4,6 +4,7 @@
 
 #include "NoCopyable.h"
 #include "TypeDefs.h"
+#include "ValueArrTemplate.h"
 
 enum class ValueType
     {
@@ -46,38 +47,16 @@ class Value : public NoCopyable
     };
 
 /* virtual void dump() const  (Value* this) = 0; */
-//////////////////////////////////////////////////////
-class ValueArr
-    {
-    private:
-        const enum ValueType base_type;
-        Value** arr;
-    
-        size_t size;
-        size_t capacity;
-
-        const size_t START_ARR_SIZE = 16;
-        const size_t GROWTH_RATE    = 2;
-
-    void resize ();
-
-    public:
-        ValueArr (ValueType base_type_param);
-       ~ValueArr ();
-
-        Value* add       (Value* val);
-        Value* get_value (size_t index);
-        size_t get_size  () const;
-
-        const Value* get_const_value (size_t index) const;
-    };
 
 //////////////////////////////////////////////////////
+class Instruction;
+
 class BaseBlock : public Value
     {
     private:
-        ValueArr inst_arr;
+        ValueArr <Instruction> inst_arr;
     
+        __attribute__((__noreturn__)) 
         void add_location (LocationTable* table) const override;
 
     public:
@@ -91,21 +70,20 @@ class BaseBlock : public Value
         
         void translate_x86      (Context* ctx)         const override;
 
-        Value* add_instr (Value* instr);
+        Instruction* add_instr (Instruction* instr);
 
-        const ValueArr* get_const_inst_arr () const;
+        // const ValueArr* get_const_inst_arr () const;
     };
 
 //////////////////////////////////////////////////////
-const int PRECISION = 100;
+const int    PRECISION = 100;
+const data_t BAD_VALUE = -666;
 
 class Constant : public Value
     {
     private:
         const data_t data;
-
-        void count_location (LocationTable* table) const override;
-
+        
     public:
         Constant (name_t name_param, const data_t data_param);
        ~Constant () override = default;
@@ -113,6 +91,8 @@ class Constant : public Value
        void      dump     () const override;
        ValueType get_type () const override;
 
+       void count_location (LocationTable* table) const override;
+       void add_location   (LocationTable* table) const override;
        
        void translate_x86 (Context* ctx) const override;
 
@@ -131,6 +111,7 @@ class GlobalVar : public Value
         const enum VariableType var_type;
         const Constant*         init_val;
 
+        __attribute__((__noreturn__))
         void count_location (LocationTable* table) const override;
 
     public:
@@ -140,6 +121,7 @@ class GlobalVar : public Value
        void      dump     () const override;
        ValueType get_type () const override;
 
+       void add_location (LocationTable* table) const override;
        
        void translate_x86 (Context* ctx) const override;
     };
@@ -156,9 +138,10 @@ class Function : public Value
     private:
         const enum FunctionRetType ret_type;
 
-        ValueArr argv;    
-        ValueArr body;
+        ValueArr<Value> argv;    
+        ValueArr<BaseBlock>   body;
 
+        __attribute__((__noreturn__))
         void add_location   (LocationTable* table) const override; 
 
     public:
@@ -172,11 +155,8 @@ class Function : public Value
 
        void translate_x86 (Context* ctx) const override;
 
-       ValueArr* get_body ();
-       ValueArr* get_argv ();
-
-       const ValueArr* get_const_body () const;
-       const ValueArr* get_const_argv () const;
+       ValueArr<Value>*       get_argv ();
+       ValueArr<BaseBlock>*   get_body ();
 
        FunctionRetType get_ret_type () const;
     };

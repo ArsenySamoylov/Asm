@@ -27,7 +27,7 @@ char* tostring(int value)
     // $p(buffer)
     snprintf (buffer, MAX_LENGTH_INT, "%d", value);
     $$
-    $s(buffer)
+    // $s(buffer)
 
     return buffer;
     }

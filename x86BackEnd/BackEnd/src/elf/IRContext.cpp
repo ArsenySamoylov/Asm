@@ -10,6 +10,10 @@
 #include "LogMacroses.h"
 #include "DebugIR.h"
 
+
+FILE* DUMP = NULL;
+
+
 #include "ArrayTemplate.h"
 
 ARR_CTOR   (AddressTable, Address)
@@ -38,7 +42,7 @@ int ResolveReferences (Buffer* code, AddressTable* functions, ReferenceArr* refs
     assert(functions);
     assert(refs);
     
-    report ("Not ready\n");
+    report ("Resolve reference: Not ready\n");
     return 0;
     }
 

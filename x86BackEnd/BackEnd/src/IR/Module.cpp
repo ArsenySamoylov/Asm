@@ -5,12 +5,6 @@
 
 #include <stdio.h>
 
-Module::Module () :
-    global_vars (ValueType::GlobalVar),
-    functions   (ValueType::Function),
-    const_pool  (ValueType::Constant)
-    {}
-
 Module::~Module ()
     {
     // printf ("Module Dtor\n");

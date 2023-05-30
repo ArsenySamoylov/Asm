@@ -53,7 +53,7 @@ int main(int argc, const char* argv[])
 
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
   program_module.dump("test.ir");
-
+  program_module.translate_x86 (&elf);
   // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
   ProgramDtor (&program);

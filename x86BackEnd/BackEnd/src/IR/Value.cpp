@@ -17,81 +17,10 @@ Value::Value (ValueType param_type, name_t param_name) :
 name_t Value::get_name () const  {return name;}
 
 //////////////////////////////////////////////////////
-// ValueArr
-//////////////////////////////////////////////////////
-ValueArr::ValueArr (ValueType base_type_param) :
-    base_type(base_type_param)
-    {
-    arr = (Value**) calloc (START_ARR_SIZE, sizeof(arr[0]));
-                                                                              
-    size     = 0;                                                        
-    capacity = START_ARR_SIZE;                                           
-    }
-
-ValueArr::~ValueArr ()
-    {
-    if (capacity == 0)                                     
-        {                                                       
-        printf ("%s:%d, Capacity can't be 0 in Dtor\n", __FILE__, __LINE__);               
-        return;                                         
-        }                                                       
-
-    // printf ("ValueArr dtor\n");                                                      
-
-    free (arr);                                            
-                                                                
-    capacity = 0;                                          
-    size     = 0;                                          
-    arr      = NULL;                                       
-    }
-
-void ValueArr::resize ()                                          
-    {                                                                                            
-    size_t new_size = capacity * GROWTH_RATE;                                          
-                                                                                            
-    Value** temp = (Value**) realloc (arr, new_size * sizeof(temp[0]));    
-    assert(temp);                                                                           
-                                                                                            
-    capacity = new_size;                                                               
-    arr      = temp;                                                                   
-    }
-
-Value* ValueArr::add (Value* val)  
-    {               
-    assert(val);                                            
-
-    // PRINT_VALUE(val);                                        
-    // report ("Arr %p, Val %p, ArrSize %lu\n", arr, val, arr->size);
-
-    if (size >= capacity)                         
-        this->resize ();                          
-
-    arr[size++] = val;   
-
-    return val;                                            
-    }
-
-Value* ValueArr::get_value (size_t index)
-    {
-    assert (index < size);
-    return arr[index];
-    }
-
-size_t ValueArr::get_size () const {return size;}
-
-const Value* ValueArr::get_const_value (size_t index) const
-    {
-    assert (index < size);
-
-    return arr[index];
-    }
-
-//////////////////////////////////////////////////////
 // BaseBlock
 //////////////////////////////////////////////////////
 BaseBlock::BaseBlock (name_t name_param) :
-    Value    (ValueType::BaseBlock, name_param), 
-    inst_arr (ValueType::Instruction) 
+    Value    (ValueType::BaseBlock, name_param)
     {}
 
 BaseBlock::~BaseBlock ()
@@ -111,7 +40,7 @@ ValueType BaseBlock::get_type () const
     return ValueType::BaseBlock;
     }
 
-Value* BaseBlock::add_instr (Value* instr)
+Instruction* BaseBlock::add_instr (Instruction* instr)
     {
     assert (instr);
 
@@ -154,9 +83,7 @@ ValueType GlobalVar::get_type () const
 //////////////////////////////////////////////////////
 Function::Function (name_t name_param, FunctionRetType ret_type_param) :
     Value    (ValueType::Function, name_param),
-    ret_type (ret_type_param),    
-    argv     (ValueType::Instruction),
-    body     (ValueType::Instruction)  
+    ret_type (ret_type_param)    
     {}
 
 Function::~Function ()
@@ -173,11 +100,8 @@ Function::~Function ()
 
     }
 
-ValueArr* Function::get_body () {return &body;}
-ValueArr* Function::get_argv () {return &argv;}
-
-const ValueArr* Function::get_const_body () const {return &body;}
-const ValueArr* Function::get_const_argv () const {return &argv;}
+ValueArr<Value>*      Function::get_argv () {return &argv;}
+ValueArr<BaseBlock>*  Function::get_body () {return &body;}
 
 ValueType Function::get_type () const 
     {

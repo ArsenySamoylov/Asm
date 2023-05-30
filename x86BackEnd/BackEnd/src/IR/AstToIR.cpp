@@ -228,6 +228,7 @@ static Instruction* EmitIfAndElse  (Builder* buildog, Branch* branch, BaseBlock*
 //////////////////////////////////////////////////////
 // Constant
 //////////////////////////////////////////////////////
+static unsigned CONSTANT_NUMBER = 0;
 static unsigned TEMP_VAR_NUMBER = 0;
 
 static Constant*  EmitConstant  (Builder* buildog, const Token* token)
@@ -236,8 +237,9 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     assert(token);
 
     data_t const_val  = (int) (CONST(token) * 100);
-    name_t const_name = CreateString ("const_%d", TEMP_VAR_NUMBER++);
-    
+    name_t const_name = CreateString ("const_%d", CONSTANT_NUMBER++);
+    // $u (CONSTANT_NUMBER);
+
     Constant* constant = CreateConstant (buildog, const_name, const_val);
 
     buildog->mod->add_const (constant);
@@ -247,7 +249,7 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
-static int GetParametersDeclaration (Builder* buildog, ValueArr* argv, Token* token);
+static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv, Token* token);
 
 static Function* EmitFunction (Builder* buildog, const Token* token)
     {
@@ -263,6 +265,9 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     Function* func = CreateFunction (buildog, func_name, RET_TYPE(function_ret_type), NAME_ID(function_name));
 
     GetParametersDeclaration (buildog, func->get_argv(), LEFT(function_name));
+
+    TEMP_VAR_NUMBER = 0;
+    CONSTANT_NUMBER = 0;
     
     AstVisitor (buildog, RIGHT(token)); // adding function body
 
@@ -273,7 +278,7 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     return NULL;
     }
 
-static int GetParametersDeclaration (Builder* buildog, ValueArr* argv,Token* token)
+static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv,Token* token)
     {
     assert(buildog);
     assert(argv);
@@ -339,7 +344,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
     Call*   call = CreateCall (buildog, call_name, func);
     assert (call);
 
-    ValueArr* argv = call->get_argv();
+    ValueArr<Value>* argv = call->get_argv();
     assert   (argv);
 
     Token* param = LEFT (func_name);

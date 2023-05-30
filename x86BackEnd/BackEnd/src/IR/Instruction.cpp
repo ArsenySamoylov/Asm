@@ -88,7 +88,6 @@ BaseBlock* Branch::set_false_block (BaseBlock* false_block_param)
 //////////////////////////////////////////////////////
 Call::Call (name_t name_param, const Function* function_param) :
     Instruction (name_param, InstructionType::Call),
-    argv        (ValueType::Instruction),
     function    (function_param)  
     {}
 
@@ -99,8 +98,8 @@ InstructionType Call::get_instr_type () const
     return InstructionType::Call;
     }
 
-      ValueArr* Call::get_argv       ()       {return &argv;};
-const ValueArr* Call::get_const_argv () const {return &argv;};
+      ValueArr<Value>* Call::get_argv       ()       {return &argv;};
+// const ValueArr<Instruction*> Call::get_const_argv () const {return &argv;};
 
 //////////////////////////////////////////////////////
 // Return

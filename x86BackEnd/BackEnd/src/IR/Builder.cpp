@@ -1,21 +1,15 @@
+#include "EasyDebug.h"
+#undef assert
+#include <assert.h>
 
 #include "Builder.h"
 
 #include "CommonEnums.h"
 #include "LogMacroses.h"
-
-#include "EasyDebug.h"
-#undef assert
-
 #include "StringPool.h"
-
 #include "Grammar.h"
-
-#include <assert.h>
-
 #include "DebugIR.h"
-
-#include "Program.h" // for create string
+#include "Program.h" // for creating string
 
 int BuilderCtor (Builder* buildog, Module* mod)
     {
@@ -26,7 +20,7 @@ int BuilderCtor (Builder* buildog, Module* mod)
     buildog->local = {};
 
     buildog->current_function = NULL;
-    buildog->body_blocks      = NULL;
+    // buildog->body_blocks      = NULL;
 
     buildog->mod = mod;
 
@@ -53,7 +47,7 @@ int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_la
     ValueNameTableCtor (&buildog->local); 
 
     buildog->current_function  = func; 
-    buildog->body_blocks       = func->get_body();
+    // buildog->body_blocks       = func->get_body();
     
     name_t entry_block_name = CreateString("entry_%s", func->get_name());
     assert (entry_block_name);
@@ -71,7 +65,7 @@ int ResetBuilderAfterFunction (Builder* buildog)
     ValueNameTableDtor(&buildog->local);
 
     buildog -> current_function = NULL;
-    buildog -> body_blocks      = NULL;
+    // buildog -> body_blocks      = NULL;
 
     return 0;
     }
@@ -92,7 +86,7 @@ BaseBlock* GetCurrentBaseBlock (Builder* buildog)
     if (!buildog->current_function)
         return NULL;
 
-    ValueArr* blocks_arr = buildog->current_function->get_body();
+    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
     
     if (blocks_arr->get_size() == 0)
         {
@@ -106,7 +100,7 @@ BaseBlock* GetCurrentBaseBlock (Builder* buildog)
     //     printf ("arr[%lu] = %p ,", i, blocks_arr->arr [i]);
     // printf("\n");
 
-    return (BaseBlock*) blocks_arr->get_value (blocks_arr->get_size() - 1);
+    return blocks_arr->get_value (blocks_arr->get_size() - 1);
     }
 
 BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
@@ -123,7 +117,7 @@ BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
     BaseBlock*  new_block = new BaseBlock (block_name);
     assert     (new_block);
 
-    ValueArr* blocks_arr = buildog->current_function->get_body();
+    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
     assert   (blocks_arr);
 
     blocks_arr->add(new_block);

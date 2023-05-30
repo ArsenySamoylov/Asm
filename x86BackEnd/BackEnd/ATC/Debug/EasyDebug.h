@@ -4,6 +4,7 @@
 // #include "my_buffer.h"
 
 #define $i(int_var)     do { printf ("\t%s: %d\n", #int_var, int_var);        } while(0);  
+#define $u(int_var)     do { printf ("\t%s: %u\n", #int_var, int_var);        } while(0);  
 #define $c(char_var)    do { printf ("\t%s: %c\n", #char_var, char_var);      } while(0);  
 #define $d(double_var)  do { printf ("\t%s: %lg\n", #double_var, double_var); } while(0);  
 // #define $s(string)      do { printf ("\t%s: ", #string); ShowLine(string); printf("\n");      } while(0);

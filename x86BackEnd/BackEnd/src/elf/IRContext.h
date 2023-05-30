@@ -79,7 +79,7 @@ int ClearCtxAfterFunction (Context* ctx);
 
 size_t GetVa (Context* ctx, size_t increase);   
 
-FILE* DUMP = NULL;
+extern FILE* DUMP;
 
 #define print(format, ...)                                \
     do                                                    \

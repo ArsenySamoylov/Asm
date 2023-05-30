@@ -9,7 +9,7 @@ struct Builder
     ValueNameTable local;         // active when builder process function 
 
     Function* current_function;
-    ValueArr* body_blocks;      // active when builder process function (actually, there is no need for it, cause points to BaseBlockArr in function)
+    // ValueArr<BaseBlock>* body_blocks;      // active when builder process function (actually, there is no need for it, cause points to BaseBlockArr in function)
     
     Module* mod;
     };

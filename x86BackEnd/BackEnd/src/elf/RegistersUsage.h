@@ -52,6 +52,8 @@ struct Location
 
     GPRegisterNumber reg_num; // if in register
     size_t offset;            // if in stack
+    
+    data_t data;              // if it is Constant
 
     size_t n_usage;
     name_t name;
@@ -71,11 +73,9 @@ struct LocationTable
 
 int LocationTableCtor (LocationTable* arr);
 int LocationTableDtor (LocationTable* arr);
-
-int ResetLocationTable (LocationTable* table);
-
 int AddLocation       (LocationTable* arr, Location* use);
 
+int ResetLocationTable (LocationTable* table);
 Location* FindLocation (LocationTable* arr, name_t name);
 
 // int SetValuesUsage (LocationTable* table, const Function* func);
@@ -114,9 +114,12 @@ int  SetLocation     (Location* loc, Reg* reg);
 size_t DecreaseUsage (LocationTable* table, const Value* val);
 Location* FindLocationByReg (LocationTable* table, GPRegisterNumber);
 
-size_t SetParametersRegisters (LocationTable* table, const ValueArr* argv);
+
+void DumpLocations (LocationTable* table);
+#define DUMP_LOCATIONS (TABLE) {printf ("Dump from %s:%d\n", __FILE__, __LINE__); DumpLocations (table) }
 
 int     PrintLocation (Location* loc);
+
 #define PRINT_LOCATION(LOC) do  {                                       \
                                 printf ("%s:%d ", __FILE__, __LINE__);  \
                                 PrintLocation (LOC);                    \

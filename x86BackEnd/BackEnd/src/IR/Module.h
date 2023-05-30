@@ -8,13 +8,13 @@ struct Elf;
 class Module
     {
     private:
-        ValueArr global_vars;
-        ValueArr functions;  
+        ValueArr<GlobalVar> global_vars;
+        ValueArr<Function> functions;  
 
-        ValueArr const_pool;
+        ValueArr<Constant> const_pool;
     
     public:
-         Module ();
+         Module () = default;
         ~Module ();
 
         void dump             (const char* out_file) const;

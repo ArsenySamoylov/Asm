@@ -5,10 +5,10 @@
 
 #include "RegistersUsage.h"
 #include "Instructions.h"
+#include "DebugIR.h"
 
 #include "CommonEnums.h"
 #include "LogMacroses.h"
-
 
 #include "ArrayTemplate.h"
 
@@ -23,6 +23,24 @@ ARR_ADD    (LocationTable, Location)
 #undef ARR_ADD    
 #undef FIND_IN_ARR
 #undef COPY_TO_ARR
+
+int ResetLocationTable (LocationTable* table)
+    {
+    assert (table);
+    assert (table->arr);
+
+    if (table->size == 0)
+        {
+        report ("Warning: empty location table\n");
+        return 0;
+        }
+
+    for (size_t i = 0; i < table->size; i++)
+        free (table->arr[i]);
+
+    table->size = 0;
+    return 0;
+    }
 
 Location* FindLocation (LocationTable* arr, const char* name)
     {
@@ -46,10 +64,36 @@ Location* FindLocation (LocationTable* arr, const char* name)
     return NULL;
     }
 
+//////////////////////////////////////////////////////
+// Bad functions
+//////////////////////////////////////////////////////
+void BaseBlock::add_location (LocationTable* table) const
+    {
+    report ("Error, You can't use this function\n");
+    assert (table);
+    assert (0);
+    }
+
+void GlobalVar::count_location (LocationTable* table) const
+    {
+    report ("Error, You can't use this function\n");
+    assert (table);
+    assert (0);
+    }
+
+void Function::add_location (LocationTable* table) const
+    {
+    report ("Error, You can't use this function\n");
+    assert (table);
+    assert (0);
+    }
+//////////////////////////////////////////////////////
+// Function
+//////////////////////////////////////////////////////
 void Function::count_location (LocationTable* table) const
     {
     assert(table);
-    
+
     for (size_t i = 0; i < argv.get_size(); i++)
         argv.get_const_value(i)->count_location (table);
 
@@ -57,14 +101,34 @@ void Function::count_location (LocationTable* table) const
         body.get_const_value(i)->count_location (table);
     }
 
+//////////////////////////////////////////////////////
+// BaseBlock
+//////////////////////////////////////////////////////
 void BaseBlock::count_location (LocationTable* table) const
     {
     assert (table);
 
     for (size_t i = 0; i < inst_arr.get_size(); i++)
+        {
+        // PrintValue ( inst_arr.get_const_value(i));
         inst_arr.get_const_value(i)->count_location (table);
+        }
+
     }
 
+//////////////////////////////////////////////////////
+// Constant
+//////////////////////////////////////////////////////
+void Constant::count_location (LocationTable* table) const
+    {
+    assert (table);
+
+    this->add_location (table);
+    }
+
+//////////////////////////////////////////////////////
+// Instructions
+//////////////////////////////////////////////////////
 void Store::count_location (LocationTable* table) const 
     {
     assert(table);
@@ -121,6 +185,8 @@ void Return::count_location (LocationTable* table) const
     }
 
 //////////////////////////////////////////////////////
+// Add locations
+//////////////////////////////////////////////////////
 void Value::add_location (LocationTable* table) const
     {
     assert(table);
@@ -146,9 +212,64 @@ void Value::add_location (LocationTable* table) const
     val_location->type          = LocationType::NoWhere;
     val_location->variable_type = TEMP;
 
+    val_location->data = BAD_VALUE;
+
     AddLocation (table, val_location);
     }
 
+void Constant::add_location (LocationTable* table) const
+    {
+    assert(table);
+    
+    Location* val_location = FindLocation (table, name);
+
+    if (val_location)
+        {
+        val_location->n_usage++;
+        // report ("%s->n_usage = %lu\n", val->name,  val_location->n_usage);
+        return;
+        }
+
+    val_location = (Location*) calloc (1, sizeof(val_location[0]));
+    assert (val_location);
+
+    val_location->name       = name;
+    val_location->n_usage    = 0;
+    
+    val_location->type          = LocationType::NoWhere;
+    val_location->variable_type = TEMP;
+
+    val_location->data = data;
+
+    AddLocation (table, val_location);
+    }
+
+void GlobalVar::add_location (LocationTable* table) const
+    {
+    assert(table);
+    
+    Location* val_location = FindLocation (table, name);
+
+    if (val_location)
+        {
+        val_location->n_usage++;
+        // report ("%s->n_usage = %lu\n", val->name,  val_location->n_usage);
+        return;
+        }
+
+    val_location = (Location*) calloc (1, sizeof(val_location[0]));
+    assert (val_location);
+
+    val_location->name       = name;
+    val_location->n_usage    = 0;
+    
+    val_location->type          = LocationType::Memory;
+    val_location->variable_type = GLOBAL;
+
+    val_location->data = BAD_VALUE;
+
+    AddLocation (table, val_location);
+    }
 
 void Store::add_location (LocationTable* table) const
     {
@@ -172,20 +293,23 @@ void Store::add_location (LocationTable* table) const
     val_location->type          = LocationType::Stack;
     val_location->variable_type = LOCAL;
     val_location->offset  = ++table->n_local_vars; 
-                
+    
+    val_location->data = BAD_VALUE;
+
     AddLocation (table, val_location);
     }
+
 
 //////////////////////////////////////////////////////
 Reg GeneralPurposeRegs[] = {
 { RAX, FREE, NotAllocatable }, 
 
-{ RDI, FREE, NotAllocatable }, 
-{ RSI, FREE, Allocatable    }, 
-{ RDX, FREE, NotAllocatable }, 
-{ RCX, FREE, Allocatable    }, 
-{ R8,  FREE, Allocatable    }, 
-{ R9,  FREE, Allocatable    },
+{ RDI, FREE, Allocatable }, 
+{ RSI, FREE, Allocatable }, 
+{ RDX, FREE, Allocatable }, 
+{ RCX, FREE, Allocatable }, 
+{ R8,  FREE, Allocatable }, 
+{ R9,  FREE, Allocatable },
 
 { RSP, BUSY, NotAllocatable },
 
@@ -211,6 +335,8 @@ static int FreeNotAllocatableReg (Reg* reg);
 
 int ResetRegisters ()
     {
+    // report ("%s\n", __func__);
+
     for (int i = 0; i < NUMBER_OF_REGS; i++)
         {
         if (i == RSP)
@@ -241,12 +367,13 @@ static int FreeAllocatableReg (Reg* reg)
     {
     assert (reg);
     assert (reg->allocation_status == Allocatable);
-    assert (reg->status == BUSY); // otherwise register will be pushed twice to stack !!!
+    // PRINT_REG (reg->number);
+    // assert (reg->status == BUSY); // otherwise register will be pushed twice to stack !!!
 
     // report ("Freeing: %s\n", GetRegName ( (GPRegisterNumber) number));
+    FreeRegs.push (reg);
     reg->status = FREE;
     
-    FreeRegs.push (reg);
     return SUCCESS;
     }
 
@@ -295,7 +422,8 @@ int PrintReg (int number)
 
     Reg* reg =  GeneralPurposeRegs + number;
     
-    printf ("%s, status %d, \n\t", GetRegName (reg->number), reg->status);
+    printf ("%s, status %s, \n\t", GetRegName (reg->number), 
+                                   reg->status ==  BUSY ? "BUSY" : "FREE");
 
     return 0;
     }
@@ -345,14 +473,14 @@ int SetLocation (Location* loc, Reg* reg)
 
 size_t DecreaseUsage (LocationTable* table, const Value* val)
     {
-    report ("decreasing usage\n");
+    // report ("decreasing usage\n");
 
     assert(table);
     assert(val);
     
     Location* location = FindLocation (table, val->get_name());
     assert   (location);
-    // PrintLocation (location);
+    // PRINT_LOCATION (location);
     
     if (location->n_usage == 0 && location->type == LocationType::Register)
         FreeReg (location->reg_num);
@@ -360,7 +488,7 @@ size_t DecreaseUsage (LocationTable* table, const Value* val)
     if (--location->n_usage == 0 && location->type == LocationType::Register)
         FreeReg (location->reg_num);
 
-    PrintLocation (location);
+    // PRINT_LOCATION (location);
     return location->n_usage;
     };
 
@@ -385,7 +513,7 @@ static int FreeReg (int reg_number)
     {
     Reg*    reg = GetReg (reg_number);
     assert (reg);
-    assert (reg->status == BUSY);
+    // assert (reg->status == BUSY);
 
     if (reg->allocation_status == Allocatable)
         FreeAllocatableReg (reg);
@@ -426,42 +554,15 @@ int ResetTempLocations ()
     }
 */
 
-size_t SetParametersRegisters (LocationTable* table, const ValueArr* argv)
+void DumpLocations (LocationTable* table)
     {
     assert (table);
-    assert(argv);
 
-    size_t n_params = 0;
-    const Instruction* param = (const Instruction*) argv->get_const_value (n_params);
-    assert            (param->get_type () == ValueType::Instruction);
-
-    for (size_t i = RDI; i < table->n_local_vars; i++, n_params++)
+    for (size_t i = 0; i < table->size; i++)
         {
-        assert (param->get_type()         == ValueType::Instruction);
-        assert (param->get_instr_type()   == InstructionType::Store);
-
-        Location* loc = FindLocation (table, param->get_name());
-        
-        if (!loc)
-            report ("Warning: unused parameter '%s'\n", param->get_name());
-        
-        if (loc)
-            {    
-            assert (i <= R9);
-            assert (loc->type == LocationType::NoWhere);
-            
-            Reg* reg = GetReg ( (int) i);
-            SetLocation (loc, reg); 
-            }
-
-        param = (const Instruction*) argv->get_const_value (n_params); 
+        printf ("Location %lu/%lu: ", i, table->size);
+        PRINT_LOCATION (table->arr[i]);
         }
-
-    assert (n_params == argv->get_size());
-    assert (n_params <= 6);
-
-    // report ("n_params: %lu \n", n_params);
-    return n_params;
     }
 
 int PrintLocation (Location* loc)
