@@ -115,3 +115,14 @@ size_t GetVa (Context* ctx, size_t increase)
 
     return temp;
     }
+
+#pragma GCC diagnostic ignored "-Wcast-qual"
+void WriteOpCodes (Context* ctx, const char* src, unsigned size)
+    {
+    assert (ctx);
+    assert (src);
+
+    // printf ("Ctx size %u\n", size);
+    CopyToBuff (ctx->code, ctx->code->size, (void*) src, size);
+
+    } 

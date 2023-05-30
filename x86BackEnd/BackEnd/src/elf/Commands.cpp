@@ -10,13 +10,22 @@
                                                                     \
                                  print_raw ("\n"); } while (0);
 
+#pragma GCC diagnostic ignored "-Wconversion"
+
 size_t PutSubRsp (Context* ctx, size_t num, const char* comment)
     {
     assert (ctx);
+    assert (num < 255);
 
     print ("sub $%lu, %%rsp ", num);
     print_comment (comment);
     
+    const unsigned        OP_CODES_SIZE = 4;
+    static char op_codes [OP_CODES_SIZE] = {0x48, 0x83, 0xec, 0};
+    op_codes [3] = (char) num;
+
+    WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
+
     return 0;
     }
 
@@ -26,6 +35,11 @@ size_t PutAddRsp (Context* ctx, size_t num, const char* comment)
     print ("add $%lu, %%rsp ", num);
     print_comment (comment);
 
+    const unsigned        OP_CODES_SIZE = 4;
+    static char op_codes [OP_CODES_SIZE] = {0x48, 0x83, 0xc4, 0};
+    op_codes [3] = (char) num;
+
+    WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;
     }
 
@@ -35,6 +49,10 @@ size_t PutRet (Context* ctx, const char* comment)
     print ("ret ")
     print_comment (comment);
 
+    const unsigned        OP_CODES_SIZE = 1;
+    static char op_codes [OP_CODES_SIZE] = {0xc3};
+
+    WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;
     }
 
@@ -45,6 +63,7 @@ size_t PutJump  (Context* ctx, name_t label, const char* comment)
     print ("jmp %s ", label);
     print_comment (comment);
     print_raw ("\n");
+
 
     return 0;
     }
@@ -72,10 +91,52 @@ size_t PutCall  (Context* ctx, name_t label, const char* comment)
 size_t PutPushR  (Context* ctx, GPRegisterNumber reg, const char* comment)
     {
     assert (ctx);
-    int n = print ("push %s");
-    printf ("%*s", GetRegName (reg), SpacesCol - n, " ");
+    print ("push %s     ", GetRegName (reg));
+
     print_comment (comment);
 
+    const unsigned        OP_CODES_SIZE = 2;
+    static char op_codes [OP_CODES_SIZE] = {};
+
+    unsigned size = 0;
+    switch (reg)
+        {
+        case RAX: op_codes[0] = 0x50; size = 1; break;
+        case RDI: op_codes[0] = 0x57; size = 1; break;
+        case RSI: op_codes[0] = 0x56; size = 1; break;
+        case RDX: op_codes[0] = 0x52; size = 1; break;
+        case RCX: op_codes[0] = 0x51; size = 1; break;
+        
+        case R8:  op_codes[0] = 0x41;
+                  op_codes[1] = 0x50; 
+                  size = 2; 
+                  break;
+
+        case R9:  op_codes[0] = 0x41;
+                  op_codes[1] = 0x51; 
+                  size = 2; 
+                  break;
+
+        case RSP: op_codes[0] = 0x54; size = 1; break;
+        case RBX: op_codes[0] = 0x53; size = 1; break;
+        case RBP: op_codes[0] = 0x55; size = 1; break;
+
+        case R10:
+        case R11:
+        case R12:
+        case R13:
+        case R14:
+        case R15:
+            op_codes[0] = 0x41;
+            op_codes[1] = 0x52 + reg - R10; 
+            size = 2; 
+            break;
+        
+        default:
+            assert (0);
+        }
+
+    WriteOpCodes (ctx, op_codes, size);
     return 0;
     }
 
@@ -85,9 +146,91 @@ size_t PutPopR (Context* ctx, GPRegisterNumber reg, const char* comment)
     print ("pop %s              ", GetRegName (reg));
     print_comment (comment);
 
+    const unsigned        OP_CODES_SIZE = 2;
+    static char op_codes [OP_CODES_SIZE] = {};
+
+    unsigned size = 0;
+    switch (reg)
+        {
+        case RAX: op_codes[0] = 0x58; size = 1; break;
+        case RDI: op_codes[0] = 0x5f; size = 1; break;
+        case RSI: op_codes[0] = 0x5e; size = 1; break;
+        case RDX: op_codes[0] = 0x5a; size = 1; break;
+        case RCX: op_codes[0] = 0x59; size = 1; break;
+        
+        case R8:  op_codes[0] = 0x41;
+                  op_codes[1] = 0x48; 
+                  size = 2; 
+                  break;
+
+        case R9:  op_codes[0] = 0x41;
+                  op_codes[1] = 0x49; 
+                  size = 2; 
+                  break;
+
+        case RSP: op_codes[0] = 0x5c; size = 1; break;
+        case RBX: op_codes[0] = 0x5b; size = 1; break;
+        case RBP: op_codes[0] = 0x5d; size = 1; break;
+
+        case R10:
+        case R11:
+        case R12:
+        case R13:
+        case R14:
+        case R15:
+            op_codes[0] = 0x41;
+            op_codes[1] = 0x5a + reg - R10; 
+            size = 2; 
+            break;
+        
+        default:
+            assert (0);
+        }
+
+    WriteOpCodes (ctx, op_codes, size);
+
     return 0;
     }
 
+int WriteRegCode (char* op_codes, GPRegisterNumber reg);
+int WriteRegCode (char* op_codes, GPRegisterNumber reg)
+    {
+    switch (reg)
+        {
+        case RAX: op_codes[0] = 0x58; return 1;
+        case RDI: op_codes[0] = 0x5f; return 1;
+        case RSI: op_codes[0] = 0x5e; return 1;
+        case RDX: op_codes[0] = 0x5a; return 1;
+        case RCX: op_codes[0] = 0x59; return 1;
+
+        case R8:  op_codes[0] = 0x41;
+                    op_codes[1] = 0x48; 
+                    return 2; 
+                   
+
+        case R9:  op_codes[0] = 0x41;
+                    op_codes[1] = 0x49; 
+                    return 2; 
+                   
+
+        case RSP: op_codes[0] = 0x48; return 1;
+        case RBX: op_codes[0] = 0x5b; return 1;
+        case RBP: op_codes[0] = 0xe5; return 1;
+
+        case R10:
+        case R11:
+        case R12:
+        case R13:
+        case R14:
+        case R15:
+            op_codes[0] = 0x41;
+            op_codes[1] = 0x5a + reg - R10; 
+            return 2; 
+
+        default:
+            assert (0);
+        }
+    }
 
 size_t PutMovRR (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest, const char* comment)
     {

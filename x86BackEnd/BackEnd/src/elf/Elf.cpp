@@ -139,6 +139,8 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
 
     size_t program_size = sizeof(ElfHeaders); 
     // printf ("Write elf: program_size 0x%x\n", program_size);
+    printf ("Code size %x\n", elf->code_buf.size);
+
     SetPhdrOffset (&elf->headers.code_phdr,   program_size);
            program_size += elf->code_buf.size;
 

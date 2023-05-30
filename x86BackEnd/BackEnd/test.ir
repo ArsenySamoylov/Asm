@@ -117,9 +117,9 @@ merge_4:
 
 Declare function 'main' ():
 entry_main:
-	a = store(2)
-	b = store(3)
-	c = store(-5)
+	a = store(0)
+	b = store(1)
+	c = store(-0.5)
 	%c_0 = call: SquareEquationSolver (param a, param b, param c)
 	status = store(%c_0)
 

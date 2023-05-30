@@ -56,6 +56,8 @@ int main(int argc, const char* argv[])
   program_module.translate_x86 (&elf);
   // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
+  WriteElf (&elf, "ASM.out");
+  
   ProgramDtor (&program);
   ElfDtor     (&elf);
   

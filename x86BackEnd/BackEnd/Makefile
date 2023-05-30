@@ -1,7 +1,7 @@
 CFLAGS  :=  -g -D _DEBUG  -std=c++20 -Wall -Wc++14-compat -Wextra -Wcast-qual -Wcast-align  -Wfloat-equal -Wchar-subscripts -Wconversion -Woverloaded-virtual -Wstack-protector	-Wformat-nonliteral -Wempty-body -Wformat-security -Wformat=2	-Wformat-signedness -Wlogical-op -Wopenmp-simd -Wnon-virtual-dtor -Winline -Wconditionally-supported -Wpacked -Wpointer-arith -Winit-self -Wredundant-decls -Wshadow -Wmissing-declarations -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=2 -Wsuggest-attribute=noreturn -Wsuggest-final-methods -Wsuggest-final-types -Wundef -Wctor-dtor-privacy -Waggressive-loop-optimizations -Wsuggest-override -Wswitch-default -Wsync-nand -flto-odr-type-merging -Wunreachable-code -Wunused -Wuseless-cast -Wvariadic-macros -fstrict-overflow -Wno-literal-suffix -Wno-missing-field-initializers	-Wno-narrowing -Wno-old-style-cast -fstack-protector -Wno-varargs -fcheck-new -fsized-deallocation -fno-omit-frame-pointer	-Wlarger-than=16384 -Wstack-usage=168384	-pie -fPIE -fext-numeric-literals
 # -Weffc++
-SANYTIZER = -fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overflow,float-divide-by-zero,integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return>
-LINK_FLAGS = -lpthread  -lasan -pg
+SANYTIZER =# -fsanitize=address,leak,alignment,bool,bounds,enum,float-cast-overflow,float-divide-by-zero,integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return>
+LINK_FLAGS =# -lpthread  -lasan -pg
 
 INCLUDE_PATH 	 = include src/IR src/elf
 ATC_INCLUDE		 = ATC/RandomStuff/ ATC/Logger ATC/Buffer ATC/ConsoleColors ATC/Utils ATC/Debug ATC/SuperStack ATC/my_safety
@@ -9,7 +9,7 @@ COMMON_INCLUDE  = ../Common/ ../Common/StandartAWP  ../Common/Structures/ ../Com
 
 FILES_TO_COMPILE = src/main.cpp src/AsmCtx.cpp src/SetTokenTree.cpp 
 IR_FILES 		 = src/IR/Value.cpp src/IR/Instruction.cpp src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/AstToIR.cpp  src/IR/DebugIR.cpp 
-ELF_FILES =  src/elf/Elf.cpp src/elf/Buffer.cpp src/elf/RegistersUsage.cpp src/elf/IRContext.cpp src/elf/PutIRinElf.cpp src/elf/Commands.cpp
+ELF_FILES =  src/elf/Elf.cpp src/elf/ProgramBuffer.cpp src/elf/RegistersUsage.cpp src/elf/IRContext.cpp src/elf/PutIRinElf.cpp src/elf/Commands.cpp
 
 ATC_FILES = ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 	
 ATC_OBJ	  = 		   my_buffer.o				Logger.o 			  tostring.o			  FunctionLogger.o					SuperStack.o				  DebugFunctions.o        			 my_safety.o 
@@ -32,9 +32,11 @@ run:
 	@echo ---------------------------------------------------------------- 
 	@echo Poleteli!!!!
 	./$(OUT_NAME) $(ARGS)
-	gcc logs/dump.s logs/fin.o logs/fout.o -o asm.out
+	gcc logs/dump.s logs/fin.o logs/fout.o logs/math.o -o asm.out
+	objdump -D asm.out > example_dump.txt
+	objdump -D ASM.out > result_dump.txt
 	./asm.out
-	
+
 clear:
 	rm -rf $(OUT_NAME) 
 	
