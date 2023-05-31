@@ -99,6 +99,7 @@ struct Reg
     
     int                  status;
     const int allocation_status;
+    const int    op_code_number;
     };
 
 int         ResetRegisters ();

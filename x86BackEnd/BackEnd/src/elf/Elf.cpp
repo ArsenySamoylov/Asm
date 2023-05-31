@@ -21,11 +21,14 @@ int SetElfHeaders (ElfHeaders* elf)
 
     SetEhdr (&elf->elf_header);
     
-
-    SetPhdr (&elf->code_phdr,     CODE_VIRTUAL_ADDRESS, PF_X | PF_R);
     // printf("setting VirAdd: 0x%x\n", elf->code_phdr.p_vaddr);
-    SetPhdr (&elf->data_phdr, RODATA_VIRTUAL_ADDRESS, PF_R);
-    
+
+    SetPhdr (&elf->code_phdr,   CODE_VIRTUAL_ADDRESS,   PF_X | PF_R);
+    SetPhdr (&elf->data_phdr,   RODATA_VIRTUAL_ADDRESS, PF_R);
+    SetPhdr (&elf->stdlib_phdr, STDLIB_VIRTUAL_ADDRESS, PF_X | PF_R);
+
+    SetPhdr (&elf->stack_phdr, STACK_VIRTUAL_ADDRESS,  PF_R | PF_W);
+
     return SUCCESS;
     }
 
@@ -102,7 +105,8 @@ int ElfCtor (Elf* elf)
 
     BufferCtor (&elf->code_buf);
     BufferCtor (&elf->data_buf);
-    
+    BufferCtor (&elf->stdlib_buf);
+
     BufferCtor (&elf->program_buf);
 
     return SUCCESS;
@@ -114,7 +118,8 @@ int ElfDtor (Elf* elf)
 
     BufferDtor (&elf->code_buf);
     BufferDtor (&elf->data_buf);
-    
+    BufferDtor (&elf->stdlib_buf);
+
     BufferDtor (&elf->program_buf);
 
     return SUCCESS;
@@ -133,8 +138,14 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
     assert(out_file);
     
     // printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
-    SetPhdrSize (&elf->headers.code_phdr, elf->code_buf.size); 
-    SetPhdrSize (&elf->headers.data_phdr, elf->data_buf.size);
+    SetPhdrSize (&elf->headers.code_phdr,   elf->code_buf.size); 
+    SetPhdrSize (&elf->headers.data_phdr,   elf->data_buf.size);
+    SetPhdrSize (&elf->headers.stdlib_phdr, elf->stdlib_buf.size);
+    SetPhdrSize (&elf->headers.data_phdr,   elf->data_buf.size);
+
+    elf->headers.stack_phdr.p_filesz = 0;
+    elf->headers.stack_phdr.p_memsz  = STACK_SIZE;
+
     //  printf("write elf VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr);
 
     size_t program_size = sizeof(ElfHeaders); 
@@ -144,8 +155,8 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
     SetPhdrOffset (&elf->headers.code_phdr,   program_size);
            program_size += elf->code_buf.size;
 
-    SetPhdrOffset (&elf->headers.data_phdr, program_size);
-           program_size += elf->data_buf.size;
+    // SetPhdrOffset (&elf->headers.data_phdr, program_size);
+        //    program_size += elf->data_buf.size;
 
     FlushHeaders      (elf);
     FlushSegmentsData (elf);
@@ -178,8 +189,9 @@ static int FlushSegmentsData (Elf* elf)
     {
     assert(elf);
     
-    FlushSegmentData (&elf->headers.code_phdr, &elf->code_buf, &elf->program_buf);
-    FlushSegmentData (&elf->headers.data_phdr, &elf->data_buf, &elf->program_buf);
+    FlushSegmentData (&elf->headers.code_phdr,   &elf->code_buf, &elf->program_buf);
+    FlushSegmentData (&elf->headers.data_phdr,   &elf->data_buf, &elf->program_buf);
+    FlushSegmentData (&elf->headers.stdlib_phdr, &elf->stdlib_buf, &elf->program_buf);
     
     return SUCCESS;
     }
@@ -190,57 +202,6 @@ static int FlushHeaders (Elf* elf)
     
     printf("Flusheaders VirAdd: 0x%x\n", elf->headers.code_phdr.p_vaddr); 
     CopyToBuff (&elf->program_buf, 0, &(elf->headers), sizeof(ElfHeaders));
+
     return SUCCESS;
     };
-
-
-/*
-#pragma GCC diagnostic ignored "-Wnarrowing"
-
-char test_op_codes[] = { 0x48, 0x83, 0xc4, 0x08, 
-                         0x48, 0xc7, 0xc0, 0x3c, 0x00, 0x00, 0x00,
-                         0x0f, 0x05};
-
-int main()
-    {
-    Elf elf{};
-    ElfCtor (&elf);
-
-    elf.code_buf.buffer       = (byte*) test_op_codes;
-    elf.code_buf.size = sizeof(test_op_codes);
-    
-    printf("ElfHdr = 0x%X, 2 * Phdr = 2* 0x%X, Total: 0x%x\n", 
-           sizeof(Elf64_Ehdr), sizeof(Elf64_Phdr), sizeof(Elf64_Ehdr) + NUMBER_OF_SEGMENTS * sizeof(Elf64_Phdr));
-
-    WriteElf (&elf, "kniga.out");
-    //ElfDtor (&elf);
-
-    return SUCCESS;
-
-    
-    FILE* test = fopen ("test.out", "wr");
-    assert(test);
-
-    Elf64_Ehdr elf_header{};
-    SetElfHeader(&elf_header, sizeof(Elf64_Ehdr));
-
-    Elf64_Phdr program_header{};
-    SetProgramHeader (&program_header, 0, STARTING_ADDRESS, sizeof(test_op_codes));
-
-    fwrite (&elf_header, sizeof(elf_header), 1, test);
-    printf ("Current file position: 0x%x\n", ftell(test));
-
-    fwrite (&program_header, sizeof(program_header), 1, test);
-    printf ("Current file position: 0x%x\n", ftell(test));
-    
-    printf("ElfHdr = 0x%X, Phdr = 0x%X\n", sizeof(Elf64_Ehdr), sizeof(Elf64_Phdr));
-
-    fwrite(test_op_codes, 1, sizeof(test_op_codes), test);
-     
-    fclose (test);
-    
-// chmod +rwxXst test.out
-
-    return 0;
-    }
-*/

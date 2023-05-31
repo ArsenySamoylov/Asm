@@ -32,7 +32,7 @@ run:
 	@echo ---------------------------------------------------------------- 
 	@echo Poleteli!!!!
 	./$(OUT_NAME) $(ARGS)
-	gcc logs/dump.s logs/fin.o logs/fout.o logs/math.o -o asm.out
+	gcc logs/dump.s logs/stdlib.o -o asm.out
 	objdump -D asm.out > example_dump.txt
 	objdump -D ASM.out > result_dump.txt
 	./asm.out

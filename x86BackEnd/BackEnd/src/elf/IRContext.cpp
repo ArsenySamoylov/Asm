@@ -65,6 +65,8 @@ int ContextCtor (Context* ctx, Elf* elf)
     ctx->code = &elf->code_buf;
     ctx->data = &elf->data_buf;
 
+    ctx->rip = ENTRY_POINT;
+
     return SUCCESS;
     }
 
@@ -123,6 +125,7 @@ void WriteOpCodes (Context* ctx, const char* src, unsigned size)
     assert (src);
 
     // printf ("Ctx size %u\n", size);
-    CopyToBuff (ctx->code, ctx->code->size, (void*) src, size);
+    ctx->rip += size;
 
+    CopyToBuff (ctx->code, ctx->code->size, (void*) src, size);
     } 

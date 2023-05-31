@@ -19,3 +19,5 @@ size_t PutMoveFromStack  (Context* ctx, size_t offset, GPRegisterNumber dest,   
 size_t PutLogicOp     (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest,  const char* comment = NULL);
 size_t PutMathAddSub  (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest,  const char* comment = NULL);
 size_t PutMulDiv      (Context* ctx,  OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char* comment = NULL);
+
+size_t PutSysCall (Context* ctx);

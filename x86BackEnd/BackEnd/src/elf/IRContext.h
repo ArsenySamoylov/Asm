@@ -29,7 +29,7 @@ int AddAddress (AddressTable* arr, Address* ad);
 struct Reference 
     {
     size_t position;
-    size_t va;
+    // size_t va;
 
     name_t reference;
     };

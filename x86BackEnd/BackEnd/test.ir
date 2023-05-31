@@ -5,123 +5,30 @@ extern function ' sin' ();
 extern function ' cos' ();
 extern function ' pow' ();
 
-Declare function 'LinearEquationSolver' (param a, param c):
-entry_LinearEquationSolver:
-	%op_0 = bigger a, 0
-	%op_1 = less a, 0
-	%op_2 = add %op_0, %op_1
-	br %op_2, label than_0, label else_0
+Declare function 'fucktorial' (param number):
+entry_fucktorial:
+	%op_0 = bigger number, 1
+	br %op_0, label than_0, label merge_0
 
 than_0:
-	%op_4 = mul -1, c
-	%op_5 = div %op_4, a
-	call: fout (param %op_5)
+	temp = store(number)
+	%op_2 = sub number, 1
+	%c_1 = call: fucktorial (param %op_2)
+	%op_3 = mul temp, %c_1
 
-	return 1
-	br label merge_0
-
-else_0:
-	%op_6 = bigger c, 0
-	%op_7 = less c, 0
-	%op_8 = add %op_6, %op_7
-	br %op_8, label than_1, label else_1
-
-than_1:
-	call: fout (param 0)
-
-	return 1
-	br label merge_1
-
-else_1:
-	call: fout (param 8)
-
-	return 3
-	br label merge_1
-
-merge_1:
+	return %op_3
 	br label merge_0
 
 merge_0:
 
-	return -1
-
-
-Declare function 'SquareEquationSolver' (param a, param b, param c):
-entry_SquareEquationSolver:
-	%op_0 = bigger a, 0
-	%op_1 = less a, 0
-	%op_2 = add %op_0, %op_1
-	br %op_2, label than_2, label else_2
-
-than_2:
-	dummy = store(0)
-	br label merge_2
-
-else_2:
-	%c_3 = call: LinearEquationSolver (param b, param c)
-
-	return %c_3
-	br label merge_2
-
-merge_2:
-	%op_4 = mul b, b
-	%op_5 = mul 4, a
-	%op_6 = mul %op_5, c
-	%op_7 = sub %op_4, %op_6
-	dis = store(%op_7)
-	%op_8 = less dis, 0
-	br %op_8, label than_3, label merge_3
-
-than_3:
-	call: fout (param -666)
-
-	return -1
-	br label merge_3
-
-merge_3:
-	%op_10 = bigger dis, 0
-	%op_11 = less dis, 0
-	%op_12 = add %op_10, %op_11
-	br %op_12, label than_4, label else_4
-
-than_4:
-	%c_13 = call: pow (param dis, param 0.5)
-	sqrtdis = store(%c_13)
-	%op_15 = mul -1, b
-	%op_16 = add %op_15, sqrtdis
-	%op_17 = mul 2, a
-	%op_18 = div %op_16, %op_17
-	call: fout (param %op_18)
-	%op_20 = mul -1, b
-	%op_21 = sub %op_20, sqrtdis
-	%op_22 = mul 2, a
-	%op_23 = div %op_21, %op_22
-	call: fout (param %op_23)
-
-	return 2
-	br label merge_4
-
-else_4:
-	%op_25 = mul -1, b
-	%op_26 = mul 2, a
-	%op_27 = div %op_25, %op_26
-	call: fout (param %op_27)
-
 	return 1
-	br label merge_4
-
-merge_4:
-
-	return -1
 
 
-Declare function 'main' ():
+Declare function 'main' (param argc, param argv):
 entry_main:
-	a = store(0)
-	b = store(1)
-	c = store(-0.5)
-	%c_0 = call: SquareEquationSolver (param a, param b, param c)
-	status = store(%c_0)
+	%c_0 = call: fucktorial (param 6)
+	test = store(%c_0)
+	call: fout (param test)
 
-	return status
+	return 0
 

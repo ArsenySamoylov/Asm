@@ -243,6 +243,23 @@ void Module::translate_x86 (Elf* elf) const
     DUMP = NULL;
     }
 
+static void PUT_CALL (Context* ctx, name_t label);
+static void PUT_CALL (Context* ctx, name_t label)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* reference = (Reference*) calloc (1, sizeof(reference[0]));
+    assert    (reference);
+
+    reference->position  = PutCall (ctx, label);
+    reference->reference = label;
+
+    AddReference (&ctx->call_refs, reference);
+
+    return;
+    }
+
 static int SetStart (Context* ctx)
     {
     assert (ctx);
@@ -257,18 +274,14 @@ static int SetStart (Context* ctx)
 
     print_raw ("%s:\n", "_start");
     print    ("# TODO: call InitGlobals\n");
-    print    ("call main\n");
-    print    ("mov $60, %%rax\n");
-    print    ("syscall\n\n");
+    
+    print    ("#");
+    PutMovConstant (ctx, RSP, STACK_VIRTUAL_ADDRESS);  
 
-    Reference* reference = (Reference*) calloc (1, sizeof(reference[0]));
-    assert (reference);
+    PUT_CALL  (ctx, "main");
+    PutMovConstant (ctx, RAX, 60);
+    PutSysCall     (ctx);
 
-    reference->position  = 0;
-    reference->va        = 0;
-    reference->reference = "main";
-
-    AddReference (&ctx->call_refs, reference);
     return 0; 
     }
 
@@ -502,42 +515,57 @@ void Operator::translate_x86 (Context* ctx) const
 //////////////////////////////////////////////////////
 // Branch
 //////////////////////////////////////////////////////
+static void PUT_JUMP  (Context* ctx, name_t label);
+static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num);
+
 void Branch::translate_x86 (Context* ctx) const
     {
     assert (ctx);
-
-    Reference* true_ref = (Reference*) calloc (1, sizeof(true_ref[0]));
-        assert (true_ref);
-
-    true_ref->position  = 0;
-    true_ref->va        = GetVa (ctx, 0);
-    true_ref->reference = true_block->get_name();
-
-    AddReference (&ctx->jump_refs, true_ref);
     
-    name_t jump_label = true_ref->reference;
+    name_t jump_label = true_block->get_name();
 
     if (condition)
         {  
         PutValueToReg (ctx, condition);
 
-        Reference* false_ref = (Reference*) calloc (1, sizeof(false_ref[0]));
-        assert (false_ref);
-
-        false_ref->position  = 0;
-        false_ref->va        = GetVa (ctx, 0);
-        false_ref->reference = false_block->get_name();
-
         Location* cond_loc = FindLocation (&ctx->value_usage, condition->get_name());
         assert   (cond_loc);
+        assert   (cond_loc->type == LocationType::Register);
 
-        PutCJump (ctx, cond_loc->reg_num, true_ref->reference);
-        AddReference (&ctx->jump_refs, false_ref);
+        PUT_CJUMP (ctx, jump_label, cond_loc->reg_num);
 
-        jump_label = false_ref->reference;
+        jump_label = false_block->get_name();
         }
 
-    PutJump  (ctx, jump_label);
+    PUT_JUMP  (ctx, jump_label);
+    }
+
+static void PUT_JUMP (Context* ctx, name_t label)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
+        assert (ref);
+
+    ref->position  = PutJump (ctx, label);
+    ref->reference = label;
+
+    AddReference (&ctx->jump_refs, ref);
+    }
+
+static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
+    assert (ref);
+
+    ref->position  = PutCJump (ctx, reg_num, label);
+    ref->reference = label;
+
+    AddReference (&ctx->jump_refs, ref);
     }
 
 //////////////////////////////////////////////////////
@@ -557,16 +585,7 @@ void Call::translate_x86 (Context* ctx) const
     SaveBusyRegs (ctx);
     SetRegsBeforeCall (ctx, &argv);
 
-    Reference* call_ref = (Reference*) calloc (1, sizeof(call_ref[0]));
-        assert (call_ref);
-
-    call_ref->position  = 0;
-    call_ref->va        = GetVa (ctx, 0);
-    call_ref->reference = function->get_name();
-
-    AddReference (&ctx->call_refs, call_ref);
-    
-    PutCall (ctx, function->get_name());
+    PUT_CALL (ctx, function->get_name());
 
     Location* call_loc = FindLocation (&ctx->value_usage, name);
     assert (call_loc);

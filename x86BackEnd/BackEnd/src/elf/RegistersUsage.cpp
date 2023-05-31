@@ -302,26 +302,26 @@ void Store::add_location (LocationTable* table) const
 
 //////////////////////////////////////////////////////
 Reg GeneralPurposeRegs[] = {
-{ RAX, FREE, NotAllocatable }, 
+{ RAX, FREE, NotAllocatable, 0 }, 
 
-{ RDI, FREE, Allocatable }, 
-{ RSI, FREE, Allocatable }, 
-{ RDX, FREE, Allocatable }, 
-{ RCX, FREE, Allocatable }, 
-{ R8,  FREE, Allocatable }, 
-{ R9,  FREE, Allocatable },
+{ RDI, FREE, Allocatable,    7 }, 
+{ RSI, FREE, Allocatable,    6 }, 
+{ RDX, FREE, Allocatable,    2}, 
+{ RCX, FREE, Allocatable,    1 }, 
+{ R8,  FREE, Allocatable,    8 }, 
+{ R9,  FREE, Allocatable,    9 },
 
-{ RSP, BUSY, NotAllocatable },
+{ RSP, BUSY, NotAllocatable, 4 },
 
-{ RBX, FREE, Allocatable    }, 
-{ RBP, BUSY, NotAllocatable }, 
+{ RBX, FREE, Allocatable,    3 }, 
+{ RBP, BUSY, NotAllocatable, 5 }, 
 
-{ R10, FREE, Allocatable }, 
-{ R11, FREE, Allocatable }, 
-{ R12, FREE, Allocatable }, 
-{ R13, FREE, Allocatable }, 
-{ R14, FREE, Allocatable }, 
-{ R15, FREE, Allocatable }, 
+{ R10, FREE, Allocatable,    10}, 
+{ R11, FREE, Allocatable,    11 }, 
+{ R12, FREE, Allocatable,    12 }, 
+{ R13, FREE, Allocatable,    13 }, 
+{ R14, FREE, Allocatable,    14 }, 
+{ R15, FREE, Allocatable,    15 }, 
 };
 
 const int NUMBER_OF_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
