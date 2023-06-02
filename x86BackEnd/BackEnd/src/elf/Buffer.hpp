@@ -13,4 +13,4 @@ struct Buffer
 int BufferCtor (Buffer* buf);
 int BufferDtor (Buffer* buf);
 
-int CopyToBuff (Buffer* buf, size_t offset, void* src, size_t size);
+int CopyToBuff (Buffer* buf, size_t owffset, void* src, size_t size);

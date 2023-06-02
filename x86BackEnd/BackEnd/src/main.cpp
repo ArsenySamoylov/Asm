@@ -8,7 +8,6 @@
 
 #include "DefGraphVis.h"
 
-// #include "my_buffer.h"
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 
@@ -27,14 +26,13 @@ int main(int argc, const char* argv[])
   {
   $log(RELEASE)
   
-  if (argc < 3)
+  if (argc < 2)
     {
     help();
     return -1;
     }
 
   const char* path_to_awp_file = argv[1];
-  // const char* path_to_asm_file = argv[2];
 
   Program program{};
   ProgramCtor(&program, path_to_awp_file);
@@ -46,15 +44,12 @@ int main(int argc, const char* argv[])
 
   CHECK_SUCCESS(GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
 
-  MakeImg("kek_back_End", &program); 
+  // MakeImg("kek_back_End", &program); 
   printf ("\n");
   
-  // CHECK_SUCCESS (SetTokenTree(&program), BAD_TOKEN_TREE);   // don't kill name tables, store pointer to label in token
-
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
-  program_module.dump("test.ir");
+  program_module.dump ("logs/dump.ir");
   program_module.translate_x86 (&elf);
-  // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
   WriteElf (&elf, "ASM.out");
   SYSTEM ("chmod +x ASM.out\n");
@@ -71,11 +66,6 @@ SET_FAILURE_EXIT(BAD_SRC_FILE)
   report ("Bad src file '%s'\n", path_to_awp_file);
   goto CLEAR_RESOURCES;
 
-// SET_FAILURE_EXIT(BAD_TOKEN_TREE)
-
-//   report ("Error, while setting token tree (from '%s' file)\n", path_to_awp_file);
-//   goto CLEAR_RESOURCES;
-
 SET_FAILURE_EXIT(IR_ERROR)
 
   report ("Couldn't translate AST to IR\n");
@@ -83,7 +73,6 @@ SET_FAILURE_EXIT(IR_ERROR)
 
 CLEAR_RESOURCES:
 
-  $$
   ProgramDtor (&program);
   ElfDtor     (&elf);
 
