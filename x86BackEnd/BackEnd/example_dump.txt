@@ -44,16 +44,13 @@ Disassembly of section .note.gnu.build-id:
  362:	00 00                	add    %al,(%rax)
  364:	47                   	rex.RXB
  365:	4e 55                	rex.WRX push %rbp
- 367:	00 d8                	add    %bl,%al
- 369:	53                   	push   %rbx
- 36a:	1b a8 9d 72 7d 23    	sbb    0x237d729d(%rax),%ebp
- 370:	5b                   	pop    %rbx
- 371:	6f                   	outsl  %ds:(%rsi),(%dx)
- 372:	21 cb                	and    %ecx,%ebx
- 374:	b4 83                	mov    $0x83,%ah
- 376:	03 4d 20             	add    0x20(%rbp),%ecx
- 379:	a8 f6                	test   $0xf6,%al
- 37b:	92                   	xchg   %eax,%edx
+ 367:	00 a1 09 6f 35 9b    	add    %ah,-0x64ca90f7(%rcx)
+ 36d:	9a                   	(bad)  
+ 36e:	f8                   	clc    
+ 36f:	ad                   	lods   %ds:(%rsi),%eax
+ 370:	25 86 21 90 23       	and    $0x23902186,%eax
+ 375:	3c 99                	cmp    $0x99,%al
+ 377:	bd b2 43 b4 9c       	mov    $0x9cb443b2,%ebp
 
 Disassembly of section .note.ABI-tag:
 
@@ -350,7 +347,7 @@ Disassembly of section .text:
     1052:	54                   	push   %rsp
     1053:	45 31 c0             	xor    %r8d,%r8d
     1056:	31 c9                	xor    %ecx,%ecx
-    1058:	48 8d 3d 8c 01 00 00 	lea    0x18c(%rip),%rdi        # 11eb <main>
+    1058:	48 8d 3d 90 01 00 00 	lea    0x190(%rip),%rdi        # 11ef <main>
     105f:	ff 15 73 2f 00 00    	call   *0x2f73(%rip)        # 3fd8 <__libc_start_main@GLIBC_2.34>
     1065:	f4                   	hlt    
     1066:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
@@ -411,250 +408,250 @@ Disassembly of section .text:
     1124:	e9 77 ff ff ff       	jmp    10a0 <register_tm_clones>
 
 0000000000001129 <_start>:
-    1129:	e8 bd 00 00 00       	call   11eb <main>
-    112e:	48 c7 c0 3c 00 00 00 	mov    $0x3c,%rax
-    1135:	0f 05                	syscall 
+    1129:	e8 c1 00 00 00       	call   11ef <main>
+    112e:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+    1135:	48 c7 c0 3c 00 00 00 	mov    $0x3c,%rax
+    113c:	0f 05                	syscall 
 
-0000000000001137 <fucktorial>:
-    1137:	48 83 ec 10          	sub    $0x10,%rsp
-    113b:	55                   	push   %rbp
-    113c:	48 89 e5             	mov    %rsp,%rbp
-    113f:	53                   	push   %rbx
-    1140:	41 52                	push   %r10
-    1142:	41 53                	push   %r11
-    1144:	41 54                	push   %r12
-    1146:	41 55                	push   %r13
-    1148:	41 56                	push   %r14
-    114a:	41 57                	push   %r15
-    114c:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+000000000000113e <fucktorial>:
+    113e:	48 83 ec 08          	sub    $0x8,%rsp
+    1142:	55                   	push   %rbp
+    1143:	48 89 e5             	mov    %rsp,%rbp
+    1146:	53                   	push   %rbx
+    1147:	41 52                	push   %r10
+    1149:	41 53                	push   %r11
+    114b:	41 54                	push   %r12
+    114d:	41 55                	push   %r13
+    114f:	41 56                	push   %r14
+    1151:	41 57                	push   %r15
+    1153:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
 
-0000000000001150 <entry_fucktorial>:
-    1150:	49 c7 c7 64 00 00 00 	mov    $0x64,%r15
-    1157:	49 89 fe             	mov    %rdi,%r14
-    115a:	52                   	push   %rdx
-    115b:	4c 39 ff             	cmp    %r15,%rdi
-    115e:	0f 9f c0             	setg   %al
-    1161:	48 0f b6 c0          	movzbq %al,%rax
-    1165:	48 31 d2             	xor    %rdx,%rdx
-    1168:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
-    116f:	48 f7 ef             	imul   %rdi
-    1172:	48 89 c7             	mov    %rax,%rdi
-    1175:	5a                   	pop    %rdx
-    1176:	48 83 ff 64          	cmp    $0x64,%rdi
-    117a:	74 02                	je     117e <than_0>
-    117c:	eb 53                	jmp    11d1 <merge_0>
+0000000000001157 <entry_fucktorial>:
+    1157:	49 c7 c7 64 00 00 00 	mov    $0x64,%r15
+    115e:	49 89 fe             	mov    %rdi,%r14
+    1161:	52                   	push   %rdx
+    1162:	4c 39 ff             	cmp    %r15,%rdi
+    1165:	0f 9f c0             	setg   %al
+    1168:	48 0f b6 c0          	movzbq %al,%rax
+    116c:	48 31 d2             	xor    %rdx,%rdx
+    116f:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+    1176:	48 f7 ef             	imul   %rdi
+    1179:	48 89 c7             	mov    %rax,%rdi
+    117c:	5a                   	pop    %rdx
+    117d:	48 83 ff 64          	cmp    $0x64,%rdi
+    1181:	74 02                	je     1185 <than_0>
+    1183:	eb 4e                	jmp    11d3 <else_0>
 
-000000000000117e <than_0>:
-    117e:	4c 89 75 f0          	mov    %r14,-0x10(%rbp)
-    1182:	49 c7 c7 64 00 00 00 	mov    $0x64,%r15
-    1189:	4c 89 f7             	mov    %r14,%rdi
-    118c:	4d 29 fe             	sub    %r15,%r14
-    118f:	4c 89 f7             	mov    %r14,%rdi
-    1192:	e8 a0 ff ff ff       	call   1137 <fucktorial>
-    1197:	48 89 c7             	mov    %rax,%rdi
-    119a:	4c 8b 75 f0          	mov    -0x10(%rbp),%r14
-    119e:	52                   	push   %rdx
-    119f:	48 31 d2             	xor    %rdx,%rdx
-    11a2:	4c 89 f0             	mov    %r14,%rax
-    11a5:	48 f7 ef             	imul   %rdi
-    11a8:	48 31 d2             	xor    %rdx,%rdx
-    11ab:	49 c7 c6 64 00 00 00 	mov    $0x64,%r14
-    11b2:	49 f7 fe             	idiv   %r14
-    11b5:	49 89 c6             	mov    %rax,%r14
-    11b8:	5a                   	pop    %rdx
-    11b9:	4c 89 f0             	mov    %r14,%rax
-    11bc:	41 5f                	pop    %r15
-    11be:	41 5e                	pop    %r14
-    11c0:	41 5d                	pop    %r13
-    11c2:	41 5c                	pop    %r12
-    11c4:	41 5b                	pop    %r11
-    11c6:	41 5a                	pop    %r10
-    11c8:	5b                   	pop    %rbx
-    11c9:	5d                   	pop    %rbp
-    11ca:	48 83 c4 10          	add    $0x10,%rsp
-    11ce:	c3                   	ret    
-    11cf:	eb 00                	jmp    11d1 <merge_0>
+0000000000001185 <than_0>:
+    1185:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+    118c:	4d 89 f7             	mov    %r14,%r15
+    118f:	49 29 fe             	sub    %rdi,%r14
+    1192:	4c 89 f7             	mov    %r14,%rdi
+    1195:	e8 a4 ff ff ff       	call   113e <fucktorial>
+    119a:	48 89 c7             	mov    %rax,%rdi
+    119d:	4d 89 fe             	mov    %r15,%r14
+    11a0:	52                   	push   %rdx
+    11a1:	48 31 d2             	xor    %rdx,%rdx
+    11a4:	4c 89 f8             	mov    %r15,%rax
+    11a7:	48 f7 ef             	imul   %rdi
+    11aa:	48 31 d2             	xor    %rdx,%rdx
+    11ad:	49 c7 c7 64 00 00 00 	mov    $0x64,%r15
+    11b4:	49 f7 ff             	idiv   %r15
+    11b7:	49 89 c7             	mov    %rax,%r15
+    11ba:	5a                   	pop    %rdx
+    11bb:	4c 89 f8             	mov    %r15,%rax
+    11be:	41 5f                	pop    %r15
+    11c0:	41 5e                	pop    %r14
+    11c2:	41 5d                	pop    %r13
+    11c4:	41 5c                	pop    %r12
+    11c6:	41 5b                	pop    %r11
+    11c8:	41 5a                	pop    %r10
+    11ca:	5b                   	pop    %rbx
+    11cb:	5d                   	pop    %rbp
+    11cc:	48 83 c4 08          	add    $0x8,%rsp
+    11d0:	c3                   	ret    
+    11d1:	eb 1c                	jmp    11ef <main>
 
-00000000000011d1 <merge_0>:
-    11d1:	48 c7 c0 64 00 00 00 	mov    $0x64,%rax
-    11d8:	41 5f                	pop    %r15
-    11da:	41 5e                	pop    %r14
-    11dc:	41 5d                	pop    %r13
-    11de:	41 5c                	pop    %r12
-    11e0:	41 5b                	pop    %r11
-    11e2:	41 5a                	pop    %r10
-    11e4:	5b                   	pop    %rbx
-    11e5:	5d                   	pop    %rbp
-    11e6:	48 83 c4 10          	add    $0x10,%rsp
-    11ea:	c3                   	ret    
+00000000000011d3 <else_0>:
+    11d3:	48 c7 c0 64 00 00 00 	mov    $0x64,%rax
+    11da:	41 5f                	pop    %r15
+    11dc:	41 5e                	pop    %r14
+    11de:	41 5d                	pop    %r13
+    11e0:	41 5c                	pop    %r12
+    11e2:	41 5b                	pop    %r11
+    11e4:	41 5a                	pop    %r10
+    11e6:	5b                   	pop    %rbx
+    11e7:	5d                   	pop    %rbp
+    11e8:	48 83 c4 08          	add    $0x8,%rsp
+    11ec:	c3                   	ret    
+    11ed:	eb 00                	jmp    11ef <main>
 
-00000000000011eb <main>:
-    11eb:	48 83 ec 18          	sub    $0x18,%rsp
-    11ef:	55                   	push   %rbp
-    11f0:	48 89 e5             	mov    %rsp,%rbp
-    11f3:	53                   	push   %rbx
-    11f4:	41 52                	push   %r10
-    11f6:	41 53                	push   %r11
-    11f8:	41 54                	push   %r12
-    11fa:	41 55                	push   %r13
-    11fc:	41 56                	push   %r14
-    11fe:	41 57                	push   %r15
-    1200:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
-    1204:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+00000000000011ef <main>:
+    11ef:	48 83 ec 00          	sub    $0x0,%rsp
+    11f3:	55                   	push   %rbp
+    11f4:	48 89 e5             	mov    %rsp,%rbp
+    11f7:	53                   	push   %rbx
+    11f8:	41 52                	push   %r10
+    11fa:	41 53                	push   %r11
+    11fc:	41 54                	push   %r12
+    11fe:	41 55                	push   %r13
+    1200:	41 56                	push   %r14
+    1202:	41 57                	push   %r15
 
-0000000000001208 <entry_main>:
-    1208:	48 c7 c7 58 02 00 00 	mov    $0x258,%rdi
-    120f:	e8 23 ff ff ff       	call   1137 <fucktorial>
-    1214:	48 89 c7             	mov    %rax,%rdi
-    1217:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
-    121b:	48 8b 7d e8          	mov    -0x18(%rbp),%rdi
-    121f:	e8 3d 00 00 00       	call   1261 <fout>
-    1224:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
-    122b:	41 5f                	pop    %r15
-    122d:	41 5e                	pop    %r14
-    122f:	41 5d                	pop    %r13
-    1231:	41 5c                	pop    %r12
-    1233:	41 5b                	pop    %r11
-    1235:	41 5a                	pop    %r10
-    1237:	5b                   	pop    %rbx
-    1238:	5d                   	pop    %rbp
-    1239:	48 83 c4 18          	add    $0x18,%rsp
-    123d:	c3                   	ret    
+0000000000001204 <entry_main>:
+    1204:	48 c7 c7 58 02 00 00 	mov    $0x258,%rdi
+    120b:	e8 2e ff ff ff       	call   113e <fucktorial>
+    1210:	48 89 c7             	mov    %rax,%rdi
+    1213:	57                   	push   %rdi
+    1214:	48 89 ff             	mov    %rdi,%rdi
+    1217:	e8 3e 00 00 00       	call   125a <fout>
+    121c:	5f                   	pop    %rdi
+    121d:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
+    1224:	41 5f                	pop    %r15
+    1226:	41 5e                	pop    %r14
+    1228:	41 5d                	pop    %r13
+    122a:	41 5c                	pop    %r12
+    122c:	41 5b                	pop    %r11
+    122e:	41 5a                	pop    %r10
+    1230:	5b                   	pop    %rbx
+    1231:	5d                   	pop    %rbp
+    1232:	48 83 c4 00          	add    $0x0,%rsp
+    1236:	c3                   	ret    
 
-000000000000123e <pow>:
-    123e:	48 31 d2             	xor    %rdx,%rdx
-    1241:	48 89 f8             	mov    %rdi,%rax
-    1244:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
-    124b:	48 f7 ff             	idiv   %rdi
-    124e:	50                   	push   %rax
-    124f:	df 04 24             	filds  (%rsp)
-    1252:	d9 fa                	fsqrt  
-    1254:	df 0c 24             	fisttps (%rsp)
-    1257:	58                   	pop    %rax
-    1258:	48 31 d2             	xor    %rdx,%rdx
-    125b:	48 f7 ef             	imul   %rdi
-    125e:	c3                   	ret    
+0000000000001237 <pow>:
+    1237:	48 31 d2             	xor    %rdx,%rdx
+    123a:	48 89 f8             	mov    %rdi,%rax
+    123d:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+    1244:	48 f7 ff             	idiv   %rdi
+    1247:	50                   	push   %rax
+    1248:	df 04 24             	filds  (%rsp)
+    124b:	d9 fa                	fsqrt  
+    124d:	df 0c 24             	fisttps (%rsp)
+    1250:	58                   	pop    %rax
+    1251:	48 31 d2             	xor    %rdx,%rdx
+    1254:	48 f7 ef             	imul   %rdi
+    1257:	c3                   	ret    
 
-000000000000125f <sin>:
-    125f:	c3                   	ret    
+0000000000001258 <sin>:
+    1258:	c3                   	ret    
 
-0000000000001260 <cos>:
-    1260:	c3                   	ret    
+0000000000001259 <cos>:
+    1259:	c3                   	ret    
 
-0000000000001261 <fout>:
-    1261:	48 89 f8             	mov    %rdi,%rax
-    1264:	48 83 f8 00          	cmp    $0x0,%rax
-    1268:	7d 27                	jge    1291 <skip>
-    126a:	b0 2d                	mov    $0x2d,%al
-    126c:	50                   	push   %rax
-    126d:	48 89 e6             	mov    %rsp,%rsi
-    1270:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
-    1277:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
-    127e:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
-    1285:	0f 05                	syscall 
-    1287:	58                   	pop    %rax
-    1288:	89 c2                	mov    %eax,%edx
-    128a:	c1 fa 1f             	sar    $0x1f,%edx
-    128d:	31 d0                	xor    %edx,%eax
-    128f:	29 d0                	sub    %edx,%eax
+000000000000125a <fout>:
+    125a:	48 89 f8             	mov    %rdi,%rax
+    125d:	48 83 f8 00          	cmp    $0x0,%rax
+    1261:	7d 27                	jge    128a <skip>
+    1263:	b0 2d                	mov    $0x2d,%al
+    1265:	50                   	push   %rax
+    1266:	48 89 e6             	mov    %rsp,%rsi
+    1269:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+    1270:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+    1277:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+    127e:	0f 05                	syscall 
+    1280:	58                   	pop    %rax
+    1281:	89 c2                	mov    %eax,%edx
+    1283:	c1 fa 1f             	sar    $0x1f,%edx
+    1286:	31 d0                	xor    %edx,%eax
+    1288:	29 d0                	sub    %edx,%eax
 
-0000000000001291 <skip>:
-    1291:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
-    1298:	48 31 d2             	xor    %rdx,%rdx
-    129b:	48 f7 f7             	div    %rdi
-    129e:	52                   	push   %rdx
-    129f:	e8 43 00 00 00       	call   12e7 <put_decimal>
-    12a4:	b0 2e                	mov    $0x2e,%al
-    12a6:	50                   	push   %rax
-    12a7:	48 89 e6             	mov    %rsp,%rsi
-    12aa:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
-    12b1:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
-    12b8:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
-    12bf:	0f 05                	syscall 
-    12c1:	58                   	pop    %rax
-    12c2:	58                   	pop    %rax
-    12c3:	e8 1f 00 00 00       	call   12e7 <put_decimal>
-    12c8:	b0 0a                	mov    $0xa,%al
-    12ca:	50                   	push   %rax
-    12cb:	48 89 e6             	mov    %rsp,%rsi
-    12ce:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
-    12d5:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
-    12dc:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
-    12e3:	0f 05                	syscall 
-    12e5:	58                   	pop    %rax
-    12e6:	c3                   	ret    
+000000000000128a <skip>:
+    128a:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+    1291:	48 31 d2             	xor    %rdx,%rdx
+    1294:	48 f7 f7             	div    %rdi
+    1297:	52                   	push   %rdx
+    1298:	e8 43 00 00 00       	call   12e0 <put_decimal>
+    129d:	b0 2e                	mov    $0x2e,%al
+    129f:	50                   	push   %rax
+    12a0:	48 89 e6             	mov    %rsp,%rsi
+    12a3:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+    12aa:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+    12b1:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+    12b8:	0f 05                	syscall 
+    12ba:	58                   	pop    %rax
+    12bb:	58                   	pop    %rax
+    12bc:	e8 1f 00 00 00       	call   12e0 <put_decimal>
+    12c1:	b0 0a                	mov    $0xa,%al
+    12c3:	50                   	push   %rax
+    12c4:	48 89 e6             	mov    %rsp,%rsi
+    12c7:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+    12ce:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+    12d5:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+    12dc:	0f 05                	syscall 
+    12de:	58                   	pop    %rax
+    12df:	c3                   	ret    
 
-00000000000012e7 <put_decimal>:
-    12e7:	49 89 e2             	mov    %rsp,%r10
-    12ea:	49 ff ca             	dec    %r10
-    12ed:	48 83 ec 10          	sub    $0x10,%rsp
-    12f1:	4c 89 d6             	mov    %r10,%rsi
-    12f4:	e8 21 00 00 00       	call   131a <put_abs_decimal_in_buffer>
-    12f9:	4c 89 d0             	mov    %r10,%rax
-    12fc:	48 29 f0             	sub    %rsi,%rax
-    12ff:	48 ff c6             	inc    %rsi
-    1302:	48 89 c2             	mov    %rax,%rdx
-    1305:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
-    130c:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
-    1313:	0f 05                	syscall 
-    1315:	48 83 c4 10          	add    $0x10,%rsp
-    1319:	c3                   	ret    
+00000000000012e0 <put_decimal>:
+    12e0:	49 89 e2             	mov    %rsp,%r10
+    12e3:	49 ff ca             	dec    %r10
+    12e6:	48 83 ec 10          	sub    $0x10,%rsp
+    12ea:	4c 89 d6             	mov    %r10,%rsi
+    12ed:	e8 21 00 00 00       	call   1313 <put_abs_decimal_in_buffer>
+    12f2:	4c 89 d0             	mov    %r10,%rax
+    12f5:	48 29 f0             	sub    %rsi,%rax
+    12f8:	48 ff c6             	inc    %rsi
+    12fb:	48 89 c2             	mov    %rax,%rdx
+    12fe:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+    1305:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+    130c:	0f 05                	syscall 
+    130e:	48 83 c4 10          	add    $0x10,%rsp
+    1312:	c3                   	ret    
 
-000000000000131a <put_abs_decimal_in_buffer>:
-    131a:	48 c7 c7 0a 00 00 00 	mov    $0xa,%rdi
-    1321:	83 f8 00             	cmp    $0x0,%eax
-    1324:	7c 16                	jl     133c <put_abs_decimal_in_buffer+0x22>
-    1326:	48 31 d2             	xor    %rdx,%rdx
-    1329:	48 f7 f7             	div    %rdi
-    132c:	48 83 c2 30          	add    $0x30,%rdx
-    1330:	88 16                	mov    %dl,(%rsi)
-    1332:	48 ff ce             	dec    %rsi
-    1335:	48 83 f8 00          	cmp    $0x0,%rax
-    1339:	75 eb                	jne    1326 <put_abs_decimal_in_buffer+0xc>
-    133b:	c3                   	ret    
-    133c:	89 c2                	mov    %eax,%edx
-    133e:	c1 fa 1f             	sar    $0x1f,%edx
-    1341:	31 d0                	xor    %edx,%eax
-    1343:	29 d0                	sub    %edx,%eax
-    1345:	eb df                	jmp    1326 <put_abs_decimal_in_buffer+0xc>
+0000000000001313 <put_abs_decimal_in_buffer>:
+    1313:	48 c7 c7 0a 00 00 00 	mov    $0xa,%rdi
+    131a:	83 f8 00             	cmp    $0x0,%eax
+    131d:	7c 16                	jl     1335 <put_abs_decimal_in_buffer+0x22>
+    131f:	48 31 d2             	xor    %rdx,%rdx
+    1322:	48 f7 f7             	div    %rdi
+    1325:	48 83 c2 30          	add    $0x30,%rdx
+    1329:	88 16                	mov    %dl,(%rsi)
+    132b:	48 ff ce             	dec    %rsi
+    132e:	48 83 f8 00          	cmp    $0x0,%rax
+    1332:	75 eb                	jne    131f <put_abs_decimal_in_buffer+0xc>
+    1334:	c3                   	ret    
+    1335:	89 c2                	mov    %eax,%edx
+    1337:	c1 fa 1f             	sar    $0x1f,%edx
+    133a:	31 d0                	xor    %edx,%eax
+    133c:	29 d0                	sub    %edx,%eax
+    133e:	eb df                	jmp    131f <put_abs_decimal_in_buffer+0xc>
 
-0000000000001347 <fin>:
-    1347:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
-    134e:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
-    1353:	48 c7 c2 0a 00 00 00 	mov    $0xa,%rdx
-    135a:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
-    1361:	0f 05                	syscall 
-    1363:	48 31 c0             	xor    %rax,%rax
-    1366:	48 c7 c3 00 00 00 00 	mov    $0x0,%rbx
-    136d:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+0000000000001340 <fin>:
+    1340:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+    1347:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+    134c:	48 c7 c2 0a 00 00 00 	mov    $0xa,%rdx
+    1353:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
+    135a:	0f 05                	syscall 
+    135c:	48 31 c0             	xor    %rax,%rax
+    135f:	48 c7 c3 00 00 00 00 	mov    $0x0,%rbx
+    1366:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
 
-0000000000001372 <rnext>:
-    1372:	48 8b 0e             	mov    (%rsi),%rcx
-    1375:	48 83 f9 0a          	cmp    $0xa,%rcx
-    1379:	74 2a                	je     13a5 <return>
-    137b:	48 83 fb 0a          	cmp    $0xa,%rbx
-    137f:	7f 24                	jg     13a5 <return>
-    1381:	48 83 e9 30          	sub    $0x30,%rcx
-    1385:	48 81 e1 ff 00 00 00 	and    $0xff,%rcx
-    138c:	48 89 c2             	mov    %rax,%rdx
-    138f:	48 c1 e0 03          	shl    $0x3,%rax
-    1393:	48 d1 e2             	shl    %rdx
-    1396:	48 01 d0             	add    %rdx,%rax
-    1399:	48 01 c8             	add    %rcx,%rax
-    139c:	48 83 c6 01          	add    $0x1,%rsi
-    13a0:	48 ff c3             	inc    %rbx
-    13a3:	eb cd                	jmp    1372 <rnext>
+000000000000136b <rnext>:
+    136b:	48 8b 0e             	mov    (%rsi),%rcx
+    136e:	48 83 f9 0a          	cmp    $0xa,%rcx
+    1372:	74 2a                	je     139e <return>
+    1374:	48 83 fb 0a          	cmp    $0xa,%rbx
+    1378:	7f 24                	jg     139e <return>
+    137a:	48 83 e9 30          	sub    $0x30,%rcx
+    137e:	48 81 e1 ff 00 00 00 	and    $0xff,%rcx
+    1385:	48 89 c2             	mov    %rax,%rdx
+    1388:	48 c1 e0 03          	shl    $0x3,%rax
+    138c:	48 d1 e2             	shl    %rdx
+    138f:	48 01 d0             	add    %rdx,%rax
+    1392:	48 01 c8             	add    %rcx,%rax
+    1395:	48 83 c6 01          	add    $0x1,%rsi
+    1399:	48 ff c3             	inc    %rbx
+    139c:	eb cd                	jmp    136b <rnext>
 
-00000000000013a5 <return>:
-    13a5:	c3                   	ret    
+000000000000139e <return>:
+    139e:	c3                   	ret    
 
 Disassembly of section .fini:
 
-00000000000013a8 <_fini>:
-    13a8:	f3 0f 1e fa          	endbr64 
-    13ac:	48 83 ec 08          	sub    $0x8,%rsp
-    13b0:	48 83 c4 08          	add    $0x8,%rsp
-    13b4:	c3                   	ret    
+00000000000013a0 <_fini>:
+    13a0:	f3 0f 1e fa          	endbr64 
+    13a4:	48 83 ec 08          	sub    $0x8,%rsp
+    13a8:	48 83 c4 08          	add    $0x8,%rsp
+    13ac:	c3                   	ret    
 
 Disassembly of section .rodata:
 
@@ -779,7 +776,7 @@ Disassembly of section .dynamic:
     3e1e:	00 00                	add    %al,(%rax)
     3e20:	0d 00 00 00 00       	or     $0x0,%eax
     3e25:	00 00                	add    %al,(%rax)
-    3e27:	00 a8 13 00 00 00    	add    %ch,0x13(%rax)
+    3e27:	00 a0 13 00 00 00    	add    %ah,0x13(%rax)
     3e2d:	00 00                	add    %al,(%rax)
     3e2f:	00 19                	add    %bl,(%rcx)
     3e31:	00 00                	add    %al,(%rax)

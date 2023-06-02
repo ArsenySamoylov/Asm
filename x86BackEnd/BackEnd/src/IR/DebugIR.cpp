@@ -340,7 +340,6 @@ void DumpParameters (const ValueArr<Value>* argv)
 
 void PrintName (const Value* val)
     {
-    assert(val);
     if (!val)
         {
         print_raw (" 'No value' ");

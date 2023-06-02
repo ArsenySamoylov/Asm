@@ -24,12 +24,15 @@ int AddressTableDtor (AddressTable* arr);
 
 int ResetAddressTable (AddressTable* arr);
 
-int AddAddress (AddressTable* arr, Address* ad);
+int AddAddress  (AddressTable* arr, Address* ad);
+int CopyAddress (AddressTable* arr, const Address* ad);
+Address* FindAddress (AddressTable* arr, name_t name);
+
 //////////////////////////////////////////////////////
 struct Reference 
     {
     size_t position;
-    // size_t va;
+    size_t va;
 
     name_t reference;
     };
@@ -47,8 +50,8 @@ int ReferenceArrDtor (ReferenceArr* arr);
 
 int ResetReferenceArr (ReferenceArr* arr);
 
-int AddReference (ReferenceArr* arr, Reference* ref);
-int ResolveReferences (Buffer* buf, AddressTable* functions, ReferenceArr* refs);
+int AddReference  (ReferenceArr* arr, Reference* ref);
+int ResolveReferences (Buffer* buf, AddressTable* add_table, ReferenceArr* refs);
 
 ////////////////////////////////////////////////////// 
 struct Context
@@ -62,11 +65,13 @@ struct Context
     
     LocationTable value_usage;
 
-    size_t rip;
+    // size_t rip; useless
     size_t n_pushes;
 
     Buffer* code;
     Buffer* data;
+
+    Buffer* stdlib;
 
     FILE* dump;
     };
@@ -77,7 +82,8 @@ int ContextDtor (Context* ctx);
 int SetCtxForFunction     (Context* ctx);
 int ClearCtxAfterFunction (Context* ctx);
 
-size_t GetVa (Context* ctx, size_t increase);   
+// size_t GetVa (Context* ctx, size_t increase); deprecated
+
 void WriteOpCodes (Context* ctx, const char* src, unsigned size);
 
 extern FILE* DUMP;

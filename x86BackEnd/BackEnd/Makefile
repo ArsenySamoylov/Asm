@@ -11,8 +11,8 @@ FILES_TO_COMPILE = src/main.cpp src/AsmCtx.cpp src/SetTokenTree.cpp
 IR_FILES 		 = src/IR/Value.cpp src/IR/Instruction.cpp src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/AstToIR.cpp  src/IR/DebugIR.cpp 
 ELF_FILES =  src/elf/Elf.cpp src/elf/ProgramBuffer.cpp src/elf/RegistersUsage.cpp src/elf/IRContext.cpp src/elf/PutIRinElf.cpp src/elf/Commands.cpp
 
-ATC_FILES = ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 	
-ATC_OBJ	  = 		   my_buffer.o				Logger.o 			  tostring.o			  FunctionLogger.o					SuperStack.o				  DebugFunctions.o        			 my_safety.o 
+ATC_FILES = ATC/Utils/Utils.cpp ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 	
+ATC_OBJ	  = 		  Utils.o     		   my_buffer.o				Logger.o 			  tostring.o			  FunctionLogger.o					SuperStack.o				  DebugFunctions.o        			 my_safety.o 
 
 COMMONT_COMPILE  = ../Common/StandartAWP/GetStd.cpp ../Common/Structures/Program/Program.cpp ../Common/Structures/Token/Token.cpp ../Common/Structures/Tabels/Tabels.cpp ../Common/Structures/Tabels/NameTable.cpp ../Common/Utils/GraphVis.cpp ../Common/LexicalCtx/LexicalCtx.cpp ../Common/Utils/LangUtils.cpp 
 COMMON_OBJ 		 =						 GetStd.o								 Program.o								Token.o								  Tabels.o								 NameTable.o				   GraphVis.o 						 LexicalCtx.o 					LangUtils.o																				
@@ -32,10 +32,11 @@ run:
 	@echo ---------------------------------------------------------------- 
 	@echo Poleteli!!!!
 	./$(OUT_NAME) $(ARGS)
-	gcc logs/dump.s logs/stdlib.o -o asm.out
+	gcc logs/dump.s src/elf/stdlib.o -o asm.out
 	objdump -D asm.out > example_dump.txt
 	objdump -D ASM.out > result_dump.txt
 	./asm.out
+	./ASM.out
 
 clear:
 	rm -rf $(OUT_NAME) 

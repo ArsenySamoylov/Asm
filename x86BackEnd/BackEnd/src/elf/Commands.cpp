@@ -12,6 +12,8 @@
 
 #pragma GCC diagnostic ignored "-Wconversion"
 
+static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegisterNumber dest);
+
 size_t PutSubRsp (Context* ctx, size_t num, const char* comment)
     {
     assert (ctx);
@@ -82,12 +84,19 @@ size_t PutCJump (Context* ctx, GPRegisterNumber test, name_t label, const char* 
     print ("je %s ", label);
     print_comment (comment);
 
-    const unsigned        OP_CODES_SIZE = 6;
+    const unsigned        OP_CODES_SIZE = 6 + 4;
     static char op_codes [OP_CODES_SIZE] = {};
-    op_codes [0] = 0x0f;
-    op_codes [1] = 0x84;
 
-    size_t position = ctx->code->size + 2;
+    // cmp
+    SetOpCodesForRegs (op_codes, test, test);
+    op_codes [1] = 0x83;
+    op_codes [3] = 0x64;
+    
+    // je
+    op_codes [4] = 0x0f;
+    op_codes [5] = 0x84;
+
+    size_t position = ctx->code->size + OP_CODES_SIZE - 4;
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return position;
     }
@@ -157,7 +166,7 @@ size_t PutPopR (Context* ctx, GPRegisterNumber reg, const char* comment)
     else
         {
         op_codes[0] = 0x41;
-        op_codes[1] = 0x48 + reg_ptr->op_code_number - 8; 
+        op_codes[1] = 0x58 + reg_ptr->op_code_number - 8; 
         size = 2; 
         }
 
@@ -167,7 +176,6 @@ size_t PutPopR (Context* ctx, GPRegisterNumber reg, const char* comment)
     }
 
 #pragma GCC diagnostic ignored "-Wsign-conversion"
-static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegisterNumber dest);
 static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegisterNumber dest)
     {
     Reg*  src_reg = GetReg (src);
@@ -183,15 +191,15 @@ static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegister
 
     if (src_reg ->op_code_number < 8 && 
         dest_reg->op_code_number >= 8)
-        op_codes[0] = 0x48;
+        op_codes[0] = 0x49;
 
     if (src_reg ->op_code_number >= 8 && 
         dest_reg->op_code_number < 8)
         op_codes[0] = 0x4c;
     
     byte args_byte = 0xc0;
-    byte src_byte  =  src_reg->op_code_number << 3;
-    byte dest_byte = dest_reg->op_code_number;
+    byte src_byte  =  (src_reg->op_code_number  % 8) << 3;
+    byte dest_byte =  (dest_reg->op_code_number % 8);
 
     args_byte |= dest_byte;
     args_byte |= src_byte;
@@ -240,8 +248,6 @@ size_t PutMovConstant (Context* ctx, GPRegisterNumber dest, data_t data, const c
     op_codes[1] = 0xc7;
 
     * ((int *) (op_codes + 3)) = data;
-
-    printf ("%d\n", data);
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;

@@ -1,0 +1,135 @@
+
+stdlib.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <pow>:
+   0:	48 31 d2             	xor    %rdx,%rdx
+   3:	48 89 f8             	mov    %rdi,%rax
+   6:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+   d:	48 f7 ff             	idiv   %rdi
+  10:	50                   	push   %rax
+  11:	df 04 24             	filds  (%rsp)
+  14:	d9 fa                	fsqrt  
+  16:	df 0c 24             	fisttps (%rsp)
+  19:	58                   	pop    %rax
+  1a:	48 31 d2             	xor    %rdx,%rdx
+  1d:	48 f7 ef             	imul   %rdi
+  20:	c3                   	ret    
+
+0000000000000021 <sin>:
+  21:	c3                   	ret    
+
+0000000000000022 <cos>:
+  22:	c3                   	ret    
+
+0000000000000023 <fout>:
+  23:	48 89 f8             	mov    %rdi,%rax
+  26:	48 83 f8 00          	cmp    $0x0,%rax
+  2a:	7d 27                	jge    53 <skip>
+  2c:	b0 2d                	mov    $0x2d,%al
+  2e:	50                   	push   %rax
+  2f:	48 89 e6             	mov    %rsp,%rsi
+  32:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+  39:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  40:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  47:	0f 05                	syscall 
+  49:	58                   	pop    %rax
+  4a:	89 c2                	mov    %eax,%edx
+  4c:	c1 fa 1f             	sar    $0x1f,%edx
+  4f:	31 d0                	xor    %edx,%eax
+  51:	29 d0                	sub    %edx,%eax
+
+0000000000000053 <skip>:
+  53:	48 c7 c7 64 00 00 00 	mov    $0x64,%rdi
+  5a:	48 31 d2             	xor    %rdx,%rdx
+  5d:	48 f7 f7             	div    %rdi
+  60:	52                   	push   %rdx
+  61:	e8 43 00 00 00       	call   a9 <put_decimal>
+  66:	b0 2e                	mov    $0x2e,%al
+  68:	50                   	push   %rax
+  69:	48 89 e6             	mov    %rsp,%rsi
+  6c:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+  73:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  7a:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  81:	0f 05                	syscall 
+  83:	58                   	pop    %rax
+  84:	58                   	pop    %rax
+  85:	e8 1f 00 00 00       	call   a9 <put_decimal>
+  8a:	b0 0a                	mov    $0xa,%al
+  8c:	50                   	push   %rax
+  8d:	48 89 e6             	mov    %rsp,%rsi
+  90:	48 c7 c2 01 00 00 00 	mov    $0x1,%rdx
+  97:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  9e:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  a5:	0f 05                	syscall 
+  a7:	58                   	pop    %rax
+  a8:	c3                   	ret    
+
+00000000000000a9 <put_decimal>:
+  a9:	49 89 e2             	mov    %rsp,%r10
+  ac:	49 ff ca             	dec    %r10
+  af:	48 83 ec 10          	sub    $0x10,%rsp
+  b3:	4c 89 d6             	mov    %r10,%rsi
+  b6:	4c 8d 3d 00 00 00 00 	lea    0x0(%rip),%r15        # bd <put_decimal+0x14>
+  bd:	49 83 c7 08          	add    $0x8,%r15
+  c1:	41 57                	push   %r15
+  c3:	eb 21                	jmp    e6 <put_abs_decimal_in_buffer>
+  c5:	4c 89 d0             	mov    %r10,%rax
+  c8:	48 29 f0             	sub    %rsi,%rax
+  cb:	48 ff c6             	inc    %rsi
+  ce:	48 89 c2             	mov    %rax,%rdx
+  d1:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  d8:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  df:	0f 05                	syscall 
+  e1:	48 83 c4 10          	add    $0x10,%rsp
+  e5:	c3                   	ret    
+
+00000000000000e6 <put_abs_decimal_in_buffer>:
+  e6:	48 c7 c7 0a 00 00 00 	mov    $0xa,%rdi
+  ed:	83 f8 00             	cmp    $0x0,%eax
+  f0:	7c 16                	jl     108 <put_abs_decimal_in_buffer+0x22>
+  f2:	48 31 d2             	xor    %rdx,%rdx
+  f5:	48 f7 f7             	div    %rdi
+  f8:	48 83 c2 30          	add    $0x30,%rdx
+  fc:	88 16                	mov    %dl,(%rsi)
+  fe:	48 ff ce             	dec    %rsi
+ 101:	48 83 f8 00          	cmp    $0x0,%rax
+ 105:	75 eb                	jne    f2 <put_abs_decimal_in_buffer+0xc>
+ 107:	c3                   	ret    
+ 108:	89 c2                	mov    %eax,%edx
+ 10a:	c1 fa 1f             	sar    $0x1f,%edx
+ 10d:	31 d0                	xor    %edx,%eax
+ 10f:	29 d0                	sub    %edx,%eax
+ 111:	eb df                	jmp    f2 <put_abs_decimal_in_buffer+0xc>
+
+0000000000000113 <fin>:
+ 113:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+ 11a:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+ 11f:	48 c7 c2 0a 00 00 00 	mov    $0xa,%rdx
+ 126:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
+ 12d:	0f 05                	syscall 
+ 12f:	48 31 c0             	xor    %rax,%rax
+ 132:	48 c7 c3 00 00 00 00 	mov    $0x0,%rbx
+ 139:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+
+000000000000013e <rnext>:
+ 13e:	48 8b 0e             	mov    (%rsi),%rcx
+ 141:	48 83 f9 0a          	cmp    $0xa,%rcx
+ 145:	74 2a                	je     171 <return>
+ 147:	48 83 fb 0a          	cmp    $0xa,%rbx
+ 14b:	7f 24                	jg     171 <return>
+ 14d:	48 83 e9 30          	sub    $0x30,%rcx
+ 151:	48 81 e1 ff 00 00 00 	and    $0xff,%rcx
+ 158:	48 89 c2             	mov    %rax,%rdx
+ 15b:	48 c1 e0 03          	shl    $0x3,%rax
+ 15f:	48 d1 e2             	shl    %rdx
+ 162:	48 01 d0             	add    %rdx,%rax
+ 165:	48 01 c8             	add    %rcx,%rax
+ 168:	48 83 c6 01          	add    $0x1,%rsi
+ 16c:	48 ff c3             	inc    %rbx
+ 16f:	eb cd                	jmp    13e <rnext>
+
+0000000000000171 <return>:
+ 171:	c3                   	ret    

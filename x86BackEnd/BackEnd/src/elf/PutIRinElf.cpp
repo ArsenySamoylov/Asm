@@ -10,6 +10,9 @@
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 
+#define NO_BUFFER
+#include "my_buffer.h"
+
 // const size_t BAD_ADD = 0xBAD;
 const size_t VAR_SIZE = 8;
 
@@ -51,6 +54,9 @@ static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNum
 static GPRegisterNumber PutValueToReg (Context* ctx, const Value* val);
 static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg, const char* comment = NULL);
 
+static void PUT_CALL  (Context* ctx, name_t label);
+static void PUT_JUMP  (Context* ctx, name_t label);
+static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num);
 
 static int MoveToLocalVar (Context* ctx, const Value* src, const Value* dest)
     {
@@ -212,10 +218,75 @@ static int MoveToReg (Context* ctx, const Value* val, Reg* dest_reg, const char*
     return 0;
     }
 
+static void PUT_CALL (Context* ctx, name_t label)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* reference = (Reference*) calloc (1, sizeof(reference[0]));
+    assert    (reference);
+
+    reference->position  = PutCall (ctx, label);
+    reference->va        = reference->position + 4 + CODE_VIRTUAL_ADDRESS;
+    reference->reference = label;
+    
+    AddReference (&ctx->call_refs, reference);
+
+    return;
+    }
+
+static void PUT_JUMP (Context* ctx, name_t label)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
+        assert (ref);
+
+    ref->position  = PutJump (ctx, label);
+    ref->va        = ref->position + 4 +CODE_VIRTUAL_ADDRESS;
+    ref->reference = label;
+
+    AddReference (&ctx->jump_refs, ref);
+    }
+
+static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num)
+    {
+    assert (ctx);
+    assert (label);
+
+    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
+    assert (ref);
+
+    ref->position  = PutCJump (ctx, reg_num, label);
+    ref->va        = ref->position + 4 + CODE_VIRTUAL_ADDRESS;
+    ref->reference = label;
+
+    AddReference (&ctx->jump_refs, ref);
+    }
+
 //////////////////////////////////////////////////////
 // Module
 //////////////////////////////////////////////////////
-static int SetStart (Context* ctx);
+static int  SetStart  (Context* ctx);
+static void AddStdlib (Context* ctx, const char* path, size_t offset, size_t size);
+
+
+const char* STDLIB_OBJ_PATH = "src/elf/stdlib.o";
+
+const size_t STDLIB_OFFSET = 0x40;
+const size_t STDLIB_SIZE   = 0x165;
+
+Address STD_FUNCTIONS[] = { 
+{"pow",  CODE_VIRTUAL_ADDRESS + 0x0},
+{"sin",  CODE_VIRTUAL_ADDRESS + 0x21},
+{"cos",  CODE_VIRTUAL_ADDRESS + 0x22},
+{"fout", CODE_VIRTUAL_ADDRESS + 0x23},
+{"fin",  CODE_VIRTUAL_ADDRESS + 0x109}, 
+                                };
+
+const int N_STD_FUNCTIONS = sizeof(STD_FUNCTIONS) / sizeof (STD_FUNCTIONS[0]);
+
 
 void Module::translate_x86 (Elf* elf) const
     {
@@ -223,6 +294,7 @@ void Module::translate_x86 (Elf* elf) const
 
     Context ctx = {};
     ContextCtor (&ctx, elf);
+
 
     DUMP = fopen (DUMP_FILE, "w");
     assert (DUMP);
@@ -236,28 +308,12 @@ void Module::translate_x86 (Elf* elf) const
     for (size_t i = 0; i < functions.get_size(); i++)
         (functions.get_const_value(i))->translate_x86 (&ctx);
     
+    AddStdlib (&ctx, STDLIB_OBJ_PATH, STDLIB_OFFSET, STDLIB_SIZE);
     ResolveReferences (ctx.code, &ctx.functions, &ctx.call_refs); 
 
     ContextDtor (&ctx);
     fclose(DUMP);
     DUMP = NULL;
-    }
-
-static void PUT_CALL (Context* ctx, name_t label);
-static void PUT_CALL (Context* ctx, name_t label)
-    {
-    assert (ctx);
-    assert (label);
-
-    Reference* reference = (Reference*) calloc (1, sizeof(reference[0]));
-    assert    (reference);
-
-    reference->position  = PutCall (ctx, label);
-    reference->reference = label;
-
-    AddReference (&ctx->call_refs, reference);
-
-    return;
     }
 
 static int SetStart (Context* ctx)
@@ -268,21 +324,39 @@ static int SetStart (Context* ctx)
     print (".extern fin\n");
     print (".extern fout\n\n");
     
-    // print (".global\n");
-
     print (".section .text\n");
 
     print_raw ("%s:\n", "_start");
     print    ("# TODO: call InitGlobals\n");
     
-    print    ("#");
-    PutMovConstant (ctx, RSP, STACK_VIRTUAL_ADDRESS);  
-
     PUT_CALL  (ctx, "main");
+
+    PutMovConstant (ctx, RDI, 0);  
     PutMovConstant (ctx, RAX, 60);
     PutSysCall     (ctx);
 
     return 0; 
+    }
+
+static void AddStdlib (Context* ctx, const char* path, size_t offset, size_t size)
+    {
+    assert (ctx);
+    assert (path);
+
+    char*   stdlib_obj = GetSrcFile (path);
+    assert (stdlib_obj);
+
+    size_t address_offset = ctx->code->size;
+
+    WriteOpCodes (ctx, stdlib_obj + offset, (unsigned) size);
+    
+    for (int i = 0; i < N_STD_FUNCTIONS; i++)
+        {
+        STD_FUNCTIONS[i].va += address_offset;
+        CopyAddress (&ctx->functions, &STD_FUNCTIONS[i]);
+        }
+
+    free (stdlib_obj);
     }
 
 //////////////////////////////////////////////////////
@@ -296,7 +370,7 @@ void GlobalVar::translate_x86 (Context* ctx) const
     assert(var_ad);
 
     var_ad->name = name;
-    var_ad->va   = GetVa (ctx, VAR_SIZE);
+    var_ad->va   = 0; //RODATA_VIRTUAL_ADDRESS;
 
     AddAddress (&ctx->global_vars, var_ad);
     }
@@ -319,7 +393,9 @@ void Function::translate_x86 (Context* ctx) const
     assert(func_ad);
 
     func_ad->name = name;    
-    func_ad->va   = GetVa (ctx, 0);
+    func_ad->va   = CODE_VIRTUAL_ADDRESS + ctx->code->size;
+
+    // report ("Function %s va %x\n", name, func_ad->va);
 
     AddAddress (&ctx->functions, func_ad);
 
@@ -442,8 +518,9 @@ void BaseBlock::translate_x86 (Context* ctx) const
       assert(add);
 
     add->name = name;
-    add->va   = GetVa (ctx, 0);
+    add->va   = CODE_VIRTUAL_ADDRESS + ctx->code->size;
 
+    // report ("Base block  %s va %lu\n", name, add->va);
     AddAddress (&ctx->baseblocks, add);
 
     for (size_t i = 0; i < inst_arr.get_size(); i++)
@@ -501,7 +578,7 @@ void Operator::translate_x86 (Context* ctx) const
         PutMovRR (ctx, left, save_left->number, comment);
         new_line ();
 
-        SetLocation   (left_loc, save_left);
+        SetLocation (left_loc, save_left);
         }
 
     SetLocation (result_loc, result_reg);
@@ -515,9 +592,6 @@ void Operator::translate_x86 (Context* ctx) const
 //////////////////////////////////////////////////////
 // Branch
 //////////////////////////////////////////////////////
-static void PUT_JUMP  (Context* ctx, name_t label);
-static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num);
-
 void Branch::translate_x86 (Context* ctx) const
     {
     assert (ctx);
@@ -535,37 +609,11 @@ void Branch::translate_x86 (Context* ctx) const
         PUT_CJUMP (ctx, jump_label, cond_loc->reg_num);
 
         jump_label = false_block->get_name();
+
+        DecreaseUsage (&ctx->value_usage, condition);
         }
 
     PUT_JUMP  (ctx, jump_label);
-    }
-
-static void PUT_JUMP (Context* ctx, name_t label)
-    {
-    assert (ctx);
-    assert (label);
-
-    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
-        assert (ref);
-
-    ref->position  = PutJump (ctx, label);
-    ref->reference = label;
-
-    AddReference (&ctx->jump_refs, ref);
-    }
-
-static void PUT_CJUMP (Context* ctx, name_t label, GPRegisterNumber reg_num)
-    {
-    assert (ctx);
-    assert (label);
-
-    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
-    assert (ref);
-
-    ref->position  = PutCJump (ctx, reg_num, label);
-    ref->reference = label;
-
-    AddReference (&ctx->jump_refs, ref);
     }
 
 //////////////////////////////////////////////////////
@@ -590,6 +638,8 @@ void Call::translate_x86 (Context* ctx) const
     Location* call_loc = FindLocation (&ctx->value_usage, name);
     assert (call_loc);
 
+    RestoreBusyRegs (ctx);
+
     if (call_loc->n_usage > 0)
         {
         Reg*    call_reg = AllocateReg (&ctx->value_usage);
@@ -598,8 +648,6 @@ void Call::translate_x86 (Context* ctx) const
         PutMovRR    (ctx, RAX, call_reg->number, "save call result from rax");
         SetLocation (call_loc, call_reg);
         }
-
-    RestoreBusyRegs (ctx);
     }
 
 static int SaveBusyRegs (Context* ctx)
@@ -611,7 +659,7 @@ static int SaveBusyRegs (Context* ctx)
         {
         Reg* param_reg = GetReg (i);
 
-        if (param_reg->status != BUSY)
+        if (param_reg->status == FREE)
             continue;
 
         Location* loc = FindLocationByReg (&ctx->value_usage, param_reg->number);
@@ -708,19 +756,19 @@ void Return::translate_x86 (Context* ctx) const
     {
     assert (ctx);
 
-    if (!ret_value)
-        return;
+    if (ret_value)
+        {
     
-    Reg* rax = GetReg (RAX);
-    assert (rax);
+        Reg* rax = GetReg (RAX);
+        assert (rax);
 
-    
-    print ("\n");
+        print ("\n");
 
-    const char* comment = MakeComment ("return %s", ret_value->get_name());
-    assert     (comment);
+        const char* comment = MakeComment ("return %s", ret_value->get_name());
+        assert     (comment);
 
-    MoveToReg (ctx, ret_value, rax, comment);
+        MoveToReg (ctx, ret_value, rax, comment);
+        }
 
     RestoreCalleeSaveRegisters (ctx);
     ClearStackFrame (ctx, ctx->value_usage.n_local_vars);

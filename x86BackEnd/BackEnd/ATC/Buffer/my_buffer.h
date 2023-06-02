@@ -34,6 +34,7 @@ const int INDENT_SIZE = 2;
 void fsetindent (FILE* file, int indent);
 void setindent  (int indent);
 
+#ifndef NO_BUFFER
 struct Buffer
     { 
     const char* buffer;
@@ -64,5 +65,6 @@ int  BufferPutDouble (Buffer* buf, double val);
 int  BufferPutChar   (Buffer* buf, char   ch);
 int  BufferPutString (Buffer* buf, const char*  str);
 */
+#endif
 
 #endif

@@ -57,7 +57,8 @@ int main(int argc, const char* argv[])
   // CHECK_SUCCESS (PutIRinElf (&program_module, &elf), IR_ERROR); 
 
   WriteElf (&elf, "ASM.out");
-  
+  SYSTEM ("chmod +x ASM.out\n");
+
   ProgramDtor (&program);
   ElfDtor     (&elf);
   

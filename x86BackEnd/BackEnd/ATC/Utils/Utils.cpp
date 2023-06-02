@@ -2,6 +2,7 @@
 #include "EasyDebug.h"
 
 #include <stddef.h>
+#include <stdlib.h>
 
 int MsgRet (int return_value, const char* format, ... )
     {

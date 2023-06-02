@@ -59,8 +59,8 @@ static int struct_name##Resize (struct_name* arr)                               
 #pragma GCC diagnostic ignored "-Wclass-memaccess"
 
 
-#define COPY_TO_ARR(struct_name, add_struct)                                  \
-add_struct* Copy##struct_name (struct_name *arr, add_struct *val, size_t val_size)  \
+#define ARR_COPY(struct_name, add_struct)                                    \
+int Copy##add_struct (struct_name *arr, const add_struct *val)  \
     {                                                       \
     assert(arr);                                            \
     assert(val);                                            \
@@ -68,17 +68,17 @@ add_struct* Copy##struct_name (struct_name *arr, add_struct *val, size_t val_siz
     if (arr->size >= arr->capacity)                         \
         struct_name##Resize (arr);                          \
                                                             \
-    add_struct* temp = (add_struct*) calloc (1, val_size);  \
-    assert(temp);                                           \
+    add_struct* temp = (add_struct*) calloc (1, sizeof (add_struct));  \
+    assert     (temp);                                                 \
                                                             \
-    memcpy (temp, val, val_Size);                           \
+    memcpy (temp, val, sizeof (add_struct));                \
                                                             \
     arr->arr[arr->size++] = temp;                           \
-    return temp;                                            \
+    return 0;                                               \
     }
 
-#define ARR_ADD(struct_name, add_struct)                   \
-int Add##add_struct (struct_name *arr, add_struct *val) \
+#define ARR_ADD(struct_name, add_struct)                    \
+int Add##add_struct (struct_name *arr, add_struct *val)     \
     {                                                       \
     assert(arr);                                            \
     assert(val);                                            \

@@ -8,27 +8,28 @@ extern function ' pow' ();
 Declare function 'fucktorial' (param number):
 entry_fucktorial:
 	%op_0 = bigger number, 1
-	br %op_0, label than_0, label merge_0
+	br %op_0, label than_0, label else_0
 
 than_0:
-	temp = store(number)
 	%op_2 = sub number, 1
 	%c_1 = call: fucktorial (param %op_2)
-	%op_3 = mul temp, %c_1
+	%op_3 = mul number, %c_1
 
 	return %op_3
 	br label merge_0
 
-merge_0:
+else_0:
 
 	return 1
+	br label merge_0
+
+merge_0:
 
 
-Declare function 'main' (param argc, param argv):
+Declare function 'main' ():
 entry_main:
-	%c_0 = call: fucktorial (param 6)
-	test = store(%c_0)
-	call: fout (param test)
+	%c_1 = call: fucktorial (param 6)
+	call: fout (param %c_1)
 
 	return 0
 

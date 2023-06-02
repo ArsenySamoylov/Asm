@@ -181,7 +181,9 @@ void Return::count_location (LocationTable* table) const
     assert(table);
     
     this     ->add_location (table);
-    ret_value->add_location (table);
+
+    if (ret_value)
+        ret_value->add_location (table);
     }
 
 //////////////////////////////////////////////////////
@@ -440,6 +442,7 @@ Reg* AllocateReg (LocationTable* table)
         {
         // int n_free = FreeUnusedLocations (table);
         // assert (n_free > 0);
+
         assert (0);
          // TODO: locate space on stack and push, or put local
         }
@@ -449,8 +452,16 @@ Reg* AllocateReg (LocationTable* table)
     
     assert (free_reg);
     assert (free_reg->allocation_status == Allocatable);
-    assert (free_reg->status == FREE);     
     
+    while (free_reg->status != FREE)
+        {
+        if (FreeRegs.empty())
+            assert (0);
+
+        free_reg = FreeRegs.top();
+        FreeRegs.pop();
+        }
+
     return free_reg;
     }
 
@@ -467,6 +478,8 @@ int SetLocation (Location* loc, Reg* reg)
 
     loc->type    = LocationType::Register;
     loc->reg_num = reg->number;
+
+    reg->status = BUSY;
 
     return 0;
     }
