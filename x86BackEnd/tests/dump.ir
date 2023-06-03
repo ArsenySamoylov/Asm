@@ -44,7 +44,7 @@ merge_1:
 
 Declare function 'main' ():
 entry_main:
-	%c_0 = call: TEST (param 10000)
+	%c_0 = call: TEST (param 2000)
 
 	return 0
 

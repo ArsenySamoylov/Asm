@@ -50,7 +50,9 @@ IR реализован с помощью классов и наследован
 Класс `Module`, определенный в  [`src/IR/Module.h`](src/IR/Module.h), является массивом объектов `Function` и `GlobalVar`. Объект `Module` представляет собой исходную программу на моем языке.
 
 ### Иерархии классов в IR`e
-![диаграмма иерархии классов в IR](resources/ValueIerachy.png)
+<p align="center">
+<img src="resources/ValueHierarchy.png" />
+</p>
 
 ### Module в IR`e
 <p align="center">

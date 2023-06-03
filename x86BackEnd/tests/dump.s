@@ -271,10 +271,10 @@ main:
 
 
 entry_main:
-### %c_0 = call: TEST (param 10000)
+### %c_0 = call: TEST (param 2000)
 	# save busy regs
 	# set parameters 
-	movq $1000000, %rdi      
+	movq $200000, %rdi      
 	call TEST 
 
 ### return 0

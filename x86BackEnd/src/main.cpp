@@ -26,13 +26,14 @@ int main(int argc, const char* argv[])
   {
   $log(RELEASE)
   
-  if (argc < 2)
+  if (argc < 3)
     {
     help();
-    return -1;
+    return FAILURE;
     }
 
   const char* path_to_awp_file = argv[1];
+  const char* result_elf_name  = argv[2];
 
   Program program{};
   ProgramCtor(&program, path_to_awp_file);
@@ -44,14 +45,12 @@ int main(int argc, const char* argv[])
 
   CHECK_SUCCESS(GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
 
-  // MakeImg("kek_back_End", &program); 
-  printf ("\n");
-  
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
   program_module.dump ("tests/dump.ir");
   program_module.translate_x86 (&elf);
 
-  WriteElf (&elf, "ASM.out");
+  WriteElf (&elf, result_elf_name);
+
   SYSTEM ("chmod +x ASM.out\n");
 
   ProgramDtor (&program);
@@ -59,7 +58,6 @@ int main(int argc, const char* argv[])
   
   return SUCCESS;
 
-///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 SET_FAILURE_EXIT(BAD_SRC_FILE)
 
@@ -81,5 +79,5 @@ CLEAR_RESOURCES:
 
 void help()
     {
-    printf("Ebat, enter AWP file to compile, and output file name\n");
+    printf("Enter AWP file to compile, and output file name\n");
     };
