@@ -1,0 +1,26 @@
+double factorial (var number)
+    {
+    if (number > 1)
+    	return number * factorial (number - 1);
+    
+    return 1;
+    } 
+
+double TEST (var iteration)
+    {
+    if (iteration > 0)
+	{
+	var result = factorial (15); 
+    	#fout << result;
+    	   
+    	return TEST (iteration - 1);
+	}
+	   
+    return 1;
+    }
+	     
+double main ()
+    {
+    TEST (1000);
+    return 0;
+    }

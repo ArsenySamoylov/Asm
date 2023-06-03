@@ -1,0 +1,50 @@
+
+extern function 'fout' ();
+extern function ' fin' ();
+extern function ' sin' ();
+extern function ' cos' ();
+extern function ' pow' ();
+
+Declare function 'factorial' (param number):
+entry_factorial:
+	%op_0 = bigger number, 1
+	br %op_0, label than_0, label merge_0
+
+than_0:
+	%op_2 = sub number, 1
+	%c_1 = call: factorial (param %op_2)
+	%op_3 = mul number, %c_1
+
+	return %op_3
+	br label merge_0
+
+merge_0:
+
+	return 1
+
+
+Declare function 'TEST' (param iteration):
+entry_TEST:
+	%op_0 = bigger iteration, 0
+	br %op_0, label than_1, label merge_1
+
+than_1:
+	%c_1 = call: factorial (param 15)
+	result = store(%c_1)
+	%op_3 = sub iteration, 1
+	%c_2 = call: TEST (param %op_3)
+
+	return %c_2
+	br label merge_1
+
+merge_1:
+
+	return 1
+
+
+Declare function 'main' ():
+entry_main:
+	%c_0 = call: TEST (param 10000)
+
+	return 0
+

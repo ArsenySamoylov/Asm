@@ -1,0 +1,82 @@
+ pc |    cmd     arg   | code
+    -          -     
+  0 | 32 (30:02)  0129 - imm | call : InitGlobalVars
+  5 | 21 (20:01)  0000 - imm | push 0
+  A | 42 (40:02)    02 - reg | pop rbx
+  C | 32 (30:02)  00FF - imm | call : main
+ 12 | 00               | hlt
+ 12 | 21 (20:01)  0064 - imm | push 100
+ 17 | E1 (E0:01)  0000 - imm  02 - reg | push  [ 0 + rbx ] 
+ 1D | 2A (20:0A)  002C - imm | ja : true_0
+ 22 | 21 (20:01)  0000 - imm | push 0
+ 27 | 29 (20:09)  0031 - imm | jmp :true_end_0
+ 2C | 21 (20:01)  0064 - imm | push 100
+ 31 | 21 (20:01)  0000 - imm | push 0
+ 36 | 2E (20:0E)  0070 - imm | je : if_end_label_0
+ 3B | 21 (20:01)  0064 - imm | push 100
+ 40 | E1 (E0:01)  0000 - imm  02 - reg | push  [ 0 + rbx ] 
+ 47 | 04               | SUB
+ 47 | E2 (E0:02)  0001 - imm  02 - reg | pop  [ 1 + rbx ]
+ 4D | 61 (60:01)  0001 - imm  02 - reg | push 1 + rbx
+ 53 | 42 (40:02)    02 - reg | pop rbx
+ 55 | 32 (30:02)  0012 - imm | call :factorial
+ 5A | 21 (20:01)  0001 - imm | push 1
+ 5F | 41 (40:01)    02 - reg | push rbx
+ 62 | 04               | sub
+ 62 | 42 (40:02)    02 - reg | pop rbx
+ 64 | 41 (40:01)    03 - reg | push rcx
+ 66 | E1 (E0:01)  0000 - imm  02 - reg | push  [ 0 + rbx ] 
+ 6D | 17               | FMUL
+ 6D | 42 (40:02)    03 - reg | pop rcx 
+ 70 | 11               | ret
+ 70 | 21 (20:01)  0064 - imm | push 100
+ 75 | 42 (40:02)    03 - reg | pop rcx 
+ 78 | 11               | ret
+ 78 | 21 (20:01)  0000 - imm | push 0
+ 7D | E1 (E0:01)  0000 - imm  02 - reg | push  [ 0 + rbx ] 
+ 83 | 2A (20:0A)  0092 - imm | ja : true_1
+ 88 | 21 (20:01)  0000 - imm | push 0
+ 8D | 29 (20:09)  0097 - imm | jmp :true_end_1
+ 92 | 21 (20:01)  0064 - imm | push 100
+ 97 | 21 (20:01)  0000 - imm | push 0
+ 9C | 2E (20:0E)  00F7 - imm | je : if_end_label_1
+ A1 | 21 (20:01)  05DC - imm | push 1500
+ A6 | E2 (E0:02)  0002 - imm  02 - reg | pop  [ 2 + rbx ]
+ AC | 61 (60:01)  0002 - imm  02 - reg | push 2 + rbx
+ B2 | 42 (40:02)    02 - reg | pop rbx
+ B4 | 32 (30:02)  0012 - imm | call :factorial
+ B9 | 21 (20:01)  0002 - imm | push 2
+ BE | 41 (40:01)    02 - reg | push rbx
+ C1 | 04               | sub
+ C1 | 42 (40:02)    02 - reg | pop rbx
+ C3 | 41 (40:01)    03 - reg | push rcx
+ C5 | E2 (E0:02)  0001 - imm  02 - reg | pop  [ 1 + rbx ] 
+ CB | 21 (20:01)  0064 - imm | push 100
+ D0 | E1 (E0:01)  0000 - imm  02 - reg | push  [ 0 + rbx ] 
+ D7 | 04               | SUB
+ D7 | E2 (E0:02)  0002 - imm  02 - reg | pop  [ 2 + rbx ]
+ DD | 61 (60:01)  0002 - imm  02 - reg | push 2 + rbx
+ E3 | 42 (40:02)    02 - reg | pop rbx
+ E5 | 32 (30:02)  0078 - imm | call :TEST
+ EA | 21 (20:01)  0002 - imm | push 2
+ EF | 41 (40:01)    02 - reg | push rbx
+ F2 | 04               | sub
+ F2 | 42 (40:02)    02 - reg | pop rbx
+ F4 | 42 (40:02)    03 - reg | pop rcx 
+ F7 | 11               | ret
+ F7 | 21 (20:01)  0064 - imm | push 100
+ FC | 42 (40:02)    03 - reg | pop rcx 
+ FF | 11               | ret
+ FF | 21 (20:01)  30D40 - imm | push 200000
+104 | E2 (E0:02)  0000 - imm  02 - reg | pop  [ 0 + rbx ]
+10A | 61 (60:01)  0000 - imm  02 - reg | push 0 + rbx
+110 | 42 (40:02)    02 - reg | pop rbx
+112 | 32 (30:02)  0078 - imm | call :TEST
+117 | 21 (20:01)  0000 - imm | push 0
+11C | 41 (40:01)    02 - reg | push rbx
+11F | 04               | sub
+11F | 42 (40:02)    02 - reg | pop rbx
+121 | 21 (20:01)  0000 - imm | push 0
+126 | 42 (40:02)    03 - reg | pop rcx 
+129 | 11               | ret
+12A | 11               | ret

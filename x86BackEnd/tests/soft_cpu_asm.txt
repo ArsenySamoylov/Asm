@@ -1,0 +1,183 @@
+;Sat Jun  3 15:11:55 2023
+
+call : InitGlobalVars
+
+;Setting Stack Frame
+push 0
+pop rbx
+
+call : main
+
+hlt
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		: factorial
+
+; instruction
+; condition for if_0
+push 100
+push  [ 0 + rbx ] ; local var 'number'
+ja : true_0
+push 0
+jmp :true_end_0
+: true_0
+push 100
+: true_end_0
+
+push 0
+je : if_end_label_0
+; end of condition
+
+; if body
+
+; return ;
+;Setting parametrs for call
+push 100
+push  [ 0 + rbx ] ; local var 'number'
+SUB
+pop  [ 1 + rbx ]; 0 - param pos, 1 - stack frame offset
+
+; Setting Stack Frame
+push 1 + rbx
+pop rbx
+
+call :factorial
+
+; Setting Stack Frame Back
+push 1
+push rbx
+sub
+
+pop rbx
+
+;AAAAAAAAAAAAAAAAA
+push rcx
+push  [ 0 + rbx ] ; local var 'number'
+FMUL
+
+pop rcx ;ret reg
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+: if_end_label_0
+
+
+; return ;
+push 100
+
+pop rcx ;ret reg
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		: TEST
+
+; instruction
+; condition for if_1
+push 0
+push  [ 0 + rbx ] ; local var 'iteration'
+ja : true_1
+push 0
+jmp :true_end_1
+: true_1
+push 100
+: true_end_1
+
+push 0
+je : if_end_label_1
+; end of condition
+
+; if body
+; 'result' - local var init
+; assigment
+;Setting parametrs for call
+push 1500
+pop  [ 2 + rbx ]; 0 - param pos, 2 - stack frame offset
+
+; Setting Stack Frame
+push 2 + rbx
+pop rbx
+
+call :factorial
+
+; Setting Stack Frame Back
+push 2
+push rbx
+sub
+
+pop rbx
+
+;AAAAAAAAAAAAAAAAA
+push rcx
+pop  [ 1 + rbx ] ; local var 'result'
+
+
+; return ;
+;Setting parametrs for call
+push 100
+push  [ 0 + rbx ] ; local var 'iteration'
+SUB
+pop  [ 2 + rbx ]; 0 - param pos, 2 - stack frame offset
+
+; Setting Stack Frame
+push 2 + rbx
+pop rbx
+
+call :TEST
+
+; Setting Stack Frame Back
+push 2
+push rbx
+sub
+
+pop rbx
+
+
+pop rcx ;ret reg
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+: if_end_label_1
+
+
+; return ;
+push 100
+
+pop rcx ;ret reg
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		: main
+
+;Setting parametrs for call
+push 200000
+pop  [ 0 + rbx ]; 0 - param pos, 0 - stack frame offset
+
+; Setting Stack Frame
+push 0 + rbx
+pop rbx
+
+call :TEST
+
+; Setting Stack Frame Back
+push 0
+push rbx
+sub
+
+pop rbx
+
+
+; return ;
+push 0
+
+pop rcx ;ret reg
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		: InitGlobalVars
+
+ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;end {document}
