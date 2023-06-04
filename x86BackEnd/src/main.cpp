@@ -1,7 +1,6 @@
 #include "TranslateToAsm.h"
 
 #include "AstToIR.h"
-#include "DebugIR.h"
 
 #include "StandartAWP.h"
 #include "SetTokenTree.h"
@@ -20,7 +19,8 @@ void help();
  
 #include "Elf.hpp"
 
-int PutIRinElf (const Module* mod, Elf* elf);
+const char* IR_DUMP_FILE        = "tests/dump.ir";
+const char* ASSEMBLER_DUMP_FILE = "tests/dump.s";
 
 int main(int argc, const char* argv[])
   {
@@ -43,11 +43,11 @@ int main(int argc, const char* argv[])
   Elf elf = {};
   ElfCtor (&elf);
 
-  CHECK_SUCCESS(GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
-
+  CHECK_SUCCESS (GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
-  program_module.dump ("tests/dump.ir");
-  program_module.translate_x86 (&elf);
+  
+  program_module.dump          (IR_DUMP_FILE);
+  program_module.translate_x86 (&elf, ASSEMBLER_DUMP_FILE);
 
   WriteElf (&elf, result_elf_name);
 
@@ -58,6 +58,7 @@ int main(int argc, const char* argv[])
   
   return SUCCESS;
 
+///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 SET_FAILURE_EXIT(BAD_SRC_FILE)
 
@@ -79,5 +80,5 @@ CLEAR_RESOURCES:
 
 void help()
     {
-    printf("Enter AWP file to compile, and output file name\n");
+    printf("Enter AWP file to compile, and output executable file name\n");
     };

@@ -51,7 +51,11 @@ InstructionType Load::get_instr_type () const
 //////////////////////////////////////////////////////
 // Branch
 //////////////////////////////////////////////////////
-Branch::Branch (name_t name_param, const Value* condition_param, BaseBlock* true_block_param, BaseBlock* false_block_param) :
+Branch::Branch (name_t name_param, 
+                const Value* condition_param, 
+                const BaseBlock* true_block_param, 
+                const BaseBlock* false_block_param) :
+
    Instruction (name_param, InstructionType::Branch),
    condition   (condition_param),
    true_block  (true_block_param),
@@ -65,22 +69,20 @@ InstructionType Branch::get_instr_type () const
     return InstructionType::Branch;
     }
 
-BaseBlock* Branch::set_true_block  (BaseBlock* true_block_param) 
+void Branch::set_true_block  (const BaseBlock* true_block_param) 
     {
     assert (true_block_param);
     assert (true_block == NULL);
 
     true_block = true_block_param;
-    return true_block;
     }
 
-BaseBlock* Branch::set_false_block (BaseBlock* false_block_param)
+void Branch::set_false_block (const BaseBlock* false_block_param)
     {
     assert (false_block_param);
     assert (false_block == NULL);
 
     false_block = false_block_param;
-    return false_block;
     }
 
 //////////////////////////////////////////////////////
@@ -119,7 +121,10 @@ InstructionType Return::get_instr_type () const
 //////////////////////////////////////////////////////
 // Operator
 //////////////////////////////////////////////////////
-Operator::Operator (name_t name_param, enum OperatorType op_type_param, const Value* left_param, const Value* right_param) :
+Operator::Operator (name_t name_param, enum OperatorType op_type_param, 
+                    const Value* left_param, 
+                    const Value* right_param) :
+
     Instruction (name_param, InstructionType::Operator),
     op_type  (op_type_param),
     left_op  (left_param),

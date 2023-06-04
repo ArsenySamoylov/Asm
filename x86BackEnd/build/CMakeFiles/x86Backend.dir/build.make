@@ -167,33 +167,33 @@ CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueLabel.cpp -o CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.s
 
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: CMakeFiles/x86Backend.dir/flags.make
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: ../src/IR/AstToIR.cpp
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp
+CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: CMakeFiles/x86Backend.dir/flags.make
+CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: ../src/IR/DumpIR.cpp
+CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DumpIR.cpp
 
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp > CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i
+CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DumpIR.cpp > CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.i
 
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp -o CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s
+CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DumpIR.cpp -o CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.s
 
-CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o: CMakeFiles/x86Backend.dir/flags.make
-CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o: ../src/IR/DebugIR.cpp
-CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DebugIR.cpp
+CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: CMakeFiles/x86Backend.dir/flags.make
+CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: ../src/IR/Storage.cpp
+CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.cpp
 
-CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DebugIR.cpp > CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.i
+CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.cpp > CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.i
 
-CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DebugIR.cpp -o CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.s
+CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.cpp -o CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.s
 
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: ../src/Elf/Elf.cpp
@@ -251,24 +251,10 @@ CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/IRContext.cpp -o CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.s
 
-CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o: CMakeFiles/x86Backend.dir/flags.make
-CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o: ../src/Elf/PutIRinElf.cpp
-CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/PutIRinElf.cpp
-
-CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/PutIRinElf.cpp > CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.i
-
-CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/PutIRinElf.cpp -o CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.s
-
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: ../src/Elf/Commands.cpp
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Commands.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.i: cmake_force
@@ -278,6 +264,20 @@ CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.i: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Commands.cpp -o CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.s
+
+CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: CMakeFiles/x86Backend.dir/flags.make
+CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: ../src/Elf/TranslateIRTox86.cpp
+CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/TranslateIRTox86.cpp
+
+CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/TranslateIRTox86.cpp > CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.i
+
+CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/TranslateIRTox86.cpp -o CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s
 
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o: ../ATC/Utils/Utils.cpp
@@ -540,14 +540,14 @@ x86Backend_OBJECTS = \
 "CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o" \
-"CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o" \
-"CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o" \
+"CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o" \
+"CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o" \
-"CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o" \
+"CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o" \
 "CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o" \
 "CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o" \
 "CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o" \
@@ -577,14 +577,14 @@ x86Backend: CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o
-x86Backend: CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o
-x86Backend: CMakeFiles/x86Backend.dir/src/IR/DebugIR.cpp.o
+x86Backend: CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o
+x86Backend: CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o
-x86Backend: CMakeFiles/x86Backend.dir/src/Elf/PutIRinElf.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o
+x86Backend: CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o

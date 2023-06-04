@@ -8,7 +8,7 @@ struct ValueLabel
     int name_id;
     int type;
 
-    Value*     val;
+    const Value*     val;
     BaseBlock* block;
     };
 

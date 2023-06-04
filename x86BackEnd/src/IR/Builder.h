@@ -9,7 +9,6 @@ struct Builder
     ValueNameTable local;         // active when builder process function 
 
     Function* current_function;
-    // ValueArr<BaseBlock>* body_blocks;      // active when builder process function (actually, there is no need for it, cause points to BaseBlockArr in function)
     
     Module* mod;
     };
@@ -31,7 +30,7 @@ int AddInstruction (Builder* buildog, Instruction* instruction);
 int AddGlobalVar   (Builder* buildog, GlobalVar* var);
 
 //////////////////////////////////////////////////////
-Value* FindValue (Builder* buildog, int name_id);
+const Value* FindValue (Builder* buildog, int name_id);
 
 //////////////////////////////////////////////////////
 static int FIN_NAME_ID = 0; 

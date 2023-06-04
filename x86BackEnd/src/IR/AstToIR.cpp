@@ -14,8 +14,6 @@
 
 #include "Program.h" // for create string
 
-
-
 static Value* AstVisitor (Builder* buildog, const Token* token);
 
 //////////////////////////////////////////////////////
@@ -487,6 +485,7 @@ static Store* AddLocalVar (Builder* buildog, const Token* token)
     
     CopyValueLabel (&buildog->local, &label);
     
+    buildog->function->increase_n_local_vars ();3
     return store;
     };
 

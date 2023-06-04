@@ -60,7 +60,9 @@ CMakeFiles/x86Backend.dir/src/IR/Value.cpp.o: \
  /usr/include/c++/11/cassert /usr/include/assert.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
  /usr/include/c++/11/cstddef \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h

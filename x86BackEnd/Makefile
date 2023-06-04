@@ -8,4 +8,4 @@ run_test:
 	./asm.out
 	./ASM.out
 
-test_difference:
+test_time_difference:

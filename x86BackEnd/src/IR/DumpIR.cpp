@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stddef.h> 
 
-#include "DebugIR.h"
+#include "DumpIR.h"
 
 #include "CommonEnums.h"
 #include "LogMacroses.h"

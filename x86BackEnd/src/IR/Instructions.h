@@ -18,7 +18,6 @@ class Instruction : public Value
     protected:
         const enum InstructionType type;
 
-
     public:
        Instruction (name_t name_param, InstructionType type_param);
       ~Instruction () = default;
@@ -26,8 +25,8 @@ class Instruction : public Value
        virtual void            dump           () const override  = 0;
        virtual InstructionType get_instr_type () const           = 0;
 
-       virtual void count_location     (LocationTable* table) const override  = 0;
-       virtual void translate_x86      (Context* ctx)         const override  = 0;
+       virtual void translate_x86 (Context* ctx) const override  = 0;
+       virtual void set_storage   ()             const override  = 0;
 
        ValueType get_type  () const override final;
     };
@@ -46,10 +45,8 @@ class Store : public Instruction
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void count_location (LocationTable* table) const override;
-       void add_location   (LocationTable* table) const override;
-       
-       void translate_x86 (Context* ctx)         const override;
+       void translate_x86 (Context* ctx) const override;
+       void set_storage   ()             const override;
     };
 
 //////////////////////////////////////////////////////
@@ -66,9 +63,8 @@ class Load : public Instruction
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void count_location (LocationTable* table) const override;
-       
-       void translate_x86  (Context* ctx)         const override;
+       void translate_x86  (Context* ctx) const override;
+       void set_storage    ()             const override;
     };
 
 //////////////////////////////////////////////////////
@@ -77,30 +73,32 @@ class Branch : public Instruction
     private:
         const Value* condition;
     
-        BaseBlock* true_block;
-        BaseBlock* false_block;
+        const BaseBlock* true_block;
+        const BaseBlock* false_block;
 
     public:
-        Branch (name_t name_param, const Value* condition_param, BaseBlock* true_block_param, BaseBlock* false_block_param);
+        Branch (name_t name_param, 
+                const Value*     condition_param, 
+                const BaseBlock* true_block_param, 
+                const BaseBlock* false_block_param);
        ~Branch () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
        
-       void count_location (LocationTable* table) const override;
-       
-       void translate_x86  (Context* ctx) const override;
+       void translate_x86 (Context* ctx) const override;
+       void set_storage   ()             const override;
 
-       BaseBlock* set_true_block  (BaseBlock* true_block_param);
-       BaseBlock* set_false_block (BaseBlock* false_block_param);
+       void set_true_block  (const BaseBlock* true_block_param);
+       void set_false_block (const BaseBlock* false_block_param);
     };
 
 //////////////////////////////////////////////////////
 class Call : public Instruction
     {
     private:
+        const Function*   function;
         ValueArr<Value>   argv;
-        const Function* function;
 
     public:
         Call (name_t name_param, const Function* function_param);
@@ -109,11 +107,10 @@ class Call : public Instruction
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void count_location (LocationTable* table) const override;
-       void translate_x86  (Context* ctx)         const override;
+       void translate_x86 (Context* ctx) const override;
+       void set_storage   ()             const override;
 
-             ValueArr<Value>* get_argv ();
-    //    const ValueArr* get_const_argv () const;
+       ValueArr<Value>* get_argv ();
     };
 
 //////////////////////////////////////////////////////
@@ -128,8 +125,9 @@ struct Return : public Instruction
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
-       void count_location     (LocationTable* table) const override;
-       void translate_x86      (Context* ctx)         const override;
+
+       void translate_x86 (Context* ctx) const override;
+       void set_storage   ()             const override;
     };
 
 //////////////////////////////////////////////////////
@@ -155,12 +153,14 @@ struct Operator : public Instruction
         const Value* right_op;
 
     public:
-        Operator (name_t name_param, enum OperatorType op_type_param, const Value* left_param, const Value* right_param);
+        Operator (name_t name_param, enum OperatorType op_type_param, 
+                 const Value* left_param, 
+                 const Value* right_param);
        ~Operator () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
        
-       void count_location     (LocationTable* table) const override;
-       void translate_x86      (Context* ctx)         const override;
+       void translate_x86 (Context* ctx) const override;
+       void set_storage   ()             const override;
     };

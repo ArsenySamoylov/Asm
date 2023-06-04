@@ -25,7 +25,7 @@ merge_0:
 
 Declare function 'TEST' (param iteration):
 entry_TEST:
-	%op_0 = bigger iteration, 0
+	%op_0 = bigger: iteration, 0
 	br %op_0, label than_1, label merge_1
 
 than_1:

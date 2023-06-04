@@ -9,8 +9,10 @@ include_directories(src/IR src/Elf src/Legacy src/Legacy/include
 
 add_executable (x86Backend 
                             src/main.cpp 
-                            src/IR/Value.cpp src/IR/Instruction.cpp src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/AstToIR.cpp  src/IR/DebugIR.cpp 
-                            src/Elf/Elf.cpp src/Elf/ProgramBuffer.cpp src/Elf/RegistersUsage.cpp src/Elf/IRContext.cpp src/Elf/PutIRinElf.cpp src/Elf/Commands.cpp 
+
+                            src/IR/Value.cpp src/IR/Instruction.cpp    src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/DumpIR.cpp src/IR/Storage.cpp
+                            src/Elf/Elf.cpp  src/Elf/ProgramBuffer.cpp src/Elf/RegistersUsage.cpp src/Elf/IRContext.cpp  src/Elf/Commands.cpp src/Elf/TranslateIRTox86.cpp
+                           
                             ATC/Utils/Utils.cpp ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 
                             src/Legacy/AsmCtx.cpp src/Legacy/SetTokenTree.cpp  src/Legacy/Common/StandartAWP/GetStd.cpp src/Legacy/Common/Structures/Program/Program.cpp src/Legacy/Common/Structures/Token/Token.cpp src/Legacy/Common/Structures/Tabels/Tabels.cpp src/Legacy/Common/Structures/Tabels/NameTable.cpp src/Legacy/Common/Utils/GraphVis.cpp src/Legacy/Common/LexicalCtx/LexicalCtx.cpp src/Legacy/Common/Utils/LangUtils.cpp 
                             )

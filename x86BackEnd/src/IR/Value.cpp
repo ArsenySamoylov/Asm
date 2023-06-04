@@ -11,10 +11,12 @@
 //////////////////////////////////////////////////////
 Value::Value (ValueType param_type, name_t param_name) : 
     type (param_type), 
-    name (param_name) 
+    name (param_name), 
+    storage (StorageType::NoWhere)
     {}
 
-name_t Value::get_name () const  {return name;}
+name_t   Value::get_name    () const {return name;}
+Storage* Value::get_storage () const {return &storage;}
 
 //////////////////////////////////////////////////////
 // BaseBlock
@@ -25,13 +27,8 @@ BaseBlock::BaseBlock (name_t name_param) :
 
 BaseBlock::~BaseBlock ()
     {
-    // printf ("\t\t\tDeleting base block\n");
-
     for (size_t i = 0; i < inst_arr.get_size(); i++)
-        {
-        // printf ("\t\t\t\tdeleting instruction\n");
         delete inst_arr.get_value (i);
-        }
     }
 
 ValueType BaseBlock::get_type () const 
@@ -51,9 +48,11 @@ Instruction* BaseBlock::add_instr (Instruction* instr)
 // Constant
 //////////////////////////////////////////////////////
 Constant::Constant (name_t name_param, const data_t value) :
-    Value (ValueType::Constant, name_param),
-    data  (value)   
-    {}
+    Value (ValueType::Constant, name_param)
+    {
+    storage.set_storage_type (StorageType::Constant);
+    storage.set_storage_data ({.data = value});
+    }
 
 ValueType Constant::get_type () const 
     {
@@ -61,12 +60,12 @@ ValueType Constant::get_type () const
     return ValueType::Constant;
     }
 
-data_t Constant::get_data () const {return data;}
+data_t Constant::get_data () const {return storage.get_data();}
 
 //////////////////////////////////////////////////////
 // Global var
 //////////////////////////////////////////////////////
-GlobalVar::GlobalVar (name_t name_param, VariableType var_type_param, const Constant* init_val_param) :
+GlobalVar::GlobalVar (name_t name_param, VariableBaseType var_type_param, const Constant* init_val_param) :
     Value    (ValueType::GlobalVar, name_param),
     var_type (var_type_param),
     init_val (init_val_param)  
@@ -110,3 +109,5 @@ ValueType Function::get_type () const
     }
 
 FunctionRetType Function::get_ret_type () const {return ret_type;}
+
+void Function::increase_n_local_vars () {++n_local_vars;}

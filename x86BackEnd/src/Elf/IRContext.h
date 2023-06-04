@@ -2,39 +2,15 @@
 
 #include <stdlib.h>
 
-#include "RegistersUsage.h"
 #include "Elf.hpp"
+#include "Value.h"
 
-struct Address
-    {
-    name_t name;
-    size_t va;
-    };
-
-struct AddressTable 
-    {
-    Address** arr;
-
-    size_t size;
-    size_t capacity;
-    };
-
-int AddressTableCtor (AddressTable* arr);
-int AddressTableDtor (AddressTable* arr);
-
-int ResetAddressTable (AddressTable* arr);
-
-int AddAddress  (AddressTable* arr, Address* ad);
-int CopyAddress (AddressTable* arr, const Address* ad);
-Address* FindAddress (AddressTable* arr, name_t name);
-
-//////////////////////////////////////////////////////
 struct Reference 
     {
-    size_t position;
-    size_t va;
+    size_t    position;
+    address_t address;
 
-    name_t reference;
+    const Value*  ref_value;
     };
 
 struct ReferenceArr 
@@ -50,23 +26,14 @@ int ReferenceArrDtor (ReferenceArr* arr);
 
 int ResetReferenceArr (ReferenceArr* arr);
 
-int AddReference  (ReferenceArr* arr, Reference* ref);
-int ResolveReferences (Buffer* buf, AddressTable* add_table, ReferenceArr* refs);
+int AddReference      (ReferenceArr* arr, Reference* ref);
+int ResolveReferences (Buffer* buf, ReferenceArr* refs);
 
 ////////////////////////////////////////////////////// 
 struct Context
     {
-    AddressTable global_vars;
-    AddressTable functions;
     ReferenceArr call_refs;
-    
-    AddressTable baseblocks; 
     ReferenceArr jump_refs;
-    
-    LocationTable value_usage;
-
-    // size_t rip; useless
-    size_t n_pushes;
 
     Buffer* code;
     Buffer* data;
@@ -82,16 +49,21 @@ int ContextDtor (Context* ctx);
 int SetCtxForFunction     (Context* ctx);
 int ClearCtxAfterFunction (Context* ctx);
 
-// size_t GetVa (Context* ctx, size_t increase); deprecated
-
 void WriteOpCodes (Context* ctx, const char* src, unsigned size);
 
 extern FILE* DUMP;
 
-#define print(format, ...)                                \
+#define print_raw(format, ...) fprintf (DUMP, format __VA_OPT__(,) __VA_ARGS__);   
+#define print_label(VALUE)      print_raw  ("%s:\n", (VALUE)->name)
+#define new_line()              print_raw ("\n");
+#define PRINT_INSTR_COMM(INSTR) print_raw ("### "); WriteToFile (DUMP, INSTR); print_raw("\n");   
+
+#define print_tab(format, ...)                            \
     do                                                    \
     {                                                     \
-    fprintf(DUMP, "\t");                                  \
+    print_raw ("\t");                                     \
                                                           \
-    fprintf(DUMP, format __VA_OPT__(,) __VA_ARGS__);      \
+    print_raw (format __VA_OPT__(,) __VA_ARGS__);         \
     }while(0);
+
+const char* MakeComment (const char* format, ...);

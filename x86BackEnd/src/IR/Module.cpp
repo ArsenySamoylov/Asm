@@ -39,3 +39,20 @@ void Module::add_const (Constant* constant)
     assert (constant);
     const_pool.add (constant);
     }
+
+//////////////////////////////////////////////////////
+Function NativeFunctions[] = { 
+    {"fin", FunctionRetType::Double},
+    {"fout", FunctionRetType::Void },
+    {"pow", FunctionRetType::Double},
+    {"sin", FunctionRetType::Double},
+    {"cos", FunctionRetType::Double},
+};
+
+const int N_NATIVE_FUNCTIONS = sizeof (NativeFunctions) / sizeof (NativeFunctions[0]);
+
+const Function*  GetNativeFunction (int func_num)
+    {
+    assert (func_num > N_NATIVE_FUNCTIONS);
+    return NativeFunctions + func_num;
+    }

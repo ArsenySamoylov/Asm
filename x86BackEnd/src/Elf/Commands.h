@@ -3,6 +3,12 @@
 #include "Instructions.h"
 #include "IRContext.h"
 
+const size_t VAR_SIZE = 8;
+
+void PUT_CALL  (Context* ctx, const Function* callee);
+void PUT_JUMP  (Context* ctx, const BaseBlock* jump_dest);
+void PUT_CJUMP (Context* ctx, const BaseBlock* jump_dest, GPRegisterNumber reg_num);
+
 size_t PutSubRsp      (Context* ctx, size_t num,                                  const char* comment = NULL);
 size_t PutAddRsp      (Context* ctx, size_t num,                                  const char* comment = NULL);
 size_t PutRet         (Context* ctx,                                              const char* comment = NULL);

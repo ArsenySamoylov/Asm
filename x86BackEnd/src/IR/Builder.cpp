@@ -8,7 +8,6 @@
 #include "LogMacroses.h"
 #include "StringPool.h"
 #include "Grammar.h"
-#include "DebugIR.h"
 #include "Program.h" // for creating string
 
 int BuilderCtor (Builder* buildog, Module* mod)
@@ -150,7 +149,7 @@ int AddGlobalVar (Builder* buildog, GlobalVar* var)
     }
 
 //////////////////////////////////////////////////////
-Value* FindValue (Builder* buildog, int name_id)
+const Value* FindValue (Builder* buildog, int name_id)
     {
     assert (buildog);
     
@@ -171,46 +170,30 @@ Value* FindValue (Builder* buildog, int name_id)
     }
 
 //////////////////////////////////////////////////////
-static int             AddNativeFunction  (Module* mod, ValueNameTable* name_table, const NativeFunctionStruct* func);
-static FunctionRetType GetRetType         (int type);
 
 int AddNativeFunctions (Builder* buildog)
     {
     assert(buildog);
 
-    for (size_t i = 0; i < NUMBER_OF_NATIVE_FUNCTIONS_STRUCT; i++)
-        AddNativeFunction (buildog->mod, &buildog->global, NATIVE_FUNCTIONS + i);
+    for (int i = 0; i < N_NATIVE_FUNCTIONS; i++)
+        {
+        const Function* native_func = GetNativeFunction (i);
+        assert         (native_func);
+
+        int name_id = AddString (native_func->get_name());
+
+        if (!strcmp(native_func->get_name(), "fin"))
+            FIN_NAME_ID = name_id;
+
+        ValueLabel function_label = {.name_id = name_id,
+                                    .type    = FUNCTION,
+                                    .val     = native_func
+                                    };
+
+        CopyValueLabel (&buildog->global, &function_label);
+        }
 
     return SUCCESS;
-    }
-
-static int AddNativeFunction (Module* mod, ValueNameTable* name_table, const NativeFunctionStruct* native_func)
-    {
-    assert (mod);
-    assert (name_table);
-    assert (native_func);
-
-    Function* func = new Function (native_func->str, GetRetType (native_func->ret_type));
-
-    int name_id = AddString (native_func->str);
-
-    if (!strcmp(native_func->str, "fin"))
-        FIN_NAME_ID = name_id;
-
-    ValueLabel function_label = {.name_id = name_id,
-                                 .type    = FUNCTION,
-                                 .val     = func
-                                };
-
-    CopyValueLabel (name_table, &function_label);
-
-    mod->add_func (func);
-    return SUCCESS;
-    }
-
-static FunctionRetType GetRetType (int type)
-    {
-    return  (type == DOUBLE) ? FunctionRetType::Double : FunctionRetType::Void;
     }
 
 //////////////////////////////////////////////////////
@@ -229,6 +212,8 @@ Constant* CreateConstant (Builder* buildog, name_t const_name, data_t const_val)
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
+static FunctionRetType GetRetType (int type);
+
 Function* CreateFunction (Builder* buildog, name_t func_name, int ret_type, int name_id)
     {
     assert (buildog);
@@ -246,6 +231,11 @@ Function* CreateFunction (Builder* buildog, name_t func_name, int ret_type, int 
     SetBuilderForFunction (buildog, func, &function_label);
 
     return func;
+    }
+
+static FunctionRetType GetRetType (int type)
+    {
+    return  (type == DOUBLE) ? FunctionRetType::Double : FunctionRetType::Void;
     }
 
 //////////////////////////////////////////////////////
@@ -268,7 +258,7 @@ GlobalVar* CreateGlobalVar (Builder* buildog, name_t var_name, Constant* init_va
     assert (var_name);
     assert (init_val);
 
-    GlobalVar* var = new GlobalVar (var_name, VariableType::Double, init_val);
+    GlobalVar* var = new GlobalVar (var_name, VariableBaseType::Double, init_val);
 
     AddGlobalVar   (buildog, var);
 

@@ -58,15 +58,14 @@ CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/11/bits/std_abs.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
  /usr/include/c++/11/cstddef \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
  /usr/include/c++/11/cassert /usr/include/c++/11/cstdio \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DebugIR.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Module.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
@@ -177,7 +176,6 @@ CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
  /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ArrayTemplate.h \
  /usr/include/c++/11/stack /usr/include/c++/11/deque \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
