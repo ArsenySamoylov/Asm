@@ -9,6 +9,7 @@
 
 #include "LogMacroses.h"
 #include "EasyDebug.h"
+#include "Elf.hpp"
 
 
 #define GOTO_FAILURE_EXIT(exit_name)        goto fail_exit_label_##exit_name;
@@ -17,15 +18,11 @@
 
 void help();
  
-#include "Elf.hpp"
-
 const char* IR_DUMP_FILE        = "tests/dump.ir";
 const char* ASSEMBLER_DUMP_FILE = "tests/dump.s";
 
 int main(int argc, const char* argv[])
   {
-  $log(RELEASE)
-  
   if (argc < 3)
     {
     help();

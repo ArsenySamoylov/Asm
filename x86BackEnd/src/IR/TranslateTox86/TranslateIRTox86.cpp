@@ -83,7 +83,7 @@ void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
 static int  SetStart  (Context* ctx, const Function* main_func);
 static void AddStdlib (Context* ctx, const char* path, size_t offset, size_t size);
 
-const char* STDLIB_OBJ_PATH = "src/Elf/stdlib.o";
+const char* STDLIB_OBJ_PATH = "src/IR/TranslateTox86/stdlib.o";
 
 const size_t STDLIB_OFFSET = 0x40;
 const size_t STDLIB_SIZE   = 0x165;

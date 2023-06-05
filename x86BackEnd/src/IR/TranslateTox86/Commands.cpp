@@ -10,6 +10,30 @@
 
 #pragma GCC diagnostic ignored "-Wconversion"
 
+unsigned enum CommandsCodes
+    {
+    Sub = 0x83,
+    Add = 0x83,
+    Ret = 0xc3,
+    Jmp = 0xe9,
+    Je,
+    Call = 0xe8,
+    Push = 0x50,
+    Pop  = 0x58,
+    Mov  = 0x89,
+    Bigger,
+    Less,
+    Imul,
+    Idiv,
+
+    RegReg           = 0x48,
+    RegExtended      = 0x49,
+    ExtendedReg      = 0x4c,
+    ExtendedExtended = 0x4d,
+
+    ArgsByte = 0xc0,
+    };
+
 static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegisterNumber dest);
 
 
@@ -69,7 +93,11 @@ size_t PutSubRsp (Context* ctx, size_t num, const char* comment)
     print_comment (comment);
     
     const unsigned        OP_CODES_SIZE = 4;
-    static char op_codes [OP_CODES_SIZE] = {0x48, 0x83, 0xec, 0};
+    static char op_codes [OP_CODES_SIZE] = {RegReg, Sub, 0, 0};
+    
+    const Reg* rsp = GetReg (RSP);
+
+    op_codes [2] = rsp->op_code_number | 0xe8;
     op_codes [3] = (char) num;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
@@ -84,7 +112,11 @@ size_t PutAddRsp (Context* ctx, size_t num, const char* comment)
     print_comment (comment);
 
     const unsigned        OP_CODES_SIZE = 4;
-    static char op_codes [OP_CODES_SIZE] = {0x48, 0x83, 0xc4, 0};
+    static char op_codes [OP_CODES_SIZE] = {RegReg, Add, 0, 0};
+
+    const Reg* rsp = GetReg (RSP);
+
+    op_codes [2] = rsp->op_code_number | 0xc0;
     op_codes [3] = (char) num;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
@@ -98,7 +130,7 @@ size_t PutRet (Context* ctx, const char* comment)
     print_comment (comment);
 
     const unsigned        OP_CODES_SIZE = 1;
-    static char op_codes [OP_CODES_SIZE] = {0xc3};
+    static char op_codes [OP_CODES_SIZE] = {Ret};
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;
@@ -112,10 +144,8 @@ size_t PutJump  (Context* ctx, name_t label, const char* comment)
     print_comment (comment);
     print_raw ("\n");
 
-
     const unsigned        OP_CODES_SIZE = 5;
-    static char op_codes [OP_CODES_SIZE] = {};
-    op_codes [0] = 0xe9;
+    static char op_codes [OP_CODES_SIZE] = {Jmp};
 
     size_t position = ctx->code->size + 1;
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
@@ -154,9 +184,7 @@ size_t PutCall  (Context* ctx, name_t label, const char* comment)
     print_comment (comment);
 
     const unsigned        OP_CODES_SIZE = 5;
-    static char op_codes [OP_CODES_SIZE] = {};
-    op_codes [0] = 0xe8;
-
+    static char op_codes [OP_CODES_SIZE] = {Call};
 
     size_t position = ctx->code->size + 1;
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
@@ -178,13 +206,13 @@ size_t PutPushR  (Context* ctx, GPRegisterNumber reg, const char* comment)
     assert (reg_ptr);
     if (reg_ptr->op_code_number < 8)
         {
-        op_codes[0] = 0x50 + reg_ptr->op_code_number; 
+        op_codes[0] = Push + reg_ptr->op_code_number; 
         size = 1; 
         }
     else
         {
         op_codes[0] = 0x41;
-        op_codes[1] = 0x50 + reg_ptr->op_code_number - 8; 
+        op_codes[1] = Push + reg_ptr->op_code_number - 8; 
         size = 2;   
         }
 
@@ -206,13 +234,13 @@ size_t PutPopR (Context* ctx, GPRegisterNumber reg, const char* comment)
     assert (reg_ptr);
     if (reg_ptr->op_code_number < 8)
         {
-        op_codes[0] = 0x58 + reg_ptr->op_code_number; 
+        op_codes[0] = Pop + reg_ptr->op_code_number; 
         size = 1; 
         }
     else
         {
         op_codes[0] = 0x41;
-        op_codes[1] = 0x58 + reg_ptr->op_code_number - 8; 
+        op_codes[1] = Pop + reg_ptr->op_code_number - 8; 
         size = 2; 
         }
 
@@ -229,21 +257,22 @@ static void SetOpCodesForRegs (char* op_codes,  GPRegisterNumber src, GPRegister
 
     if (src_reg ->op_code_number < 8 && 
         dest_reg->op_code_number < 8)
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
 
     if (src_reg ->op_code_number >= 8 && 
         dest_reg->op_code_number >= 8)
-        op_codes[0] = 0x4d;
+        op_codes[0] = ExtendedExtended;
 
     if (src_reg ->op_code_number < 8 && 
         dest_reg->op_code_number >= 8)
-        op_codes[0] = 0x49;
+        op_codes[0] = RegExtended;
 
     if (src_reg ->op_code_number >= 8 && 
         dest_reg->op_code_number < 8)
-        op_codes[0] = 0x4c;
+        op_codes[0] = ExtendedReg;
     
-    byte args_byte = 0xc0;
+    byte args_byte = ArgsByte;
+
     byte src_byte  =  (src_reg->op_code_number  % 8) << 3;
     byte dest_byte =  (dest_reg->op_code_number % 8);
 
@@ -262,7 +291,7 @@ size_t PutMovRR (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest, cons
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {};
 
-    op_codes[1] = 0x89;
+    op_codes[1] = Mov;
     SetOpCodesForRegs (op_codes, src, dest);
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
@@ -282,12 +311,12 @@ size_t PutMovConstant (Context* ctx, GPRegisterNumber dest, data_t data, const c
 
     if (dest_reg->op_code_number < 8)
         {
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
         op_codes[2] = 0xc0 + dest_reg->op_code_number;
         }
     else
         {
-        op_codes[0] = 0x49;
+        op_codes[0] = RegExtended;
         op_codes[2] = 0xc0 + dest_reg->op_code_number - 8;
         }
 
@@ -309,14 +338,14 @@ size_t PutMoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset, cons
     const unsigned OP_CODES_SIZE = 4;
     static char op_codes [OP_CODES_SIZE] = {};
 
-    op_codes[1] = 0x89;
+    op_codes[1] = Mov;
 
     Reg* src_reg = GetReg (src);
 
     if (src_reg->op_code_number < 8)
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
     else
-        op_codes[0] = 0x4c;
+        op_codes[0] = ExtendedReg;
 
     byte args_byte = 0x45;
     byte src_byte  =  src_reg->op_code_number << 3;
@@ -324,8 +353,7 @@ size_t PutMoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset, cons
     args_byte |= src_byte;
 
     op_codes [2] = args_byte;
-
-    op_codes [3] = 0 - offset * 8;
+    op_codes [3] = -offset * 8;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;
@@ -341,9 +369,9 @@ size_t PutMoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest, con
     static char op_codes [OP_CODES_SIZE] = {};
 
     if (dest < 8)
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
     else
-        op_codes[0] = 0x4c;
+        op_codes[0] = ExtendedReg;
 
     op_codes[1] = 0x8b;
 
@@ -355,7 +383,7 @@ size_t PutMoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest, con
     args_byte |= dest_byte;
 
     op_codes [2] = args_byte;
-    op_codes [3] = - offset * 8;
+    op_codes [3] = -offset * 8;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
 
@@ -438,12 +466,12 @@ static void PutIMul (Context* ctx, GPRegisterNumber reg)
     Reg* reg_reg = GetReg (reg);
     if (reg_reg->op_code_number < 8)
         {
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
         op_codes[2] = 0xe8 + reg_reg->op_code_number;
         }
     else
         {
-        op_codes[0] = 0x49;
+        op_codes[0] = RegExtended;
         op_codes[2] = 0xe8 + reg_reg->op_code_number - 8;
         }
 
@@ -464,12 +492,12 @@ static void PutIDiv (Context* ctx, GPRegisterNumber reg)
     Reg* reg_reg = GetReg (reg);
     if (reg_reg->op_code_number < 8)
         {
-        op_codes[0] = 0x48;
+        op_codes[0] = RegReg;
         op_codes[2] = 0xf8 + reg_reg->op_code_number;
         }
     else
         {
-        op_codes[0] = 0x49;
+        op_codes[0] = RegExtended;
         op_codes[2] = 0xf8 + reg_reg->op_code_number - 8;
         }
 
@@ -536,10 +564,11 @@ size_t PutLogicOp (Context* ctx, OperatorType operation, GPRegisterNumber src, G
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE - 1); // write setl or setg
 
-    op_codes[0] = 0x48;
+    op_codes[0] = RegReg;
     op_codes[1] = 0x0f;
     op_codes[2] = 0xb6;
     op_codes[3] = 0xc0;
+    
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);    // write movzbq %al, %rax
 
     NormalizeResult (ctx, dest, MUL);

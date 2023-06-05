@@ -26,17 +26,17 @@ class Value : public NoCopyable
 
     public:
                  Value (ValueType type_param, name_t name_param);
-        virtual ~Value () = default;         // all realizations in file Value.cpp
+        virtual ~Value () = default;         
 
         name_t get_name() const;
         
-        virtual void      dump     () const = 0;              // in file DumpIR.cpp
-        virtual ValueType get_type () const = 0;              // in file Value.cpp
+        virtual void      dump     () const = 0;            
+        virtual ValueType get_type () const = 0;
 
-        virtual void translate_x86  (Context* ctx) const = 0;  // in file TranslateIRTox86.cpp
-        GPRegisterNumber put_to_reg (Context* ctx) const;            // in file TranslateIRTox86.cpp
+        virtual void translate_x86  (Context* ctx) const = 0;
+        GPRegisterNumber put_to_reg (Context* ctx) const;
         
-        virtual void   set_storage () const = 0;              // in file Storage.cpp
+        virtual void   set_storage () const = 0;
         Storage*       get_storage () const;                
     };
 
