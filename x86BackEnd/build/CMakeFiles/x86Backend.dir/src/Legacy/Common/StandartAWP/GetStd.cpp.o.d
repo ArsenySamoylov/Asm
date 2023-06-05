@@ -1,12 +1,12 @@
 CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/StandartAWP/GetStd.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/StandartAWP/GetStd.cpp \
  /usr/include/stdc-predef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/StandartAWP/StandartAWP.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Program/Program.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/StandartAWP/StandartAWP.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Program/Program.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -104,12 +104,12 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Grammar.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/TokenTypes.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/LexicalCtx/LexicalCtx.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Buffer/my_buffer.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/DSL.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Grammar.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/TokenTypes.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/LexicalCtx/LexicalCtx.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Buffer/my_buffer.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/DSL.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
@@ -192,11 +192,11 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/string.h \
  /usr/include/strings.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Debug/EasyDebug.h
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/Logger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/tostring.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/FunctionLogger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Utils/Utils.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Debug/EasyDebug.h

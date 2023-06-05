@@ -1,5 +1,5 @@
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Elf.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Elf/Elf.cpp \
  /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -24,9 +24,9 @@ CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Elf.hpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Elf/Elf.hpp \
  /usr/include/elf.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
  /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Buffer.hpp
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Elf/Buffer.hpp

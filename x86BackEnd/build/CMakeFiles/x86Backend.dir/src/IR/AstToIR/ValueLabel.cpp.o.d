@@ -1,5 +1,5 @@
-CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueLabel.cpp \
+CMakeFiles/x86Backend.dir/src/IR/AstToIR/ValueLabel.cpp.o: \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/ValueLabel.cpp \
  /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -49,10 +49,10 @@ CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/11/bits/std_abs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueTable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/ValueTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.h \
  /usr/include/c++/11/cstddef \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/ValueArrTemplate.h \
  /usr/include/c++/11/cassert /usr/include/c++/11/cstdio \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -63,12 +63,12 @@ CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TypeDefs.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
@@ -170,10 +170,10 @@ CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ArrayTemplate.h
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/Logger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/tostring.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/FunctionLogger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Utils/Utils.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/ArrayTemplate.h

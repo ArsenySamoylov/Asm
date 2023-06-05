@@ -1,39 +1,37 @@
-CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.cpp \
- /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
+CMakeFiles/x86Backend.dir/src/IR/AstToIR/Builder.cpp.o: \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/Builder.cpp \
+ /usr/include/stdc-predef.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Debug/EasyDebug.h \
+ /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
- /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/Builder.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Module/Module.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.h \
+ /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/stdlib.h \
+ /usr/include/c++/11/pstl/pstl_config.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/ValueArrTemplate.h \
+ /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
@@ -56,18 +54,25 @@ CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/11/bits/std_abs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
- /usr/include/c++/11/cstddef \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
- /usr/include/c++/11/cassert /usr/include/c++/11/cstdio \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
+ /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/cassert \
+ /usr/include/c++/11/cstdio /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TypeDefs.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Instructions/Instructions.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/ValueTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
@@ -170,14 +175,16 @@ CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/string.h \
  /usr/include/strings.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h \
- /usr/include/c++/11/stack /usr/include/c++/11/deque \
- /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
- /usr/include/c++/11/bits/stl_stack.h \
- /usr/include/c++/11/bits/uses_allocator.h
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/Logger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/tostring.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/FunctionLogger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Utils/Utils.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/StringPool.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Grammar.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/TokenTypes.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Program/Program.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h

@@ -1,6 +1,6 @@
-CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instruction.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/cassert \
+CMakeFiles/x86Backend.dir/src/IR/Value/Value.cpp.o: \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -11,34 +11,19 @@ CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/assert.h \
- /usr/include/stdio.h \
+ /usr/include/c++/11/pstl/pstl_config.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
- /usr/include/c++/11/cstddef \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
- /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
@@ -62,7 +47,22 @@ CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/cstdio \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/11/cassert /usr/include/assert.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.h \
+ /usr/include/c++/11/cstddef \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TypeDefs.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Instructions/Instructions.h

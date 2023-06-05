@@ -1,5 +1,5 @@
 CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/DebugFunctions.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/SuperStack/DebugFunctions.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/math.h \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -89,7 +89,7 @@ CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/DebugFunctions.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/SuperStack/DebugFunctions.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -99,12 +99,12 @@ CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/SuperStackConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/SuperStack.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/my_safety/my_safety.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/SuperStackConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/SuperStack/SuperStack.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/my_safety/my_safety.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \

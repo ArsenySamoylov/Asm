@@ -1,5 +1,5 @@
-CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp \
+CMakeFiles/x86Backend.dir/src/IR/AstToIR/AstToIR.cpp.o: \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/AstToIR.cpp \
  /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -8,16 +8,16 @@ CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Module.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/AstToIR.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Module/Module.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.h \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
  /usr/include/c++/11/pstl/pstl_config.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/ValueArrTemplate.h \
  /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -63,20 +63,20 @@ CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Program/Program.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Builder.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueTable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/StringPool.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/DSL.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TypeDefs.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Instructions/Instructions.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Program/Program.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/Builder.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/ValueTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/AstToIR/StringPool.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/DSL.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
@@ -179,14 +179,14 @@ CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/string.h \
  /usr/include/strings.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Grammar.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/TokenTypes.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Utils/LangUtils.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Debug/EasyDebug.h
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/Logger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/tostring.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/FunctionLogger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Utils/Utils.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Grammar.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/TokenTypes.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Utils/LangUtils.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Debug/EasyDebug.h

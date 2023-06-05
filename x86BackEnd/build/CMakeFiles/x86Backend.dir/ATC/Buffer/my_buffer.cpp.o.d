@@ -1,7 +1,7 @@
 CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Buffer/my_buffer.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Buffer/my_buffer.cpp \
  /usr/include/stdc-predef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Buffer/my_buffer.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Buffer/my_buffer.h \
  /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -74,7 +74,7 @@ CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
  /usr/include/assert.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogMacroses.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogMacroses.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
@@ -178,10 +178,10 @@ CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/string.h \
  /usr/include/strings.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/LogConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.h
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/Logger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/LogConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/tostring.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Logger/FunctionLogger.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/ConsoleColors/LinuxColors.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/Utils/Utils.h

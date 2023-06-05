@@ -1,3 +1,8 @@
-# Asm
-This is the repository with projects from 2nd semester of programming. In this repo you can find folders with projects for Linux and MSDos. 
-For more information look in corresponding folder with project name.
+# SecondSemester
+Этот репозиторий содержит работы со второго семестра обучения. Репозиторий состоит из трех частей:
+
+1. AssemblerProjects - проекты, с которых началось первое знакомство с ассемблером, 
+2. HashTable & SIMD  - проекты по изучению ассемблерных оптимизаций,
+3. x86Backend        - вторая итерация моего (языка программирования)[] (финальный проект прошлого семестра).
+
+Наиболее интересными проектами являются `x86Backend` и `HashTable`. 

@@ -1,13 +1,13 @@
 CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/SuperStack.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/SuperStack/SuperStack.cpp \
  /usr/include/stdc-predef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/SuperStack.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/SuperStackConfig.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/SuperStack/SuperStack.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/SuperStackConfig.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Token/Token.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/my_safety/my_safety.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/my_safety/my_safety.h \
  /usr/include/inttypes.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -45,7 +45,7 @@ CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/RandomStuff/CommonEnums.h \
  /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

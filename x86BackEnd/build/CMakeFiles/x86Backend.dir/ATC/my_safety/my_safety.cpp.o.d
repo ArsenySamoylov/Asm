@@ -1,7 +1,7 @@
 CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/my_safety/my_safety.cpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/my_safety/my_safety.cpp \
  /usr/include/stdc-predef.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/my_safety/my_safety.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/ATC/my_safety/my_safety.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/inttypes.h /usr/include/features.h \
  /usr/include/features-time64.h \

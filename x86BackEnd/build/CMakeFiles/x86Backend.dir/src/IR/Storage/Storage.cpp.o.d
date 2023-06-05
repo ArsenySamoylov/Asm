@@ -1,5 +1,5 @@
-CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.cpp \
+CMakeFiles/x86Backend.dir/src/IR/Storage/Storage.cpp.o: \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.cpp \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -24,17 +24,17 @@ CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/assert.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/NoCopyable.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/TypeDefs.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Value.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Storage/Storage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/NoCopyable.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TypeDefs.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/RegistersUsage.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/Value.h \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
  /usr/include/c++/11/pstl/pstl_config.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueArrTemplate.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Value/ValueArrTemplate.h \
  /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -65,12 +65,12 @@ CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/cassert \
  /usr/include/c++/11/cstdio \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instructions.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Commands.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/IRContext.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/Instructions/Instructions.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/Commands.h \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/IR/TranslateTox86/IRContext.h \
  /usr/include/c++/11/stdlib.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Elf.hpp \
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Elf/Elf.hpp \
  /usr/include/elf.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
  /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Buffer.hpp
+ /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Elf/Buffer.hpp

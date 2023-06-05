@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd
+CMAKE_SOURCE_DIR = /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build
+CMAKE_BINARY_DIR = /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build/CMakeFiles /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -321,29 +321,29 @@ ATC/my_safety/my_safety.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.s
 .PHONY : ATC/my_safety/my_safety.cpp.s
 
-src/Elf/Commands.o: src/Elf/Commands.cpp.o
-.PHONY : src/Elf/Commands.o
+src/Elf/Buffer.o: src/Elf/Buffer.cpp.o
+.PHONY : src/Elf/Buffer.o
 
 # target to build an object file
-src/Elf/Commands.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o
-.PHONY : src/Elf/Commands.cpp.o
+src/Elf/Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Buffer.cpp.o
+.PHONY : src/Elf/Buffer.cpp.o
 
-src/Elf/Commands.i: src/Elf/Commands.cpp.i
-.PHONY : src/Elf/Commands.i
+src/Elf/Buffer.i: src/Elf/Buffer.cpp.i
+.PHONY : src/Elf/Buffer.i
 
 # target to preprocess a source file
-src/Elf/Commands.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.i
-.PHONY : src/Elf/Commands.cpp.i
+src/Elf/Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Buffer.cpp.i
+.PHONY : src/Elf/Buffer.cpp.i
 
-src/Elf/Commands.s: src/Elf/Commands.cpp.s
-.PHONY : src/Elf/Commands.s
+src/Elf/Buffer.s: src/Elf/Buffer.cpp.s
+.PHONY : src/Elf/Buffer.s
 
 # target to generate assembly for a file
-src/Elf/Commands.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.s
-.PHONY : src/Elf/Commands.cpp.s
+src/Elf/Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Buffer.cpp.s
+.PHONY : src/Elf/Buffer.cpp.s
 
 src/Elf/Elf.o: src/Elf/Elf.cpp.o
 .PHONY : src/Elf/Elf.o
@@ -369,317 +369,317 @@ src/Elf/Elf.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.s
 .PHONY : src/Elf/Elf.cpp.s
 
-src/Elf/IRContext.o: src/Elf/IRContext.cpp.o
-.PHONY : src/Elf/IRContext.o
+src/IR/AstToIR/AstToIR.o: src/IR/AstToIR/AstToIR.cpp.o
+.PHONY : src/IR/AstToIR/AstToIR.o
 
 # target to build an object file
-src/Elf/IRContext.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o
-.PHONY : src/Elf/IRContext.cpp.o
+src/IR/AstToIR/AstToIR.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/AstToIR.cpp.o
+.PHONY : src/IR/AstToIR/AstToIR.cpp.o
 
-src/Elf/IRContext.i: src/Elf/IRContext.cpp.i
-.PHONY : src/Elf/IRContext.i
+src/IR/AstToIR/AstToIR.i: src/IR/AstToIR/AstToIR.cpp.i
+.PHONY : src/IR/AstToIR/AstToIR.i
 
 # target to preprocess a source file
-src/Elf/IRContext.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.i
-.PHONY : src/Elf/IRContext.cpp.i
+src/IR/AstToIR/AstToIR.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/AstToIR.cpp.i
+.PHONY : src/IR/AstToIR/AstToIR.cpp.i
 
-src/Elf/IRContext.s: src/Elf/IRContext.cpp.s
-.PHONY : src/Elf/IRContext.s
+src/IR/AstToIR/AstToIR.s: src/IR/AstToIR/AstToIR.cpp.s
+.PHONY : src/IR/AstToIR/AstToIR.s
 
 # target to generate assembly for a file
-src/Elf/IRContext.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.s
-.PHONY : src/Elf/IRContext.cpp.s
+src/IR/AstToIR/AstToIR.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/AstToIR.cpp.s
+.PHONY : src/IR/AstToIR/AstToIR.cpp.s
 
-src/Elf/ProgramBuffer.o: src/Elf/ProgramBuffer.cpp.o
-.PHONY : src/Elf/ProgramBuffer.o
+src/IR/AstToIR/Builder.o: src/IR/AstToIR/Builder.cpp.o
+.PHONY : src/IR/AstToIR/Builder.o
 
 # target to build an object file
-src/Elf/ProgramBuffer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o
-.PHONY : src/Elf/ProgramBuffer.cpp.o
+src/IR/AstToIR/Builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/Builder.cpp.o
+.PHONY : src/IR/AstToIR/Builder.cpp.o
 
-src/Elf/ProgramBuffer.i: src/Elf/ProgramBuffer.cpp.i
-.PHONY : src/Elf/ProgramBuffer.i
+src/IR/AstToIR/Builder.i: src/IR/AstToIR/Builder.cpp.i
+.PHONY : src/IR/AstToIR/Builder.i
 
 # target to preprocess a source file
-src/Elf/ProgramBuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.i
-.PHONY : src/Elf/ProgramBuffer.cpp.i
+src/IR/AstToIR/Builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/Builder.cpp.i
+.PHONY : src/IR/AstToIR/Builder.cpp.i
 
-src/Elf/ProgramBuffer.s: src/Elf/ProgramBuffer.cpp.s
-.PHONY : src/Elf/ProgramBuffer.s
+src/IR/AstToIR/Builder.s: src/IR/AstToIR/Builder.cpp.s
+.PHONY : src/IR/AstToIR/Builder.s
 
 # target to generate assembly for a file
-src/Elf/ProgramBuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.s
-.PHONY : src/Elf/ProgramBuffer.cpp.s
+src/IR/AstToIR/Builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/Builder.cpp.s
+.PHONY : src/IR/AstToIR/Builder.cpp.s
 
-src/Elf/RegistersUsage.o: src/Elf/RegistersUsage.cpp.o
-.PHONY : src/Elf/RegistersUsage.o
+src/IR/AstToIR/StringPool.o: src/IR/AstToIR/StringPool.cpp.o
+.PHONY : src/IR/AstToIR/StringPool.o
 
 # target to build an object file
-src/Elf/RegistersUsage.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o
-.PHONY : src/Elf/RegistersUsage.cpp.o
+src/IR/AstToIR/StringPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/StringPool.cpp.o
+.PHONY : src/IR/AstToIR/StringPool.cpp.o
 
-src/Elf/RegistersUsage.i: src/Elf/RegistersUsage.cpp.i
-.PHONY : src/Elf/RegistersUsage.i
+src/IR/AstToIR/StringPool.i: src/IR/AstToIR/StringPool.cpp.i
+.PHONY : src/IR/AstToIR/StringPool.i
 
 # target to preprocess a source file
-src/Elf/RegistersUsage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.i
-.PHONY : src/Elf/RegistersUsage.cpp.i
+src/IR/AstToIR/StringPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/StringPool.cpp.i
+.PHONY : src/IR/AstToIR/StringPool.cpp.i
 
-src/Elf/RegistersUsage.s: src/Elf/RegistersUsage.cpp.s
-.PHONY : src/Elf/RegistersUsage.s
+src/IR/AstToIR/StringPool.s: src/IR/AstToIR/StringPool.cpp.s
+.PHONY : src/IR/AstToIR/StringPool.s
 
 # target to generate assembly for a file
-src/Elf/RegistersUsage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.s
-.PHONY : src/Elf/RegistersUsage.cpp.s
+src/IR/AstToIR/StringPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/StringPool.cpp.s
+.PHONY : src/IR/AstToIR/StringPool.cpp.s
 
-src/Elf/TranslateIRTox86.o: src/Elf/TranslateIRTox86.cpp.o
-.PHONY : src/Elf/TranslateIRTox86.o
+src/IR/AstToIR/ValueLabel.o: src/IR/AstToIR/ValueLabel.cpp.o
+.PHONY : src/IR/AstToIR/ValueLabel.o
 
 # target to build an object file
-src/Elf/TranslateIRTox86.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o
-.PHONY : src/Elf/TranslateIRTox86.cpp.o
+src/IR/AstToIR/ValueLabel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/ValueLabel.cpp.o
+.PHONY : src/IR/AstToIR/ValueLabel.cpp.o
 
-src/Elf/TranslateIRTox86.i: src/Elf/TranslateIRTox86.cpp.i
-.PHONY : src/Elf/TranslateIRTox86.i
+src/IR/AstToIR/ValueLabel.i: src/IR/AstToIR/ValueLabel.cpp.i
+.PHONY : src/IR/AstToIR/ValueLabel.i
 
 # target to preprocess a source file
-src/Elf/TranslateIRTox86.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.i
-.PHONY : src/Elf/TranslateIRTox86.cpp.i
+src/IR/AstToIR/ValueLabel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/ValueLabel.cpp.i
+.PHONY : src/IR/AstToIR/ValueLabel.cpp.i
 
-src/Elf/TranslateIRTox86.s: src/Elf/TranslateIRTox86.cpp.s
-.PHONY : src/Elf/TranslateIRTox86.s
+src/IR/AstToIR/ValueLabel.s: src/IR/AstToIR/ValueLabel.cpp.s
+.PHONY : src/IR/AstToIR/ValueLabel.s
 
 # target to generate assembly for a file
-src/Elf/TranslateIRTox86.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s
-.PHONY : src/Elf/TranslateIRTox86.cpp.s
+src/IR/AstToIR/ValueLabel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR/ValueLabel.cpp.s
+.PHONY : src/IR/AstToIR/ValueLabel.cpp.s
 
-src/IR/AstToIR.o: src/IR/AstToIR.cpp.o
-.PHONY : src/IR/AstToIR.o
+src/IR/DumpIR/DumpIR.o: src/IR/DumpIR/DumpIR.cpp.o
+.PHONY : src/IR/DumpIR/DumpIR.o
 
 # target to build an object file
-src/IR/AstToIR.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o
-.PHONY : src/IR/AstToIR.cpp.o
+src/IR/DumpIR/DumpIR.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR/DumpIR.cpp.o
+.PHONY : src/IR/DumpIR/DumpIR.cpp.o
 
-src/IR/AstToIR.i: src/IR/AstToIR.cpp.i
-.PHONY : src/IR/AstToIR.i
+src/IR/DumpIR/DumpIR.i: src/IR/DumpIR/DumpIR.cpp.i
+.PHONY : src/IR/DumpIR/DumpIR.i
 
 # target to preprocess a source file
-src/IR/AstToIR.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i
-.PHONY : src/IR/AstToIR.cpp.i
+src/IR/DumpIR/DumpIR.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR/DumpIR.cpp.i
+.PHONY : src/IR/DumpIR/DumpIR.cpp.i
 
-src/IR/AstToIR.s: src/IR/AstToIR.cpp.s
-.PHONY : src/IR/AstToIR.s
+src/IR/DumpIR/DumpIR.s: src/IR/DumpIR/DumpIR.cpp.s
+.PHONY : src/IR/DumpIR/DumpIR.s
 
 # target to generate assembly for a file
-src/IR/AstToIR.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s
-.PHONY : src/IR/AstToIR.cpp.s
+src/IR/DumpIR/DumpIR.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR/DumpIR.cpp.s
+.PHONY : src/IR/DumpIR/DumpIR.cpp.s
 
-src/IR/Builder.o: src/IR/Builder.cpp.o
-.PHONY : src/IR/Builder.o
+src/IR/Instructions/Instruction.o: src/IR/Instructions/Instruction.cpp.o
+.PHONY : src/IR/Instructions/Instruction.o
 
 # target to build an object file
-src/IR/Builder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o
-.PHONY : src/IR/Builder.cpp.o
+src/IR/Instructions/Instruction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instructions/Instruction.cpp.o
+.PHONY : src/IR/Instructions/Instruction.cpp.o
 
-src/IR/Builder.i: src/IR/Builder.cpp.i
-.PHONY : src/IR/Builder.i
+src/IR/Instructions/Instruction.i: src/IR/Instructions/Instruction.cpp.i
+.PHONY : src/IR/Instructions/Instruction.i
 
 # target to preprocess a source file
-src/IR/Builder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.i
-.PHONY : src/IR/Builder.cpp.i
+src/IR/Instructions/Instruction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instructions/Instruction.cpp.i
+.PHONY : src/IR/Instructions/Instruction.cpp.i
 
-src/IR/Builder.s: src/IR/Builder.cpp.s
-.PHONY : src/IR/Builder.s
+src/IR/Instructions/Instruction.s: src/IR/Instructions/Instruction.cpp.s
+.PHONY : src/IR/Instructions/Instruction.s
 
 # target to generate assembly for a file
-src/IR/Builder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.s
-.PHONY : src/IR/Builder.cpp.s
+src/IR/Instructions/Instruction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instructions/Instruction.cpp.s
+.PHONY : src/IR/Instructions/Instruction.cpp.s
 
-src/IR/DumpIR.o: src/IR/DumpIR.cpp.o
-.PHONY : src/IR/DumpIR.o
+src/IR/Module/Module.o: src/IR/Module/Module.cpp.o
+.PHONY : src/IR/Module/Module.o
 
 # target to build an object file
-src/IR/DumpIR.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o
-.PHONY : src/IR/DumpIR.cpp.o
+src/IR/Module/Module.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module/Module.cpp.o
+.PHONY : src/IR/Module/Module.cpp.o
 
-src/IR/DumpIR.i: src/IR/DumpIR.cpp.i
-.PHONY : src/IR/DumpIR.i
+src/IR/Module/Module.i: src/IR/Module/Module.cpp.i
+.PHONY : src/IR/Module/Module.i
 
 # target to preprocess a source file
-src/IR/DumpIR.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.i
-.PHONY : src/IR/DumpIR.cpp.i
+src/IR/Module/Module.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module/Module.cpp.i
+.PHONY : src/IR/Module/Module.cpp.i
 
-src/IR/DumpIR.s: src/IR/DumpIR.cpp.s
-.PHONY : src/IR/DumpIR.s
+src/IR/Module/Module.s: src/IR/Module/Module.cpp.s
+.PHONY : src/IR/Module/Module.s
 
 # target to generate assembly for a file
-src/IR/DumpIR.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.s
-.PHONY : src/IR/DumpIR.cpp.s
+src/IR/Module/Module.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module/Module.cpp.s
+.PHONY : src/IR/Module/Module.cpp.s
 
-src/IR/Instruction.o: src/IR/Instruction.cpp.o
-.PHONY : src/IR/Instruction.o
+src/IR/Storage/Storage.o: src/IR/Storage/Storage.cpp.o
+.PHONY : src/IR/Storage/Storage.o
 
 # target to build an object file
-src/IR/Instruction.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o
-.PHONY : src/IR/Instruction.cpp.o
+src/IR/Storage/Storage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage/Storage.cpp.o
+.PHONY : src/IR/Storage/Storage.cpp.o
 
-src/IR/Instruction.i: src/IR/Instruction.cpp.i
-.PHONY : src/IR/Instruction.i
+src/IR/Storage/Storage.i: src/IR/Storage/Storage.cpp.i
+.PHONY : src/IR/Storage/Storage.i
 
 # target to preprocess a source file
-src/IR/Instruction.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.i
-.PHONY : src/IR/Instruction.cpp.i
+src/IR/Storage/Storage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage/Storage.cpp.i
+.PHONY : src/IR/Storage/Storage.cpp.i
 
-src/IR/Instruction.s: src/IR/Instruction.cpp.s
-.PHONY : src/IR/Instruction.s
+src/IR/Storage/Storage.s: src/IR/Storage/Storage.cpp.s
+.PHONY : src/IR/Storage/Storage.s
 
 # target to generate assembly for a file
-src/IR/Instruction.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.s
-.PHONY : src/IR/Instruction.cpp.s
+src/IR/Storage/Storage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage/Storage.cpp.s
+.PHONY : src/IR/Storage/Storage.cpp.s
 
-src/IR/Module.o: src/IR/Module.cpp.o
-.PHONY : src/IR/Module.o
+src/IR/TranslateTox86/Commands.o: src/IR/TranslateTox86/Commands.cpp.o
+.PHONY : src/IR/TranslateTox86/Commands.o
 
 # target to build an object file
-src/IR/Module.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o
-.PHONY : src/IR/Module.cpp.o
+src/IR/TranslateTox86/Commands.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/Commands.cpp.o
+.PHONY : src/IR/TranslateTox86/Commands.cpp.o
 
-src/IR/Module.i: src/IR/Module.cpp.i
-.PHONY : src/IR/Module.i
+src/IR/TranslateTox86/Commands.i: src/IR/TranslateTox86/Commands.cpp.i
+.PHONY : src/IR/TranslateTox86/Commands.i
 
 # target to preprocess a source file
-src/IR/Module.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module.cpp.i
-.PHONY : src/IR/Module.cpp.i
+src/IR/TranslateTox86/Commands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/Commands.cpp.i
+.PHONY : src/IR/TranslateTox86/Commands.cpp.i
 
-src/IR/Module.s: src/IR/Module.cpp.s
-.PHONY : src/IR/Module.s
+src/IR/TranslateTox86/Commands.s: src/IR/TranslateTox86/Commands.cpp.s
+.PHONY : src/IR/TranslateTox86/Commands.s
 
 # target to generate assembly for a file
-src/IR/Module.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Module.cpp.s
-.PHONY : src/IR/Module.cpp.s
+src/IR/TranslateTox86/Commands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/Commands.cpp.s
+.PHONY : src/IR/TranslateTox86/Commands.cpp.s
 
-src/IR/Storage.o: src/IR/Storage.cpp.o
-.PHONY : src/IR/Storage.o
+src/IR/TranslateTox86/IRContext.o: src/IR/TranslateTox86/IRContext.cpp.o
+.PHONY : src/IR/TranslateTox86/IRContext.o
 
 # target to build an object file
-src/IR/Storage.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o
-.PHONY : src/IR/Storage.cpp.o
+src/IR/TranslateTox86/IRContext.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/IRContext.cpp.o
+.PHONY : src/IR/TranslateTox86/IRContext.cpp.o
 
-src/IR/Storage.i: src/IR/Storage.cpp.i
-.PHONY : src/IR/Storage.i
+src/IR/TranslateTox86/IRContext.i: src/IR/TranslateTox86/IRContext.cpp.i
+.PHONY : src/IR/TranslateTox86/IRContext.i
 
 # target to preprocess a source file
-src/IR/Storage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.i
-.PHONY : src/IR/Storage.cpp.i
+src/IR/TranslateTox86/IRContext.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/IRContext.cpp.i
+.PHONY : src/IR/TranslateTox86/IRContext.cpp.i
 
-src/IR/Storage.s: src/IR/Storage.cpp.s
-.PHONY : src/IR/Storage.s
+src/IR/TranslateTox86/IRContext.s: src/IR/TranslateTox86/IRContext.cpp.s
+.PHONY : src/IR/TranslateTox86/IRContext.s
 
 # target to generate assembly for a file
-src/IR/Storage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.s
-.PHONY : src/IR/Storage.cpp.s
+src/IR/TranslateTox86/IRContext.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/IRContext.cpp.s
+.PHONY : src/IR/TranslateTox86/IRContext.cpp.s
 
-src/IR/StringPool.o: src/IR/StringPool.cpp.o
-.PHONY : src/IR/StringPool.o
+src/IR/TranslateTox86/RegistersUsage.o: src/IR/TranslateTox86/RegistersUsage.cpp.o
+.PHONY : src/IR/TranslateTox86/RegistersUsage.o
 
 # target to build an object file
-src/IR/StringPool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o
-.PHONY : src/IR/StringPool.cpp.o
+src/IR/TranslateTox86/RegistersUsage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/RegistersUsage.cpp.o
+.PHONY : src/IR/TranslateTox86/RegistersUsage.cpp.o
 
-src/IR/StringPool.i: src/IR/StringPool.cpp.i
-.PHONY : src/IR/StringPool.i
+src/IR/TranslateTox86/RegistersUsage.i: src/IR/TranslateTox86/RegistersUsage.cpp.i
+.PHONY : src/IR/TranslateTox86/RegistersUsage.i
 
 # target to preprocess a source file
-src/IR/StringPool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.i
-.PHONY : src/IR/StringPool.cpp.i
+src/IR/TranslateTox86/RegistersUsage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/RegistersUsage.cpp.i
+.PHONY : src/IR/TranslateTox86/RegistersUsage.cpp.i
 
-src/IR/StringPool.s: src/IR/StringPool.cpp.s
-.PHONY : src/IR/StringPool.s
+src/IR/TranslateTox86/RegistersUsage.s: src/IR/TranslateTox86/RegistersUsage.cpp.s
+.PHONY : src/IR/TranslateTox86/RegistersUsage.s
 
 # target to generate assembly for a file
-src/IR/StringPool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.s
-.PHONY : src/IR/StringPool.cpp.s
+src/IR/TranslateTox86/RegistersUsage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/RegistersUsage.cpp.s
+.PHONY : src/IR/TranslateTox86/RegistersUsage.cpp.s
 
-src/IR/Value.o: src/IR/Value.cpp.o
-.PHONY : src/IR/Value.o
+src/IR/TranslateTox86/TranslateIRTox86.o: src/IR/TranslateTox86/TranslateIRTox86.cpp.o
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.o
 
 # target to build an object file
-src/IR/Value.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value.cpp.o
-.PHONY : src/IR/Value.cpp.o
+src/IR/TranslateTox86/TranslateIRTox86.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/TranslateIRTox86.cpp.o
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.cpp.o
 
-src/IR/Value.i: src/IR/Value.cpp.i
-.PHONY : src/IR/Value.i
+src/IR/TranslateTox86/TranslateIRTox86.i: src/IR/TranslateTox86/TranslateIRTox86.cpp.i
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.i
 
 # target to preprocess a source file
-src/IR/Value.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value.cpp.i
-.PHONY : src/IR/Value.cpp.i
+src/IR/TranslateTox86/TranslateIRTox86.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/TranslateIRTox86.cpp.i
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.cpp.i
 
-src/IR/Value.s: src/IR/Value.cpp.s
-.PHONY : src/IR/Value.s
+src/IR/TranslateTox86/TranslateIRTox86.s: src/IR/TranslateTox86/TranslateIRTox86.cpp.s
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.s
 
 # target to generate assembly for a file
-src/IR/Value.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value.cpp.s
-.PHONY : src/IR/Value.cpp.s
+src/IR/TranslateTox86/TranslateIRTox86.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/TranslateTox86/TranslateIRTox86.cpp.s
+.PHONY : src/IR/TranslateTox86/TranslateIRTox86.cpp.s
 
-src/IR/ValueLabel.o: src/IR/ValueLabel.cpp.o
-.PHONY : src/IR/ValueLabel.o
+src/IR/Value/Value.o: src/IR/Value/Value.cpp.o
+.PHONY : src/IR/Value/Value.o
 
 # target to build an object file
-src/IR/ValueLabel.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o
-.PHONY : src/IR/ValueLabel.cpp.o
+src/IR/Value/Value.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value/Value.cpp.o
+.PHONY : src/IR/Value/Value.cpp.o
 
-src/IR/ValueLabel.i: src/IR/ValueLabel.cpp.i
-.PHONY : src/IR/ValueLabel.i
+src/IR/Value/Value.i: src/IR/Value/Value.cpp.i
+.PHONY : src/IR/Value/Value.i
 
 # target to preprocess a source file
-src/IR/ValueLabel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.i
-.PHONY : src/IR/ValueLabel.cpp.i
+src/IR/Value/Value.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value/Value.cpp.i
+.PHONY : src/IR/Value/Value.cpp.i
 
-src/IR/ValueLabel.s: src/IR/ValueLabel.cpp.s
-.PHONY : src/IR/ValueLabel.s
+src/IR/Value/Value.s: src/IR/Value/Value.cpp.s
+.PHONY : src/IR/Value/Value.s
 
 # target to generate assembly for a file
-src/IR/ValueLabel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.s
-.PHONY : src/IR/ValueLabel.cpp.s
+src/IR/Value/Value.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/Value/Value.cpp.s
+.PHONY : src/IR/Value/Value.cpp.s
 
 src/Legacy/AsmCtx.o: src/Legacy/AsmCtx.cpp.o
 .PHONY : src/Legacy/AsmCtx.o
@@ -801,30 +801,6 @@ src/Legacy/Common/Structures/Tabels/NameTable.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.s
 .PHONY : src/Legacy/Common/Structures/Tabels/NameTable.cpp.s
 
-src/Legacy/Common/Structures/Tabels/Tabels.o: src/Legacy/Common/Structures/Tabels/Tabels.cpp.o
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.o
-
-# target to build an object file
-src/Legacy/Common/Structures/Tabels/Tabels.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.cpp.o
-
-src/Legacy/Common/Structures/Tabels/Tabels.i: src/Legacy/Common/Structures/Tabels/Tabels.cpp.i
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.i
-
-# target to preprocess a source file
-src/Legacy/Common/Structures/Tabels/Tabels.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.i
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.cpp.i
-
-src/Legacy/Common/Structures/Tabels/Tabels.s: src/Legacy/Common/Structures/Tabels/Tabels.cpp.s
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.s
-
-# target to generate assembly for a file
-src/Legacy/Common/Structures/Tabels/Tabels.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.s
-.PHONY : src/Legacy/Common/Structures/Tabels/Tabels.cpp.s
-
 src/Legacy/Common/Structures/Token/Token.o: src/Legacy/Common/Structures/Token/Token.cpp.o
 .PHONY : src/Legacy/Common/Structures/Token/Token.o
 
@@ -897,30 +873,6 @@ src/Legacy/Common/Utils/LangUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.s
 .PHONY : src/Legacy/Common/Utils/LangUtils.cpp.s
 
-src/Legacy/SetTokenTree.o: src/Legacy/SetTokenTree.cpp.o
-.PHONY : src/Legacy/SetTokenTree.o
-
-# target to build an object file
-src/Legacy/SetTokenTree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o
-.PHONY : src/Legacy/SetTokenTree.cpp.o
-
-src/Legacy/SetTokenTree.i: src/Legacy/SetTokenTree.cpp.i
-.PHONY : src/Legacy/SetTokenTree.i
-
-# target to preprocess a source file
-src/Legacy/SetTokenTree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.i
-.PHONY : src/Legacy/SetTokenTree.cpp.i
-
-src/Legacy/SetTokenTree.s: src/Legacy/SetTokenTree.cpp.s
-.PHONY : src/Legacy/SetTokenTree.s
-
-# target to generate assembly for a file
-src/Legacy/SetTokenTree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.s
-.PHONY : src/Legacy/SetTokenTree.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -978,51 +930,51 @@ help:
 	@echo "... ATC/my_safety/my_safety.o"
 	@echo "... ATC/my_safety/my_safety.i"
 	@echo "... ATC/my_safety/my_safety.s"
-	@echo "... src/Elf/Commands.o"
-	@echo "... src/Elf/Commands.i"
-	@echo "... src/Elf/Commands.s"
+	@echo "... src/Elf/Buffer.o"
+	@echo "... src/Elf/Buffer.i"
+	@echo "... src/Elf/Buffer.s"
 	@echo "... src/Elf/Elf.o"
 	@echo "... src/Elf/Elf.i"
 	@echo "... src/Elf/Elf.s"
-	@echo "... src/Elf/IRContext.o"
-	@echo "... src/Elf/IRContext.i"
-	@echo "... src/Elf/IRContext.s"
-	@echo "... src/Elf/ProgramBuffer.o"
-	@echo "... src/Elf/ProgramBuffer.i"
-	@echo "... src/Elf/ProgramBuffer.s"
-	@echo "... src/Elf/RegistersUsage.o"
-	@echo "... src/Elf/RegistersUsage.i"
-	@echo "... src/Elf/RegistersUsage.s"
-	@echo "... src/Elf/TranslateIRTox86.o"
-	@echo "... src/Elf/TranslateIRTox86.i"
-	@echo "... src/Elf/TranslateIRTox86.s"
-	@echo "... src/IR/AstToIR.o"
-	@echo "... src/IR/AstToIR.i"
-	@echo "... src/IR/AstToIR.s"
-	@echo "... src/IR/Builder.o"
-	@echo "... src/IR/Builder.i"
-	@echo "... src/IR/Builder.s"
-	@echo "... src/IR/DumpIR.o"
-	@echo "... src/IR/DumpIR.i"
-	@echo "... src/IR/DumpIR.s"
-	@echo "... src/IR/Instruction.o"
-	@echo "... src/IR/Instruction.i"
-	@echo "... src/IR/Instruction.s"
-	@echo "... src/IR/Module.o"
-	@echo "... src/IR/Module.i"
-	@echo "... src/IR/Module.s"
-	@echo "... src/IR/Storage.o"
-	@echo "... src/IR/Storage.i"
-	@echo "... src/IR/Storage.s"
-	@echo "... src/IR/StringPool.o"
-	@echo "... src/IR/StringPool.i"
-	@echo "... src/IR/StringPool.s"
-	@echo "... src/IR/Value.o"
-	@echo "... src/IR/Value.i"
-	@echo "... src/IR/Value.s"
-	@echo "... src/IR/ValueLabel.o"
-	@echo "... src/IR/ValueLabel.i"
-	@echo "... src/IR/ValueLabel.s"
+	@echo "... src/IR/AstToIR/AstToIR.o"
+	@echo "... src/IR/AstToIR/AstToIR.i"
+	@echo "... src/IR/AstToIR/AstToIR.s"
+	@echo "... src/IR/AstToIR/Builder.o"
+	@echo "... src/IR/AstToIR/Builder.i"
+	@echo "... src/IR/AstToIR/Builder.s"
+	@echo "... src/IR/AstToIR/StringPool.o"
+	@echo "... src/IR/AstToIR/StringPool.i"
+	@echo "... src/IR/AstToIR/StringPool.s"
+	@echo "... src/IR/AstToIR/ValueLabel.o"
+	@echo "... src/IR/AstToIR/ValueLabel.i"
+	@echo "... src/IR/AstToIR/ValueLabel.s"
+	@echo "... src/IR/DumpIR/DumpIR.o"
+	@echo "... src/IR/DumpIR/DumpIR.i"
+	@echo "... src/IR/DumpIR/DumpIR.s"
+	@echo "... src/IR/Instructions/Instruction.o"
+	@echo "... src/IR/Instructions/Instruction.i"
+	@echo "... src/IR/Instructions/Instruction.s"
+	@echo "... src/IR/Module/Module.o"
+	@echo "... src/IR/Module/Module.i"
+	@echo "... src/IR/Module/Module.s"
+	@echo "... src/IR/Storage/Storage.o"
+	@echo "... src/IR/Storage/Storage.i"
+	@echo "... src/IR/Storage/Storage.s"
+	@echo "... src/IR/TranslateTox86/Commands.o"
+	@echo "... src/IR/TranslateTox86/Commands.i"
+	@echo "... src/IR/TranslateTox86/Commands.s"
+	@echo "... src/IR/TranslateTox86/IRContext.o"
+	@echo "... src/IR/TranslateTox86/IRContext.i"
+	@echo "... src/IR/TranslateTox86/IRContext.s"
+	@echo "... src/IR/TranslateTox86/RegistersUsage.o"
+	@echo "... src/IR/TranslateTox86/RegistersUsage.i"
+	@echo "... src/IR/TranslateTox86/RegistersUsage.s"
+	@echo "... src/IR/TranslateTox86/TranslateIRTox86.o"
+	@echo "... src/IR/TranslateTox86/TranslateIRTox86.i"
+	@echo "... src/IR/TranslateTox86/TranslateIRTox86.s"
+	@echo "... src/IR/Value/Value.o"
+	@echo "... src/IR/Value/Value.i"
+	@echo "... src/IR/Value/Value.s"
 	@echo "... src/Legacy/AsmCtx.o"
 	@echo "... src/Legacy/AsmCtx.i"
 	@echo "... src/Legacy/AsmCtx.s"
@@ -1038,9 +990,6 @@ help:
 	@echo "... src/Legacy/Common/Structures/Tabels/NameTable.o"
 	@echo "... src/Legacy/Common/Structures/Tabels/NameTable.i"
 	@echo "... src/Legacy/Common/Structures/Tabels/NameTable.s"
-	@echo "... src/Legacy/Common/Structures/Tabels/Tabels.o"
-	@echo "... src/Legacy/Common/Structures/Tabels/Tabels.i"
-	@echo "... src/Legacy/Common/Structures/Tabels/Tabels.s"
 	@echo "... src/Legacy/Common/Structures/Token/Token.o"
 	@echo "... src/Legacy/Common/Structures/Token/Token.i"
 	@echo "... src/Legacy/Common/Structures/Token/Token.s"
@@ -1050,9 +999,6 @@ help:
 	@echo "... src/Legacy/Common/Utils/LangUtils.o"
 	@echo "... src/Legacy/Common/Utils/LangUtils.i"
 	@echo "... src/Legacy/Common/Utils/LangUtils.s"
-	@echo "... src/Legacy/SetTokenTree.o"
-	@echo "... src/Legacy/SetTokenTree.i"
-	@echo "... src/Legacy/SetTokenTree.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
