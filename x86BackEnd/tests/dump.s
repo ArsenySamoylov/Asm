@@ -26,7 +26,7 @@ factorial:
 	push %r15     
 
 	# save param regs on stack
-	movq %rdi, -8 (%rbp)  # Save 'number' on stack
+	movq %rdi, -8 (%rbp)  # save parameter 'number' on stack
 
 
 entry_factorial:
@@ -80,8 +80,6 @@ than_0:
 						  # put_value_to_reg: '%c_1' already in %rdi
 						  # put_value_to_reg: 'number' already in %r15
 
-	mov %r15,   %r14      # save 'number' to %r14
-
 	# generating mul/div #
 	push %rdx     # (save %rdx)
 	xor %rdx, %rdx
@@ -96,7 +94,7 @@ than_0:
 	pop %rdx              # (restore %rdx)
 
 ### return %op_3
-	
+
 	mov %r15,   %rax      # return %op_3
 	# restore callee-save regs
 	pop %r15              
@@ -118,7 +116,7 @@ than_0:
 
 merge_0:
 ### return 1
-	
+
 	movq $100 , %rax      # return const_2
 	# restore callee-save regs
 	pop %r15              
@@ -151,7 +149,7 @@ TEST:
 	push %r15     
 
 	# save param regs on stack
-	movq %rdi, -8 (%rbp)  # Save 'iteration' on stack
+	movq %rdi, -8 (%rbp)  # save parameter 'iteration' on stack
 
 
 entry_TEST:
@@ -184,10 +182,10 @@ entry_TEST:
 
 
 than_1:
-### %c_1 = call: factorial (param 15)
+### %c_1 = call: factorial (param 6)
 	# save busy regs
 	# set parameters 
-	movq $1500, %rdi      
+	movq $600 , %rdi      
 	call factorial 
 	mov %rax,   %rdi      # save call result from rax
 
@@ -195,26 +193,30 @@ than_1:
 						  # put_value_to_reg: '%c_1' already in %rdi
 	movq %rdi, -16(%rbp)  # copy '%c_1' to stack (to 'result')
 
-### %op_3 = sub iteration, 1
+### call: fout (param result)
+	# save busy regs
+	# set parameters 
+	movq -16(%rbp), %rdi  
+	call fout 
+
+### %op_4 = sub iteration, 1
 	movq $100 , %rdi      # put_value_to_reg: ' const_2' -> %rdi
 						  # put_value_to_reg: 'iteration' already in %r14
-
-	mov %r14,   %r15      # save 'iteration' to %r15
 
 	# math op #
 	sub %rdi, %r14
 
 
-### %c_2 = call: TEST (param %op_3)
+### %c_3 = call: TEST (param %op_4)
 	# save busy regs
 	# set parameters 
 	mov %r14,   %rdi      
 	call TEST 
 	mov %rax,   %rdi      # save call result from rax
 
-### return %c_2
-	
-	mov %rdi,   %rax      # return %c_2
+### return %c_3
+
+	mov %rdi,   %rax      # return %c_3
 	# restore callee-save regs
 	pop %r15              
 	pop %r14              
@@ -235,7 +237,7 @@ than_1:
 
 merge_1:
 ### return 1
-	
+
 	movq $100 , %rax      # return const_3
 	# restore callee-save regs
 	pop %r15              
@@ -271,14 +273,14 @@ main:
 
 
 entry_main:
-### %c_0 = call: TEST (param 2000)
+### %c_0 = call: TEST (param 10)
 	# save busy regs
 	# set parameters 
-	movq $200000, %rdi      
+	movq $1000, %rdi      
 	call TEST 
 
 ### return 0
-	
+
 	movq $0   , %rax      # return const_1
 	# restore callee-save regs
 	pop %r15              

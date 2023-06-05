@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o.d"
   "CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o"
   "CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o.d"
+  "CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o"
+  "CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o.d"
   "CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o"
   "CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o.d"
   "CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o"

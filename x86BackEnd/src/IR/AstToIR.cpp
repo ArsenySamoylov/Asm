@@ -321,6 +321,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         func_name = LEFT(token);
         assert(func_name);
         
+        // TODO make separate tables, to avoid cast
         func = (Function*) FindValue (buildog, NAME_ID(func_name));
         if (!func)
             {
@@ -485,7 +486,7 @@ static Store* AddLocalVar (Builder* buildog, const Token* token)
     
     CopyValueLabel (&buildog->local, &label);
     
-    buildog->function->increase_n_local_vars ();3
+    buildog->current_function->increase_n_local_vars ();
     return store;
     };
 

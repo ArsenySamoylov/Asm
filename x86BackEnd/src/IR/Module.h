@@ -41,4 +41,4 @@ enum NativeFunction
     };
 
 extern const int N_NATIVE_FUNCTIONS;
-const Function*  GetNativeFunction (int func_num);
+Function*  GetNativeFunction (int func_num);

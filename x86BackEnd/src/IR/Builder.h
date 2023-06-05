@@ -30,7 +30,7 @@ int AddInstruction (Builder* buildog, Instruction* instruction);
 int AddGlobalVar   (Builder* buildog, GlobalVar* var);
 
 //////////////////////////////////////////////////////
-const Value* FindValue (Builder* buildog, int name_id);
+Value* FindValue (Builder* buildog, int name_id);
 
 //////////////////////////////////////////////////////
 static int FIN_NAME_ID = 0; 

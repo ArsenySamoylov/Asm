@@ -10,7 +10,7 @@ include_directories(src/IR src/Elf src/Legacy src/Legacy/include
 add_executable (x86Backend 
                             src/main.cpp 
 
-                            src/IR/Value.cpp src/IR/Instruction.cpp    src/IR/Builder.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/DumpIR.cpp src/IR/Storage.cpp
+                            src/IR/Value.cpp src/IR/Instruction.cpp    src/IR/Builder.cpp  src/IR/AstToIR.cpp src/IR/StringPool.cpp  src/IR/Module.cpp src/IR/ValueLabel.cpp src/IR/DumpIR.cpp src/IR/Storage.cpp
                             src/Elf/Elf.cpp  src/Elf/ProgramBuffer.cpp src/Elf/RegistersUsage.cpp src/Elf/IRContext.cpp  src/Elf/Commands.cpp src/Elf/TranslateIRTox86.cpp
                            
                             ATC/Utils/Utils.cpp ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 

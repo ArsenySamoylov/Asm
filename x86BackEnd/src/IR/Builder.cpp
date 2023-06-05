@@ -149,7 +149,7 @@ int AddGlobalVar (Builder* buildog, GlobalVar* var)
     }
 
 //////////////////////////////////////////////////////
-const Value* FindValue (Builder* buildog, int name_id)
+Value* FindValue (Builder* buildog, int name_id)
     {
     assert (buildog);
     
@@ -177,7 +177,7 @@ int AddNativeFunctions (Builder* buildog)
 
     for (int i = 0; i < N_NATIVE_FUNCTIONS; i++)
         {
-        const Function* native_func = GetNativeFunction (i);
+        Function* native_func = GetNativeFunction (i);
         assert         (native_func);
 
         int name_id = AddString (native_func->get_name());

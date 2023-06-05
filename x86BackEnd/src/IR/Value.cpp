@@ -12,7 +12,7 @@
 Value::Value (ValueType param_type, name_t param_name) : 
     type (param_type), 
     name (param_name), 
-    storage (StorageType::NoWhere)
+    storage (StorageType::NoWhere, VariableType::NotVariable, param_name)
     {}
 
 name_t   Value::get_name    () const {return name;}
@@ -44,14 +44,22 @@ Instruction* BaseBlock::add_instr (Instruction* instr)
     return inst_arr.add (instr);
     }
 
+void BaseBlock::set_address (address_t address) const
+    {
+    storage.set_storage_type (StorageType::Memory);
+    (storage.set_storage_data())->address = address;
+    }
+
 //////////////////////////////////////////////////////
 // Constant
 //////////////////////////////////////////////////////
 Constant::Constant (name_t name_param, const data_t value) :
     Value (ValueType::Constant, name_param)
     {
-    storage.set_storage_type (StorageType::Constant);
-    storage.set_storage_data ({.data = value});
+    storage.set_storage_type  (StorageType::Constant);
+    storage.set_var_type      (VariableType::Temp);
+
+    *(storage.set_storage_data()) = {.data = value};
     }
 
 ValueType Constant::get_type () const 
@@ -110,4 +118,11 @@ ValueType Function::get_type () const
 
 FunctionRetType Function::get_ret_type () const {return ret_type;}
 
-void Function::increase_n_local_vars () {++n_local_vars;}
+void   Function::increase_n_local_vars ()       {++n_local_vars;}
+size_t Function::get_n_local_vars      () const {return n_local_vars;}
+
+void Function::set_address (address_t address) const
+    {
+    storage.set_storage_type (StorageType::Memory);
+    (storage.set_storage_data())->address = address;
+    }

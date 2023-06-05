@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/ProgramBuffer.cpp" "CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o.d"
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.cpp" "CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o.d"
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/TranslateIRTox86.cpp" "CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o.d"
+  "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp" "CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o.d"
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Builder.cpp" "CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o.d"
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DumpIR.cpp" "CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o.d"
   "/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Instruction.cpp" "CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o" "gcc" "CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o.d"

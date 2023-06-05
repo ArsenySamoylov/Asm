@@ -138,7 +138,9 @@ class Function : public Value
        ValueArr<BaseBlock>*   get_body ();
 
        FunctionRetType get_ret_type () const;
-       void increase_n_local_vars ();
+       
+       void   increase_n_local_vars ();
+       size_t get_n_local_vars      () const;
 
        void set_address (address_t address) const;
     };

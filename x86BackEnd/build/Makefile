@@ -465,6 +465,30 @@ src/Elf/TranslateIRTox86.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s
 .PHONY : src/Elf/TranslateIRTox86.cpp.s
 
+src/IR/AstToIR.o: src/IR/AstToIR.cpp.o
+.PHONY : src/IR/AstToIR.o
+
+# target to build an object file
+src/IR/AstToIR.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o
+.PHONY : src/IR/AstToIR.cpp.o
+
+src/IR/AstToIR.i: src/IR/AstToIR.cpp.i
+.PHONY : src/IR/AstToIR.i
+
+# target to preprocess a source file
+src/IR/AstToIR.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i
+.PHONY : src/IR/AstToIR.cpp.i
+
+src/IR/AstToIR.s: src/IR/AstToIR.cpp.s
+.PHONY : src/IR/AstToIR.s
+
+# target to generate assembly for a file
+src/IR/AstToIR.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/x86Backend.dir/build.make CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s
+.PHONY : src/IR/AstToIR.cpp.s
+
 src/IR/Builder.o: src/IR/Builder.cpp.o
 .PHONY : src/IR/Builder.o
 
@@ -972,6 +996,9 @@ help:
 	@echo "... src/Elf/TranslateIRTox86.o"
 	@echo "... src/Elf/TranslateIRTox86.i"
 	@echo "... src/Elf/TranslateIRTox86.s"
+	@echo "... src/IR/AstToIR.o"
+	@echo "... src/IR/AstToIR.i"
+	@echo "... src/IR/AstToIR.s"
 	@echo "... src/IR/Builder.o"
 	@echo "... src/IR/Builder.i"
 	@echo "... src/IR/Builder.s"

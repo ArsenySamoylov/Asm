@@ -23,7 +23,9 @@ ValueType Instruction::get_type () const
 Store::Store (name_t name_param, const Value* val_param) :
     Instruction (name_param, InstructionType::Store),
     val         (val_param) 
-    {}
+    {
+    storage.set_var_type (VariableType::Local);
+    }
 
 InstructionType Store::get_instr_type () const 
     {

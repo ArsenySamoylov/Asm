@@ -125,10 +125,24 @@ CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Builder.cpp -o CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.s
 
+CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: CMakeFiles/x86Backend.dir/flags.make
+CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: ../src/IR/AstToIR.cpp
+CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp
+
+CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp > CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.i
+
+CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/AstToIR.cpp -o CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.s
+
 CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o: ../src/IR/StringPool.cpp
 CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/StringPool.cpp
 
 CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o: ../src/IR/Module.cpp
 CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Module.cpp
 
 CMakeFiles/x86Backend.dir/src/IR/Module.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/x86Backend.dir/src/IR/Module.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: ../src/IR/ValueLabel.cpp
 CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/ValueLabel.cpp
 
 CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: ../src/IR/DumpIR.cpp
 CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/DumpIR.cpp
 
 CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/x86Backend.dir/src/IR/DumpIR.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: ../src/IR/Storage.cpp
 CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o -MF CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o.d -o CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/IR/Storage.cpp
 
 CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/x86Backend.dir/src/IR/Storage.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: ../src/Elf/Elf.cpp
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Elf.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/x86Backend.dir/src/Elf/Elf.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o: ../src/Elf/ProgramBuffer.cpp
 CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/ProgramBuffer.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/x86Backend.dir/src/Elf/ProgramBuffer.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: ../src/Elf/RegistersUsage.cpp
 CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/RegistersUsage.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/x86Backend.dir/src/Elf/RegistersUsage.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o: ../src/Elf/IRContext.cpp
 CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/IRContext.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/x86Backend.dir/src/Elf/IRContext.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: ../src/Elf/Commands.cpp
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/Commands.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/x86Backend.dir/src/Elf/Commands.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: ../src/Elf/TranslateIRTox86.cpp
 CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o -MF CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Elf/TranslateIRTox86.cpp
 
 CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/x86Backend.dir/src/Elf/TranslateIRTox86.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o: ../ATC/Utils/Utils.cpp
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Utils/Utils.cpp
 
 CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/x86Backend.dir/ATC/Utils/Utils.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: ../ATC/Buffer/my_buffer.cpp
 CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Buffer/my_buffer.cpp
 
 CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/x86Backend.dir/ATC/Buffer/my_buffer.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o: ../ATC/Logger/Logger.cpp
 CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/Logger.cpp
 
 CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/x86Backend.dir/ATC/Logger/Logger.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o: ../ATC/Logger/tostring.cpp
 CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/tostring.cpp
 
 CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/x86Backend.dir/ATC/Logger/tostring.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o: ../ATC/Logger/FunctionLogger.cpp
 CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/Logger/FunctionLogger.cpp
 
 CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/x86Backend.dir/ATC/Logger/FunctionLogger.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o: ../ATC/SuperStack/SuperStack.cpp
 CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/SuperStack.cpp
 
 CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/x86Backend.dir/ATC/SuperStack/SuperStack.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: ../ATC/SuperStack/DebugFunctions.cpp
 CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/SuperStack/DebugFunctions.cpp
 
 CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/x86Backend.dir/ATC/SuperStack/DebugFunctions.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o: ../ATC/my_safety/my_safety.cpp
 CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o -MF CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o.d -o CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/ATC/my_safety/my_safety.cpp
 
 CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/x86Backend.dir/ATC/my_safety/my_safety.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o: ../src/Legacy/AsmCtx.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/AsmCtx.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/AsmCtx.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o: ../src/Legacy/SetTokenTree.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/SetTokenTree.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/SetTokenTree.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: ../src/Legacy/Common/StandartAWP/GetStd.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/StandartAWP/GetStd.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/StandartAWP/GetStd.cpp.s: cmake_forc
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o: ../src/Legacy/Common/Structures/Program/Program.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Program/Program.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program/Program.cpp.s: cm
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o: ../src/Legacy/Common/Structures/Token/Token.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Token/Token.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token/Token.cpp.s: cmake_
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o: ../src/Legacy/Common/Structures/Tabels/Tabels.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/Tabels.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.i: cmake_force
@@ -478,7 +492,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/Tabels.cpp.s: cmak
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o: ../src/Legacy/Common/Structures/Tabels/NameTable.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Structures/Tabels/NameTable.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.i: cmake_force
@@ -492,7 +506,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels/NameTable.cpp.s: c
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o: ../src/Legacy/Common/Utils/GraphVis.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Utils/GraphVis.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.i: cmake_force
@@ -506,7 +520,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/GraphVis.cpp.s: cmake_force
 CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o: ../src/Legacy/Common/LexicalCtx/LexicalCtx.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.i: cmake_force
@@ -520,7 +534,7 @@ CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cpp.s: cmake_f
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o: CMakeFiles/x86Backend.dir/flags.make
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o: ../src/Legacy/Common/Utils/LangUtils.cpp
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o: CMakeFiles/x86Backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o -MF CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o.d -o CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o -c /home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/src/Legacy/Common/Utils/LangUtils.cpp
 
 CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.i: cmake_force
@@ -537,6 +551,7 @@ x86Backend_OBJECTS = \
 "CMakeFiles/x86Backend.dir/src/IR/Value.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o" \
+"CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o" \
 "CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o" \
@@ -574,6 +589,7 @@ x86Backend: CMakeFiles/x86Backend.dir/src/main.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/Value.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/Instruction.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/Builder.cpp.o
+x86Backend: CMakeFiles/x86Backend.dir/src/IR/AstToIR.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/StringPool.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/Module.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/src/IR/ValueLabel.cpp.o
@@ -605,7 +621,7 @@ x86Backend: CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/LexicalCtx.cp
 x86Backend: CMakeFiles/x86Backend.dir/src/Legacy/Common/Utils/LangUtils.cpp.o
 x86Backend: CMakeFiles/x86Backend.dir/build.make
 x86Backend: CMakeFiles/x86Backend.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable x86Backend"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/arsenyfucker/Desktop/PROJECTS/x86BackEnd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable x86Backend"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/x86Backend.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

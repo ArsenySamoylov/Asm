@@ -7,10 +7,12 @@
 
 #include "Commands.h"
 
-Storage::Storage (StorageType type) :
+Storage::Storage (StorageType type, VariableType var_type, name_t owner_name_param) :
     storage_type  (type),
+    variable_type (var_type),
     storage_data  ({}),
-    n_usage       (0)
+    n_usage       (0),
+    owner_name    (owner_name_param)
     {}
 
 void Storage::set_storage_type (StorageType type)
@@ -19,14 +21,23 @@ void Storage::set_storage_type (StorageType type)
 StorageType Storage::get_storage_type () const
     { return storage_type; }
 
-void Storage::set_storage_data (StorageData data)
-    {
-    storage_data = data;
-    }
+void Storage::set_var_type (VariableType var_type)
+    { variable_type = var_type; }
+
+VariableType Storage::get_var_type () const
+    { return variable_type; }
+
+StorageData* Storage::set_storage_data ()
+    { return &storage_data;}
 
 void Storage::increase_usage ()
     { 
-    assert (storage_type != StorageType::NoWhere);
+    if (variable_type == VariableType::NotVariable)
+        {
+        this->print ();
+        assert (0);
+        }
+
     n_usage++; 
     }
 
@@ -47,7 +58,7 @@ void Storage::decrease_usage ()
 
 size_t Storage::get_usage () const
     { 
-    assert (storage_type != StorageType::NoWhere);
+    assert (variable_type != VariableType::NotVariable);
     return n_usage; 
     }
 
@@ -65,7 +76,7 @@ GPRegisterNumber Storage::get_reg_num () const
 
 size_t Storage::get_stack_offset () const 
     {
-    assert (storage_type == StorageType::Stack);
+    assert (variable_type == VariableType::Local);
     return storage_data.offset;
     }
 
@@ -90,7 +101,8 @@ void Storage::set_with_reg (Reg* reg)
     
 void Storage::print () const
     {
-    printf ("storage: n_usage %lu", n_usage);
+    printf ("storage %s: n_usage %lu", 
+            owner_name ? owner_name : "NULL", n_usage);
 
     if (storage_type == StorageType::Stack)
         printf (", on stack (offset %lu)", storage_data.offset);
@@ -103,42 +115,10 @@ void Storage::print () const
 
     if (storage_type == StorageType::NoWhere)
         printf (", NoWhere");
-    }
-
-void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
-    {
-    assert (ctx);
-    assert (dest_reg);
-
-    switch (storage_type)
-        {
-        case StorageType::Register:
-                PutMovRR (ctx, storage_data.reg_num, dest_reg->number, comment);
-                break;
-
-        case StorageType::Constant:
-                break;
-
-        case StorageType::NoWhere:  
-                PutMovConstant (ctx, dest_reg->number, storage_data.data, comment);
-                assert (0);
-                break;
-
-        case StorageType::Stack:
-                PutMoveFromStack (ctx, storage_data.offset, dest_reg->number, comment);
-                break;
-
-        case StorageType::Memory:
-                print_tab ("get from mem -> %s\n", GetRegName(dest_reg->number));
-                assert (0);
-
-        default:
-                assert(0);
-        }
-
-    this->set_with_reg (dest_reg);
-    }
     
+    printf ("\n");
+    }
+
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
@@ -154,7 +134,7 @@ void Function::set_storage () const
     for (size_t i = 0; i < body.get_size(); i++)
         body.get_const_value(i)->set_storage();
     
-    assert (STACK_OFFSET != n_local_vars);
+    assert (STACK_OFFSET == n_local_vars);
     }
 
 //////////////////////////////////////////////////////
@@ -175,12 +155,20 @@ void Constant::set_storage () const
     }
 
 //////////////////////////////////////////////////////
+// GlobalVar
+//////////////////////////////////////////////////////
+void GlobalVar::set_storage () const
+    {
+    // TODO
+    }
+
+//////////////////////////////////////////////////////
 // Instructions
 //////////////////////////////////////////////////////
 void Store::set_storage () const
     {
     storage.set_storage_type (StorageType::Stack);
-    storage.set_storage_data ({.offset = ++STACK_OFFSET});
+    * (storage.set_storage_data()) = {.offset = ++STACK_OFFSET};
 
     if (val)
         (val->get_storage())->increase_usage ();
@@ -188,12 +176,16 @@ void Store::set_storage () const
 
 void Load::set_storage () const
     {
+    storage.set_var_type (VariableType::Temp);
+
     (dest->get_storage())->increase_usage ();  
     (src ->get_storage())->increase_usage ();
     }
 
 void Operator::set_storage () const
     {
+    storage.set_var_type (VariableType::Temp);
+
     ( left_op->get_storage())->increase_usage ();
     (right_op->get_storage())->increase_usage ();
     }
@@ -206,12 +198,16 @@ void Branch::set_storage () const
 
 void Call::set_storage () const 
     {
+    storage.set_var_type (VariableType::Temp);
+
     for (size_t i = 0; i < argv.get_size(); i++)
         (argv.get_const_value(i)->get_storage())->increase_usage ();
     }
 
 void Return::set_storage () const 
     {
+    storage.set_var_type (VariableType::Temp);
+
     if (ret_value)
         (ret_value->get_storage())->increase_usage ();
     }

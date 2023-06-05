@@ -40,13 +40,14 @@ struct Context
 
     Buffer* stdlib;
 
+    size_t n_locals;
     FILE* dump;
     };
 
 int ContextCtor (Context* ctx, Elf* elf);
 int ContextDtor (Context* ctx);
 
-int SetCtxForFunction     (Context* ctx);
+int SetCtxForFunction     (Context* ctx, const Function* func);
 int ClearCtxAfterFunction (Context* ctx);
 
 void WriteOpCodes (Context* ctx, const char* src, unsigned size);

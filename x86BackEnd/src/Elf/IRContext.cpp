@@ -43,8 +43,8 @@ int ResolveReferences (Buffer* code, ReferenceArr* refs)
         byte* where_to_write = code->buffer + reference->position;
         assert (code->size > reference->position);
 
-        *((int32_t*) where_to_write) = reference->address - 
-                                       reference->ref_value->get_storage()->get_address();
+        *((int32_t*) where_to_write) = reference->ref_value->get_storage()->get_address() -
+                                       reference->address;
         }
 
     return 0;
@@ -79,17 +79,20 @@ int ContextDtor (Context* ctx)
     return SUCCESS;
     }
 
-int SetCtxForFunction (Context* ctx)
+int SetCtxForFunction (Context* ctx, const Function* func)
     {
     assert(ctx);
 
+    ctx->n_locals = func->get_n_local_vars ();
+    
     return SUCCESS;
     }
 
 int ClearCtxAfterFunction (Context* ctx)
     {
     assert(ctx);
-
+    
+    ctx->n_locals = 0;
     ResetReferenceArr  (&ctx->jump_refs);
     return SUCCESS;
     }

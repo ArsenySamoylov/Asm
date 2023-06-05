@@ -1,9 +1,10 @@
 #include <assert.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "Module.h"
 #include "CommonEnums.h"
 
-#include <stdio.h>
 
 Module::~Module ()
     {
@@ -40,6 +41,20 @@ void Module::add_const (Constant* constant)
     const_pool.add (constant);
     }
 
+const Function* Module::find_main () const
+    {
+    for (size_t i = 0; i < functions.get_size(); i++)
+        {
+        const Function* func = functions.get_const_value (i);
+        assert        (func);
+
+        if (!strcmp (func->get_name(), "main"))
+            return func;
+        }
+    
+    return NULL;
+    }
+
 //////////////////////////////////////////////////////
 Function NativeFunctions[] = { 
     {"fin", FunctionRetType::Double},
@@ -51,8 +66,8 @@ Function NativeFunctions[] = {
 
 const int N_NATIVE_FUNCTIONS = sizeof (NativeFunctions) / sizeof (NativeFunctions[0]);
 
-const Function*  GetNativeFunction (int func_num)
+Function*  GetNativeFunction (int func_num)
     {
-    assert (func_num > N_NATIVE_FUNCTIONS);
+    assert (func_num < N_NATIVE_FUNCTIONS);
     return NativeFunctions + func_num;
     }
