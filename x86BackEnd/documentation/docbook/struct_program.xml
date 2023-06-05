@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_program" xml:lang="en-US">
+<title>Program Struct Reference</title>
+<indexterm><primary>Program</primary></indexterm>
+Collaboration diagram for Program:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_program__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_program_1a3d01f662618e68ded96ab6017566893f"/><link linkend="_struct_token">Token</link> * <emphasis role="strong">token_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1a48c8ab59010c14f3452d68c0c26de7f0"/>int <emphasis role="strong">number_of_tokens</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1a089e5524c5c585e24ef77ff3259a7d0d"/><link linkend="_struct_token">Token</link> * <emphasis role="strong">root</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1a280660da02bbb5520c0f2641ad012139"/>const char ** <emphasis role="strong">string_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1ada11961604445f9d96fcb35990799f4e"/>int <emphasis role="strong">number_of_strings</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1a0825669e4a49328ad8beb7fc10422d7b"/>const char * <emphasis role="strong">path_to_src_file</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1aa0953ce5bdaeba86d8f25787b01c3fb9"/><link linkend="_struct_name_table_arr">NameTableArr</link> * <emphasis role="strong">name_table_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_program_1a76402838271f0fa99fff5e86d9e8ff4c"/>int <emphasis role="strong">number_of_global_vars</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/Structures/Program/Program.h</section>

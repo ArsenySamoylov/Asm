@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_lexical_ctx" xml:lang="en-US">
+<title>LexicalCtx Struct Reference</title>
+<indexterm><primary>LexicalCtx</primary></indexterm>
+Collaboration diagram for LexicalCtx:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_lexical_ctx__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1a025d1198633fbe9a720f7f09cfbe2096"/><link linkend="_struct_buffer">Buffer</link> * <emphasis role="strong">buf</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1ac8f3c12b74ca250525f0804bc54542c8"/><link linkend="_struct_token">Token</link> * <emphasis role="strong">token_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1ac0b8c8644d4f34ce46c60fd6416bc15b"/>size_t <emphasis role="strong">token_arr_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1ae2e1b2a0a1a594167c0cf4e7d6782587"/>size_t <emphasis role="strong">number_of_tokens</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1aa0ed0c340b116efc570a2f30414f7e9b"/>const char ** <emphasis role="strong">string_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1ab87e7a777c0ecf7f6c77effbb3cf4cfd"/>size_t <emphasis role="strong">string_arr_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1a1094d04c952d6917842a74b2e4409346"/>size_t <emphasis role="strong">number_of_strings</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_lexical_ctx_1ad8a6939746a0a8485eec663ffbe6e2eb"/>int <emphasis role="strong">allow_recalloc</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/LexicalCtx/LexicalCtx.h</section>

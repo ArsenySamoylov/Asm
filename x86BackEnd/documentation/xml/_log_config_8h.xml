@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_log_config_8h" kind="file" language="C++">
+    <compoundname>LogConfig.h</compoundname>
+    <includes local="no">errno.h</includes>
+    <includedby refid="_logger_8h" local="yes">ATC/Logger/Logger.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>errno.h</label>
+      </node>
+      <node id="1">
+        <label>ATC/Logger/LogConfig.h</label>
+        <link refid="_log_config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>ATC/Logger/Logger.h</label>
+        <link refid="_logger_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ATC/Logger/LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/Legacy/Common/Structures/DSL.h</label>
+        <link refid="_d_s_l_8h_source"/>
+      </node>
+      <node id="1">
+        <label>ATC/Logger/LogConfig.h</label>
+        <link refid="_log_config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+      <node id="4">
+        <label>ATC/Logger/FunctionLogger.h</label>
+        <link refid="_function_logger_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_log_config_8h_1a0b87e0d3bf5853bcbb0b66a7c48fdc05" prot="public" static="no">
+        <name>LOG_LEVEL</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/LogConfig.h" line="6" column="9" bodyfile="ATC/Logger/LogConfig.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LoggingLevels</name>
+        <enumvalue id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32da7a0d11ad1f6e8983e25ea6a7f84b82d3" prot="public">
+          <name>FULL_MAXIMUM_ULTRA_TOTAL_FUCKING_LOGGING</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32daf6ea85d83bb62fe8581251185fe659ae" prot="public">
+          <name>DEBUG_ALL</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32da0593585da9181e972974c1274d8f2b4f" prot="public">
+          <name>DEBUG</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32dad970266ef8bce3b5290badb6bddc220b" prot="public">
+          <name>INTERMEDIATE</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_log_config_8h_1aeea216e75ca3d73c9e2cc2ed51e6b32dad590443978dc58d64aed5001f56efcdf" prot="public">
+          <name>RELEASE</name>
+          <initializer>= 666</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/LogConfig.h" line="9" column="1" bodyfile="ATC/Logger/LogConfig.h" bodystart="10" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_log_config_8h_1aab4669fa9a00998d123ec932ed008a73" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char STD_LOG_NAME[]</definition>
+        <argsstring>[]</argsstring>
+        <name>STD_LOG_NAME</name>
+        <initializer>= &quot;./logs/stdlog.ars&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/LogConfig.h" line="3" column="12" bodyfile="ATC/Logger/LogConfig.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>STD_LOG_NAME[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;./logs/stdlog.ars&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LOG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOG_LEVEL<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>LoggingLevels</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>FULL_MAXIMUM_ULTRA_TOTAL_FUCKING_LOGGING<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>DEBUG_ALL<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>DEBUG<sp/><sp/><sp/><sp/><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>INTERMEDIATE<sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>RELEASE<sp/>=<sp/>666,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>USEFULL<sp/>ERRNO<sp/>CODES:</highlight></codeline>
+    </programlisting>
+    <location file="ATC/Logger/LogConfig.h"/>
+  </compounddef>
+</doxygen>

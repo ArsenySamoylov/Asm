@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_cfbff7a5846df81ad9fb35d610f89d58" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures</compoundname>
+    <innerdir refid="dir_717dedc7099714fbaf800840db81cd7b">build/CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Program</innerdir>
+    <innerdir refid="dir_fa00e39c10d00072d77331136296d03b">build/CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Tabels</innerdir>
+    <innerdir refid="dir_fb675cb65884b445b412bcaec2a63aaa">build/CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/Token</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/src/Legacy/Common/Structures/"/>
+  </compounddef>
+</doxygen>

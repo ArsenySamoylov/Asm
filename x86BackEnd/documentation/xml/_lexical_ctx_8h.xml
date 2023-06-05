@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_lexical_ctx_8h" kind="file" language="C++">
+    <compoundname>LexicalCtx.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes refid="_token_8h" local="yes">Token.h</includes>
+    <includes refid="my__buffer_8h" local="yes">my_buffer.h</includes>
+    <includedby refid="_lexical_ctx_8cpp" local="yes">src/Legacy/Common/LexicalCtx/LexicalCtx.cpp</includedby>
+    <includedby refid="_get_std_8cpp" local="yes">src/Legacy/Common/StandartAWP/GetStd.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>src/Legacy/Common/LexicalCtx/LexicalCtx.h</label>
+        <link refid="_lexical_ctx_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>NameTable.h</label>
+        <link refid="_name_table_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>my_buffer.h</label>
+        <link refid="my__buffer_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_lexical_ctx" prot="public">LexicalCtx</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_lexical_ctx_8h_1a6450ef4cb7f5740f7aa5ad381fef570d" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NOT_A_NAME</definition>
+        <argsstring></argsstring>
+        <name>NOT_A_NAME</name>
+        <initializer>= -555</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="26" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1af46d787ed8b8d69b96e1f01decc01900" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NOT_A_INSTRUCTION</definition>
+        <argsstring></argsstring>
+        <name>NOT_A_INSTRUCTION</name>
+        <initializer>= -666</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="27" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1a691de8d10c6e00b453532f0f36f45109" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NOT_A_INITIALIZATOR</definition>
+        <argsstring></argsstring>
+        <name>NOT_A_INITIALIZATOR</name>
+        <initializer>= -111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="28" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1a8b2f12517ee8feac105b728720241ee0" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NOT_A_RET_TYPE</definition>
+        <argsstring></argsstring>
+        <name>NOT_A_RET_TYPE</name>
+        <initializer>= -333</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="29" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1aa2c39fdcb64858af0c168d63dcbcda28" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NOT_A_NATIVE_FUNCTION</definition>
+        <argsstring></argsstring>
+        <name>NOT_A_NATIVE_FUNCTION</name>
+        <initializer>= -222</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="30" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1a99cd85abc7545489807bc119681ffe98" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int START_NUMBER_OF_TOKENS</definition>
+        <argsstring></argsstring>
+        <name>START_NUMBER_OF_TOKENS</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="32" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_lexical_ctx_8h_1ac8aa09f7911dd146af9fa10e12c89edb" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int START_NUMBER_OF_STRINGS</definition>
+        <argsstring></argsstring>
+        <name>START_NUMBER_OF_STRINGS</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="33" column="11" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_lexical_ctx_8h_1a2d3f510f483b64cded311f47f6c069f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LexicalCtxCtor</definition>
+        <argsstring>(LexicalCtx *ctx, const char *buffer, int allow_recalloc=true, size_t start_number_of_tokens=START_NUMBER_OF_TOKENS)</argsstring>
+        <name>LexicalCtxCtor</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>allow_recalloc</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>start_number_of_tokens</declname>
+          <defval>START_NUMBER_OF_TOKENS</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="35" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="9" bodyend="60" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="35" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1a14c1146c6cd6c7a8770409e48beec791" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LexicalCtxFailDtor</definition>
+        <argsstring>(LexicalCtx *ctx)</argsstring>
+        <name>LexicalCtxFailDtor</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="37" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="62" bodyend="79" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1a69edf70eb1b55eae7e59238cb29b22f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LexicalCtxRealloc</definition>
+        <argsstring>(LexicalCtx *ctx)</argsstring>
+        <name>LexicalCtxRealloc</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="39" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="81" bodyend="113" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="39" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1acb11aff874451fb2dcb1901be28c52db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>Token* GetToken</definition>
+        <argsstring>(LexicalCtx *ctx)</argsstring>
+        <name>GetToken</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="41" column="7" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="115" bodyend="138" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="41" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1a0ab3b0ab19fb1192aaa3490fcb3b9e2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int UnGetToken</definition>
+        <argsstring>(LexicalCtx *ctx)</argsstring>
+        <name>UnGetToken</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="42" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="140" bodyend="150" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="42" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1abd14f8d90ca6d825dbe4d0eacb4d8d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddString</definition>
+        <argsstring>(LexicalCtx *ctx, Token *token)</argsstring>
+        <name>AddString</name>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="44" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="164" bodyend="189" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="44" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_lexical_ctx_8h_1a316068200dca59ecc83e44c26e715b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsName</definition>
+        <argsstring>(const char *str, LexicalCtx *ctx)</argsstring>
+        <name>IsName</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h" line="46" column="5" bodyfile="src/Legacy/Common/LexicalCtx/LexicalCtx.cpp" bodystart="152" bodyend="162" declfile="src/Legacy/Common/LexicalCtx/LexicalCtx.h" declline="46" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Token.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;my_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>!!!<sp/>move<sp/>ALocating<sp/>token<sp/>arr<sp/>to<sp/>program</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>MOVE<sp/>FUNCTION<sp/>for<sp/>Ctx<sp/>and<sp/>Program</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="struct_lexical_ctx" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>buf;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_token" kindref="compound">Token</ref>*<sp/>token_arr;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>token_arr_size;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>number_of_tokens;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>string_arr;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>string_arr_size;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>number_of_strings;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>allow_recalloc;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NOT_A_NAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-555;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NOT_A_INSTRUCTION<sp/><sp/><sp/>=<sp/>-666;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NOT_A_INITIALIZATOR<sp/>=<sp/>-111;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NOT_A_RET_TYPE<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-333;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NOT_A_NATIVE_FUNCTION<sp/>=<sp/>-222;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>START_NUMBER_OF_TOKENS<sp/><sp/>=<sp/>20;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>START_NUMBER_OF_STRINGS<sp/>=<sp/>16;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LexicalCtxCtor(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>allow_recalloc<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>start_number_of_tokens<sp/>=<sp/>START_NUMBER_OF_TOKENS);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LexicalCtxFailDtor(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LexicalCtxRealloc(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><ref refid="struct_token" kindref="compound">Token</ref>*<sp/>GetToken(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>UnGetToken<sp/>(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddString(<ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx,<sp/><ref refid="struct_token" kindref="compound">Token</ref>*<sp/>token);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsName<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str,<sp/><ref refid="struct_lexical_ctx" kindref="compound">LexicalCtx</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/Legacy/Common/LexicalCtx/LexicalCtx.h"/>
+  </compounddef>
+</doxygen>

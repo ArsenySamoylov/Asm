@@ -568,7 +568,7 @@ size_t PutLogicOp (Context* ctx, OperatorType operation, GPRegisterNumber src, G
     op_codes[1] = 0x0f;
     op_codes[2] = 0xb6;
     op_codes[3] = 0xc0;
-    
+
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);    // write movzbq %al, %rax
 
     NormalizeResult (ctx, dest, MUL);

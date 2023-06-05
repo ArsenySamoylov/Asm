@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_b492bcec07672d468944c3b06d7f34fd" kind="dir">
+    <compoundname>src/Legacy/Common/StandartAWP</compoundname>
+    <innerfile refid="_get_std_8cpp">GetStd.cpp</innerfile>
+    <innerfile refid="_put_std_8cpp">PutStd.cpp</innerfile>
+    <innerfile refid="_standart_a_w_p_8h">StandartAWP.h</innerfile>
+    <innerfile refid="_std_grammar_8h">StdGrammar.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Legacy/Common/StandartAWP/"/>
+  </compounddef>
+</doxygen>

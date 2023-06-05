@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_super_stack_dump_8cpp" kind="file" language="C++">
+    <compoundname>SuperStackDump.cpp</compoundname>
+    <includes local="no">math.h</includes>
+    <includes refid="_super_stack_8h" local="yes">SuperStack.h</includes>
+    <includes refid="_debug_functions_8h" local="yes">DebugFunctions.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>ATC/SuperStack/SuperStackDump.cpp</label>
+        <link refid="_super_stack_dump_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SuperStack.h</label>
+        <link refid="_super_stack_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DebugFunctions.h</label>
+        <link refid="_debug_functions_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Tabels.h</label>
+        <link refid="_tabels_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SuperStackConfig.h</label>
+        <link refid="_super_stack_config_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="7">
+        <label>NameTable.h</label>
+        <link refid="_name_table_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>sys/types.h</label>
+      </node>
+      <node id="9">
+        <label>my_safety.h</label>
+        <link refid="my__safety_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math.h</label>
+      </node>
+      <node id="13">
+        <label>stdio.h</label>
+      </node>
+      <node id="10">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_super_stack_dump_8cpp_1aadbe7d673b91310567c99f1d11e3c68c" prot="public" static="no">
+        <name>fprintf_stars</name>
+        <initializer>fprintf(dump_log, &quot;****************************************************\n&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStackDump.cpp" line="6" column="9" bodyfile="ATC/SuperStack/SuperStackDump.cpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_super_stack_dump_8cpp_1a30b1ac31cc33242c8f93ce22f1a56e49" prot="public" static="no">
+        <name>dump_log_printf</name>
+        <param><defname>...</defname></param>
+        <initializer>fprintf(dump_log, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStackDump.cpp" line="7" column="9" bodyfile="ATC/SuperStack/SuperStackDump.cpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_super_stack_dump_8cpp_1aab768928227bd98a7bb727c88d9c8e7e" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* MedComissionErorrMessage[]</definition>
+        <argsstring>[]</argsstring>
+        <name>MedComissionErorrMessage</name>
+        <initializer>=
+    {
+    &quot;Stak pointer has NULL value\n&quot;,
+    &quot;Stak heap pointer has NULL value\n&quot;,
+    &quot;Wrong Stack status\n&quot;,
+    &quot;Wrong Stack capacity\n&quot;,
+    &quot;Wrong Stack top\n&quot;,
+    &quot;Opening StackCanary has died\n&quot;,
+    &quot;Closing StackCanary has died\n&quot;,
+    &quot;Opening HeapCanary has died\n&quot;,
+    &quot;Closing HeapCanary has died\n&quot;,
+    &quot;Hasz est gówno\n&quot;,
+    &quot;Sterty hasz est gówno\n&quot;,
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStackDump.cpp" line="9" column="12" bodyfile="ATC/SuperStack/SuperStackDump.cpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_super_stack_dump_8cpp_1ad3261b79e744029cab2b90ab3ec02983" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SSdump</definition>
+        <argsstring>(SuperStack *stk_ptr, unsigned flag_error, const char *func)</argsstring>
+        <name>SSdump</name>
+        <param>
+          <type><ref refid="struct_super_stack" kindref="compound">SuperStack</ref> *</type>
+          <declname>stk_ptr</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>flag_error</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStackDump.cpp" line="26" column="6" bodyfile="ATC/SuperStack/SuperStackDump.cpp" bodystart="26" bodyend="141" declfile="ATC/SuperStack/SuperStackDump.cpp" declline="25" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SuperStack.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;DebugFunctions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fprintf_stars<sp/>fprintf(dump_log,<sp/>&quot;****************************************************\n&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>dump_log_printf(...)<sp/>fprintf(dump_log,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>MedComissionErorrMessage[]<sp/>=</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Stak<sp/>pointer<sp/>has<sp/>NULL<sp/>value\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Stak<sp/>heap<sp/>pointer<sp/>has<sp/>NULL<sp/>value\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>Stack<sp/>status\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>Stack<sp/>capacity\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>Stack<sp/>top\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Opening<sp/>StackCanary<sp/>has<sp/>died\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Closing<sp/>StackCanary<sp/>has<sp/>died\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Opening<sp/>HeapCanary<sp/>has<sp/>died\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Closing<sp/>HeapCanary<sp/>has<sp/>died\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Hasz<sp/>est<sp/>gówno\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Sterty<sp/>hasz<sp/>est<sp/>gówno\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wunused-parameter&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SSdump(<ref refid="struct_super_stack" kindref="compound">SuperStack</ref>*<sp/>stk_ptr,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>flag_error,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>func);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SSdump(<ref refid="struct_super_stack" kindref="compound">SuperStack</ref>*<sp/>stk_ptr,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>flag_error,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>func)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Ss<sp/>dump\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>FILE<sp/>*dump_log<sp/>=<sp/>GetLog();</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>if<sp/>(!dump_log)</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;Log<sp/>file<sp/>pointer<sp/>has<sp/>NULL<sp/>value\n&quot;);</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"></highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;SSdump<sp/>activated<sp/>from:<sp/>\n\n&quot;);</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"></highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;function<sp/>=<sp/>%s\n&quot;,<sp/>func<sp/>?<sp/>func<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Which<sp/>called<sp/>from:<sp/>\n&quot;);</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>dump_log_printf(<sp/>&quot;\tsource<sp/>file<sp/>=<sp/>%s,<sp/>\n&quot;,<sp/>src.src_file<sp/>?<sp/>src.src_file<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\tsource<sp/>function<sp/>=<sp/>%s,<sp/>&quot;,<sp/>src.src_function<sp/>?<sp/>src.src_function<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;source<sp/>line<sp/>=<sp/>%d,\n&quot;,<sp/>src.src_line);</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\tvariable<sp/>nickname<sp/>=<sp/>%s.\n&quot;,<sp/>src.var_name<sp/>?<sp/>src.var_name<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(!stk_ptr)</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Error<sp/>occured,<sp/>given<sp/>pointer<sp/>to<sp/>stack<sp/>is<sp/>invalid<sp/>(Sad<sp/>Meow)\n&quot;);</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>END<sp/>OF<sp/>SSDUMP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\n&quot;);</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n\n&quot;);</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(flag_error)</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n&quot;);</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0,<sp/>error_bytes<sp/>=<sp/>sizeof(flag_error)<sp/>*<sp/>8;<sp/>i<sp/>&lt;<sp/>error_bytes;i++<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(flag_error<sp/>&amp;<sp/>(0x1<sp/>&lt;&lt;<sp/>i))</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Medcomission<sp/>found<sp/>error<sp/>(error<sp/>code<sp/>%d)<sp/>in<sp/>stack:<sp/>\n\t%s\n&quot;,</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i,<sp/>MedComissionErorrMessage[i]);</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Stack<sp/>initialization<sp/>information:<sp/>\n\n&quot;);</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;initialization<sp/>name<sp/>=<sp/>%s,<sp/>&quot;,<sp/>stk_ptr-&gt;init_inf.var_name<sp/>?<sp/>stk_ptr-&gt;init_inf.var_name<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;initialization<sp/>file<sp/>=<sp/>%s,<sp/>\n&quot;,<sp/>stk_ptr-&gt;init_inf.src_file<sp/>?<sp/>stk_ptr-&gt;init_inf.src_file<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;initialization<sp/>function<sp/>=<sp/>%s,<sp/>&quot;,<sp/>stk_ptr-&gt;init_inf.src_function<sp/>?<sp/>stk_ptr-&gt;init_inf.src_function<sp/>:<sp/>&quot;NULL&quot;);</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"></highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;initialization<sp/>line<sp/>=<sp/>%d.\n&quot;,<sp/>stk_ptr-&gt;init_inf.src_line);</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Stack<sp/>structure<sp/>information:<sp/>\n\n&quot;);</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;%s[%zd]<sp/>-<sp/>stack<sp/>name<sp/>and<sp/>top\n&quot;,<sp/>(stk_ptr-&gt;init_inf).var_name,<sp/>stk_ptr-&gt;top);</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;%zd<sp/>-<sp/>capacity\n&quot;,<sp/>stk_ptr-&gt;capacity);</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;%p<sp/>-<sp/>heap<sp/>adress.\n&quot;,<sp/>(void<sp/>*)stk_ptr-&gt;heap);</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(&quot;%d<sp/>est<sp/>hasz.\n&quot;,<sp/>stk_ptr-&gt;hash);</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(&quot;%d<sp/>est<sp/>sterty<sp/>hasz.\n&quot;,<sp/>stk_ptr-&gt;heapHash);</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"></highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Canary<sp/>and<sp/>hash<sp/>status\n\n&quot;);</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"></highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(!stk_ptr-&gt;heap)</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Heap<sp/>pointer<sp/>is<sp/>invalid,<sp/>therefore<sp/>no<sp/>Stack<sp/>data<sp/>;(\n&quot;);</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>END<sp/>OF<sp/>SSDUMP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\n&quot;);</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n\n&quot;);</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;Stack<sp/>data:<sp/>\n\n&quot;);</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>#ifdef<sp/>SSDUMP_ALL</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/>size<sp/>=<sp/>stk_ptr-&gt;capacity;</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/>top<sp/><sp/>=<sp/>stk_ptr-&gt;top;<sp/>//It`s<sp/>not<sp/>a<sp/>size_t,<sp/>it`s<sp/>a<sp/>ssize_t</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/>#else</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size_t<sp/><sp/>size<sp/>=<sp/><sp/>stk_ptr-&gt;top<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/>#endif</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/>for<sp/>(ssize_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;%s[%zd]<sp/>=<sp/>&quot;,<sp/>(stk_ptr-&gt;init_inf).var_name,<sp/>i);</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#ifdef<sp/>SSDUMP_ALL</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(i<sp/>&lt;<sp/><sp/>top)</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprint_element_type<sp/>(dump_log,<sp/>stk_ptr-&gt;heap<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf_element_t<sp/>(dump_log,<sp/>stk_ptr-&gt;heap<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#else</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf_element_type<sp/>(dump_log,<sp/>heap<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"></highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n&quot;);</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>END<sp/>OF<sp/>SSDUMP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\n&quot;);</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/>fprintf_stars;</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/>dump_log_printf(<sp/>&quot;\n\n&quot;);</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>fprintf_stars</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>dump_log_printf</highlight></codeline>
+    </programlisting>
+    <location file="ATC/SuperStack/SuperStackDump.cpp"/>
+  </compounddef>
+</doxygen>

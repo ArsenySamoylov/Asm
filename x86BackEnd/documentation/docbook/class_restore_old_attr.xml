@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_restore_old_attr" xml:lang="en-US">
+<title>RestoreOldAttr Class Reference</title>
+<indexterm><primary>RestoreOldAttr</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_restore_old_attr_1aa508e0e33059de72c38a1e90c7485843"/><emphasis role="strong">RestoreOldAttr</emphasis> (unsigned attr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+ATC/ConsoleColors/WindowsColors.h</section>

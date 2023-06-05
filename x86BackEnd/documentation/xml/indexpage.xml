@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Overview</title>
+    <briefdescription>
+<para>Генерирующийся ассемблерный файл для данной программы </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Генерирующийся ассемблерный файл для данной программы <anchor id="index_1md_README"/>Данный репозиторий является продолжением моего проекта по созданию компилятора для собственного простого <ulink url="https://github.com/ArsenySamoylov/Lang.git">языка программирования</ulink>. Данная часть посвящена Backend`у для х86 архитектуры.</para>
+<sect1 id="index_1autotoc_md1">
+<title>Следующая итерация</title>
+<para>В контексте данной работы Backend - это программа переводящая Абстрактно-синтаксическое дерево (AST) в код для <computeroutput>исполнителя</computeroutput>. В первой итерации работы <computeroutput>исполнителем</computeroutput> был написанной мной <ulink url="https://github.com/ArsenySamoylov/CoreIArs.git">SoftCpu</ulink>, который имеет стековую архитектуру и небольшую область памяти, а также может выполнять простые математические операции.</para>
+<para>Главными изменениями в этой итерации стали:<itemizedlist>
+<listitem><para>переход со стековой архитектуры на регистровую,</para>
+</listitem><listitem><para>переход с виртуального исполнителя на физический (в данном случае это Intel Core i5-10300H 2.50GHz)</para>
+</listitem><listitem><para>введение промежуточного представления программы - IR код;</para>
+</listitem></itemizedlist>
+</para>
+<para>Начнем с IR кода.</para>
+<para>Работа компилятора разделена на три части <emphasis>front end</emphasis>, <emphasis>middle-end</emphasis> и <emphasis>backend</emphasis>. Так как это независимые части, то между ними нужен общий вид передачи программы. В предыдущей итерации в этой роли выступало AST дерево и разработанный нашей учебной группой специальный <ulink url="https://github.com/dodokek/LanguageStandart.git">стандарт</ulink> его хранения. Однако AST дерево слишком не похоже на машинную реализацию программы и соответственно большая часть задачи по оптимизации перекладываются на Backend, что рушит смысл разделения компилятора на три части.</para>
+<para>Поэтому возникает необходимость в промежуточном представлении программы, которое больше бы походило на машинный код.</para>
+<para>Так как мы переходим на регистровую архитектуру, то будем ориентироваться на уже готовые решения в этом направлении. Самым известным и распространённым решением является IR от <ulink url="https://llvm.org/docs/LangRef.html">LLVM` a</ulink>.</para>
+<para>Взяв его за основу, я реализовал собственный простейший IR. Если это проект получит продолжение, то следующей итерацией будет переход на полноценное использование IR от LLVM.</para>
+<para><bold>Замечание:</bold> Я решил сделать собственную реализацию простейшего IR в учебных целях. Дальнейшее его развитие, на данный момент, не имеет смыслы =(.</para>
+<sect2 id="index_1autotoc_md2">
+<title>Описание моего IR`a</title>
+<para>IR реализован с помощью классов и наследования на языке <computeroutput>C++</computeroutput>.</para>
+<para>Основной выступает абстрактный класс <computeroutput><ref refid="class_value" kindref="compound">Value</ref></computeroutput>, который хранит <computeroutput>name</computeroutput> - имя объекта (так же <ref refid="class_value" kindref="compound">Value</ref> хранит константу - тип конкретного объекта, что на самом деле является излишним; однако я решил оставить поле, так как это может пригодиться при отладке программы). От этого абстрактного класса наследуются классы:<itemizedlist>
+<listitem><para><computeroutput><ref refid="class_constant" kindref="compound">Constant</ref></computeroutput> - константа, хранит число,</para>
+</listitem><listitem><para><computeroutput><ref refid="class_global_var" kindref="compound">GlobalVar</ref></computeroutput> - глобальная переменная, хранит указатель на <computeroutput><ref refid="class_constant" kindref="compound">Constant</ref></computeroutput> - начальное значение переменной,</para>
+</listitem><listitem><para><computeroutput><ref refid="class_instruction" kindref="compound">Instruction</ref></computeroutput> - абстрактный класс инструкций, которые выполняются исполнителем;</para>
+</listitem><listitem><para><computeroutput><ref refid="class_base_block" kindref="compound">BaseBlock</ref></computeroutput> - массив <computeroutput><ref refid="class_instruction" kindref="compound">Instruction</ref></computeroutput> <computeroutput>ов, которые должны выполняться последовательно (подробнее об этом будет написано позже), -</computeroutput><ref refid="class_function" kindref="compound">Function</ref><computeroutput>- функция, хранит массив</computeroutput>BaseBlockов,</para>
+</listitem></itemizedlist>
+</para>
+<para>Данная иерархия описана в файле <ulink url="src/IR/Value/Value.h"><computeroutput>src/IR/Value/Value.h</computeroutput></ulink>.</para>
+<para>Как было написано выше <computeroutput><ref refid="class_instruction" kindref="compound">Instruction</ref></computeroutput> - это абстрактный класс, от которого наследуются классы:<itemizedlist>
+<listitem><para><computeroutput><ref refid="class_store" kindref="compound">Store</ref></computeroutput> - инструкция выделения памяти для объекта <computeroutput><ref refid="class_value" kindref="compound">Value</ref></computeroutput>, хранит указатель на <computeroutput><ref refid="class_value" kindref="compound">Value</ref></computeroutput>,</para>
+</listitem><listitem><para><computeroutput><ref refid="class_load" kindref="compound">Load</ref></computeroutput> - инструкция загрузи <computeroutput><ref refid="class_value" kindref="compound">Value</ref></computeroutput> в память, хранит указатели на источник (src) и приемник (dest),</para>
+</listitem><listitem><para><computeroutput><ref refid="struct_operator" kindref="compound">Operator</ref></computeroutput> - математический или логическая операция, хранит указатели на операнды,</para>
+</listitem><listitem><para><computeroutput><ref refid="class_branch" kindref="compound">Branch</ref></computeroutput> - инструкция передачи контроля, хранит указатель на условие и два указателя на базовые блоки (ветки); в соответствии c условием выбирается один из двух базовых блоков (веток), которому перейдет контроль выполнения программы (<emphasis>замечание</emphasis>: <computeroutput><ref refid="class_branch" kindref="compound">Branch</ref></computeroutput> это более удобный аналог инструкции <computeroutput>jmp</computeroutput>),</para>
+</listitem><listitem><para><computeroutput><ref refid="class_call" kindref="compound">Call</ref></computeroutput> - вызов функции, хранит имя вызываемой функции и аргументы,</para>
+</listitem><listitem><para><computeroutput><ref refid="struct_return" kindref="compound">Return</ref></computeroutput> - инструкция возврата из функции, хранит указатель на возвращаемое значение.</para>
+</listitem></itemizedlist>
+</para>
+<para>Данная иерархия описана в файле <ulink url="src/IR/Instructions/Instructions.h"><computeroutput>srs/IR/Instructions/Instructions.h</computeroutput></ulink>.</para>
+<para>Класс <computeroutput><ref refid="class_module" kindref="compound">Module</ref></computeroutput>, определенный в <ulink url="src/IR/Module/Module.h"><computeroutput>src/IR/Module/Module.h</computeroutput></ulink>, является массивом объектов <computeroutput><ref refid="class_function" kindref="compound">Function</ref></computeroutput> и <computeroutput><ref refid="class_global_var" kindref="compound">GlobalVar</ref></computeroutput>. Объект <computeroutput><ref refid="class_module" kindref="compound">Module</ref></computeroutput> представляет собой исходную программу на моем языке.</para>
+<sect3 id="index_1autotoc_md3">
+<title>Иерархии классов в IR`e</title>
+<para><image type="html" name="resources/ValueHierarchy.png" inline="yes"></image>
+ </para>
+</sect3>
+<sect3 id="index_1autotoc_md4">
+<title>Module в IR`e</title>
+<para><image type="html" name="resources/Module.png" inline="yes"></image>
+ </para>
+<para>Как было сказано выше - базовые блоки (<computeroutput><ref refid="class_base_block" kindref="compound">BaseBlock</ref></computeroutput>) это массив инструкций, которые будут выполняться последовательно. Каждый базовый блок заканчивается инструкций передающей контроль - <computeroutput><ref refid="struct_return" kindref="compound">Return</ref></computeroutput> или <computeroutput><ref refid="class_branch" kindref="compound">Branch</ref></computeroutput>. Благодаря последовательному исполнению инструкций возможно оптимально распределять регистры внутри базового блока.</para>
+<para>Однако существует проблема оптимизации использования регистров между базовыми блоками. Это проблема достаточна сложна, поэтому мы не будем рассматривать её в данной итерации проекта.</para>
+</sect3>
+</sect2>
+<sect2 id="index_1autotoc_md5">
+<title>Пример</title>
+<para>Рассмотрим пример простой программы на моем языке. Программа высчитывает факториал от заданной константы:</para>
+<para><programlisting><codeline><highlight class="normal">double<sp/>factorial<sp/>(var<sp/>number)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(number<sp/>&gt;<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>number<sp/>*<sp/>factorial<sp/>(number<sp/>-<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">double<sp/>main<sp/>()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>factorial<sp/>(6);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>fout<sp/>&lt;&lt;<sp/>result;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+</programlisting></para>
+<para>Её <computeroutput>IR</computeroutput> представление: <programlisting><codeline><highlight class="normal">extern<sp/>function<sp/>&apos;fout&apos;<sp/>();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Declare<sp/>function<sp/>&apos;factorial&apos;<sp/>(param<sp/>number):</highlight></codeline>
+<codeline><highlight class="normal">entry_factorial:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>%op_0<sp/>=<sp/>bigger<sp/>number,<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>br<sp/>%op_0,<sp/>label<sp/>than_0,<sp/>label<sp/>merge_0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">than_0:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>%op_2<sp/>=<sp/>sub<sp/>number,<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>%c_1<sp/>=<sp/>call:<sp/>factorial<sp/>(param<sp/>%op_2)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>%op_3<sp/>=<sp/>mul<sp/>number,<sp/>%c_1</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>%op_3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>br<sp/>label<sp/>merge_0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">merge_0:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>1</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Declare<sp/>function<sp/>&apos;main&apos;<sp/>():</highlight></codeline>
+<codeline><highlight class="normal">entry_main:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>%c_0<sp/>=<sp/>call:<sp/>factorial<sp/>(param<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>result<sp/>=<sp/>store(%c_0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>call:<sp/>fout<sp/>(param<sp/>result)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>0</highlight></codeline>
+</programlisting> Здесь <computeroutput>declare</computeroutput> обозначает начало определения функции, метка - начало базового блока.</para>
+<para>Каждая инструкция представляет собой переменную, которая может дальше использовать программой. Данный синтаксис призван подчеркнуть это, например:</para>
+<para><programlisting><codeline><highlight class="normal">%op_2<sp/>=<sp/>sub<sp/>number,<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">%c_1<sp/>=<sp/>call:<sp/>factorial<sp/>(param<sp/>%op_2)</highlight></codeline>
+</programlisting> Здесь <computeroutput>op_2</computeroutput> - это результат разности является переменной, служащий аргументом для <computeroutput>call</computeroutput> a. А <computeroutput>c_1</computeroutput> - это переменная хранящая возвращаемое значение вызова (если функция ничего не возвращает, то присваивание переменой опускается, как в строчке с вызовом <computeroutput>fout</computeroutput>).</para>
+<para>При генерации исполняемого файла так же генерируется ассемблерный файл, подробно расписывающий как происходила генерация машинных команд. Это файл компилируется и сохраняет логику программы. С его помощью легко можно создать контрольный исполняемый файл, который помогает проверять правильность генерации машинных кодов.</para>
+<para>Для удобства, в ассемблерном файле печатается исходная строчка из IR<computeroutput>a в виде комментария (строки начинающиеся с</computeroutput>###`), после чего идет ассемблерная реализация данной строчки.</para>
+<para><bold>Замечание:</bold></para>
+<para>Исходная итерация имела особенность: исполнитель работал с вещественными числами заданной точностью, храня их в виде целых чисел. Для этого число умножается на константу <computeroutput>PRECISION</computeroutput> (в данном случае равной 100). Данная итерация унаследовала эту особенность. Поэтому например при умножении двух чисел результат нормируется: делится на 100.</para>
+<para>&lt;details&gt;</para>
+<para><programlisting><codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.global<sp/>main</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.extern<sp/>fout</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.section<sp/>.text</highlight></codeline>
+<codeline><highlight class="normal">_start:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>call<sp/>main<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$0<sp/><sp/><sp/>,<sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$60<sp/><sp/>,<sp/>%rax<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>syscall</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">factorial:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>set<sp/>stack<sp/>frame<sp/>(1<sp/>local<sp/>vars)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sub<sp/>$8,<sp/>%rsp<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rbp<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rsp,<sp/><sp/><sp/>%rbp<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>callee-save<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rbx<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r10<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r11<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r12<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r13<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r14<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r15<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>param<sp/>regs<sp/>on<sp/>stack</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>%rdi,<sp/>-8<sp/>(%rbp)<sp/><sp/>#<sp/>Save<sp/>&apos;number&apos;<sp/>on<sp/>stack</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">entry_factorial:</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>%op_0<sp/>=<sp/>bigger<sp/>number,<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$100<sp/>,<sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;<sp/>const_0&apos;<sp/>-&gt;<sp/>%r15</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;number&apos;<sp/>already<sp/>in<sp/>%rdi</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rdi,<sp/><sp/><sp/>%r14<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>save<sp/>&apos;number&apos;<sp/>to<sp/>%r14</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(generating<sp/>logic<sp/>op)<sp/>#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rdx<sp/><sp/><sp/><sp/><sp/>#<sp/>(save<sp/>%rdx)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cmpq<sp/>%r15,<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>setg<sp/>%al</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movzbq<sp/>%al,<sp/>%rax</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(normalize<sp/>result)<sp/>#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>xor<sp/>%rdx,<sp/>%rdx</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$100<sp/>,<sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>imul<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rax,<sp/><sp/><sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>(-&gt;<sp/>normalized<sp/>result)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rdx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>(restore<sp/>%rdx)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>br<sp/>%op_0,<sp/>label<sp/>than_0,<sp/>label<sp/>merge_0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;%op_0&apos;<sp/>already<sp/>in<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cmp<sp/>$100,<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>je<sp/>than_0<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>jmp<sp/>merge_0<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">than_0:</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>%op_2<sp/>=<sp/>sub<sp/>number,<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$100<sp/>,<sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;<sp/>const_1&apos;<sp/>-&gt;<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;number&apos;<sp/>already<sp/>in<sp/>%r14</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%r14,<sp/><sp/><sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>save<sp/>&apos;number&apos;<sp/>to<sp/>%r15</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(math<sp/>op)<sp/>#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sub<sp/>%rdi,<sp/>%r14</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>%c_1<sp/>=<sp/>call:<sp/>factorial<sp/>(param<sp/>%op_2)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(save<sp/>busy<sp/>regs)<sp/>#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(set<sp/>parameters)<sp/>#<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%r14,<sp/><sp/><sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>call<sp/>factorial<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rax,<sp/><sp/><sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>save<sp/>call<sp/>result<sp/>from<sp/>rax</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>%op_3<sp/>=<sp/>mul<sp/>number,<sp/>%c_1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;%c_1&apos;<sp/>already<sp/>in<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;number&apos;<sp/>already<sp/>in<sp/>%r15</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%r15,<sp/><sp/><sp/>%r14<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>save<sp/>&apos;number&apos;<sp/>to<sp/>%r14</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(generating<sp/>mul/div)#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rdx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>(save<sp/>%rdx)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>xor<sp/>%rdx,<sp/>%rdx</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%r15,<sp/><sp/><sp/>%rax<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>imul<sp/>%rdi</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(normalize<sp/>result)<sp/><sp/>#</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>xor<sp/>%rdx,<sp/>%rdx</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$100<sp/>,<sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>idiv<sp/>%r15</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rax,<sp/><sp/><sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>(-&gt;<sp/>normalized<sp/>result)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rdx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>(restore<sp/>%rdx)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>return<sp/>%op_3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%r15,<sp/><sp/><sp/>%rax<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>return<sp/>%op_3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(restore<sp/>callee-save<sp/>regs)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r14<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r12<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r11<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r10<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>(clear<sp/>stack<sp/>frame)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbp<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>add<sp/>$8,<sp/>%rsp<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>br<sp/>label<sp/>merge_0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>jmp<sp/>merge_0<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">merge_0:</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>return<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$100<sp/>,<sp/>%rax<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>return<sp/>const_2</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>restore<sp/>callee-save<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r14<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r12<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r11<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r10<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>clear<sp/>stack<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbp<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>add<sp/>$8,<sp/>%rsp<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">main:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>set<sp/>stack<sp/>frame<sp/>(1<sp/>local<sp/>vars)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sub<sp/>$8,<sp/>%rsp<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rbp<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rsp,<sp/><sp/><sp/>%rbp<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>callee-save<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rbx<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r10<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r11<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r12<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r13<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r14<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%r15<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>param<sp/>regs<sp/>on<sp/>stack</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">entry_main:</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>%c_0<sp/>=<sp/>call:<sp/>factorial<sp/>(param<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>busy<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>set<sp/>parameters<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$600<sp/>,<sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>call<sp/>factorial<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>mov<sp/>%rax,<sp/><sp/><sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>save<sp/>call<sp/>result<sp/>from<sp/>rax</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>result<sp/>=<sp/>store(%c_0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>put_value_to_reg:<sp/>&apos;%c_0&apos;<sp/>already<sp/>in<sp/>%rdi</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>%rdi,<sp/>-8<sp/>(%rbp)<sp/><sp/>#<sp/>copy<sp/>&apos;%c_0&apos;<sp/>to<sp/>stack<sp/>(to<sp/>&apos;result&apos;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>call:<sp/>fout<sp/>(param<sp/>result)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>save<sp/>busy<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>push<sp/>%rdi<sp/><sp/><sp/><sp/><sp/>#<sp/>save:<sp/>%c_0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>set<sp/>parameters<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>-8<sp/>(%rbp),<sp/>%rdi<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>call<sp/>fout<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rdi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>return<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>movq<sp/>$0<sp/><sp/><sp/>,<sp/>%rax<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>return<sp/>const_1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>restore<sp/>callee-save<sp/>regs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r15<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r14<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r12<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r11<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%r10<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>#<sp/>clear<sp/>stack<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pop<sp/>%rbp<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>add<sp/>$8,<sp/>%rsp<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/></highlight></codeline>
+</programlisting></para>
+<para>&lt;/details&gt;</para>
+</sect2>
+<sect2 id="index_1autotoc_md6">
+<title>Стандартная библиотека</title>
+<para>Для полноценной использования языка необходима библиотека, реализующая простейшие стандартные функции. Моя реализация некоторых функций находится в файле <computeroutput>src/Elf/stdlib.s</computeroutput>. Машинный код стандартных функций берется из файла <computeroutput>src/Elf/stdlib.o</computeroutput> и добавляется в конец исполняемого файла.</para>
+<para>Для создания контрольной программы с помощью генерирующегося ассемблерного кода, нужно линковать <computeroutput>src/Elf/stdlib.o</computeroutput>.</para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md7">
+<title>Итог:</title>
+<para>В завершении работы замерим, как изменилось время работы программы на моем языке. Для сравнения будем использовать пример факториала из данной работы, но без вывода результата.</para>
+<sect3 id="index_1autotoc_md8">
+<title>Таблица: время расчета факториала от 15, 1000 раз</title>
+<para><table rows="3" cols="3"><row>
+<entry thead="yes"><para>Исполнитель   </para>
+</entry><entry thead="yes"><para>Время, мс   </para>
+</entry><entry thead="yes"><para>Коэффициент прироста    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>SoftCpu   </para>
+</entry><entry thead="no"><para>70   </para>
+</entry><entry thead="no"><para>-    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>core i5   </para>
+</entry><entry thead="no"><para>1.2   </para>
+</entry><entry thead="no"><para>56.6   </para>
+</entry></row>
+</table>
+</para>
+<para>Получается, что в новой итерации исполнение программы ускорилось более чем в 50 раз! Хороший показатель (спасибо ребятам из <emphasis>Intel</emphasis> за такой мощный процессор ;)). </para>
+</sect3>
+</sect1>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="tostring_8h" kind="file" language="C++">
+    <compoundname>tostring.h</compoundname>
+    <includedby refid="_logger_8h" local="yes">ATC/Logger/Logger.h</includedby>
+    <includedby refid="tostring_8cpp" local="yes">ATC/Logger/tostring.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>ATC/Logger/Logger.h</label>
+        <link refid="_logger_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ATC/Logger/LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/Legacy/Common/Structures/DSL.h</label>
+        <link refid="_d_s_l_8h_source"/>
+      </node>
+      <node id="3">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+      <node id="1">
+        <label>ATC/Logger/tostring.h</label>
+        <link refid="tostring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ATC/Logger/FunctionLogger.h</label>
+        <link refid="_function_logger_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tostring_8h_1a036f4631cdbb673cee08dc07d1ff728e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(short)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>short</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="3" column="6" declfile="ATC/Logger/tostring.h" declline="3" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a5a0f43bd767335c479678b868ff94049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(unsigned)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>unsigned</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="4" column="6" declfile="ATC/Logger/tostring.h" declline="4" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1ae3791728dc1c5e6cb6cbe58114c0b7ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(int)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="5" column="6" bodyfile="ATC/Logger/tostring.cpp" bodystart="17" bodyend="33" declfile="ATC/Logger/tostring.h" declline="5" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a1cbce012fd9cb48468529c1d229099c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(long)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>long</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="6" column="6" declfile="ATC/Logger/tostring.h" declline="6" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a7db7319bb2c0b70f87d3cda187b50aed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(long long)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>long long</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="7" column="6" declfile="ATC/Logger/tostring.h" declline="7" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a1badabeba03f53bfa0272f5ae07c3633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(float)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="9" column="6" declfile="ATC/Logger/tostring.h" declline="9" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a470c461258772d092a46e7f216e18ea9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(double)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="10" column="6" declfile="ATC/Logger/tostring.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a0e12ae7997b81eb18f83387f05c42e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(char)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>char</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="12" column="6" declfile="ATC/Logger/tostring.h" declline="12" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="tostring_8h_1a8720a713b2c59917ccce41fb80d74e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* tostring</definition>
+        <argsstring>(const char *)</argsstring>
+        <name>tostring</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/tostring.h" line="13" column="6" bodyfile="ATC/Logger/tostring.cpp" bodystart="12" bodyend="15" declfile="ATC/Logger/tostring.h" declline="13" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tostring(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*);</highlight></codeline>
+    </programlisting>
+    <location file="ATC/Logger/tostring.h"/>
+  </compounddef>
+</doxygen>

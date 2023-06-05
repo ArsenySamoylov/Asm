@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_super_stack_config_8h" kind="file" language="C++">
+    <compoundname>SuperStackConfig.h</compoundname>
+    <includes refid="_tabels_8h" local="yes">Tabels.h</includes>
+    <includes refid="_name_table_8h" local="yes">NameTable.h</includes>
+    <includedby refid="_debug_functions_8h" local="yes">ATC/SuperStack/DebugFunctions.h</includedby>
+    <includedby refid="_super_stack_8h" local="yes">ATC/SuperStack/SuperStack.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Tabels.h</label>
+        <link refid="_tabels_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/Legacy/SuperStackConfig.h</label>
+        <link refid="_super_stack_config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>NameTable.h</label>
+        <link refid="_name_table_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>ATC/SuperStack/SuperStack.h</label>
+        <link refid="_super_stack_8h_source"/>
+      </node>
+      <node id="2">
+        <label>ATC/SuperStack/DebugFunctions.h</label>
+        <link refid="_debug_functions_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/Legacy/SuperStackConfig.h</label>
+        <link refid="_super_stack_config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_super_stack_config_8h_1af8c512d6e976d5cc0c91354afbdf130d" prot="public" static="no">
+        <name>STACK_CONGIG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/SuperStackConfig.h" line="2" column="9" bodyfile="src/Legacy/SuperStackConfig.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_super_stack_config_8h_1a8de3ed741dadc9c979a4ff17c0a9116e" prot="public" static="no">
+        <name>NDEBUG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/SuperStackConfig.h" line="7" column="9" bodyfile="src/Legacy/SuperStackConfig.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_super_stack_config_8h_1a4301e9ca028ba293db80929d28767a97" prot="public" static="no">
+        <name>GZHA_UNDERSTOOD</name>
+        <initializer>true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>define NDEBUG if you want to release project </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/SuperStackConfig.h" line="19" column="9" bodyfile="src/Legacy/SuperStackConfig.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_super_stack_config_8h_1a43f8c425fa2bea4c2d72d6923401fe76" prot="public" static="no">
+        <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+        <definition>typedef NameTable* element_t</definition>
+        <argsstring></argsstring>
+        <name>element_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>if you want to change type of elements, than change this typefef </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/SuperStackConfig.h" line="9" column="19" bodyfile="src/Legacy/SuperStackConfig.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>STACK_CONFIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STACK_CONGIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Tabels.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NameTable.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NDEBUG</highlight></codeline>
+<codeline lineno="9"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/><ref refid="struct_name_table" kindref="compound">element_t</ref>;<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#ifndef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor">#define<sp/>SSDUMP_ALL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GZHA_UNDERSTOOD<sp/>true<sp/></highlight><highlight class="comment">//thx<sp/>Ded</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/Legacy/SuperStackConfig.h"/>
+  </compounddef>
+</doxygen>

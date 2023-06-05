@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_value_name_table" kind="struct" language="C++" prot="public">
+    <compoundname>ValueNameTable</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_value_name_table_1a14e9682c5bd841c97fe4de589db6db0e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_value_label" kindref="compound">ValueLabel</ref> **</type>
+        <definition>ValueLabel** ValueNameTable::arr</definition>
+        <argsstring></argsstring>
+        <name>arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="17" column="16" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_value_name_table_1ac70c18aca439e0d4276f5651b77286ad" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ValueNameTable::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="19" column="12" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_value_name_table_1afb517f5bc317d0a7d991860bcb37cdee" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ValueNameTable::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="20" column="12" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>Storage</label>
+        <link refid="class_storage"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BaseBlock</label>
+        <link refid="class_base_block"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ValueNameTable</label>
+        <link refid="struct_value_name_table"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NoCopyable</label>
+        <link refid="class_no_copyable"/>
+      </node>
+      <node id="2">
+        <label>ValueLabel</label>
+        <link refid="struct_value_label"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>block</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>val</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Value</label>
+        <link refid="class_value"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/IR/AstToIR/ValueTable.h" line="15" column="1" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="16" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_value_name_table_1a14e9682c5bd841c97fe4de589db6db0e" prot="public" virt="non-virtual"><scope>ValueNameTable</scope><name>arr</name></member>
+      <member refid="struct_value_name_table_1afb517f5bc317d0a7d991860bcb37cdee" prot="public" virt="non-virtual"><scope>ValueNameTable</scope><name>capacity</name></member>
+      <member refid="struct_value_name_table_1ac70c18aca439e0d4276f5651b77286ad" prot="public" virt="non-virtual"><scope>ValueNameTable</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

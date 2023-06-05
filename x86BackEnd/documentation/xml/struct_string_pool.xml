@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_string_pool" kind="struct" language="C++" prot="public">
+    <compoundname>StringPool</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_string_pool_1a99252a0b84b842a16b12d46783f95187" prot="public" static="no" mutable="no">
+        <type>const char **</type>
+        <definition>const char** StringPool::string_arr</definition>
+        <argsstring></argsstring>
+        <name>string_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/StringPool.h" line="7" column="16" bodyfile="src/IR/AstToIR/StringPool.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_string_pool_1afadb85f0aca999f4bec4463b4b530a27" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t StringPool::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/StringPool.h" line="9" column="12" bodyfile="src/IR/AstToIR/StringPool.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_string_pool_1ad372629c0bcb0a6c9769b26745bdf99c" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t StringPool::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/StringPool.h" line="10" column="12" bodyfile="src/IR/AstToIR/StringPool.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/AstToIR/StringPool.h" line="5" column="1" bodyfile="src/IR/AstToIR/StringPool.h" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="struct_string_pool_1ad372629c0bcb0a6c9769b26745bdf99c" prot="public" virt="non-virtual"><scope>StringPool</scope><name>capacity</name></member>
+      <member refid="struct_string_pool_1afadb85f0aca999f4bec4463b4b530a27" prot="public" virt="non-virtual"><scope>StringPool</scope><name>size</name></member>
+      <member refid="struct_string_pool_1a99252a0b84b842a16b12d46783f95187" prot="public" virt="non-virtual"><scope>StringPool</scope><name>string_arr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

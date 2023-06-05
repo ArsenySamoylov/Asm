@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_8031b4b84850f6ef7a5442b230925a2e" kind="dir">
+    <compoundname>src/IR/Module</compoundname>
+    <innerfile refid="_module_8cpp">Module.cpp</innerfile>
+    <innerfile refid="_module_8h">Module.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/Module/"/>
+  </compounddef>
+</doxygen>

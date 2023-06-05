@@ -1,0 +1,76 @@
+\hypertarget{_value_8h}{}\doxysection{src/\+IR/\+Value/\+Value.h File Reference}
+\label{_value_8h}\index{src/IR/Value/Value.h@{src/IR/Value/Value.h}}
+
+
+This file contains declaration of \mbox{\hyperlink{class_value}{Value}} class and its derived classes (only exception is \mbox{\hyperlink{class_instruction}{Instruction}}; it declared in \mbox{\hyperlink{_instructions_8h}{Instructions.\+h}})  
+
+
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include \char`\"{}Value\+Arr\+Template.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Storage.\+h\char`\"{}}\newline
+Include dependency graph for Value.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_value_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_value_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_value}{Value}}
+\begin{DoxyCompactList}\small\item\em Abstract class for IR object. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_base_block}{Base\+Block}}
+\begin{DoxyCompactList}\small\item\em Block of Instructions. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_constant}{Constant}}
+\begin{DoxyCompactList}\small\item\em Double constant. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_global_var}{Global\+Var}}
+\begin{DoxyCompactList}\small\item\em Global Variable. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_function}{Function}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_function}{Function}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_value_8h_ad9971b6ef33e02ba2c75d19c1d2518a1}\label{_value_8h_ad9971b6ef33e02ba2c75d19c1d2518a1}} 
+enum class {\bfseries Value\+Type} \{ \newline
+{\bfseries Function}
+, {\bfseries Global\+Var}
+, {\bfseries Base\+Block}
+, {\bfseries Constant}
+, \newline
+{\bfseries Instruction}
+, {\bfseries Value}
+ \}
+\item 
+\mbox{\Hypertarget{_value_8h_ab69f6b76e623d3ec3e1b2b4bd287548d}\label{_value_8h_ab69f6b76e623d3ec3e1b2b4bd287548d}} 
+enum class {\bfseries Variable\+Base\+Type} \{ {\bfseries Double}
+, {\bfseries Int}
+, {\bfseries Char}
+ \}
+\item 
+\mbox{\Hypertarget{_value_8h_ab1a8647a116596fb6e8dedc1eff3b813}\label{_value_8h_ab1a8647a116596fb6e8dedc1eff3b813}} 
+enum class {\bfseries Function\+Ret\+Type} \{ {\bfseries Double}
+, {\bfseries Void}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_value_8h_ac96357b1d5d7d9565e41d8fab5a07a60}\label{_value_8h_ac96357b1d5d7d9565e41d8fab5a07a60}} 
+const int {\bfseries PRECISION} = 100
+\item 
+\mbox{\Hypertarget{_value_8h_a824fe1dd118c50bb9ebc7295932b5457}\label{_value_8h_a824fe1dd118c50bb9ebc7295932b5457}} 
+const data\+\_\+t {\bfseries BAD\+\_\+\+VALUE} = -\/666
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains declaration of \mbox{\hyperlink{class_value}{Value}} class and its derived classes (only exception is \mbox{\hyperlink{class_instruction}{Instruction}}; it declared in \mbox{\hyperlink{_instructions_8h}{Instructions.\+h}}) 
+

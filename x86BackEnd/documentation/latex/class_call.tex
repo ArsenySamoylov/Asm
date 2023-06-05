@@ -1,0 +1,132 @@
+\hypertarget{class_call}{}\doxysection{Call Class Reference}
+\label{class_call}\index{Call@{Call}}
+
+
+\mbox{\hyperlink{class_instruction}{Instruction}} to call another function.  
+
+
+
+
+{\ttfamily \#include $<$Instructions.\+h$>$}
+
+
+
+Inheritance diagram for Call\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_call__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Call\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_call__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_call_a4c9f2884fe26546f87e2a6d1df80ec2d}\label{class_call_a4c9f2884fe26546f87e2a6d1df80ec2d}} 
+{\bfseries Call} (name\+\_\+t name\+\_\+param, const \mbox{\hyperlink{class_function}{Function}} $\ast$function\+\_\+param)
+\item 
+void \mbox{\hyperlink{class_call_a54ed26dbf1e6cc76bff3b57c9c696e10}{dump}} () const override
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+Instruction\+Type \mbox{\hyperlink{class_call_a4b586a9f4be19d3700b48c9211d4ce29}{get\+\_\+instr\+\_\+type}} () const override
+\begin{DoxyCompactList}\small\item\em Get instr\+\_\+type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_call_a559c642d08f5d45404a4ab550714a91b}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_call_a9839f2f2c88928629f80bd2df0f49cd3}{set\+\_\+storage}} () const override
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_call_a4120c1a4162254cef3b9fec9a174868a}\label{class_call_a4120c1a4162254cef3b9fec9a174868a}} 
+\mbox{\hyperlink{class_value_arr}{Value\+Arr}}$<$ \mbox{\hyperlink{class_value}{Value}} $>$ $\ast$ {\bfseries get\+\_\+argv} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_instruction}{Instruction}} to call another function. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_call_a54ed26dbf1e6cc76bff3b57c9c696e10}\label{class_call_a54ed26dbf1e6cc76bff3b57c9c696e10}} 
+\index{Call@{Call}!dump@{dump}}
+\index{dump@{dump}!Call@{Call}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void Call\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_instruction_a8b89720a9e81b5034f384acf2584fe74}{Instruction}}.
+
+\mbox{\Hypertarget{class_call_a4b586a9f4be19d3700b48c9211d4ce29}\label{class_call_a4b586a9f4be19d3700b48c9211d4ce29}} 
+\index{Call@{Call}!get\_instr\_type@{get\_instr\_type}}
+\index{get\_instr\_type@{get\_instr\_type}!Call@{Call}}
+\doxysubsubsection{\texorpdfstring{get\_instr\_type()}{get\_instr\_type()}}
+{\footnotesize\ttfamily Instruction\+Type Call\+::get\+\_\+instr\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get instr\+\_\+type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Instruction\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_instruction_a5794ed6986bad233a819137af502519a}{Instruction}}.
+
+\mbox{\Hypertarget{class_call_a9839f2f2c88928629f80bd2df0f49cd3}\label{class_call_a9839f2f2c88928629f80bd2df0f49cd3}} 
+\index{Call@{Call}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!Call@{Call}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily void Call\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}{Instruction}}.
+
+\mbox{\Hypertarget{class_call_a559c642d08f5d45404a4ab550714a91b}\label{class_call_a559c642d08f5d45404a4ab550714a91b}} 
+\index{Call@{Call}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!Call@{Call}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily void Call\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_instruction_a490849f5712f281da374de8de683069b}{Instruction}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Instructions/\mbox{\hyperlink{_instructions_8h}{Instructions.\+h}}\item 
+src/\+IR/\+Dump\+IR/Dump\+IR.\+cpp\item 
+src/\+IR/\+Instructions/Instruction.\+cpp\item 
+src/\+IR/\+Storage/Storage.\+cpp\item 
+src/\+IR/\+Translate\+Tox86/Translate\+IRTox86.\+cpp\end{DoxyCompactItemize}

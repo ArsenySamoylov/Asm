@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_afdf3e24c165798fd40ac8c1fd314088" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/ATC/my_safety</compoundname>
+    <innerfile refid="my__safety_8cpp_8o_8d">my_safety.cpp.o.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/ATC/my_safety/"/>
+  </compounddef>
+</doxygen>

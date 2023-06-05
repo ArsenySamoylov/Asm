@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_reg" kind="struct" language="C++" prot="public">
+    <compoundname>Reg</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_reg_1acfc646d49466bf67813bf629f704ccc5" prot="public" static="no" mutable="no">
+        <type>const GPRegisterNumber</type>
+        <definition>const GPRegisterNumber Reg::number</definition>
+        <argsstring></argsstring>
+        <name>number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="44" column="28" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reg_1ae6e7e0523a2dc069c2d5ff68bdffcdfd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Reg::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="46" column="26" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reg_1a1efcb5655980b7c8146af8ceb6c9ce87" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Reg::allocation_status</definition>
+        <argsstring></argsstring>
+        <name>allocation_status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="47" column="15" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reg_1a29fc6b772451aea2e22c95563a8b4e02" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Reg::op_code_number</definition>
+        <argsstring></argsstring>
+        <name>op_code_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="48" column="18" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/TranslateTox86/RegistersUsage.h" line="42" column="1" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="43" bodyend="49"/>
+    <listofallmembers>
+      <member refid="struct_reg_1a1efcb5655980b7c8146af8ceb6c9ce87" prot="public" virt="non-virtual"><scope>Reg</scope><name>allocation_status</name></member>
+      <member refid="struct_reg_1acfc646d49466bf67813bf629f704ccc5" prot="public" virt="non-virtual"><scope>Reg</scope><name>number</name></member>
+      <member refid="struct_reg_1a29fc6b772451aea2e22c95563a8b4e02" prot="public" virt="non-virtual"><scope>Reg</scope><name>op_code_number</name></member>
+      <member refid="struct_reg_1ae6e7e0523a2dc069c2d5ff68bdffcdfd" prot="public" virt="non-virtual"><scope>Reg</scope><name>status</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

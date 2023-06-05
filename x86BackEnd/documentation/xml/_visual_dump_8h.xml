@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_visual_dump_8h" kind="file" language="C++">
+    <compoundname>VisualDump.h</compoundname>
+    <includes local="yes">ArsList.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2">
+        <label>ArsList.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>ATC/GraphVis/List/VisualDump.h</label>
+        <link refid="_visual_dump_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_visual_dump_8h_1a61e3560493da9d2fbe1cfb2dc2a78f29" prot="public" static="no">
+        <name>HOW_TO_SPENF_SCHOLARSHIP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="2" column="9" bodyfile="ATC/GraphVis/List/VisualDump.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_visual_dump_8h_1a94bdba455cf6ffc02c60d884dd5c8c3d" prot="public" static="no">
+        <name>set_func_name</name>
+        <initializer>fprintf (Dot, &quot;########################################################### %s\n&quot;, __func__);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="29" column="9" bodyfile="ATC/GraphVis/List/VisualDump.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_visual_dump_8h_1a6176b66d797017e6970cdbd37295091b" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* HtmlLog</definition>
+        <argsstring></argsstring>
+        <name>HtmlLog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="14" column="13" declfile="ATC/GraphVis/List/VisualDump.h" declline="14" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="_visual_dump_8h_1ab2d3c0d1818c108d980be219af4781b9" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAX_GRAPH_NAME_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>MAX_GRAPH_NAME_LENGTH</name>
+        <initializer>= 40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="16" column="11" bodyfile="ATC/GraphVis/List/VisualDump.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_visual_dump_8h_1aa1de44f57e3471110827b78d0ea74add" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IMAGE_NAME_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>IMAGE_NAME_LENGTH</name>
+        <initializer>= 40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="17" column="15" bodyfile="ATC/GraphVis/List/VisualDump.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_visual_dump_8h_1ab379eade3205f00a1bccc5bb1006cf60" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SYSTEM_COMMAND_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SYSTEM_COMMAND_LENGTH</name>
+        <initializer>= 155</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="18" column="11" bodyfile="ATC/GraphVis/List/VisualDump.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_visual_dump_8h_1ad240e87a1dd472b882a0b88b5460280d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CloseHtmlLog</definition>
+        <argsstring>()</argsstring>
+        <name>CloseHtmlLog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="8" column="7" bodyfile="ATC/HtmlLog/HtmlLog.cpp" bodystart="42" bodyend="53" declfile="ATC/GraphVis/List/VisualDump.h" declline="8" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1aa6cd7d978deef42d2e03479b5ee657e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* SetHtmlLog</definition>
+        <argsstring>()</argsstring>
+        <name>SetHtmlLog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="9" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="9" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1aa36ff00a82eac71270b0722178e91088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* OpenDot</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>OpenDot</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="11" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="11" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a9b31f89be05ba10f1eece1c5cebf3510" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CloseDot</definition>
+        <argsstring>()</argsstring>
+        <name>CloseDot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="12" column="7" declfile="ATC/GraphVis/List/VisualDump.h" declline="12" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1aead5ef30ff6ea41722a41af3694aef61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* GetImage</definition>
+        <argsstring>(ArsList *list)</argsstring>
+        <name>GetImage</name>
+        <param>
+          <type>ArsList *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="20" column="12" declfile="ATC/GraphVis/List/VisualDump.h" declline="20" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a37781967cb19f8927671cdaa9d1d0fc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SetDot</definition>
+        <argsstring>()</argsstring>
+        <name>SetDot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="21" column="6" bodyfile="src/Legacy/Common/Utils/GraphVis.cpp" bodystart="82" bodyend="92" declfile="ATC/GraphVis/List/VisualDump.h" declline="21" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a66e0f00e2642475e6b28692cfafdf0fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetNodesArr</definition>
+        <argsstring>(ArsList *list)</argsstring>
+        <name>SetNodesArr</name>
+        <param>
+          <type>ArsList *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="22" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="22" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a09f2c1859ead8495504f11c7d176cc00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetListStatus</definition>
+        <argsstring>(ArsList *list)</argsstring>
+        <name>SetListStatus</name>
+        <param>
+          <type>ArsList *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="23" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a247e3ce90d693636e2548f596d6c783d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SetEndDot</definition>
+        <argsstring>()</argsstring>
+        <name>SetEndDot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="24" column="6" bodyfile="src/Legacy/Common/Utils/GraphVis.cpp" bodystart="94" bodyend="104" declfile="ATC/GraphVis/List/VisualDump.h" declline="24" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a5477c2eacdcfcf21a6ec9c83fb393d95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DotPrint</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>DotPrint</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="26" column="6" bodyfile="src/Legacy/Common/Utils/GraphVis.cpp" bodystart="107" bodyend="117" declfile="ATC/GraphVis/List/VisualDump.h" declline="26" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a74e83c9a4f8dc1d8dc2d46cbaad3f9d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConnectNodes</definition>
+        <argsstring>(index_t first, index_t second)</argsstring>
+        <name>ConnectNodes</name>
+        <param>
+          <type>index_t</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>index_t</type>
+          <declname>second</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="27" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a76872f0e8e4379287e9fcc6304505404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintNode</definition>
+        <argsstring>(node *node_ptr, index_t node_num)</argsstring>
+        <name>PrintNode</name>
+        <param>
+          <type>node *</type>
+          <declname>node_ptr</declname>
+        </param>
+        <param>
+          <type>index_t</type>
+          <declname>node_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="31" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="31" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1a2fe09692ae98a387c0a511abca874dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConnectPrevAndNext</definition>
+        <argsstring>(node *node_ptr, index_t node_num)</argsstring>
+        <name>ConnectPrevAndNext</name>
+        <param>
+          <type>node *</type>
+          <declname>node_ptr</declname>
+        </param>
+        <param>
+          <type>index_t</type>
+          <declname>node_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="32" column="6" declfile="ATC/GraphVis/List/VisualDump.h" declline="32" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_visual_dump_8h_1aa61eb1997c18adf5280aade7bd6ec9c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hlog</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>hlog</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/List/VisualDump.h" line="34" column="6" bodyfile="ATC/HtmlLog/HtmlLog.cpp" bodystart="19" bodyend="27" declfile="ATC/GraphVis/List/VisualDump.h" declline="34" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>HOW_TO_SPEND_SCHOLARSHIP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HOW_TO_SPENF_SCHOLARSHIP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ArsList.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>CloseHtmlLog<sp/>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">FILE*<sp/>SetHtmlLog<sp/><sp/><sp/>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">FILE*<sp/>OpenDot<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>CloseDot<sp/>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FILE*<sp/>HtmlLog;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>MAX_GRAPH_NAME_LENGTH<sp/>=<sp/>40;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>IMAGE_NAME_LENGTH<sp/>=<sp/>40;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SYSTEM_COMMAND_LENGTH<sp/>=<sp/>155;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>GetImage<sp/>(ArsList*<sp/>list);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetDot<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetNodesArr<sp/><sp/><sp/><sp/><sp/>(ArsList*<sp/>list);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetListStatus<sp/><sp/><sp/>(ArsList*<sp/>list);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetEndDot<sp/><sp/><sp/><sp/><sp/><sp/><sp/>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DotPrint<sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConnectNodes<sp/>(index_t<sp/>first,<sp/>index_t<sp/>second);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>set_func_name<sp/><sp/><sp/>fprintf<sp/>(Dot,<sp/>&quot;###########################################################<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>__func__);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PrintNode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(node*<sp/>node_ptr,<sp/>index_t<sp/>node_num);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConnectPrevAndNext<sp/>(node*<sp/>node_ptr,<sp/>index_t<sp/>node_num);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>hlog<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/GraphVis/List/VisualDump.h"/>
+  </compounddef>
+</doxygen>

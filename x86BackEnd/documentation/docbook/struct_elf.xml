@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_elf" xml:lang="en-US">
+<title>Elf Struct Reference</title>
+<indexterm><primary>Elf</primary></indexterm>
+Collaboration diagram for Elf:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_elf__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_elf_1a6fdc3aa4eca13c43994ee59df39e1613"/><link linkend="_struct_elf_headers">ElfHeaders</link> <emphasis role="strong">headers</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_elf_1a28754743c7f3f6e77b59aa8fd135d3dd"/><link linkend="_struct_buffer">Buffer</link> <emphasis role="strong">code_buf</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_elf_1af6c2d9508f71b9346673b9eec7728145"/><link linkend="_struct_buffer">Buffer</link> <emphasis role="strong">program_buf</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Elf/Elf.hpp</section>

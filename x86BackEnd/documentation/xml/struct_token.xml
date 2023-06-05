@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_token" kind="struct" language="C++" prot="public">
+    <compoundname>Token</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_token_1a7894229ac04f44070cffc6ae00b6480b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>Token* Token::left_child</definition>
+        <argsstring></argsstring>
+        <name>left_child</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="24" column="12" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a9fb3161dfb0da08373ad4d1cf7a69675" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>Token* Token::right_child</definition>
+        <argsstring></argsstring>
+        <name>right_child</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="25" column="11" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1ae46b6b806df89709a13a14dc76c86623" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Token::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="27" column="9" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a7dce8125d104a3a793a13d7cfa662449" prot="public" static="no" mutable="no">
+        <type>union <ref refid="union_token_value" kindref="compound">TokenValue</ref></type>
+        <definition>union TokenValue Token::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="27" column="9" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a851aa538aba147a6283ef9f21a083074" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+        <definition>Label* Token::t_label_ptr</definition>
+        <argsstring></argsstring>
+        <name>t_label_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="31" column="11" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a479e312a5203736c2032ca59a88bf341" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Token::ptr_to_src_code</definition>
+        <argsstring></argsstring>
+        <name>ptr_to_src_code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="34" column="16" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a4b96c2a31d7c374fd2bd1986794f80dd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Token::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="36" column="9" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_token_1a918e412654a0097958496a19416129bc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Token::indent</definition>
+        <argsstring></argsstring>
+        <name>indent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Token/Token.h" line="37" column="9" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="1">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/Common/Structures/Token/Token.h" line="22" column="1" bodyfile="src/Legacy/Common/Structures/Token/Token.h" bodystart="23" bodyend="40"/>
+    <listofallmembers>
+      <member refid="struct_token_1a918e412654a0097958496a19416129bc" prot="public" virt="non-virtual"><scope>Token</scope><name>indent</name></member>
+      <member refid="struct_token_1a7894229ac04f44070cffc6ae00b6480b" prot="public" virt="non-virtual"><scope>Token</scope><name>left_child</name></member>
+      <member refid="struct_token_1a4b96c2a31d7c374fd2bd1986794f80dd" prot="public" virt="non-virtual"><scope>Token</scope><name>line</name></member>
+      <member refid="struct_token_1a479e312a5203736c2032ca59a88bf341" prot="public" virt="non-virtual"><scope>Token</scope><name>ptr_to_src_code</name></member>
+      <member refid="struct_token_1a9fb3161dfb0da08373ad4d1cf7a69675" prot="public" virt="non-virtual"><scope>Token</scope><name>right_child</name></member>
+      <member refid="struct_token_1a851aa538aba147a6283ef9f21a083074" prot="public" virt="non-virtual"><scope>Token</scope><name>t_label_ptr</name></member>
+      <member refid="struct_token_1ae46b6b806df89709a13a14dc76c86623" prot="public" virt="non-virtual"><scope>Token</scope><name>type</name></member>
+      <member refid="struct_token_1a7dce8125d104a3a793a13d7cfa662449" prot="public" virt="non-virtual"><scope>Token</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

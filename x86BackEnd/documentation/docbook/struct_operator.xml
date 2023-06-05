@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_operator" xml:lang="en-US">
+<title>Operator Struct Reference</title>
+<indexterm><primary>Operator</primary></indexterm>
+<para>
+
+<para>Math operation instruction. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Instructions.h&gt;</computeroutput>
+</para>
+Inheritance diagram for Operator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_operator__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Operator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_operator__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_operator_1a7f81b636bded4f1af0b740676cce6d57"/><emphasis role="strong">Operator</emphasis> (name_t name_param, enum OperatorType op_type_param, const <link linkend="_class_value">Value</link> *left_param, const <link linkend="_class_value">Value</link> *right_param)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_operator_1ab38ae88a168aa17a8227f5598a5a216a">dump</link> () const override</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</listitem>
+            <listitem><para>InstructionType <link linkend="_struct_operator_1aa6d95336b6c990924a9a8c56cbc3b8d7">get_instr_type</link> () const override</para>
+
+<para>Get instr_type. </para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_operator_1a980a9871f1ae7b2091a0893acee001c6">translate_x86</link> (<link linkend="_struct_context">Context</link> *ctx) const override</para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_operator_1a0e2f9342c0bbdaaee61db08fe34b9787">set_storage</link> () const override</para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_operator_1ab4b2821774d38b3a77f971a2e8d46035"/>enum OperatorType <emphasis role="strong">op_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_operator_1aa4d7a66d96350b2dc6fbf0fed4614ffb"/>const <link linkend="_class_value">Value</link> * <emphasis role="strong">left_op</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_operator_1a3f962692ee98f861e577a40ded63fb8f"/>const <link linkend="_class_value">Value</link> * <emphasis role="strong">right_op</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Math operation instruction. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_operator_1ab38ae88a168aa17a8227f5598a5a216a"/>    <section>
+    <title>dump()</title>
+<indexterm><primary>dump</primary><secondary>Operator</secondary></indexterm>
+<indexterm><primary>Operator</primary><secondary>dump</secondary></indexterm>
+<para><computeroutput>void Operator::dump ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. PRINT_NEW_LINES regulates if printed <link linkend="_class_value">Value</link> generates extra new line chars </para>
+<para>
+Implements <link linkend="_class_instruction_1a8b89720a9e81b5034f384acf2584fe74">Instruction</link>.</para>
+    </section><anchor xml:id="_struct_operator_1aa6d95336b6c990924a9a8c56cbc3b8d7"/>    <section>
+    <title>get_instr_type()</title>
+<indexterm><primary>get_instr_type</primary><secondary>Operator</secondary></indexterm>
+<indexterm><primary>Operator</primary><secondary>get_instr_type</secondary></indexterm>
+<para><computeroutput>InstructionType Operator::get_instr_type ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Get instr_type. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>debug purpose only </para>
+</note>
+<formalpara><title>Returns</title>
+
+<para>InstructionType </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_instruction_1a5794ed6986bad233a819137af502519a">Instruction</link>.</para>
+    </section><anchor xml:id="_struct_operator_1a0e2f9342c0bbdaaee61db08fe34b9787"/>    <section>
+    <title>set_storage()</title>
+<indexterm><primary>set_storage</primary><secondary>Operator</secondary></indexterm>
+<indexterm><primary>Operator</primary><secondary>set_storage</secondary></indexterm>
+<para><computeroutput>void Operator::set_storage ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</para>
+
+<para>This functions sets <emphasis>storage_type</emphasis> for value In <link linkend="_class_function">Function</link> and <link linkend="_class_base_block">BaseBlock</link> this function call this this function for all objects from their ValueArr&lt;&gt; members <note><title>Note</title>
+
+<para>for <link linkend="_class_constant">Constant</link> this function only checks <emphasis>storage_type</emphasis> </para>
+</note>
+</para>
+<para>
+Implements <link linkend="_class_instruction_1a4d0dfb9af1468c0ad0c5e3b0b39df7ac">Instruction</link>.</para>
+    </section><anchor xml:id="_struct_operator_1a980a9871f1ae7b2091a0893acee001c6"/>    <section>
+    <title>translate_x86()</title>
+<indexterm><primary>translate_x86</primary><secondary>Operator</secondary></indexterm>
+<indexterm><primary>Operator</primary><secondary>translate_x86</secondary></indexterm>
+<para><computeroutput>void Operator::translate_x86 (<link linkend="_struct_context">Context</link> * ctx) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ctx</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_instruction_1a490849f5712f281da374de8de683069b">Instruction</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following files:</para>
+src/IR/Instructions/<link linkend="__instructions_8h">Instructions.h</link>src/IR/DumpIR/DumpIR.cppsrc/IR/Instructions/Instruction.cppsrc/IR/Storage/Storage.cppsrc/IR/TranslateTox86/TranslateIRTox86.cpp</section>
+</section>

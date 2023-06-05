@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_c2c256c8fef11be48843a172b03cf342" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/src/IR</compoundname>
+    <innerdir refid="dir_cb56d427e084e72ca640b79c812c7fd4">build/CMakeFiles/x86Backend.dir/src/IR/AstToIR</innerdir>
+    <innerdir refid="dir_3e8a75ee93f9bae62887ad6691e50000">build/CMakeFiles/x86Backend.dir/src/IR/DumpIR</innerdir>
+    <innerdir refid="dir_e328fbd1fe31452f4ccd9be923200640">build/CMakeFiles/x86Backend.dir/src/IR/Instructions</innerdir>
+    <innerdir refid="dir_db4123b97ce06882de2f1303296d081a">build/CMakeFiles/x86Backend.dir/src/IR/Module</innerdir>
+    <innerdir refid="dir_5aed88f505b276ce78aee16942ca2378">build/CMakeFiles/x86Backend.dir/src/IR/Storage</innerdir>
+    <innerdir refid="dir_abf049ef6a2be94705d8c45f5935337f">build/CMakeFiles/x86Backend.dir/src/IR/TranslateTox86</innerdir>
+    <innerdir refid="dir_e23cfb1b4fd01b4d55db60e77ba8f068">build/CMakeFiles/x86Backend.dir/src/IR/Value</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/src/IR/"/>
+  </compounddef>
+</doxygen>

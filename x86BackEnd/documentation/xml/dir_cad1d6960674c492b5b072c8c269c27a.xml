@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_cad1d6960674c492b5b072c8c269c27a" kind="dir">
+    <compoundname>src/IR/DumpIR</compoundname>
+    <innerfile refid="_dump_i_r_8cpp">DumpIR.cpp</innerfile>
+    <innerfile refid="_dump_i_r_8h">DumpIR.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/DumpIR/"/>
+  </compounddef>
+</doxygen>

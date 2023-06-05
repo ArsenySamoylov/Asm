@@ -1,0 +1,165 @@
+\hypertarget{class_instruction}{}\doxysection{Instruction Class Reference}
+\label{class_instruction}\index{Instruction@{Instruction}}
+
+
+Abstract class for instruction, that will be executed.  
+
+
+
+
+{\ttfamily \#include $<$Instructions.\+h$>$}
+
+
+
+Inheritance diagram for Instruction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_instruction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Instruction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_instruction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_instruction_a84d2688e801420c6d6df3aec3e33fef7}\label{class_instruction_a84d2688e801420c6d6df3aec3e33fef7}} 
+{\bfseries Instruction} (name\+\_\+t name\+\_\+param, Instruction\+Type type\+\_\+param)
+\item 
+virtual void \mbox{\hyperlink{class_instruction_a8b89720a9e81b5034f384acf2584fe74}{dump}} () const override=0
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+virtual Instruction\+Type \mbox{\hyperlink{class_instruction_a5794ed6986bad233a819137af502519a}{get\+\_\+instr\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Get instr\+\_\+type. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_instruction_a490849f5712f281da374de8de683069b}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override=0
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}{set\+\_\+storage}} () const override=0
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\item 
+Value\+Type \mbox{\hyperlink{class_instruction_a1834df9dd269df28fd946671d29e1e0d}{get\+\_\+type}} () const override final
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{class_value}{Value}} type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_instruction_ab4921a8785d375412dfb1505a7265926}\label{class_instruction_ab4921a8785d375412dfb1505a7265926}} 
+enum Instruction\+Type {\bfseries type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for instruction, that will be executed. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_instruction_a8b89720a9e81b5034f384acf2584fe74}\label{class_instruction_a8b89720a9e81b5034f384acf2584fe74}} 
+\index{Instruction@{Instruction}!dump@{dump}}
+\index{dump@{dump}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily virtual void Instruction\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_value_ad58adc30ecd6e33f8344b76bb94ad9a9}{Value}}.
+
+
+
+Implemented in \mbox{\hyperlink{struct_operator_ab38ae88a168aa17a8227f5598a5a216a}{Operator}}, \mbox{\hyperlink{struct_return_ac88922f7e3bab1ece0eec23eefe4726b}{Return}}, \mbox{\hyperlink{class_call_a54ed26dbf1e6cc76bff3b57c9c696e10}{Call}}, \mbox{\hyperlink{class_branch_a14d5e915388e5a1a63b6ff33ba8e942f}{Branch}}, \mbox{\hyperlink{class_load_a2ffe39a4cc70a22934d4619754d8da5b}{Load}}, and \mbox{\hyperlink{class_store_af9f11c9b5e26c934fdc8d1cdf34069de}{Store}}.
+
+\mbox{\Hypertarget{class_instruction_a5794ed6986bad233a819137af502519a}\label{class_instruction_a5794ed6986bad233a819137af502519a}} 
+\index{Instruction@{Instruction}!get\_instr\_type@{get\_instr\_type}}
+\index{get\_instr\_type@{get\_instr\_type}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{get\_instr\_type()}{get\_instr\_type()}}
+{\footnotesize\ttfamily virtual Instruction\+Type Instruction\+::get\+\_\+instr\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get instr\+\_\+type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Instruction\+Type 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{struct_operator_aa6d95336b6c990924a9a8c56cbc3b8d7}{Operator}}, \mbox{\hyperlink{struct_return_aea53e7e3ade04c92589a49c6ee161052}{Return}}, \mbox{\hyperlink{class_call_a4b586a9f4be19d3700b48c9211d4ce29}{Call}}, \mbox{\hyperlink{class_branch_a3dc92ea578854ba3100e57b554c42188}{Branch}}, \mbox{\hyperlink{class_load_aabfec9224d8ba6728e1aaeaf932199af}{Load}}, and \mbox{\hyperlink{class_store_ae24f01b9a4d5924c2cc9b0c1ae246708}{Store}}.
+
+\mbox{\Hypertarget{class_instruction_a1834df9dd269df28fd946671d29e1e0d}\label{class_instruction_a1834df9dd269df28fd946671d29e1e0d}} 
+\index{Instruction@{Instruction}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily Value\+Type Instruction\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get \mbox{\hyperlink{class_value}{Value}} type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Value\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_value_a81566c2e0f8d9c81fe18ad4ae251e471}{Value}}.
+
+\mbox{\Hypertarget{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}\label{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}} 
+\index{Instruction@{Instruction}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily virtual void Instruction\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_value_a8bc56c2cc9d6cb4aade7084277d9df26}{Value}}.
+
+
+
+Implemented in \mbox{\hyperlink{struct_operator_a0e2f9342c0bbdaaee61db08fe34b9787}{Operator}}, \mbox{\hyperlink{struct_return_ab83a398c3a53e45be73a43534a6e5e19}{Return}}, \mbox{\hyperlink{class_call_a9839f2f2c88928629f80bd2df0f49cd3}{Call}}, \mbox{\hyperlink{class_branch_a5612f299d00d99a2499c961bb739aec5}{Branch}}, \mbox{\hyperlink{class_load_a1ca0f3a03d0885c059ca3516e9519e42}{Load}}, and \mbox{\hyperlink{class_store_ab07b234554d2c9ae8b7cd758077c9c1f}{Store}}.
+
+\mbox{\Hypertarget{class_instruction_a490849f5712f281da374de8de683069b}\label{class_instruction_a490849f5712f281da374de8de683069b}} 
+\index{Instruction@{Instruction}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily virtual void Instruction\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_value_a5c80febbb8171e7c60cdd1598c47fe53}{Value}}.
+
+
+
+Implemented in \mbox{\hyperlink{struct_operator_a980a9871f1ae7b2091a0893acee001c6}{Operator}}, \mbox{\hyperlink{struct_return_aa83609e0489201eead089f31bdb4216d}{Return}}, \mbox{\hyperlink{class_call_a559c642d08f5d45404a4ab550714a91b}{Call}}, \mbox{\hyperlink{class_branch_a3139dda417192232452f7e330fe497dc}{Branch}}, \mbox{\hyperlink{class_load_a33776e091c7c4f20fa15a03c367c9acf}{Load}}, and \mbox{\hyperlink{class_store_a356cbb050d01381df30a3e135dfd4e3f}{Store}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Instructions/\mbox{\hyperlink{_instructions_8h}{Instructions.\+h}}\item 
+src/\+IR/\+Instructions/Instruction.\+cpp\end{DoxyCompactItemize}

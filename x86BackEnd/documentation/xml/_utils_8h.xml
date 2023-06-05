@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_utils_8h" kind="file" language="C++">
+    <compoundname>Utils.h</compoundname>
+    <includes local="no">stdarg.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="_ars_lib_8h" local="yes">ATC/ArsLib.h</includedby>
+    <includedby refid="_log_macroses_8h" local="yes">ATC/Logger/LogMacroses.h</includedby>
+    <includedby refid="_utils_8cpp" local="yes">ATC/Utils/Utils.cpp</includedby>
+    <includedby refid="_put_std_8cpp" local="yes">src/Legacy/Common/StandartAWP/PutStd.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1">
+        <label>ATC/Utils/Utils.h</label>
+        <link refid="_utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>ATC/Logger/LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/Legacy/Common/Structures/DSL.h</label>
+        <link refid="_d_s_l_8h_source"/>
+      </node>
+      <node id="2">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+      <node id="1">
+        <label>ATC/Utils/Utils.h</label>
+        <link refid="_utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_utils_8h_1ab63930f533d952cb91fbcef1a82def9b" prot="public" static="no">
+        <name>func_message</name>
+        <param><defname>...</defname></param>
+        <initializer>                            {                              \
+                            printf(&quot;\t%s: &quot;, __func__);   \
+                            printf(__VA_ARGS__);          \
+                            printf(&quot; (%s:%d)\n&quot;, __FILE__, __LINE__); \
+                            }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Utils/Utils.h" line="11" column="9" bodyfile="ATC/Utils/Utils.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_utils_8h_1a46f8ab3efe79163d6bafdafbb35afe60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MsgRet</definition>
+        <argsstring>(int return_value, const char *format,...)</argsstring>
+        <name>MsgRet</name>
+        <param>
+          <type>int</type>
+          <declname>return_value</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Utils/Utils.h" line="6" column="6" bodyfile="ATC/Utils/Utils.cpp" bodystart="7" bodyend="17" declfile="ATC/Utils/Utils.h" declline="6" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_utils_8h_1ac3d8e0d6b44afe06faea20445ab4a3f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MsgNoRet</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>MsgNoRet</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Utils/Utils.h" line="7" column="6" bodyfile="ATC/Utils/Utils.cpp" bodystart="19" bodyend="29" declfile="ATC/Utils/Utils.h" declline="7" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_utils_8h_1adef61a1a2e1446b46a4b91d456e54457" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>decltype(nullptr)</type>
+        <definition>decltype(nullptr) LogMsgNullRet</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>LogMsgNullRet</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Utils/Utils.h" line="9" column="10" bodyfile="ATC/Utils/Utils.cpp" bodystart="49" bodyend="59" declfile="ATC/Utils/Utils.h" declline="9" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_utils_8h_1a3898cde4a242517878ba1fb8c0cfdbd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SYSTEM</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>SYSTEM</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Utils/Utils.h" line="17" column="5" bodyfile="ATC/Utils/Utils.cpp" bodystart="33" bodyend="47" declfile="ATC/Utils/Utils.h" declline="17" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>MsgRet<sp/><sp/><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>return_value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MsgNoRet<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">decltype(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>LogMsgNullRet(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>func_message(...)<sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;\t%s:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__);<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(__VA_ARGS__);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;<sp/>(%s:%d)\n&quot;,<sp/>__FILE__,<sp/>__LINE__);<sp/>\</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SYSTEM(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/></highlight></codeline>
+    </programlisting>
+    <location file="ATC/Utils/Utils.h"/>
+  </compounddef>
+</doxygen>

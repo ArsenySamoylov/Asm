@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_node" kind="struct" language="C++" prot="public">
+    <compoundname>Node</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_node_1ad8184598cdea70e4bbdfd76f2b0f9e85" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="8" column="13" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a8e9299bdf25bdbcbd9057603f1eed290" prot="public" static="no" mutable="no">
+        <type>elemen_t</type>
+        <definition>elemen_t Node::data[DATA_SIZE]</definition>
+        <argsstring>[DATA_SIZE]</argsstring>
+        <name>data</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="9" column="14" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a4fbc48c42e41357a384014c3940d5c27" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node::first_child</definition>
+        <argsstring></argsstring>
+        <name>first_child</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="11" column="11" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a7ad45d23ad0776c89a7af9074b4d8642" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node::second_child</definition>
+        <argsstring></argsstring>
+        <name>second_child</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="12" column="10" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Node</label>
+        <link refid="struct_node"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>first_child</edgelabel>
+          <edgelabel>parent</edgelabel>
+          <edgelabel>second_child</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ATC/Trees/Akinator/BinaryTree.h" line="6" column="1" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="7" bodyend="13"/>
+    <listofallmembers>
+      <member refid="struct_node_1a8e9299bdf25bdbcbd9057603f1eed290" prot="public" virt="non-virtual"><scope>Node</scope><name>data</name></member>
+      <member refid="struct_node_1a4fbc48c42e41357a384014c3940d5c27" prot="public" virt="non-virtual"><scope>Node</scope><name>first_child</name></member>
+      <member refid="struct_node_1ad8184598cdea70e4bbdfd76f2b0f9e85" prot="public" virt="non-virtual"><scope>Node</scope><name>parent</name></member>
+      <member refid="struct_node_1a7ad45d23ad0776c89a7af9074b4d8642" prot="public" virt="non-virtual"><scope>Node</scope><name>second_child</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

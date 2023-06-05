@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_func_tabel" xml:lang="en-US">
+<title>FuncTabel Struct Reference</title>
+<indexterm><primary>FuncTabel</primary></indexterm>
+Collaboration diagram for FuncTabel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_func_tabel__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_func_tabel_1a719c9ff1a975c1648e2dc55803ddd8c7"/><link linkend="_struct_func_label">FuncLabel</link> ** <emphasis role="strong">label_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_func_tabel_1a85c170b8cc4face95ad4476c8276e5df"/>size_t <emphasis role="strong">arr_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_func_tabel_1a905ed0339a8ec86b61b1bfc3c92b9bb7"/>size_t <emphasis role="strong">number_of_labels</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/Structures/Tabels/Tabels.h</section>

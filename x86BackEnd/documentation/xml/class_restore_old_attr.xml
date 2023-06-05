@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_restore_old_attr" kind="class" language="C++" prot="public">
+    <compoundname>RestoreOldAttr</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_restore_old_attr_1ac439617e46c67ab6c9f4e08129b52ebd" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned RestoreOldAttr::old_attr</definition>
+        <argsstring></argsstring>
+        <name>old_attr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="51" column="18" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_restore_old_attr_1aa508e0e33059de72c38a1e90c7485843" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RestoreOldAttr::RestoreOldAttr</definition>
+        <argsstring>(unsigned attr)</argsstring>
+        <name>RestoreOldAttr</name>
+        <param>
+          <type>unsigned</type>
+          <declname>attr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="53" column="9" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_restore_old_attr_1af693fd705e05f7b009c0db8a92b3440a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RestoreOldAttr::~RestoreOldAttr</definition>
+        <argsstring>()</argsstring>
+        <name>~RestoreOldAttr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="58" column="9" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="58" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ATC/ConsoleColors/WindowsColors.h" line="48" column="1" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="49" bodyend="63"/>
+    <listofallmembers>
+      <member refid="class_restore_old_attr_1ac439617e46c67ab6c9f4e08129b52ebd" prot="private" virt="non-virtual"><scope>RestoreOldAttr</scope><name>old_attr</name></member>
+      <member refid="class_restore_old_attr_1aa508e0e33059de72c38a1e90c7485843" prot="public" virt="non-virtual"><scope>RestoreOldAttr</scope><name>RestoreOldAttr</name></member>
+      <member refid="class_restore_old_attr_1af693fd705e05f7b009c0db8a92b3440a" prot="public" virt="non-virtual"><scope>RestoreOldAttr</scope><name>~RestoreOldAttr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

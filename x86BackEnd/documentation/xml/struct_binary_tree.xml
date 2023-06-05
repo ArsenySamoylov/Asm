@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_binary_tree" kind="struct" language="C++" prot="public">
+    <compoundname>BinaryTree</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_binary_tree_1ae7e672ece25489eb84fc177bbe866023" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* BinaryTree::root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="17" column="10" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_binary_tree_1a605aec9cf8ab45fca9be8add295e8640" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BinaryTree::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="19" column="9" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_binary_tree_1ac8db09d57c956322d279cc66b9194fa6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BinaryTree::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/BinaryTree.h" line="20" column="9" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>BinaryTree</label>
+        <link refid="struct_binary_tree"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>root</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Node</label>
+        <link refid="struct_node"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>first_child</edgelabel>
+          <edgelabel>parent</edgelabel>
+          <edgelabel>second_child</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ATC/Trees/Akinator/BinaryTree.h" line="15" column="1" bodyfile="ATC/Trees/Akinator/BinaryTree.h" bodystart="16" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_binary_tree_1ae7e672ece25489eb84fc177bbe866023" prot="public" virt="non-virtual"><scope>BinaryTree</scope><name>root</name></member>
+      <member refid="struct_binary_tree_1a605aec9cf8ab45fca9be8add295e8640" prot="public" virt="non-virtual"><scope>BinaryTree</scope><name>size</name></member>
+      <member refid="struct_binary_tree_1ac8db09d57c956322d279cc66b9194fa6" prot="public" virt="non-virtual"><scope>BinaryTree</scope><name>status</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

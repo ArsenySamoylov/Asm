@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_23e763588dedf41c4efb1e142e025e35" kind="dir">
+    <compoundname>src/Legacy/Common</compoundname>
+    <innerdir refid="dir_85adcc6a26188d644c5a01c4f8259e6b">src/Legacy/Common/LexicalCtx</innerdir>
+    <innerdir refid="dir_b492bcec07672d468944c3b06d7f34fd">src/Legacy/Common/StandartAWP</innerdir>
+    <innerdir refid="dir_fbece632718bd04dfbee69e8e6018ba5">src/Legacy/Common/Structures</innerdir>
+    <innerdir refid="dir_ef2b23f8a5b258ecc056d12edccaa2a2">src/Legacy/Common/Utils</innerdir>
+    <innerfile refid="_grammar_8h">Grammar.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Legacy/Common/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_fbece632718bd04dfbee69e8e6018ba5" kind="dir">
+    <compoundname>src/Legacy/Common/Structures</compoundname>
+    <innerdir refid="dir_d9154491c8d53ac06de6ca88ab3bd5fe">src/Legacy/Common/Structures/Program</innerdir>
+    <innerdir refid="dir_550590ffdc0e5a45ff5d89bc53be13c5">src/Legacy/Common/Structures/Tabels</innerdir>
+    <innerdir refid="dir_bdab8827537b1f9fd1590eab6b923483">src/Legacy/Common/Structures/Token</innerdir>
+    <innerfile refid="_d_s_l_8h">DSL.h</innerfile>
+    <innerfile refid="_token_types_8h">TokenTypes.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Legacy/Common/Structures/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_3b9e5b3c7300b8622de85b4cbc037388" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/ATC</compoundname>
+    <innerdir refid="dir_df7db605edbfd8cea517fe7dc6f46889">build/CMakeFiles/x86Backend.dir/ATC/Buffer</innerdir>
+    <innerdir refid="dir_a92afb86d5fd15f05abdddd0fc0138d1">build/CMakeFiles/x86Backend.dir/ATC/Logger</innerdir>
+    <innerdir refid="dir_afdf3e24c165798fd40ac8c1fd314088">build/CMakeFiles/x86Backend.dir/ATC/my_safety</innerdir>
+    <innerdir refid="dir_fe9673983df23d1c2c7fe00890b3041f">build/CMakeFiles/x86Backend.dir/ATC/SuperStack</innerdir>
+    <innerdir refid="dir_f9605d6cf3b4a57392b76ae0b4383175">build/CMakeFiles/x86Backend.dir/ATC/Utils</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/ATC/"/>
+  </compounddef>
+</doxygen>

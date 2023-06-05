@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_token_types_8h" kind="file" language="C++">
+    <compoundname>TokenTypes.h</compoundname>
+    <includedby refid="_grammar_8h" local="yes">src/Legacy/Common/Grammar.h</includedby>
+    <includedby refid="_graph_vis_8cpp" local="yes">src/Legacy/Common/Utils/GraphVis.cpp</includedby>
+    <includedby refid="_lang_utils_8cpp" local="yes">src/Legacy/Common/Utils/LangUtils.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/Legacy/Common/Grammar.h</label>
+        <link refid="_grammar_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/Legacy/Common/Structures/TokenTypes.h</label>
+        <link refid="_token_types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_token_types_8h_1ae0323a9039add2978bf5b49550572c7c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/TokenTypes.h" line="8" column="16" bodyfile="src/Legacy/Common/Structures/TokenTypes.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_token_types_8h_1a5c1dfdd14b0ad5a197673e58e1592682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TOKEN_TYPE</definition>
+        <argsstring>(STATEMENT, 1, &quot;%c&quot;, OP(TOKEN)==&apos;{&apos; ? &apos;[&apos; :OP(TOKEN)==&apos;}&apos; ? &apos;]&apos; :OP(TOKEN)) TOKEN_TYPE(OPERATOR</argsstring>
+        <name>TOKEN_TYPE</name>
+        <param>
+          <type>STATEMENT</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>&quot;%c&quot;</type>
+        </param>
+        <param>
+          <type>OP(TOKEN)</type>
+          <defval>=&apos;{&apos; ? &apos;[&apos; :OP(TOKEN)==&apos;}&apos; ? &apos;]&apos; :OP(TOKEN)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/TokenTypes.h" line="4" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>define<sp/>TOKEN<sp/>before<sp/>implementing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOKEN_TYPE(name,<sp/>val,<sp/><sp/>specifier,<sp/>...<sp/>-<sp/>arguments)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">TOKEN_TYPE(STATEMENT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;[&apos;</highlight><highlight class="normal"><sp/>:<sp/><sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;]&apos;</highlight><highlight class="normal"><sp/>:<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">TOKEN_TYPE(INSTRUCTION,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>INSTRUCTIONS[INSTR(TOKEN)])</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">TOKEN_TYPE(INITIALIZATOR,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>INITIALIZATORS[INITIALIZATOR(TOKEN)])</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">TOKEN_TYPE(FUNCTION_RET_TYPE,<sp/><sp/><sp/><sp/><sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>FUNCTION_RET_TYPES[RET_TYPE(TOKEN)]<sp/>)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">TOKEN_TYPE(OPERATOR,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;&lt;&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;L&apos;</highlight><highlight class="normal"><sp/>:<sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;&gt;&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;B&apos;</highlight><highlight class="normal"><sp/>:<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">TOKEN_TYPE(NAME,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6,<sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>STRING_ARR[NAME_ID(TOKEN)])</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">TOKEN_TYPE(VARIABLE,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7,<sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>STRING_ARR[NAME_ID(TOKEN)])</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">TOKEN_TYPE(CONSTANT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8,<sp/></highlight><highlight class="stringliteral">&quot;%lg&quot;</highlight><highlight class="normal">,<sp/>CONST(TOKEN))</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">TOKEN_TYPE(FUNCTION,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>9,<sp/><sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;[&apos;</highlight><highlight class="normal"><sp/>:<sp/><sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;]&apos;</highlight><highlight class="normal"><sp/>:<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">TOKEN_TYPE(CALL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>10,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">TOKEN_TYPE(NATIVE_FUNCTION,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>11,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>NATIVE_FUNCTIONS[NATIVE_FUNC(TOKEN)].str)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">TOKEN_TYPE(PARAMETR,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>12,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;[&apos;</highlight><highlight class="normal"><sp/>:<sp/><sp/>OP(TOKEN)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="charliteral">&apos;]&apos;</highlight><highlight class="normal"><sp/>:<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">TOKEN_TYPE(ASSIGMENT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;=&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">TOKEN_TYPE(SEPARATOR,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;,&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">TOKEN_TYPE(BLOCK_OPENING_BRACKET,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">TOKEN_TYPE(BLOCK_CLOSING_BRACKET,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">TOKEN_TYPE(EXPRESSION_OPENING_BRACKET,<sp/></highlight><highlight class="charliteral">&apos;(&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">TOKEN_TYPE(EXPRESSION_CLOSING_BRACKET,<sp/></highlight><highlight class="charliteral">&apos;)&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">TOKEN_TYPE(END_OF_STATEMENT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;;&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/>OP(TOKEN))</highlight></codeline>
+    </programlisting>
+    <location file="src/Legacy/Common/Structures/TokenTypes.h"/>
+  </compounddef>
+</doxygen>

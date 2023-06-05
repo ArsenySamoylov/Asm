@@ -1,0 +1,682 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_commands_8h" kind="file" language="C++">
+    <compoundname>Commands.h</compoundname>
+    <includes refid="_instructions_8h" local="yes">Instructions.h</includes>
+    <includes refid="_i_r_context_8h" local="yes">IRContext.h</includes>
+    <includedby refid="_storage_8cpp" local="yes">src/IR/Storage/Storage.cpp</includedby>
+    <includedby refid="_commands_8cpp" local="yes">src/IR/TranslateTox86/Commands.cpp</includedby>
+    <includedby refid="_translate_i_r_tox86_8cpp" local="yes">src/IR/TranslateTox86/TranslateIRTox86.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Instructions.h</label>
+        <link refid="_instructions_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>IRContext.h</label>
+        <link refid="_i_r_context_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stdlib.h</label>
+      </node>
+      <node id="17">
+        <label>elf.h</label>
+      </node>
+      <node id="7">
+        <label>cassert</label>
+      </node>
+      <node id="11">
+        <label>TypeDefs.h</label>
+        <link refid="_type_defs_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stddef.h</label>
+      </node>
+      <node id="13">
+        <label>RegistersUsage.h</label>
+        <link refid="_registers_usage_8h_source"/>
+      </node>
+      <node id="5">
+        <label>ValueArrTemplate.h</label>
+        <link refid="_value_arr_template_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cstdio</label>
+      </node>
+      <node id="18">
+        <label>Buffer.hpp</label>
+        <link refid="_buffer_8hpp_source"/>
+      </node>
+      <node id="16">
+        <label>Elf.hpp</label>
+        <link refid="_elf_8hpp_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/IR/TranslateTox86/Commands.h</label>
+        <link refid="_commands_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstdlib</label>
+      </node>
+      <node id="4">
+        <label>cstddef</label>
+      </node>
+      <node id="3">
+        <label>Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>NoCopyable.h</label>
+        <link refid="_no_copyable_8h_source"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_commands_8h_1a8a83f8b7103a193b06dd2faa6719b4f1" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t VAR_SIZE</definition>
+        <argsstring></argsstring>
+        <name>VAR_SIZE</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="6" column="14" bodyfile="src/IR/TranslateTox86/Commands.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_commands_8h_1afe4601455842080d33cd2fb105d938d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PUT_CALL</definition>
+        <argsstring>(Context *ctx, const Function *callee)</argsstring>
+        <name>PUT_CALL</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_function" kindref="compound">Function</ref> *</type>
+          <declname>callee</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="8" column="6" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="40" bodyend="54" declfile="src/IR/TranslateTox86/Commands.h" declline="8" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1ab996517ca8bc0bbb7ce1ddca72aa1bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PUT_JUMP</definition>
+        <argsstring>(Context *ctx, const BaseBlock *jump_dest)</argsstring>
+        <name>PUT_JUMP</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+          <declname>jump_dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="9" column="6" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="56" bodyend="69" declfile="src/IR/TranslateTox86/Commands.h" declline="9" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a0fa2c38fa4fcb494a23375b6b94761bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PUT_CJUMP</definition>
+        <argsstring>(Context *ctx, const BaseBlock *jump_dest, GPRegisterNumber reg_num)</argsstring>
+        <name>PUT_CJUMP</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+          <declname>jump_dest</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>reg_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="10" column="6" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="71" bodyend="84" declfile="src/IR/TranslateTox86/Commands.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a5ba706680e6d26a2eaf5bc1186f2013c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutSubRsp</definition>
+        <argsstring>(Context *ctx, size_t num, const char *comment=NULL)</argsstring>
+        <name>PutSubRsp</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="12" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="87" bodyend="106" declfile="src/IR/TranslateTox86/Commands.h" declline="12" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a88c551dfdce6bc4fb9d8623b12d4e463" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutAddRsp</definition>
+        <argsstring>(Context *ctx, size_t num, const char *comment=NULL)</argsstring>
+        <name>PutAddRsp</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="13" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="108" bodyend="124" declfile="src/IR/TranslateTox86/Commands.h" declline="13" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a4a199a9b2ebc6aa3792e6dbb64b64baa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutRet</definition>
+        <argsstring>(Context *ctx, const char *comment=NULL)</argsstring>
+        <name>PutRet</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="14" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="126" bodyend="137" declfile="src/IR/TranslateTox86/Commands.h" declline="14" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1aa7ab5c788515279f81fa430b04dcf2a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutJump</definition>
+        <argsstring>(Context *ctx, name_t label, const char *comment=NULL)</argsstring>
+        <name>PutJump</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="15" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="139" bodyend="153" declfile="src/IR/TranslateTox86/Commands.h" declline="15" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a7832a07b5a372fd3e019f973d134b42b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutCJump</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber test, name_t label, const char *comment=NULL)</argsstring>
+        <name>PutCJump</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>test</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="16" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="155" bodyend="178" declfile="src/IR/TranslateTox86/Commands.h" declline="16" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1aad17286138d6d7233ef9f5d5658ef19f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutCall</definition>
+        <argsstring>(Context *ctx, name_t label, const char *comment=NULL)</argsstring>
+        <name>PutCall</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="17" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="180" bodyend="192" declfile="src/IR/TranslateTox86/Commands.h" declline="17" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a8574c256ffeef5c05e0f6e1d86595af7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutPushR</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber reg, const char *comment=NULL)</argsstring>
+        <name>PutPushR</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="18" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="194" bodyend="221" declfile="src/IR/TranslateTox86/Commands.h" declline="18" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1abd5323cee3adaeb9bf4f18ed6e214ebb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutPopR</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber reg, const char *comment=NULL)</argsstring>
+        <name>PutPopR</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="19" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="223" bodyend="250" declfile="src/IR/TranslateTox86/Commands.h" declline="19" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1af4884ddf083c99c1f238ad071e444369" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMovRR</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber src, GPRegisterNumber dest, const char *comment=NULL)</argsstring>
+        <name>PutMovRR</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="20" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="285" bodyend="299" declfile="src/IR/TranslateTox86/Commands.h" declline="20" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1acd351a0ccb334285ccbdcd526c01826b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMovConstant</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber dest, data_t data, const char *comment=NULL)</argsstring>
+        <name>PutMovConstant</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>data_t</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="21" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="301" bodyend="329" declfile="src/IR/TranslateTox86/Commands.h" declline="21" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a585ebea15b6421de1d067cb70c8f7a80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMoveToStack</definition>
+        <argsstring>(Context *ctx, GPRegisterNumber src, size_t offset, const char *comment=NULL)</argsstring>
+        <name>PutMoveToStack</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="22" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="332" bodyend="360" declfile="src/IR/TranslateTox86/Commands.h" declline="22" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a313b02cd05ebe632c26a458c5f7c5b0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMoveFromStack</definition>
+        <argsstring>(Context *ctx, size_t offset, GPRegisterNumber dest, const char *comment=NULL)</argsstring>
+        <name>PutMoveFromStack</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="23" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="362" bodyend="391" declfile="src/IR/TranslateTox86/Commands.h" declline="23" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1af2d83b0ac5b649344b95f52e877e1ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutLogicOp</definition>
+        <argsstring>(Context *ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char *comment=NULL)</argsstring>
+        <name>PutLogicOp</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>OperatorType</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="25" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="538" bodyend="581" declfile="src/IR/TranslateTox86/Commands.h" declline="25" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a99a0d5243c9751ac5fdcfa9d802791f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMathAddSub</definition>
+        <argsstring>(Context *ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char *comment=NULL)</argsstring>
+        <name>PutMathAddSub</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>OperatorType</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="26" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="583" bodyend="597" declfile="src/IR/TranslateTox86/Commands.h" declline="26" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1acd968af662e02f4dae7e730adbfae69f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutMulDiv</definition>
+        <argsstring>(Context *ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char *comment=NULL)</argsstring>
+        <name>PutMulDiv</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>OperatorType</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>GPRegisterNumber</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>comment</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="27" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="599" bodyend="622" declfile="src/IR/TranslateTox86/Commands.h" declline="27" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_commands_8h_1a52e92e7bfda10f49a5aba3be4aad1cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PutSysCall</definition>
+        <argsstring>(Context *ctx)</argsstring>
+        <name>PutSysCall</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/Commands.h" line="29" column="8" bodyfile="src/IR/TranslateTox86/Commands.cpp" bodystart="624" bodyend="635" declfile="src/IR/TranslateTox86/Commands.h" declline="29" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructions_8h" kindref="compound">Instructions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;IRContext.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>VAR_SIZE<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PUT_CALL<sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>callee);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PUT_JUMP<sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>jump_dest);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PUT_CJUMP<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>jump_dest,<sp/>GPRegisterNumber<sp/>reg_num);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutSubRsp<sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutAddRsp<sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutRet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutJump<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>name_t<sp/>label,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutCJump<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>test,<sp/>name_t<sp/>label,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutCall<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>name_t<sp/>label,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutPushR<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>reg,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutPopR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>reg,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMovRR<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>src,<sp/>GPRegisterNumber<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMovConstant<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>dest,<sp/>data_t<sp/>data,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMoveToStack<sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>GPRegisterNumber<sp/>src,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMoveFromStack<sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset,<sp/>GPRegisterNumber<sp/>dest,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutLogicOp<sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>OperatorType<sp/>operation,<sp/>GPRegisterNumber<sp/>src,<sp/>GPRegisterNumber<sp/>dest,<sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMathAddSub<sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/>OperatorType<sp/>operation,<sp/>GPRegisterNumber<sp/>src,<sp/>GPRegisterNumber<sp/>dest,<sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutMulDiv<sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/><sp/>OperatorType<sp/>operation,<sp/>GPRegisterNumber<sp/>src,<sp/>GPRegisterNumber<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>comment<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PutSysCall<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx);</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/TranslateTox86/Commands.h"/>
+  </compounddef>
+</doxygen>

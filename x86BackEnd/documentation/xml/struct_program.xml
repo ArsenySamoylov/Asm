@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_program" kind="struct" language="C++" prot="public">
+    <compoundname>Program</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_program_1a3d01f662618e68ded96ab6017566893f" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>Token* Program::token_arr</definition>
+        <argsstring></argsstring>
+        <name>token_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="9" column="11" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1a48c8ab59010c14f3452d68c0c26de7f0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Program::number_of_tokens</definition>
+        <argsstring></argsstring>
+        <name>number_of_tokens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="10" column="9" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1a089e5524c5c585e24ef77ff3259a7d0d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>Token* Program::root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="12" column="11" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1a280660da02bbb5520c0f2641ad012139" prot="public" static="no" mutable="no">
+        <type>const char **</type>
+        <definition>const char** Program::string_arr</definition>
+        <argsstring></argsstring>
+        <name>string_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="14" column="16" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1ada11961604445f9d96fcb35990799f4e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Program::number_of_strings</definition>
+        <argsstring></argsstring>
+        <name>number_of_strings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="15" column="9" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1a0825669e4a49328ad8beb7fc10422d7b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Program::path_to_src_file</definition>
+        <argsstring></argsstring>
+        <name>path_to_src_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="17" column="16" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1aa0953ce5bdaeba86d8f25787b01c3fb9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref> *</type>
+        <definition>NameTableArr* Program::name_table_arr</definition>
+        <argsstring></argsstring>
+        <name>name_table_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="19" column="18" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_program_1a76402838271f0fa99fff5e86d9e8ff4c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Program::number_of_global_vars</definition>
+        <argsstring></argsstring>
+        <name>number_of_global_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Program/Program.h" line="20" column="9" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>NameTable</label>
+        <link refid="struct_name_table"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>label_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="2">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Program</label>
+        <link refid="struct_program"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>root</edgelabel>
+          <edgelabel>token_arr</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>name_table_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NameTableArr</label>
+        <link refid="struct_name_table_arr"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>arr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/Common/Structures/Program/Program.h" line="7" column="1" bodyfile="src/Legacy/Common/Structures/Program/Program.h" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_program_1aa0953ce5bdaeba86d8f25787b01c3fb9" prot="public" virt="non-virtual"><scope>Program</scope><name>name_table_arr</name></member>
+      <member refid="struct_program_1a76402838271f0fa99fff5e86d9e8ff4c" prot="public" virt="non-virtual"><scope>Program</scope><name>number_of_global_vars</name></member>
+      <member refid="struct_program_1ada11961604445f9d96fcb35990799f4e" prot="public" virt="non-virtual"><scope>Program</scope><name>number_of_strings</name></member>
+      <member refid="struct_program_1a48c8ab59010c14f3452d68c0c26de7f0" prot="public" virt="non-virtual"><scope>Program</scope><name>number_of_tokens</name></member>
+      <member refid="struct_program_1a0825669e4a49328ad8beb7fc10422d7b" prot="public" virt="non-virtual"><scope>Program</scope><name>path_to_src_file</name></member>
+      <member refid="struct_program_1a089e5524c5c585e24ef77ff3259a7d0d" prot="public" virt="non-virtual"><scope>Program</scope><name>root</name></member>
+      <member refid="struct_program_1a280660da02bbb5520c0f2641ad012139" prot="public" virt="non-virtual"><scope>Program</scope><name>string_arr</name></member>
+      <member refid="struct_program_1a3d01f662618e68ded96ab6017566893f" prot="public" virt="non-virtual"><scope>Program</scope><name>token_arr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

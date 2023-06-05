@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_asm_ctx" kind="struct" language="C++" prot="public">
+    <compoundname>AsmCtx</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_asm_ctx_1afff72a4dfcfa4494a5a8efcd083e47ef" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_program" kindref="compound">Program</ref> *</type>
+        <definition>const Program* AsmCtx::program</definition>
+        <argsstring></argsstring>
+        <name>program</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/AsmCtx.h" line="7" column="19" bodyfile="src/Legacy/AsmCtx.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_asm_ctx_1a4eadf230c3f397b85825d6e1bea141fc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+        <definition>NameTable* AsmCtx::global_vars</definition>
+        <argsstring></argsstring>
+        <name>global_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/AsmCtx.h" line="9" column="15" bodyfile="src/Legacy/AsmCtx.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_asm_ctx_1a9d545a382de7b1bc1cba09b4c1a56a46" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AsmCtx::number_of_global_vars</definition>
+        <argsstring></argsstring>
+        <name>number_of_global_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/AsmCtx.h" line="10" column="9" bodyfile="src/Legacy/AsmCtx.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>NameTable</label>
+        <link refid="struct_name_table"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>label_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="1">
+        <label>AsmCtx</label>
+        <link refid="struct_asm_ctx"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>program</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>global_vars</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Program</label>
+        <link refid="struct_program"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>root</edgelabel>
+          <edgelabel>token_arr</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>name_table_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>NameTableArr</label>
+        <link refid="struct_name_table_arr"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>arr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/AsmCtx.h" line="5" column="1" bodyfile="src/Legacy/AsmCtx.h" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="struct_asm_ctx_1a4eadf230c3f397b85825d6e1bea141fc" prot="public" virt="non-virtual"><scope>AsmCtx</scope><name>global_vars</name></member>
+      <member refid="struct_asm_ctx_1a9d545a382de7b1bc1cba09b4c1a56a46" prot="public" virt="non-virtual"><scope>AsmCtx</scope><name>number_of_global_vars</name></member>
+      <member refid="struct_asm_ctx_1afff72a4dfcfa4494a5a8efcd083e47ef" prot="public" virt="non-virtual"><scope>AsmCtx</scope><name>program</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+\hypertarget{class_function}{}\doxysection{Function Class Reference}
+\label{class_function}\index{Function@{Function}}
+
+
+\mbox{\hyperlink{class_function}{Function}}.  
+
+
+
+
+{\ttfamily \#include $<$Value.\+h$>$}
+
+
+
+Inheritance diagram for Function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_function__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_function__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_a39634956036eaa935ce6d16e0de909ec}\label{class_function_a39634956036eaa935ce6d16e0de909ec}} 
+{\bfseries Function} (name\+\_\+t name\+\_\+param, Function\+Ret\+Type ret\+\_\+type\+\_\+param)
+\item 
+void \mbox{\hyperlink{class_function_aef307ac19141a13c5d3cbe9d6fad6551}{dump}} () const override
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+Value\+Type \mbox{\hyperlink{class_function_a6aa5d64a586011de3b15a82350538ae8}{get\+\_\+type}} () const override
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{class_value}{Value}} type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_function_afa24b0a4286dffad077c985708b97cbd}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_function_a4e01eeef439880175f203f92f223213e}{set\+\_\+storage}} () const override
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_function_ac004c44812b728c18e514628a354f17e}\label{class_function_ac004c44812b728c18e514628a354f17e}} 
+\mbox{\hyperlink{class_value_arr}{Value\+Arr}}$<$ \mbox{\hyperlink{class_value}{Value}} $>$ $\ast$ {\bfseries get\+\_\+argv} ()
+\item 
+\mbox{\Hypertarget{class_function_a99f6a55f575bed866bf512260a2952bc}\label{class_function_a99f6a55f575bed866bf512260a2952bc}} 
+\mbox{\hyperlink{class_value_arr}{Value\+Arr}}$<$ \mbox{\hyperlink{class_base_block}{Base\+Block}} $>$ $\ast$ {\bfseries get\+\_\+body} ()
+\item 
+\mbox{\Hypertarget{class_function_a918978c3b33cd58d7e4c458755d78f5e}\label{class_function_a918978c3b33cd58d7e4c458755d78f5e}} 
+Function\+Ret\+Type {\bfseries get\+\_\+ret\+\_\+type} () const
+\item 
+\mbox{\Hypertarget{class_function_ac04cd92d293f09e7b27a1cbf644d1a31}\label{class_function_ac04cd92d293f09e7b27a1cbf644d1a31}} 
+void {\bfseries increase\+\_\+n\+\_\+local\+\_\+vars} ()
+\item 
+\mbox{\Hypertarget{class_function_a102916c776e34e6c42cdc09ee2e63c78}\label{class_function_a102916c776e34e6c42cdc09ee2e63c78}} 
+size\+\_\+t {\bfseries get\+\_\+n\+\_\+local\+\_\+vars} () const
+\item 
+void \mbox{\hyperlink{class_function_ac1385c30b742829f88d5da77133e54dc}{set\+\_\+address}} (address\+\_\+t address) const
+\begin{DoxyCompactList}\small\item\em Sets function virtual address in storage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_function}{Function}}. 
+
+Objects that represents function 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_function_aef307ac19141a13c5d3cbe9d6fad6551}\label{class_function_aef307ac19141a13c5d3cbe9d6fad6551}} 
+\index{Function@{Function}!dump@{dump}}
+\index{dump@{dump}!Function@{Function}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void Function\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_value_ad58adc30ecd6e33f8344b76bb94ad9a9}{Value}}.
+
+\mbox{\Hypertarget{class_function_a6aa5d64a586011de3b15a82350538ae8}\label{class_function_a6aa5d64a586011de3b15a82350538ae8}} 
+\index{Function@{Function}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Function@{Function}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily Value\+Type Function\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get \mbox{\hyperlink{class_value}{Value}} type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Value\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_value_a81566c2e0f8d9c81fe18ad4ae251e471}{Value}}.
+
+\mbox{\Hypertarget{class_function_ac1385c30b742829f88d5da77133e54dc}\label{class_function_ac1385c30b742829f88d5da77133e54dc}} 
+\index{Function@{Function}!set\_address@{set\_address}}
+\index{set\_address@{set\_address}!Function@{Function}}
+\doxysubsubsection{\texorpdfstring{set\_address()}{set\_address()}}
+{\footnotesize\ttfamily void Function\+::set\+\_\+address (\begin{DoxyParamCaption}\item[{address\+\_\+t}]{address }\end{DoxyParamCaption}) const}
+
+
+
+Sets function virtual address in storage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_function_a4e01eeef439880175f203f92f223213e}\label{class_function_a4e01eeef439880175f203f92f223213e}} 
+\index{Function@{Function}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!Function@{Function}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily void Function\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_value_a8bc56c2cc9d6cb4aade7084277d9df26}{Value}}.
+
+\mbox{\Hypertarget{class_function_afa24b0a4286dffad077c985708b97cbd}\label{class_function_afa24b0a4286dffad077c985708b97cbd}} 
+\index{Function@{Function}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!Function@{Function}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily void Function\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_value_a5c80febbb8171e7c60cdd1598c47fe53}{Value}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Value/\mbox{\hyperlink{_value_8h}{Value.\+h}}\item 
+src/\+IR/\+Dump\+IR/Dump\+IR.\+cpp\item 
+src/\+IR/\+Storage/Storage.\+cpp\item 
+src/\+IR/\+Translate\+Tox86/Translate\+IRTox86.\+cpp\item 
+src/\+IR/\+Value/Value.\+cpp\end{DoxyCompactItemize}

@@ -1,3 +1,7 @@
+/*!
+\file
+\brief This file contains declaration of Instruction class and its derived classes
+*/
 #pragma once
 
 #include "Value.h"
@@ -13,6 +17,10 @@ enum class InstructionType
     Return,
     };
 
+/**
+ * @brief Abstract class for instruction, that will be executed.
+ * 
+ */
 class Instruction : public Value
     {
     protected:
@@ -23,6 +31,11 @@ class Instruction : public Value
       ~Instruction () = default;
 
        virtual void            dump           () const override  = 0;
+       /**
+        * @brief Get instr_type 
+        * @note debug purpose only
+        * @return InstructionType 
+        */
        virtual InstructionType get_instr_type () const           = 0;
 
        virtual void translate_x86 (Context* ctx) const override  = 0;
@@ -32,6 +45,10 @@ class Instruction : public Value
     };
 
 //////////////////////////////////////////////////////
+/**
+ * @brief Instruction to allocate space for local variable.
+ * 
+ */
 class Store : public Instruction
     {
     private:
@@ -50,6 +67,10 @@ class Store : public Instruction
     };
 
 //////////////////////////////////////////////////////
+/**
+ * @brief Instruction to load value to local var.
+ * 
+ */
 class Load : public Instruction
     {
     private:
@@ -68,6 +89,10 @@ class Load : public Instruction
     };
 
 //////////////////////////////////////////////////////
+/**
+ * @brief Instruction to pass control flow.
+ * 
+ */
 class Branch : public Instruction
     {
     private:
@@ -94,6 +119,10 @@ class Branch : public Instruction
     };
 
 //////////////////////////////////////////////////////
+/**
+ * @brief Instruction to call another function.
+ * 
+ */
 class Call : public Instruction
     {
     private:
@@ -114,6 +143,10 @@ class Call : public Instruction
     };
 
 //////////////////////////////////////////////////////
+/**
+ * @brief Return instruction. 
+ * 
+ */
 struct Return : public Instruction 
     {
     private:
@@ -144,6 +177,10 @@ enum class OperatorType
     Unknown
     };
 
+/**
+ * @brief Math operation instruction.
+ * 
+ */
 struct Operator : public Instruction
     {
     public:

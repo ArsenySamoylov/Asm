@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_var_tabel" kind="struct" language="C++" prot="public">
+    <compoundname>VarTabel</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_var_tabel_1ad68a0bd0e084f48eb03f3b4a669dd567" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_var_label" kindref="compound">VarLabel</ref> **</type>
+        <definition>VarLabel** VarTabel::label_arr</definition>
+        <argsstring></argsstring>
+        <name>label_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="34" column="14" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_var_tabel_1a5afdf649be2e854f676760203c674466" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t VarTabel::arr_size</definition>
+        <argsstring></argsstring>
+        <name>arr_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="35" column="12" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_var_tabel_1a05fa0141b3e4b93641cd8312b99ba5fb" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t VarTabel::number_of_labels</definition>
+        <argsstring></argsstring>
+        <name>number_of_labels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="37" column="12" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>VarTabel</label>
+        <link refid="struct_var_tabel"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>label_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>VarLabel</label>
+        <link refid="struct_var_label"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="32" column="1" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="33" bodyend="38"/>
+    <listofallmembers>
+      <member refid="struct_var_tabel_1a5afdf649be2e854f676760203c674466" prot="public" virt="non-virtual"><scope>VarTabel</scope><name>arr_size</name></member>
+      <member refid="struct_var_tabel_1ad68a0bd0e084f48eb03f3b4a669dd567" prot="public" virt="non-virtual"><scope>VarTabel</scope><name>label_arr</name></member>
+      <member refid="struct_var_tabel_1a05fa0141b3e4b93641cd8312b99ba5fb" prot="public" virt="non-virtual"><scope>VarTabel</scope><name>number_of_labels</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

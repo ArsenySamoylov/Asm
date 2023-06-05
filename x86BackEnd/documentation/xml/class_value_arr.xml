@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_value_arr" kind="class" language="C++" prot="public">
+    <compoundname>ValueArr</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class Value_T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_value_arr_1ae7fc515a490c4025a65351cb402fa03a" prot="private" static="no" mutable="no">
+        <type>Value_T **</type>
+        <definition>Value_T** ValueArr&lt; Value_T &gt;::arr</definition>
+        <argsstring></argsstring>
+        <name>arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="10" column="17" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_value_arr_1acd19a9a06a2329001a3b4333e6807d5a" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ValueArr&lt; Value_T &gt;::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="12" column="16" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_value_arr_1a7eb27e8fb19f50ddc0f1c4001e62e73d" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ValueArr&lt; Value_T &gt;::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="13" column="16" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_value_arr_1a9aaea6f6428125469e5b221364beb7c6" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t ValueArr&lt; Value_T &gt;::START_ARR_SIZE</definition>
+        <argsstring></argsstring>
+        <name>START_ARR_SIZE</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="15" column="22" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_value_arr_1a88aa3f22bbc7ef4d1a88313367dca8a4" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t ValueArr&lt; Value_T &gt;::GROWTH_RATE</definition>
+        <argsstring></argsstring>
+        <name>GROWTH_RATE</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="16" column="22" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_value_arr_1ac5b8ad7868d7edfd504f9e28c1334900" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ValueArr&lt; Value_T &gt;::resize</definition>
+        <argsstring>()</argsstring>
+        <name>resize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="18" column="10" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="59" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_value_arr_1a15b1423c88b76fe9c74493e0bfb62dae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ValueArr&lt; Value_T &gt;::ValueArr</definition>
+        <argsstring>()</argsstring>
+        <name>ValueArr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="21" column="9" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="32" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_value_arr_1a3894851f8e5d7df4d6d1b9ebb6ddc94a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ValueArr&lt; Value_T &gt;::~ValueArr</definition>
+        <argsstring>()</argsstring>
+        <name>~ValueArr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="22" column="8" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="41" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_value_arr_1a86a5eb8d56383c11f8e45e500eaf49b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Value_T *</type>
+        <definition>Value_T * ValueArr&lt; Value_T &gt;::add</definition>
+        <argsstring>(Value_T *val)</argsstring>
+        <name>add</name>
+        <param>
+          <type>Value_T *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="24" column="17" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="71" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_value_arr_1a861b42c0481fb7509c9229e96241ec7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Value_T *</type>
+        <definition>Value_T * ValueArr&lt; Value_T &gt;::get_value</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>get_value</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="25" column="17" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_value_arr_1a7bc966a77d2d8ba49b8a22b53a3a66ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t ValueArr&lt; Value_T &gt;::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="26" column="16" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_value_arr_1a4a612af8d44f646fcbe5d676fbfc2148" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Value_T *</type>
+        <definition>const Value_T * ValueArr&lt; Value_T &gt;::get_const_value</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>get_const_value</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/Value/ValueArrTemplate.h" line="28" column="23" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="100" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/Value/ValueArrTemplate.h" line="6" column="1" bodyfile="src/IR/Value/ValueArrTemplate.h" bodystart="7" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_value_arr_1a86a5eb8d56383c11f8e45e500eaf49b9" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>add</name></member>
+      <member refid="class_value_arr_1ae7fc515a490c4025a65351cb402fa03a" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>arr</name></member>
+      <member refid="class_value_arr_1a7eb27e8fb19f50ddc0f1c4001e62e73d" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>capacity</name></member>
+      <member refid="class_value_arr_1a4a612af8d44f646fcbe5d676fbfc2148" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>get_const_value</name></member>
+      <member refid="class_value_arr_1a7bc966a77d2d8ba49b8a22b53a3a66ec" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>get_size</name></member>
+      <member refid="class_value_arr_1a861b42c0481fb7509c9229e96241ec7e" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>get_value</name></member>
+      <member refid="class_value_arr_1a88aa3f22bbc7ef4d1a88313367dca8a4" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>GROWTH_RATE</name></member>
+      <member refid="class_value_arr_1ac5b8ad7868d7edfd504f9e28c1334900" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>resize</name></member>
+      <member refid="class_value_arr_1acd19a9a06a2329001a3b4333e6807d5a" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>size</name></member>
+      <member refid="class_value_arr_1a9aaea6f6428125469e5b221364beb7c6" prot="private" virt="non-virtual"><scope>ValueArr</scope><name>START_ARR_SIZE</name></member>
+      <member refid="class_value_arr_1a15b1423c88b76fe9c74493e0bfb62dae" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>ValueArr</name></member>
+      <member refid="class_value_arr_1a3894851f8e5d7df4d6d1b9ebb6ddc94a" prot="public" virt="non-virtual"><scope>ValueArr</scope><name>~ValueArr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

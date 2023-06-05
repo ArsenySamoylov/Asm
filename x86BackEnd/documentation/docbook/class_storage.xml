@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_storage" xml:lang="en-US">
+<title>Storage Class Reference</title>
+<indexterm><primary>Storage</primary></indexterm>
+Inheritance diagram for Storage:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_storage__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Storage:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_storage__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_storage_1afafa9906b0dfb206bd3439b00c015b5c"/><emphasis role="strong">Storage</emphasis> (StorageType type, VariableType var_type, name_t owner_name=NULL)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a7ea4bbbf207a2d9a0dcb1a0ba570f5d1"/>void <emphasis role="strong">set_storage_type</emphasis> (StorageType type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1aa98cab1019b84afee59b82948bfe9eef"/>StorageType <emphasis role="strong">get_storage_type</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a4e753b01678f4d3523794870370ec089"/>void <emphasis role="strong">set_var_type</emphasis> (VariableType var_type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1ae9e19e025adbbfdce38dce5534020073"/>VariableType <emphasis role="strong">get_var_type</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a4013000b1d16ce8a36f5c21170c8b1a6"/><link linkend="_struct_storage_data">StorageData</link> * <emphasis role="strong">set_storage_data</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a610e29b3ab2bad5f711263ec1d3e0edc"/>void <emphasis role="strong">increase_usage</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a2716097a6f34afbffd00f0b04fabccdc"/>void <emphasis role="strong">decrease_usage</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a33328eae92797ca0321649c17fd55461"/>size_t <emphasis role="strong">get_usage</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1ad31e895e0ca778ba6e1e9466abe94f4f"/>data_t <emphasis role="strong">get_data</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a11bffb6316a9598f52a94d9e9fdbe016"/>GPRegisterNumber <emphasis role="strong">get_reg_num</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1ad4eceb225276bdd1c7cc87180c34eee2"/>size_t <emphasis role="strong">get_stack_offset</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a6fe5a5bab571dba9231e55bf5424c5d9"/>address_t <emphasis role="strong">get_address</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a2badd5291fcf1f21d3182a5f4e73533f"/>void <emphasis role="strong">set_with_reg</emphasis> (<link linkend="_struct_reg">Reg</link> *reg)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a491713e42e55922412c64ea9d35120dd"/>void <emphasis role="strong">print</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_storage_1a381256ebbb1a1a926e9dbcfd86d39c0f"/>void <emphasis role="strong">move_to_reg</emphasis> (<link linkend="_struct_context">Context</link> *ctx, <link linkend="_struct_reg">Reg</link> *dest_reg, const char *comment=NULL)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/IR/Storage/Storage.hsrc/IR/Storage/Storage.cppsrc/IR/TranslateTox86/TranslateIRTox86.cpp</section>

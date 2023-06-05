@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_debug_functions_8h" kind="file" language="C++">
+    <compoundname>DebugFunctions.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="_super_stack_config_8h" local="yes">SuperStackConfig.h</includes>
+    <includedby refid="_debug_functions_8cpp" local="yes">ATC/SuperStack/DebugFunctions.cpp</includedby>
+    <includedby refid="_super_stack_dump_8cpp" local="yes">ATC/SuperStack/SuperStackDump.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>Tabels.h</label>
+        <link refid="_tabels_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ATC/SuperStack/DebugFunctions.h</label>
+        <link refid="_debug_functions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SuperStackConfig.h</label>
+        <link refid="_super_stack_config_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>NameTable.h</label>
+        <link refid="_name_table_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MedComissionSS_err</name>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8caeada6bbd704def94e9557f86430ca23c" prot="public">
+          <name>NULL_STK_PTR_ERR</name>
+          <initializer>= 0x1 &lt;&lt;  0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca2d3b20e185a03b399446af4ddd230091" prot="public">
+          <name>NULL_STK_HEAP</name>
+          <initializer>= 0x1 &lt;&lt;  1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca6b00511d3f45eab4bbcc5f3e629aed3d" prot="public">
+          <name>WRONG_STK_STATUS</name>
+          <initializer>= 0x1 &lt;&lt;  2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca6c233151bfc4113e7d9efcd12f7903d9" prot="public">
+          <name>WRONG_STK_CAPACITY</name>
+          <initializer>= 0x1 &lt;&lt;  3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8cacd36afe8c16b716b6fae4abf9d89a265" prot="public">
+          <name>WRONG_STK_TOP</name>
+          <initializer>= 0x1 &lt;&lt;  4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca1058566ab8a1647b9abc4d87665be1ac" prot="public">
+          <name>DEAD_STACKOPENING_CANARY</name>
+          <initializer>= 0x1 &lt;&lt;  5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca3d5429ff19e153cb6ea9e5e9b55e5bdd" prot="public">
+          <name>DEAD_STACKCLOSING_CANARY</name>
+          <initializer>= 0x1 &lt;&lt;  6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca073a18250c532fe3159b2e6368281490" prot="public">
+          <name>DEAD_HEAPOPENING_CANARY</name>
+          <initializer>= 0x1 &lt;&lt;  7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8cafba35cf7f2203d7da76db0cbaef34bda" prot="public">
+          <name>DEAD_HEAPCLOSING_CANARY</name>
+          <initializer>= 0x1 &lt;&lt;  8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8ca2981c9f589a066b0fa11934311a7372c" prot="public">
+          <name>STACK_HASH_IS_DAMAGED</name>
+          <initializer>= 0x1 &lt;&lt;  9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_debug_functions_8h_1a1026a90aa8f19bd16b9a150d59531a8caff4bd5583fb8c27f0d29370b2ca3fbfa" prot="public">
+          <name>HEAP_HASH_IS_DAMAGED</name>
+          <initializer>= 0x1 &lt;&lt; 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="7" column="9" bodyfile="ATC/SuperStack/DebugFunctions.h" bodystart="8" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_debug_functions_8h_1a52e35313e18768d14d2546313fe8eca0" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IntPoison</definition>
+        <argsstring></argsstring>
+        <name>IntPoison</name>
+        <initializer>= 0xBADDED</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="22" column="14" bodyfile="ATC/SuperStack/DebugFunctions.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_debug_functions_8h_1a9e45335449ce47cbe76975955b312cc8" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char CharPoison</definition>
+        <argsstring></argsstring>
+        <name>CharPoison</name>
+        <initializer>= &apos;\0&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="23" column="14" bodyfile="ATC/SuperStack/DebugFunctions.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_debug_functions_8h_1ae48dae55b318dfcb4488c134e4c5723f" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double DoublePoison</definition>
+        <argsstring></argsstring>
+        <name>DoublePoison</name>
+        <initializer>= NAN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="24" column="14" bodyfile="ATC/SuperStack/DebugFunctions.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_debug_functions_8h_1abceafe360dd6045a54601b92adcbd033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fprintf_element_t</definition>
+        <argsstring>(FILE *file, element_t *ptr)</argsstring>
+        <name>fprintf_element_t</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">element_t</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="26" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="61" bodyend="71" declfile="ATC/SuperStack/DebugFunctions.h" declline="26" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1ab9972d9f52fa120977c8cfa874a77dff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fprint_element_type</definition>
+        <argsstring>(FILE *file, int *element)</argsstring>
+        <name>fprint_element_type</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>if you want to use SSDump with unsupported type than add your own function </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="30" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="150" bodyend="156" declfile="ATC/SuperStack/DebugFunctions.h" declline="30" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1ae683600962ef047f3422576c091d234c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fprint_element_type</definition>
+        <argsstring>(FILE *file, char *element)</argsstring>
+        <name>fprint_element_type</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="31" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="158" bodyend="164" declfile="ATC/SuperStack/DebugFunctions.h" declline="31" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a8b7e7b6c1eea5621a051326eb27a802e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fprint_element_type</definition>
+        <argsstring>(FILE *file, double *element)</argsstring>
+        <name>fprint_element_type</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="32" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="166" bodyend="172" declfile="ATC/SuperStack/DebugFunctions.h" declline="32" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1af14ed86a2ee8aa4a336455b3882b6186" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsPoison</definition>
+        <argsstring>(const int *element)</argsstring>
+        <name>IsPoison</name>
+        <param>
+          <type>const int *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>if you want to debug Stack with unsupported type than add your own FillPoison and IsPoison function </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="36" column="5" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="112" bodyend="118" declfile="ATC/SuperStack/DebugFunctions.h" declline="36" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a01b8199e3b44b049f54f631ef881be0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsPoison</definition>
+        <argsstring>(const char *element)</argsstring>
+        <name>IsPoison</name>
+        <param>
+          <type>const char *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="37" column="5" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="120" bodyend="126" declfile="ATC/SuperStack/DebugFunctions.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1ac74ff0e473679f04203370037d583503" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsPoison</definition>
+        <argsstring>(const double *element)</argsstring>
+        <name>IsPoison</name>
+        <param>
+          <type>const double *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="38" column="5" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="128" bodyend="134" declfile="ATC/SuperStack/DebugFunctions.h" declline="38" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a56348bea228e2f102870110b7de5734c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsPoison</definition>
+        <argsstring>(const VarTabel **element)</argsstring>
+        <name>IsPoison</name>
+        <param>
+          <type>const <ref refid="struct_var_tabel" kindref="compound">VarTabel</ref> **</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="39" column="5" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="136" bodyend="141" declfile="ATC/SuperStack/DebugFunctions.h" declline="39" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a4290dd74a55a6171156203a45a83b977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IsPoison</definition>
+        <argsstring>(const NameTable **element)</argsstring>
+        <name>IsPoison</name>
+        <param>
+          <type>const <ref refid="struct_name_table" kindref="compound">NameTable</ref> **</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="40" column="5" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="143" bodyend="148" declfile="ATC/SuperStack/DebugFunctions.h" declline="40" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a3e7394dd2c626654550bf71f62577c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoisonHeap</definition>
+        <argsstring>(element_t *heap, size_t size)</argsstring>
+        <name>FillPoisonHeap</name>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">element_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="42" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="73" bodyend="80" declfile="ATC/SuperStack/DebugFunctions.h" declline="42" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1acbc84dc88d44bd452336974a29aa3321" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoison</definition>
+        <argsstring>(int *element)</argsstring>
+        <name>FillPoison</name>
+        <param>
+          <type>int *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="44" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="82" bodyend="86" declfile="ATC/SuperStack/DebugFunctions.h" declline="44" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1ab08dff0f6e0cb8c090aabac335b22675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoison</definition>
+        <argsstring>(char *element)</argsstring>
+        <name>FillPoison</name>
+        <param>
+          <type>char *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="45" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="88" bodyend="92" declfile="ATC/SuperStack/DebugFunctions.h" declline="45" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1ab401250c6f3692f0385c62b53fecb7af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoison</definition>
+        <argsstring>(double *element)</argsstring>
+        <name>FillPoison</name>
+        <param>
+          <type>double *</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="46" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="94" bodyend="98" declfile="ATC/SuperStack/DebugFunctions.h" declline="46" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a19e034ee670922faad91f30cad8699af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoison</definition>
+        <argsstring>(VarTabel **element)</argsstring>
+        <name>FillPoison</name>
+        <param>
+          <type><ref refid="struct_var_tabel" kindref="compound">VarTabel</ref> **</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="47" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="100" bodyend="104" declfile="ATC/SuperStack/DebugFunctions.h" declline="47" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_debug_functions_8h_1a50c9964c464dc57b7e8150a7d3d9525a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillPoison</definition>
+        <argsstring>(NameTable **element)</argsstring>
+        <name>FillPoison</name>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> **</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/DebugFunctions.h" line="48" column="6" bodyfile="ATC/SuperStack/DebugFunctions.cpp" bodystart="106" bodyend="110" declfile="ATC/SuperStack/DebugFunctions.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>DEBUG_FUNCTIONS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_FUNCTIONS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SuperStackConfig.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>MedComissionSS_err</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL_STK_PTR_ERR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>0,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL_STK_HEAP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>1,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>WRONG_STK_STATUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>2,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>WRONG_STK_CAPACITY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>3,<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>WRONG_STK_TOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>4,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAD_STACKOPENING_CANARY<sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>5,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAD_STACKCLOSING_CANARY<sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>6,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAD_HEAPOPENING_CANARY<sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>7,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAD_HEAPCLOSING_CANARY<sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>8,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>STACK_HASH_IS_DAMAGED<sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/><sp/>9,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>HEAP_HASH_IS_DAMAGED<sp/><sp/><sp/><sp/><sp/>=<sp/>0x1<sp/>&lt;&lt;<sp/>10,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoison<sp/><sp/><sp/><sp/>=<sp/>0xBADDED;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/>CharPoison<sp/><sp/><sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>DoublePoison<sp/>=<sp/>NAN;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fprintf_element_t(FILE*<sp/>file,<sp/><ref refid="struct_name_table" kindref="compound">element_t</ref>*<sp/>ptr);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fprint_element_type(FILE*<sp/>file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fprint_element_type(FILE*<sp/>file,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fprint_element_type(FILE*<sp/>file,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>element);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsPoison<sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsPoison<sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsPoison<sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>element);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsPoison<sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_var_tabel" kindref="compound">VarTabel</ref>**<sp/>element);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>IsPoison<sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>**<sp/>element);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoisonHeap<sp/><sp/>(<ref refid="struct_name_table" kindref="compound">element_t</ref>*<sp/>heap,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoison<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoison<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>element);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoison<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>element);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoison<sp/>(<ref refid="struct_var_tabel" kindref="compound">VarTabel</ref>**<sp/>element);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FillPoison<sp/>(<ref refid="struct_name_table" kindref="compound">NameTable</ref>**<sp/>element);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/SuperStack/DebugFunctions.h"/>
+  </compounddef>
+</doxygen>

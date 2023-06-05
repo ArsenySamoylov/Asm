@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_2e52b4d925fcded6427ed6935d6b3924" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/src/Elf</compoundname>
+    <innerfile refid="_buffer_8cpp_8o_8d">Buffer.cpp.o.d</innerfile>
+    <innerfile refid="_elf_8cpp_8o_8d">Elf.cpp.o.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/src/Elf/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5ce0e1260f19a371fc5bf9d014fbbc26" kind="dir">
+    <compoundname>ATC/ConsoleColors</compoundname>
+    <innerfile refid="_linux_colors_8h">LinuxColors.h</innerfile>
+    <innerfile refid="_windows_colors_8h">WindowsColors.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ATC/ConsoleColors/"/>
+  </compounddef>
+</doxygen>

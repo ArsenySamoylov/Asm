@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_function_logger" xml:lang="en-US">
+<title>FunctionLogger Class Reference</title>
+<indexterm><primary>FunctionLogger</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_function_logger_1ae47b4ba9a04c4fe1c1963cde575aa535"/><emphasis role="strong">FunctionLogger</emphasis> (int lvl, const char *func_name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+ATC/Logger/FunctionLogger.hATC/Logger/FunctionLogger.cpp</section>

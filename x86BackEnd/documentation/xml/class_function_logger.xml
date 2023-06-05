@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_function_logger" kind="class" language="C++" prot="public">
+    <compoundname>FunctionLogger</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_function_logger_1a79e3cf6f62f7e69e67c9820fac3d09af" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FunctionLogger::old_level</definition>
+        <argsstring></argsstring>
+        <name>old_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="14" column="13" bodyfile="ATC/Logger/FunctionLogger.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_function_logger_1ac24c3fb5503a701457ebd13ba270d9f7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FunctionLogger::guard_level</definition>
+        <argsstring></argsstring>
+        <name>guard_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="16" column="13" bodyfile="ATC/Logger/FunctionLogger.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_function_logger_1aebb6600540a52e93aeb7f78a2de65ee6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FunctionLogger::current_indent</definition>
+        <argsstring></argsstring>
+        <name>current_indent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="17" column="13" bodyfile="ATC/Logger/FunctionLogger.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_function_logger_1a6d1a9027ba3c7c318a395fe2a8c12613" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* FunctionLogger::function_name</definition>
+        <argsstring></argsstring>
+        <name>function_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="18" column="20" bodyfile="ATC/Logger/FunctionLogger.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_function_logger_1a1885c5f82a50e8008d3e54e69421258b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FunctionLogger::FunctionLogger</definition>
+        <argsstring>(const FunctionLogger &amp;origin)=delete</argsstring>
+        <name>FunctionLogger</name>
+        <param>
+          <type>const <ref refid="class_function_logger" kindref="compound">FunctionLogger</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_function_logger_1a3f2f626e284ecbbbbfaa2eab1cc82b63" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_function_logger" kindref="compound">FunctionLogger</ref> &amp;</type>
+        <definition>FunctionLogger&amp; FunctionLogger::operator=</definition>
+        <argsstring>(const FunctionLogger &amp;origin)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_function_logger" kindref="compound">FunctionLogger</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="21" column="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_function_logger_1ae47b4ba9a04c4fe1c1963cde575aa535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FunctionLogger::FunctionLogger</definition>
+        <argsstring>(int lvl, const char *func_name)</argsstring>
+        <name>FunctionLogger</name>
+        <param>
+          <type>int</type>
+          <declname>lvl</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="24" column="9" bodyfile="ATC/Logger/FunctionLogger.cpp" bodystart="3" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_function_logger_1a657593d31542b33a8cd519ae570313fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FunctionLogger::~FunctionLogger</definition>
+        <argsstring>()</argsstring>
+        <name>~FunctionLogger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/FunctionLogger.h" line="25" column="9" bodyfile="ATC/Logger/FunctionLogger.cpp" bodystart="29" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ATC/Logger/FunctionLogger.h" line="11" column="1" bodyfile="ATC/Logger/FunctionLogger.h" bodystart="12" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_function_logger_1aebb6600540a52e93aeb7f78a2de65ee6" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>current_indent</name></member>
+      <member refid="class_function_logger_1a6d1a9027ba3c7c318a395fe2a8c12613" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>function_name</name></member>
+      <member refid="class_function_logger_1a1885c5f82a50e8008d3e54e69421258b" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>FunctionLogger</name></member>
+      <member refid="class_function_logger_1ae47b4ba9a04c4fe1c1963cde575aa535" prot="public" virt="non-virtual"><scope>FunctionLogger</scope><name>FunctionLogger</name></member>
+      <member refid="class_function_logger_1ac24c3fb5503a701457ebd13ba270d9f7" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>guard_level</name></member>
+      <member refid="class_function_logger_1a79e3cf6f62f7e69e67c9820fac3d09af" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>old_level</name></member>
+      <member refid="class_function_logger_1a3f2f626e284ecbbbbfaa2eab1cc82b63" prot="private" virt="non-virtual"><scope>FunctionLogger</scope><name>operator=</name></member>
+      <member refid="class_function_logger_1a657593d31542b33a8cd519ae570313fd" prot="public" virt="non-virtual"><scope>FunctionLogger</scope><name>~FunctionLogger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

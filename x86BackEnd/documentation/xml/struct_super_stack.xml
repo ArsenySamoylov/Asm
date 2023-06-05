@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_super_stack" kind="struct" language="C++" prot="public">
+    <compoundname>SuperStack</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_super_stack_1a175504cce4cb9231018893f1c30edd56" prot="public" static="no" mutable="no">
+        <type>CANARY</type>
+        <definition>CANARY SuperStack::opening_canary</definition>
+        <argsstring></argsstring>
+        <name>opening_canary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="47" column="12" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1a8ec799a3364fb4042ec46fc7c63988a4" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_name_table" kindref="compound">element_t</ref> *</type>
+        <definition>element_t* SuperStack::heap</definition>
+        <argsstring></argsstring>
+        <name>heap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="50" column="15" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1a1be5d038766e5d4add283c364a4ef4ed" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t SuperStack::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="51" column="16" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1aa1c51ee3540b49c80b8d6e2e600e4fe7" prot="public" static="no" mutable="no">
+        <type>ssize_t</type>
+        <definition>ssize_t SuperStack::top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="52" column="16" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1a58aa924a11e156504f040d3663ac715d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SuperStack::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="54" column="9" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1a14c70e5953efbaef6ae52d92ec6d76e4" prot="public" static="no" mutable="no">
+        <type>SrcLocationInfo</type>
+        <definition>SrcLocationInfo SuperStack::init_inf</definition>
+        <argsstring></argsstring>
+        <name>init_inf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="57" column="21" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1ad57101f179a9fbc510cebaaeb2cf62ac" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SuperStack::heapHash</definition>
+        <argsstring></argsstring>
+        <name>heapHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="61" column="9" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1aaeee96a9e492412fcc785c396c045677" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SuperStack::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="62" column="9" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_super_stack_1aa19087e5a7060a2cf77e7697229fd7fd" prot="public" static="no" mutable="no">
+        <type>CANARY</type>
+        <definition>CANARY SuperStack::closing_canary</definition>
+        <argsstring></argsstring>
+        <name>closing_canary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/SuperStack/SuperStack.h" line="66" column="12" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>NameTable</label>
+        <link refid="struct_name_table"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>label_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="4">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SuperStack</label>
+        <link refid="struct_super_stack"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>heap</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ATC/SuperStack/SuperStack.h" line="44" column="1" bodyfile="ATC/SuperStack/SuperStack.h" bodystart="45" bodyend="68"/>
+    <listofallmembers>
+      <member refid="struct_super_stack_1a1be5d038766e5d4add283c364a4ef4ed" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>capacity</name></member>
+      <member refid="struct_super_stack_1aa19087e5a7060a2cf77e7697229fd7fd" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>closing_canary</name></member>
+      <member refid="struct_super_stack_1aaeee96a9e492412fcc785c396c045677" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>hash</name></member>
+      <member refid="struct_super_stack_1a8ec799a3364fb4042ec46fc7c63988a4" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>heap</name></member>
+      <member refid="struct_super_stack_1ad57101f179a9fbc510cebaaeb2cf62ac" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>heapHash</name></member>
+      <member refid="struct_super_stack_1a14c70e5953efbaef6ae52d92ec6d76e4" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>init_inf</name></member>
+      <member refid="struct_super_stack_1a175504cce4cb9231018893f1c30edd56" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>opening_canary</name></member>
+      <member refid="struct_super_stack_1a58aa924a11e156504f040d3663ac715d" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>status</name></member>
+      <member refid="struct_super_stack_1aa1c51ee3540b49c80b8d6e2e600e4fe7" prot="public" virt="non-virtual"><scope>SuperStack</scope><name>top</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

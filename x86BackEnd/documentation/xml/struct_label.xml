@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_label" kind="struct" language="C++" prot="public">
+    <compoundname>Label</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_label_1a4c498659943145db8ab8552e84c8288e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="15" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1ab8ada0356e4e1b551ad547ae9f269893" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::name_id</definition>
+        <argsstring></argsstring>
+        <name>name_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="16" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1a6f0508f3956aa31fd23e8e081b0dfa29" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::number_of_vars</definition>
+        <argsstring></argsstring>
+        <name>number_of_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="18" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1aab36cd5715d33ff547659df8c5681504" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::ret_type</definition>
+        <argsstring></argsstring>
+        <name>ret_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="19" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1ad8c00dc8039ab95d1e4d20e1bf35f461" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::var_number</definition>
+        <argsstring></argsstring>
+        <name>var_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="21" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1a91de3552b8b0abaa4e8996f7154833e7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Label::local_type</definition>
+        <argsstring></argsstring>
+        <name>local_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="22" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_label_1a88a172f9222204bcb70d9f55b497e436" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_token" kindref="compound">Token</ref> *</type>
+        <definition>const Token* Label::global_initialization</definition>
+        <argsstring></argsstring>
+        <name>global_initialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="24" column="17" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="2">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="13" column="1" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="14" bodyend="25"/>
+    <listofallmembers>
+      <member refid="struct_label_1a88a172f9222204bcb70d9f55b497e436" prot="public" virt="non-virtual"><scope>Label</scope><name>global_initialization</name></member>
+      <member refid="struct_label_1a91de3552b8b0abaa4e8996f7154833e7" prot="public" virt="non-virtual"><scope>Label</scope><name>local_type</name></member>
+      <member refid="struct_label_1ab8ada0356e4e1b551ad547ae9f269893" prot="public" virt="non-virtual"><scope>Label</scope><name>name_id</name></member>
+      <member refid="struct_label_1a6f0508f3956aa31fd23e8e081b0dfa29" prot="public" virt="non-virtual"><scope>Label</scope><name>number_of_vars</name></member>
+      <member refid="struct_label_1aab36cd5715d33ff547659df8c5681504" prot="public" virt="non-virtual"><scope>Label</scope><name>ret_type</name></member>
+      <member refid="struct_label_1a4c498659943145db8ab8552e84c8288e" prot="public" virt="non-virtual"><scope>Label</scope><name>type</name></member>
+      <member refid="struct_label_1ad8c00dc8039ab95d1e4d20e1bf35f461" prot="public" virt="non-virtual"><scope>Label</scope><name>var_number</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

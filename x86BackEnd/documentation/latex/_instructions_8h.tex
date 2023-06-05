@@ -1,0 +1,70 @@
+\hypertarget{_instructions_8h}{}\doxysection{src/\+IR/\+Instructions/\+Instructions.h File Reference}
+\label{_instructions_8h}\index{src/IR/Instructions/Instructions.h@{src/IR/Instructions/Instructions.h}}
+
+
+This file contains declaration of \mbox{\hyperlink{class_instruction}{Instruction}} class and its derived classes.  
+
+
+{\ttfamily \#include \char`\"{}Value.\+h\char`\"{}}\newline
+Include dependency graph for Instructions.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_instructions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_instructions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_instruction}{Instruction}}
+\begin{DoxyCompactList}\small\item\em Abstract class for instruction, that will be executed. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_store}{Store}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_instruction}{Instruction}} to allocate space for local variable. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_load}{Load}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_instruction}{Instruction}} to load value to local var. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_branch}{Branch}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_instruction}{Instruction}} to pass control flow. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_call}{Call}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_instruction}{Instruction}} to call another function. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_return}{Return}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_return}{Return}} instruction. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_operator}{Operator}}
+\begin{DoxyCompactList}\small\item\em Math operation instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_instructions_8h_a89ee1c4e5e5a33c60d0e6dc126ed2c0d}\label{_instructions_8h_a89ee1c4e5e5a33c60d0e6dc126ed2c0d}} 
+enum class {\bfseries Instruction\+Type} \{ \newline
+{\bfseries Store}
+, {\bfseries Load}
+, {\bfseries Operator}
+, {\bfseries Branch}
+, \newline
+{\bfseries Call}
+, {\bfseries Return}
+ \}
+\item 
+\mbox{\Hypertarget{_instructions_8h_a6a02b2d1d62293b20242e3dcfbdd0117}\label{_instructions_8h_a6a02b2d1d62293b20242e3dcfbdd0117}} 
+enum class {\bfseries Operator\+Type} \{ \newline
+{\bfseries Add}
+, {\bfseries Sub}
+, {\bfseries Mul}
+, {\bfseries Div}
+, \newline
+{\bfseries Bigger}
+, {\bfseries Less}
+, {\bfseries Unknown}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains declaration of \mbox{\hyperlink{class_instruction}{Instruction}} class and its derived classes. 
+

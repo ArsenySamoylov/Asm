@@ -1,0 +1,132 @@
+.TH "Instruction" 3 "Mon Jun 5 2023" "x86Backend" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Instruction \- Abstract class for instruction, that will be executed\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Instructions\&.h>\fP
+.PP
+Inherits \fBValue\fP\&.
+.PP
+Inherited by \fBBranch\fP, \fBCall\fP, \fBLoad\fP, \fBOperator\fP, \fBReturn\fP, and \fBStore\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInstruction\fP (name_t name_param, InstructionType type_param)"
+.br
+.ti -1c
+.RI "virtual void \fBdump\fP () const override=0"
+.br
+.RI "Print \fBValue\fP in human-readable format to file DUMP\&. "
+.ti -1c
+.RI "virtual InstructionType \fBget_instr_type\fP () const =0"
+.br
+.RI "Get instr_type\&. "
+.ti -1c
+.RI "virtual void \fBtranslate_x86\fP (\fBContext\fP *ctx) const override=0"
+.br
+.RI "Translate \fBValue\fP to x86 code\&. "
+.ti -1c
+.RI "virtual void \fBset_storage\fP () const override=0"
+.br
+.RI "Set the \fIstorage\fP "
+.ti -1c
+.RI "ValueType \fBget_type\fP () const override final"
+.br
+.RI "Get \fBValue\fP type\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "enum InstructionType \fBtype\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract class for instruction, that will be executed\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Instruction::dump () const\fC [override]\fP, \fC [pure virtual]\fP"
+
+.PP
+Print \fBValue\fP in human-readable format to file DUMP\&. Print \fBValue\fP in human-readable format to file DUMP\&. PRINT_NEW_LINES regulates if printed \fBValue\fP generates extra new line chars 
+.PP
+Implements \fBValue\fP\&.
+.PP
+Implemented in \fBOperator\fP, \fBReturn\fP, \fBCall\fP, \fBBranch\fP, \fBLoad\fP, and \fBStore\fP\&.
+.SS "virtual InstructionType Instruction::get_instr_type () const\fC [pure virtual]\fP"
+
+.PP
+Get instr_type\&. 
+.PP
+\fBNote\fP
+.RS 4
+debug purpose only 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+InstructionType 
+.RE
+.PP
+
+.PP
+Implemented in \fBOperator\fP, \fBReturn\fP, \fBCall\fP, \fBBranch\fP, \fBLoad\fP, and \fBStore\fP\&.
+.SS "ValueType Instruction::get_type () const\fC [final]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Get \fBValue\fP type\&. 
+.PP
+\fBNote\fP
+.RS 4
+debug purpose only 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ValueType 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+.SS "virtual void Instruction::set_storage () const\fC [override]\fP, \fC [pure virtual]\fP"
+
+.PP
+Set the \fIstorage\fP This functions sets \fIstorage_type\fP for value In \fBFunction\fP and \fBBaseBlock\fP this function call this this function for all objects from their ValueArr<> members 
+.PP
+\fBNote\fP
+.RS 4
+for \fBConstant\fP this function only checks \fIstorage_type\fP 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+.PP
+Implemented in \fBOperator\fP, \fBReturn\fP, \fBCall\fP, \fBBranch\fP, \fBLoad\fP, and \fBStore\fP\&.
+.SS "virtual void Instruction::translate_x86 (\fBContext\fP * ctx) const\fC [override]\fP, \fC [pure virtual]\fP"
+
+.PP
+Translate \fBValue\fP to x86 code\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIctx\fP 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+.PP
+Implemented in \fBOperator\fP, \fBReturn\fP, \fBCall\fP, \fBBranch\fP, \fBLoad\fP, and \fBStore\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for x86Backend from the source code\&.

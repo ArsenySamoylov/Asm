@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_value_label" kind="struct" language="C++" prot="public">
+    <compoundname>ValueLabel</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_value_label_1a133839981bcf41842a874d46d270e223" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ValueLabel::name_id</definition>
+        <argsstring></argsstring>
+        <name>name_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="8" column="9" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_value_label_1aaedafc847669e658841cdc54133b2e96" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ValueLabel::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="9" column="9" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_value_label_1a5a3d1e9559ad96e742eee33df03867a7" prot="public" static="no" mutable="no">
+        <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+        <definition>Value* ValueLabel::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="11" column="15" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_value_label_1a2a7d2e3e0fd4b920d1888dc40850c52f" prot="public" static="no" mutable="no">
+        <type><ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+        <definition>BaseBlock* ValueLabel::block</definition>
+        <argsstring></argsstring>
+        <name>block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="12" column="15" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>Storage</label>
+        <link refid="class_storage"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BaseBlock</label>
+        <link refid="class_base_block"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NoCopyable</label>
+        <link refid="class_no_copyable"/>
+      </node>
+      <node id="1">
+        <label>ValueLabel</label>
+        <link refid="struct_value_label"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>block</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>val</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Value</label>
+        <link refid="class_value"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/IR/AstToIR/ValueTable.h" line="6" column="1" bodyfile="src/IR/AstToIR/ValueTable.h" bodystart="7" bodyend="13"/>
+    <listofallmembers>
+      <member refid="struct_value_label_1a2a7d2e3e0fd4b920d1888dc40850c52f" prot="public" virt="non-virtual"><scope>ValueLabel</scope><name>block</name></member>
+      <member refid="struct_value_label_1a133839981bcf41842a874d46d270e223" prot="public" virt="non-virtual"><scope>ValueLabel</scope><name>name_id</name></member>
+      <member refid="struct_value_label_1aaedafc847669e658841cdc54133b2e96" prot="public" virt="non-virtual"><scope>ValueLabel</scope><name>type</name></member>
+      <member refid="struct_value_label_1a5a3d1e9559ad96e742eee33df03867a7" prot="public" virt="non-virtual"><scope>ValueLabel</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

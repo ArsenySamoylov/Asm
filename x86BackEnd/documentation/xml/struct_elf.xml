@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_elf" kind="struct" language="C++" prot="public">
+    <compoundname>Elf</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_elf_1a6fdc3aa4eca13c43994ee59df39e1613" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_elf_headers" kindref="compound">ElfHeaders</ref></type>
+        <definition>ElfHeaders Elf::headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Elf.hpp" line="24" column="16" bodyfile="src/Elf/Elf.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_elf_1a28754743c7f3f6e77b59aa8fd135d3dd" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_buffer" kindref="compound">Buffer</ref></type>
+        <definition>Buffer Elf::code_buf</definition>
+        <argsstring></argsstring>
+        <name>code_buf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Elf.hpp" line="26" column="12" bodyfile="src/Elf/Elf.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_elf_1af6c2d9508f71b9346673b9eec7728145" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_buffer" kindref="compound">Buffer</ref></type>
+        <definition>Buffer Elf::program_buf</definition>
+        <argsstring></argsstring>
+        <name>program_buf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Elf.hpp" line="30" column="12" bodyfile="src/Elf/Elf.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>ElfHeaders</label>
+        <link refid="struct_elf_headers"/>
+      </node>
+      <node id="1">
+        <label>Elf</label>
+        <link refid="struct_elf"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>code_buf</edgelabel>
+          <edgelabel>program_buf</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>headers</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Buffer</label>
+        <link refid="struct_buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/Elf/Elf.hpp" line="22" column="1" bodyfile="src/Elf/Elf.hpp" bodystart="23" bodyend="31"/>
+    <listofallmembers>
+      <member refid="struct_elf_1a28754743c7f3f6e77b59aa8fd135d3dd" prot="public" virt="non-virtual"><scope>Elf</scope><name>code_buf</name></member>
+      <member refid="struct_elf_1a6fdc3aa4eca13c43994ee59df39e1613" prot="public" virt="non-virtual"><scope>Elf</scope><name>headers</name></member>
+      <member refid="struct_elf_1af6c2d9508f71b9346673b9eec7728145" prot="public" virt="non-virtual"><scope>Elf</scope><name>program_buf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

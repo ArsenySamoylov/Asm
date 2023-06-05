@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_var_tabel" xml:lang="en-US">
+<title>VarTabel Struct Reference</title>
+<indexterm><primary>VarTabel</primary></indexterm>
+Collaboration diagram for VarTabel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_var_tabel__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_var_tabel_1ad68a0bd0e084f48eb03f3b4a669dd567"/><link linkend="_struct_var_label">VarLabel</link> ** <emphasis role="strong">label_arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_var_tabel_1a5afdf649be2e854f676760203c674466"/>size_t <emphasis role="strong">arr_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_var_tabel_1a05fa0141b3e4b93641cd8312b99ba5fb"/>size_t <emphasis role="strong">number_of_labels</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/Structures/Tabels/Tabels.h</section>

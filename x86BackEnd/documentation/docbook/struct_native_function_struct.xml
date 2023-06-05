@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_native_function_struct" xml:lang="en-US">
+<title>NativeFunctionStruct Struct Reference</title>
+<indexterm><primary>NativeFunctionStruct</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_native_function_struct_1ab295fabb78a825dd31d45b414f179e25"/>const char * <emphasis role="strong">str</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_native_function_struct_1ada1c4a5993b2ae8d8cea80a240b9acdf"/>int <emphasis role="strong">function</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_native_function_struct_1a6cee53e4837fb13b91c106d1c77c692d"/>int <emphasis role="strong">number_of_parametres</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_native_function_struct_1ad3f57f192bec8e21f8aaa7d8f35c371a"/>int <emphasis role="strong">ret_type</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/Grammar.h</section>

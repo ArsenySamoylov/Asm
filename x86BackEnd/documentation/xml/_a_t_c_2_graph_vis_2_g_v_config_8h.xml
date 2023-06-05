@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_a_t_c_2_graph_vis_2_g_v_config_8h" kind="file" language="C++">
+    <compoundname>GVConfig.h</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1ab2d3c0d1818c108d980be219af4781b9" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAX_GRAPH_NAME_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>MAX_GRAPH_NAME_LENGTH</name>
+        <initializer>= 128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="3" column="11" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1aa1de44f57e3471110827b78d0ea74add" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IMAGE_NAME_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>IMAGE_NAME_LENGTH</name>
+        <initializer>= 128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="4" column="15" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1ad6e9cb887e45a39193633c3a2212033d" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char PATH_FOR_DOT[]</definition>
+        <argsstring>[]</argsstring>
+        <name>PATH_FOR_DOT</name>
+        <initializer>= &quot;./graphics/dot/&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>path to directorry where dot files will be strored </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="7" column="12" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1a06b6c53a9a9a18b4b534c87c11c70571" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char PATH_FOR_IMG[]</definition>
+        <argsstring>[]</argsstring>
+        <name>PATH_FOR_IMG</name>
+        <initializer>= &quot;./graphics/&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="8" column="12" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1af6bacd4bedae2bc72ebc266f73027857" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char EXTENSION[]</definition>
+        <argsstring>[]</argsstring>
+        <name>EXTENSION</name>
+        <initializer>= &quot;png&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="9" column="12" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1a671be5be4af66b911381bfe19b0eaff5" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char RANKDIR[]</definition>
+        <argsstring>[]</argsstring>
+        <name>RANKDIR</name>
+        <initializer>= &quot;TB&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="11" column="12" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_a_t_c_2_graph_vis_2_g_v_config_8h_1ab379eade3205f00a1bccc5bb1006cf60" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SYSTEM_COMMAND_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SYSTEM_COMMAND_LENGTH</name>
+        <initializer>= 512</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/GraphVis/GVConfig.h" line="13" column="11" bodyfile="ATC/GraphVis/GVConfig.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>MAX_GRAPH_NAME_LENGTH<sp/>=<sp/>128;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>IMAGE_NAME_LENGTH<sp/>=<sp/>128;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>PATH_FOR_DOT[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;./graphics/dot/&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>PATH_FOR_IMG[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;./graphics/&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>EXTENSION[]<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;png&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>RANKDIR[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TB&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SYSTEM_COMMAND_LENGTH<sp/>=<sp/>512;</highlight></codeline>
+    </programlisting>
+    <location file="ATC/GraphVis/GVConfig.h"/>
+  </compounddef>
+</doxygen>

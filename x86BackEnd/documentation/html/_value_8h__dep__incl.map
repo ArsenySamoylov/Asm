@@ -1,0 +1,11 @@
+<map id="src/IR/Value/Value.h" name="src/IR/Value/Value.h">
+<area shape="rect" id="node1" title="This file contains declaration of Value class and its derived classes (only exception is Instruction;..." alt="" coords="201,5,352,32"/>
+<area shape="rect" id="node2" href="$_value_table_8h_source.html" title=" " alt="" coords="5,177,201,203"/>
+<area shape="rect" id="node4" href="$_instructions_8h.html" title="This file contains declaration of Instruction class and its derived classes." alt="" coords="261,80,399,121"/>
+<area shape="rect" id="node5" href="$_module_8h_source.html" title=" " alt="" coords="225,177,400,203"/>
+<area shape="rect" id="node9" href="$_i_r_context_8h_source.html" title=" " alt="" coords="424,80,583,121"/>
+<area shape="rect" id="node3" href="$_builder_8h_source.html" title=" " alt="" coords="23,259,194,285"/>
+<area shape="rect" id="node8" href="$_commands_8h_source.html" title=" " alt="" coords="424,169,583,211"/>
+<area shape="rect" id="node6" href="$_ast_to_i_r_8h_source.html" title=" " alt="" coords="221,259,396,285"/>
+<area shape="rect" id="node7" href="$_dump_i_r_8h_source.html" title=" " alt="" coords="420,259,603,285"/>
+</map>

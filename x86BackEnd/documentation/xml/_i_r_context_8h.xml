@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_i_r_context_8h" kind="file" language="C++">
+    <compoundname>IRContext.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="_elf_8hpp" local="yes">Elf.hpp</includes>
+    <includes refid="_value_8h" local="yes">Value.h</includes>
+    <includedby refid="_commands_8h" local="yes">src/IR/TranslateTox86/Commands.h</includedby>
+    <includedby refid="_i_r_context_8cpp" local="yes">src/IR/TranslateTox86/IRContext.cpp</includedby>
+    <includedby refid="_translate_i_r_tox86_8cpp" local="yes">src/IR/TranslateTox86/TranslateIRTox86.cpp</includedby>
+    <incdepgraph>
+      <node id="12">
+        <label>Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/IR/TranslateTox86/IRContext.h</label>
+        <link refid="_i_r_context_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>elf.h</label>
+      </node>
+      <node id="10">
+        <label>cassert</label>
+      </node>
+      <node id="14">
+        <label>TypeDefs.h</label>
+        <link refid="_type_defs_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stddef.h</label>
+      </node>
+      <node id="16">
+        <label>RegistersUsage.h</label>
+        <link refid="_registers_usage_8h_source"/>
+      </node>
+      <node id="8">
+        <label>ValueArrTemplate.h</label>
+        <link refid="_value_arr_template_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cstdio</label>
+      </node>
+      <node id="5">
+        <label>Buffer.hpp</label>
+        <link refid="_buffer_8hpp_source"/>
+      </node>
+      <node id="3">
+        <label>Elf.hpp</label>
+        <link refid="_elf_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdlib</label>
+      </node>
+      <node id="7">
+        <label>cstddef</label>
+      </node>
+      <node id="6">
+        <label>Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>NoCopyable.h</label>
+        <link refid="_no_copyable_8h_source"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/IR/TranslateTox86/IRContext.h</label>
+        <link refid="_i_r_context_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/IR/TranslateTox86/Commands.h</label>
+        <link refid="_commands_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_reference" prot="public">Reference</innerclass>
+    <innerclass refid="struct_reference_arr" prot="public">ReferenceArr</innerclass>
+    <innerclass refid="struct_context" prot="public">Context</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_i_r_context_8h_1ab41e584ff492106dae6dc249ec1d6fb4" prot="public" static="no">
+        <name>print_raw</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>fprintf (DUMP, format __VA_OPT__(,) __VA_ARGS__);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="57" column="9" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_i_r_context_8h_1a31a51f041c9ddc8a28e9d4865ad1dd19" prot="public" static="no">
+        <name>print_label</name>
+        <param><defname>VALUE</defname></param>
+        <initializer>print_raw  (&quot;%s:\n&quot;, (VALUE)-&gt;name)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="58" column="9" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_i_r_context_8h_1a1185f064cc7bdd3f2a433da85a834c37" prot="public" static="no">
+        <name>new_line</name>
+        <param></param>
+        <initializer>print_raw (&quot;\n&quot;);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="59" column="9" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_i_r_context_8h_1a42c1eb7aac1cb809c57358913a3c7c8a" prot="public" static="no">
+        <name>PRINT_INSTR_COMM</name>
+        <param><defname>INSTR</defname></param>
+        <initializer>print_raw (&quot;### &quot;); WriteToFile (DUMP, INSTR); print_raw(&quot;\n&quot;);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="60" column="9" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_i_r_context_8h_1afe06169e433bf4371790de5e754e20de" prot="public" static="no">
+        <name>print_tab</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    do                                                    \
+    {                                                     \
+    print_raw (&quot;\t&quot;);                                     \
+                                                          \
+    print_raw (format __VA_OPT__(,) __VA_ARGS__);         \
+    }while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="62" column="9" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_i_r_context_8h_1ab5bc7772b71d0b2392b85cc3bc4467ba" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* DUMP</definition>
+        <argsstring></argsstring>
+        <name>DUMP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="55" column="13" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="13" bodyend="-1" declfile="src/IR/TranslateTox86/IRContext.h" declline="55" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_i_r_context_8h_1a1c1cc1556c270e0cca81a3f299d87c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ReferenceArrCtor</definition>
+        <argsstring>(ReferenceArr *arr)</argsstring>
+        <name>ReferenceArrCtor</name>
+        <param>
+          <type><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref> *</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="24" column="5" declfile="src/IR/TranslateTox86/IRContext.h" declline="24" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a25eabdad8d93873c7d292fff77999d4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ReferenceArrDtor</definition>
+        <argsstring>(ReferenceArr *arr)</argsstring>
+        <name>ReferenceArrDtor</name>
+        <param>
+          <type><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref> *</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="25" column="5" declfile="src/IR/TranslateTox86/IRContext.h" declline="25" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a6671a3d19b20655b7e89a8b417d01923" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ResetReferenceArr</definition>
+        <argsstring>(ReferenceArr *arr)</argsstring>
+        <name>ResetReferenceArr</name>
+        <param>
+          <type><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref> *</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="27" column="5" declfile="src/IR/TranslateTox86/IRContext.h" declline="27" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a62a5efe417aa84af0c170d4e0b305ed7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddReference</definition>
+        <argsstring>(ReferenceArr *arr, Reference *ref)</argsstring>
+        <name>AddReference</name>
+        <param>
+          <type><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref> *</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_reference" kindref="compound">Reference</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="29" column="5" declfile="src/IR/TranslateTox86/IRContext.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1ad4ef356814c2e52640112e4fc7738821" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ResolveReferences</definition>
+        <argsstring>(Buffer *buf, ReferenceArr *refs)</argsstring>
+        <name>ResolveReferences</name>
+        <param>
+          <type><ref refid="struct_buffer" kindref="compound">Buffer</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref> *</type>
+          <declname>refs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="30" column="5" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="33" bodyend="51" declfile="src/IR/TranslateTox86/IRContext.h" declline="30" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1ac2844d5bf2a0ce6d14250db27a5c0171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ContextCtor</definition>
+        <argsstring>(Context *ctx, Elf *elf)</argsstring>
+        <name>ContextCtor</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_elf" kindref="compound">Elf</ref> *</type>
+          <declname>elf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="47" column="5" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="54" bodyend="65" declfile="src/IR/TranslateTox86/IRContext.h" declline="47" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1ac0007d78bd6a6872b84e177b9c7483da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ContextDtor</definition>
+        <argsstring>(Context *ctx)</argsstring>
+        <name>ContextDtor</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="48" column="5" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="67" bodyend="80" declfile="src/IR/TranslateTox86/IRContext.h" declline="48" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a69ddc57db26d258ac587a21d2a5b82f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SetCtxForFunction</definition>
+        <argsstring>(Context *ctx, const Function *func)</argsstring>
+        <name>SetCtxForFunction</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_function" kindref="compound">Function</ref> *</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="50" column="5" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="82" bodyend="89" declfile="src/IR/TranslateTox86/IRContext.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a8c1921ec3cdffabcc84509e65613555b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ClearCtxAfterFunction</definition>
+        <argsstring>(Context *ctx)</argsstring>
+        <name>ClearCtxAfterFunction</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="51" column="5" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="91" bodyend="98" declfile="src/IR/TranslateTox86/IRContext.h" declline="51" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1a6bf219e9042133b671a6889de47d563f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WriteOpCodes</definition>
+        <argsstring>(Context *ctx, const char *src, unsigned size)</argsstring>
+        <name>WriteOpCodes</name>
+        <param>
+          <type><ref refid="struct_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="53" column="6" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="101" bodyend="107" declfile="src/IR/TranslateTox86/IRContext.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_i_r_context_8h_1adce6889d77303cabae041d4d96569e6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* MakeComment</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>MakeComment</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="70" column="12" bodyfile="src/IR/TranslateTox86/IRContext.cpp" bodystart="111" bodyend="127" declfile="src/IR/TranslateTox86/IRContext.h" declline="70" declcolumn="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Elf.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_value_8h" kindref="compound">Value.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="struct_reference" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_reference" kindref="compound">Reference</ref><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>position;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>address_t<sp/>address;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/><sp/>ref_value;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="struct_reference_arr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_reference" kindref="compound">Reference</ref>**<sp/>arr;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>capacity;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ReferenceArrCtor<sp/>(<ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref>*<sp/>arr);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ReferenceArrDtor<sp/>(<ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref>*<sp/>arr);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ResetReferenceArr<sp/>(<ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref>*<sp/>arr);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddReference<sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref>*<sp/>arr,<sp/><ref refid="struct_reference" kindref="compound">Reference</ref>*<sp/>ref);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ResolveReferences<sp/>(<ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>buf,<sp/><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref>*<sp/>refs);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="struct_context" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_context" kindref="compound">Context</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref><sp/>call_refs;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_reference_arr" kindref="compound">ReferenceArr</ref><sp/>jump_refs;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>code;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>data;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>stdlib;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n_locals;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE*<sp/>dump;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ContextCtor<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/><ref refid="struct_elf" kindref="compound">Elf</ref>*<sp/>elf);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ContextDtor<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SetCtxForFunction<sp/><sp/><sp/><sp/><sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>func);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ClearCtxAfterFunction<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WriteOpCodes<sp/>(<ref refid="struct_context" kindref="compound">Context</ref>*<sp/>ctx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>src,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FILE*<sp/>DUMP;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>print_raw(format,<sp/>...)<sp/>fprintf<sp/>(DUMP,<sp/>format<sp/>__VA_OPT__(,)<sp/>__VA_ARGS__);<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>print_label(VALUE)<sp/><sp/><sp/><sp/><sp/><sp/>print_raw<sp/><sp/>(&quot;%s:\n&quot;</highlight><highlight class="normal">,<sp/>(VALUE)-&gt;name)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>new_line()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print_raw<sp/>(&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRINT_INSTR_COMM(INSTR)<sp/>print_raw<sp/>(&quot;###<sp/>&quot;</highlight><highlight class="normal">);<sp/>WriteToFile<sp/>(DUMP,<sp/>INSTR);<sp/>print_raw(&quot;\n&quot;);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>print_tab(format,<sp/>...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>print_raw<sp/>(&quot;\t&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>print_raw<sp/>(format<sp/>__VA_OPT__(,)<sp/>__VA_ARGS__);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}while(0);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>MakeComment<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>format,<sp/>...);</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/TranslateTox86/IRContext.h"/>
+  </compounddef>
+</doxygen>

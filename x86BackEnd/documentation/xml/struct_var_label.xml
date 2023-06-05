@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_var_label" kind="struct" language="C++" prot="public">
+    <compoundname>VarLabel</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_var_label_1a377c639ece92254314ece66f98eee8ad" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int VarLabel::name_id</definition>
+        <argsstring></argsstring>
+        <name>name_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="27" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_var_label_1a13fd5a0a3819ceb989b01225f79ab8c7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int VarLabel::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="28" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Legacy/Common/Structures/Tabels/Tabels.h" line="25" column="1" bodyfile="src/Legacy/Common/Structures/Tabels/Tabels.h" bodystart="26" bodyend="29"/>
+    <listofallmembers>
+      <member refid="struct_var_label_1a377c639ece92254314ece66f98eee8ad" prot="public" virt="non-virtual"><scope>VarLabel</scope><name>name_id</name></member>
+      <member refid="struct_var_label_1a13fd5a0a3819ceb989b01225f79ab8c7" prot="public" virt="non-virtual"><scope>VarLabel</scope><name>position</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

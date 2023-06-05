@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_value_table_8h" kind="file" language="C++">
+    <compoundname>ValueTable.h</compoundname>
+    <includes refid="_value_8h" local="yes">Value.h</includes>
+    <includedby refid="_builder_8h" local="yes">src/IR/AstToIR/Builder.h</includedby>
+    <includedby refid="_value_label_8cpp" local="yes">src/IR/AstToIR/ValueLabel.cpp</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cassert</label>
+      </node>
+      <node id="10">
+        <label>TypeDefs.h</label>
+        <link refid="_type_defs_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stddef.h</label>
+      </node>
+      <node id="12">
+        <label>RegistersUsage.h</label>
+        <link refid="_registers_usage_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/IR/AstToIR/ValueTable.h</label>
+        <link refid="_value_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ValueArrTemplate.h</label>
+        <link refid="_value_arr_template_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cstdio</label>
+      </node>
+      <node id="5">
+        <label>cstdlib</label>
+      </node>
+      <node id="3">
+        <label>cstddef</label>
+      </node>
+      <node id="2">
+        <label>Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>NoCopyable.h</label>
+        <link refid="_no_copyable_8h_source"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/IR/AstToIR/ValueTable.h</label>
+        <link refid="_value_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/IR/AstToIR/Builder.h</label>
+        <link refid="_builder_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_value_label" prot="public">ValueLabel</innerclass>
+    <innerclass refid="struct_value_name_table" prot="public">ValueNameTable</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_value_table_8h_1ac57fefd555f4de1cd7bbdb9361105c2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ValueNameTableCtor</definition>
+        <argsstring>(ValueNameTable *table)</argsstring>
+        <name>ValueNameTableCtor</name>
+        <param>
+          <type><ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="23" column="5" declfile="src/IR/AstToIR/ValueTable.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_value_table_8h_1ab97b8837bca95f9579c6411e5fff2455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ValueNameTableDtor</definition>
+        <argsstring>(ValueNameTable *table)</argsstring>
+        <name>ValueNameTableDtor</name>
+        <param>
+          <type><ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="24" column="5" declfile="src/IR/AstToIR/ValueTable.h" declline="24" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_value_table_8h_1a807d978c35919330c8f8b9e64f189cc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_value_label" kindref="compound">ValueLabel</ref> *</type>
+        <definition>ValueLabel* CopyValueLabel</definition>
+        <argsstring>(ValueNameTable *table, ValueLabel *label)</argsstring>
+        <name>CopyValueLabel</name>
+        <param>
+          <type><ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_value_label" kindref="compound">ValueLabel</ref> *</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="26" column="12" bodyfile="src/IR/AstToIR/ValueLabel.cpp" bodystart="39" bodyend="54" declfile="src/IR/AstToIR/ValueTable.h" declline="26" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="_value_table_8h_1a459b1753360c07958df08e6a89ce0d4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_value_label" kindref="compound">ValueLabel</ref> *</type>
+        <definition>ValueLabel* FindValueLabel</definition>
+        <argsstring>(ValueNameTable *table, int name_id)</argsstring>
+        <name>FindValueLabel</name>
+        <param>
+          <type><ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>name_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/ValueTable.h" line="27" column="12" bodyfile="src/IR/AstToIR/ValueLabel.cpp" bodystart="24" bodyend="37" declfile="src/IR/AstToIR/ValueTable.h" declline="27" declcolumn="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_value_8h" kindref="compound">Value.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="struct_value_label" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_value_label" kindref="compound">ValueLabel</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/><sp/><sp/><sp/><sp/>val;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>block;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="struct_value_name_table" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>**<sp/>arr;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>capacity;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ValueNameTableCtor<sp/>(<ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref>*<sp/>table);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ValueNameTableDtor<sp/>(<ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref>*<sp/>table);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>*<sp/>CopyValueLabel<sp/>(<ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref>*<sp/>table,<sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>*<sp/>label);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>*<sp/>FindValueLabel<sp/>(<ref refid="struct_value_name_table" kindref="compound">ValueNameTable</ref>*<sp/>table,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id);</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/AstToIR/ValueTable.h"/>
+  </compounddef>
+</doxygen>

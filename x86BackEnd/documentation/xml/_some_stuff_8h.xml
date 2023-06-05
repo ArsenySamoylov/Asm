@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_some_stuff_8h" kind="file" language="C++">
+    <compoundname>SomeStuff.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="_ars_lib_8h" local="yes">ATC/ArsLib.h</includedby>
+    <includedby refid="_some_stuff_8cpp" local="yes">ATC/RandomStuff/SomeStuff.cpp</includedby>
+    <includedby refid="_translate_to_asm_8cpp" local="yes">src/Legacy/TranslateToAsm.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>ATC/RandomStuff/SomeStuff.h</label>
+        <link refid="_some_stuff_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>ATC/RandomStuff/SomeStuff.h</label>
+        <link refid="_some_stuff_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_some_stuff_8h_1a47b12d8fd90da094e6ac6ba53658dafb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCharInBinary</definition>
+        <argsstring>(char mask)</argsstring>
+        <name>ShowCharInBinary</name>
+        <param>
+          <type>char</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/SomeStuff.h" line="6" column="6" bodyfile="ATC/RandomStuff/SomeStuff.cpp" bodystart="5" bodyend="20" declfile="ATC/RandomStuff/SomeStuff.h" declline="6" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_some_stuff_8h_1ada79ac1fadd25f5027731d99d5480176" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int printl</definition>
+        <argsstring>(const char *line, char terminator)</argsstring>
+        <name>printl</name>
+        <param>
+          <type>const char *</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>terminator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/SomeStuff.h" line="8" column="5" bodyfile="ATC/RandomStuff/SomeStuff.cpp" bodystart="22" bodyend="34" declfile="ATC/RandomStuff/SomeStuff.h" declline="8" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SHOW_BINARY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHOW_BINARY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ShowCharInBinary(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>mask);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>printl<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*line,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>terminator);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/RandomStuff/SomeStuff.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,129 @@
+\hypertarget{struct_return}{}\doxysection{Return Struct Reference}
+\label{struct_return}\index{Return@{Return}}
+
+
+\mbox{\hyperlink{struct_return}{Return}} instruction.  
+
+
+
+
+{\ttfamily \#include $<$Instructions.\+h$>$}
+
+
+
+Inheritance diagram for Return\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{struct_return__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Return\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{struct_return__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_return_adab74729d00392444a1ecdb2c7e376af}\label{struct_return_adab74729d00392444a1ecdb2c7e376af}} 
+{\bfseries Return} (name\+\_\+t name\+\_\+param, const \mbox{\hyperlink{class_value}{Value}} $\ast$ret\+\_\+value\+\_\+param)
+\item 
+void \mbox{\hyperlink{struct_return_ac88922f7e3bab1ece0eec23eefe4726b}{dump}} () const override
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+Instruction\+Type \mbox{\hyperlink{struct_return_aea53e7e3ade04c92589a49c6ee161052}{get\+\_\+instr\+\_\+type}} () const override
+\begin{DoxyCompactList}\small\item\em Get instr\+\_\+type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_return_aa83609e0489201eead089f31bdb4216d}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_return_ab83a398c3a53e45be73a43534a6e5e19}{set\+\_\+storage}} () const override
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_return}{Return}} instruction. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_return_ac88922f7e3bab1ece0eec23eefe4726b}\label{struct_return_ac88922f7e3bab1ece0eec23eefe4726b}} 
+\index{Return@{Return}!dump@{dump}}
+\index{dump@{dump}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void Return\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_instruction_a8b89720a9e81b5034f384acf2584fe74}{Instruction}}.
+
+\mbox{\Hypertarget{struct_return_aea53e7e3ade04c92589a49c6ee161052}\label{struct_return_aea53e7e3ade04c92589a49c6ee161052}} 
+\index{Return@{Return}!get\_instr\_type@{get\_instr\_type}}
+\index{get\_instr\_type@{get\_instr\_type}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{get\_instr\_type()}{get\_instr\_type()}}
+{\footnotesize\ttfamily Instruction\+Type Return\+::get\+\_\+instr\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get instr\+\_\+type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Instruction\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_instruction_a5794ed6986bad233a819137af502519a}{Instruction}}.
+
+\mbox{\Hypertarget{struct_return_ab83a398c3a53e45be73a43534a6e5e19}\label{struct_return_ab83a398c3a53e45be73a43534a6e5e19}} 
+\index{Return@{Return}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily void Return\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}{Instruction}}.
+
+\mbox{\Hypertarget{struct_return_aa83609e0489201eead089f31bdb4216d}\label{struct_return_aa83609e0489201eead089f31bdb4216d}} 
+\index{Return@{Return}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily void Return\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_instruction_a490849f5712f281da374de8de683069b}{Instruction}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Instructions/\mbox{\hyperlink{_instructions_8h}{Instructions.\+h}}\item 
+src/\+IR/\+Dump\+IR/Dump\+IR.\+cpp\item 
+src/\+IR/\+Instructions/Instruction.\+cpp\item 
+src/\+IR/\+Storage/Storage.\+cpp\item 
+src/\+IR/\+Translate\+Tox86/Translate\+IRTox86.\+cpp\end{DoxyCompactItemize}

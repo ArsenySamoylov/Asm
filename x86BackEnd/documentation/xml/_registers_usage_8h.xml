@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_registers_usage_8h" kind="file" language="C++">
+    <compoundname>RegistersUsage.h</compoundname>
+    <includedby refid="_storage_8h" local="yes">src/IR/Storage/Storage.h</includedby>
+    <includedby refid="_registers_usage_8cpp" local="yes">src/IR/TranslateTox86/RegistersUsage.cpp</includedby>
+    <invincdepgraph>
+      <node id="9">
+        <label>src/IR/DumpIR/DumpIR.h</label>
+        <link refid="_dump_i_r_8h_source"/>
+      </node>
+      <node id="6">
+        <label>src/IR/Instructions/Instructions.h</label>
+        <link refid="_instructions_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/IR/Storage/Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/IR/TranslateTox86/IRContext.h</label>
+        <link refid="_i_r_context_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/IR/TranslateTox86/RegistersUsage.h</label>
+        <link refid="_registers_usage_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/IR/AstToIR/ValueTable.h</label>
+        <link refid="_value_table_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/IR/AstToIR/Builder.h</label>
+        <link refid="_builder_8h_source"/>
+      </node>
+      <node id="7">
+        <label>src/IR/Module/Module.h</label>
+        <link refid="_module_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/IR/TranslateTox86/Commands.h</label>
+        <link refid="_commands_8h_source"/>
+      </node>
+      <node id="8">
+        <label>src/IR/AstToIR/AstToIR.h</label>
+        <link refid="_ast_to_i_r_8h_source"/>
+      </node>
+      <node id="3">
+        <label>src/IR/Value/Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_reg" prot="public">Reg</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_registers_usage_8h_1a8df15fed6a46c07db033dfed7b617398" prot="public" static="no">
+        <name>PRINT_REG</name>
+        <param><defname>NUMBER</defname></param>
+        <initializer>do { printf (&quot;%s:%d &quot;, __FILE__, __LINE__); PrintReg(NUMBER); } while (0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="56" column="9" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GPRegisterNumber</name>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26ad8a2b3cfd37dc1215cf782d326e5186c" prot="public">
+          <name>RAX</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a90c9538d32be81921157272be80fada4" prot="public">
+          <name>RDI</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a2434129c47b4f1d49a26ffac15497f58" prot="public">
+          <name>RSI</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a0358584dab0bc3a6ff014581cf6f4660" prot="public">
+          <name>RDX</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a9319e76c0baaa9e53113184ab7d25944" prot="public">
+          <name>RCX</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26adaf41609f8eadc7d15918adacc662c59" prot="public">
+          <name>R8</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a550ff95070e1f18bc610107aaf8e0c2b" prot="public">
+          <name>R9</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a0a7d06954b9e9723d747fea19e537188" prot="public">
+          <name>RSP</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a3fca113e3a8a54281655d842075690be" prot="public">
+          <name>RBX</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26aa941e96ea18fff00849b2a24601d59c6" prot="public">
+          <name>RBP</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26aef1c3e581bbab81e38c6d53357760b3c" prot="public">
+          <name>R10</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26aecda251967ab2413a2db85530a2a8429" prot="public">
+          <name>R11</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a49ea06ace91cf41ec29751a4a1d5a7de" prot="public">
+          <name>R12</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a1dd4349b8ea1e5be418ff8b01a25f37a" prot="public">
+          <name>R13</name>
+          <initializer>= 13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26abf6a5b5a0555c07e65f73e789e5238ca" prot="public">
+          <name>R14</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ab5975331cd486284a82c920f62045e26a17eeff2eb97b3d4877126bc24f4adf5b" prot="public">
+          <name>R15</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="3" column="1" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="4" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="enum" id="_registers_usage_8h_1a824abd94f9d5291f86bb23d7c703fcbe" prot="public" static="no" strong="no">
+        <type></type>
+        <name>RegStatus</name>
+        <enumvalue id="_registers_usage_8h_1a824abd94f9d5291f86bb23d7c703fcbeacc62d1576546f3245237e1b232d838b6" prot="public">
+          <name>FREE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1a824abd94f9d5291f86bb23d7c703fcbeaa6e504d57ec9777faa0185fbd3b93b97" prot="public">
+          <name>BUSY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="30" column="1" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="enum" id="_registers_usage_8h_1ac7e7e7bf9967f5aa020366775b68d841" prot="public" static="no" strong="no">
+        <type></type>
+        <name>AllocationStatus</name>
+        <enumvalue id="_registers_usage_8h_1ac7e7e7bf9967f5aa020366775b68d841a2f137e365e2e320b72dc59d5585016cd" prot="public">
+          <name>Allocatable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_registers_usage_8h_1ac7e7e7bf9967f5aa020366775b68d841a752f128e0745906bec030589c5bcde21" prot="public">
+          <name>NotAllocatable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="36" column="1" bodyfile="src/IR/TranslateTox86/RegistersUsage.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_registers_usage_8h_1a11f89ea657ceb67914e0156860e99dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ResetRegisters</definition>
+        <argsstring>()</argsstring>
+        <name>ResetRegisters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="51" column="13" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="41" bodyend="55" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="51" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="_registers_usage_8h_1a725f0014f3be4d65d01ffd02d71cb8e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_reg" kindref="compound">Reg</ref> *</type>
+        <definition>Reg* GetReg</definition>
+        <argsstring>(int number)</argsstring>
+        <name>GetReg</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="52" column="12" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="57" bodyend="61" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="52" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="_registers_usage_8h_1a5742edde9efa99d286be00f684f7a8d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* GetRegName</definition>
+        <argsstring>(int number)</argsstring>
+        <name>GetRegName</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="53" column="12" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="63" bodyend="89" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="53" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="_registers_usage_8h_1acf0faddab391c031ef1e0740b39c5993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PrintReg</definition>
+        <argsstring>(int number)</argsstring>
+        <name>PrintReg</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="55" column="9" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="91" bodyend="101" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="55" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="_registers_usage_8h_1aef0ff938b99d54c9f324f0b02f3e287b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_reg" kindref="compound">Reg</ref> *</type>
+        <definition>Reg* AllocateReg</definition>
+        <argsstring>()</argsstring>
+        <name>AllocateReg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="58" column="5" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="104" bodyend="128" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="58" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_registers_usage_8h_1acfcde587fcdb8ecdc22e3b2deea7eaa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FreeReg</definition>
+        <argsstring>(int reg_number)</argsstring>
+        <name>FreeReg</name>
+        <param>
+          <type>int</type>
+          <declname>reg_number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/RegistersUsage.h" line="59" column="5" bodyfile="src/IR/TranslateTox86/RegistersUsage.cpp" bodystart="134" bodyend="146" declfile="src/IR/TranslateTox86/RegistersUsage.h" declline="59" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>GPRegisterNumber</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>RAX<sp/>=<sp/>0,<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(1-6<sp/>general<sp/>purpose<sp/>registers<sp/>are<sp/>used<sp/>as<sp/>parameters<sp/>for<sp/>call)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>RDI<sp/>=<sp/>1,<sp/><sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>RSI<sp/>=<sp/>2,<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>RDX<sp/>=<sp/>3,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>RCX<sp/>=<sp/>4,<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>R8<sp/><sp/>=<sp/>5,<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>R9<sp/><sp/>=<sp/>6,<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>RSP<sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>callee<sp/>saved</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>RBX<sp/>=<sp/>8,<sp/></highlight><highlight class="comment">//<sp/>1<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>RBP<sp/>=<sp/>9,<sp/></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>R10<sp/>=<sp/>10,<sp/></highlight><highlight class="comment">//<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>R11<sp/>=<sp/>11,<sp/></highlight><highlight class="comment">//<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>R12<sp/>=<sp/>12,<sp/></highlight><highlight class="comment">//<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>R13<sp/>=<sp/>13,<sp/></highlight><highlight class="comment">//<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>R14<sp/>=<sp/>14,<sp/></highlight><highlight class="comment">//<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>R15<sp/>=<sp/>15,<sp/></highlight><highlight class="comment">//<sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>RegStatus</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>FREE,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>BUSY,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AllocationStatus</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Allocatable,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>NotAllocatable,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="struct_reg" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_reg" kindref="compound">Reg</ref></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GPRegisterNumber<sp/>number;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>allocation_status;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>op_code_number;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResetRegisters<sp/>();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><ref refid="struct_reg" kindref="compound">Reg</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetReg<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>GetRegName<sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>PrintReg<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRINT_REG(NUMBER)<sp/>do<sp/>{<sp/>printf<sp/>(&quot;%s:%d<sp/>&quot;</highlight><highlight class="normal">,<sp/>__FILE__,<sp/>__LINE__);<sp/>PrintReg(NUMBER);<sp/>}<sp/>while<sp/>(0);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><ref refid="struct_reg" kindref="compound">Reg</ref>*<sp/>AllocateReg<sp/>();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>FreeReg<sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reg_number);</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/TranslateTox86/RegistersUsage.h"/>
+  </compounddef>
+</doxygen>

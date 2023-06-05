@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_cb56d427e084e72ca640b79c812c7fd4" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/src/IR/AstToIR</compoundname>
+    <innerfile refid="_ast_to_i_r_8cpp_8o_8d">AstToIR.cpp.o.d</innerfile>
+    <innerfile refid="_builder_8cpp_8o_8d">Builder.cpp.o.d</innerfile>
+    <innerfile refid="_string_pool_8cpp_8o_8d">StringPool.cpp.o.d</innerfile>
+    <innerfile refid="_value_label_8cpp_8o_8d">ValueLabel.cpp.o.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/src/IR/AstToIR/"/>
+  </compounddef>
+</doxygen>

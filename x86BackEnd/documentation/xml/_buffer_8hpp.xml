@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_buffer_8hpp" kind="file" language="C++">
+    <compoundname>Buffer.hpp</compoundname>
+    <includedby refid="_buffer_8cpp" local="yes">src/Elf/Buffer.cpp</includedby>
+    <includedby refid="_elf_8hpp" local="yes">src/Elf/Elf.hpp</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/IR/TranslateTox86/IRContext.h</label>
+        <link refid="_i_r_context_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/Elf/Buffer.hpp</label>
+        <link refid="_buffer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/Elf/Elf.hpp</label>
+        <link refid="_elf_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/IR/TranslateTox86/Commands.h</label>
+        <link refid="_commands_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_buffer" prot="public">Buffer</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_buffer_8hpp_1a0c8186d9b9b7880309c27230bbb5e69d" prot="public" static="no">
+        <type>unsigned char</type>
+        <definition>typedef unsigned char byte</definition>
+        <argsstring></argsstring>
+        <name>byte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Buffer.hpp" line="3" column="23" bodyfile="src/Elf/Buffer.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_buffer_8hpp_1aca3f59631624344433bd563bfc7345d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BufferCtor</definition>
+        <argsstring>(Buffer *buf)</argsstring>
+        <name>BufferCtor</name>
+        <param>
+          <type><ref refid="struct_buffer" kindref="compound">Buffer</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Buffer.hpp" line="13" column="5" bodyfile="src/Elf/Buffer.cpp" bodystart="17" bodyend="34" declfile="src/Elf/Buffer.hpp" declline="13" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_buffer_8hpp_1a0c7ff37df1e3bc0e357b6aafebfcd81f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BufferDtor</definition>
+        <argsstring>(Buffer *buf)</argsstring>
+        <name>BufferDtor</name>
+        <param>
+          <type><ref refid="struct_buffer" kindref="compound">Buffer</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Buffer.hpp" line="14" column="5" bodyfile="src/Elf/Buffer.cpp" bodystart="36" bodyend="49" declfile="src/Elf/Buffer.hpp" declline="14" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_buffer_8hpp_1a293d93c5fe7dfd5816d9d513350a1856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CopyToBuff</definition>
+        <argsstring>(Buffer *buf, size_t owffset, void *src, size_t size)</argsstring>
+        <name>CopyToBuff</name>
+        <param>
+          <type><ref refid="struct_buffer" kindref="compound">Buffer</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>owffset</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Elf/Buffer.hpp" line="16" column="5" bodyfile="src/Elf/Buffer.cpp" bodystart="51" bodyend="67" declfile="src/Elf/Buffer.hpp" declline="16" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byte;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_buffer" kindref="compound">Buffer</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/>buffer;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>capacity;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>BufferCtor<sp/>(<ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>buf);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>BufferDtor<sp/>(<ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>buf);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CopyToBuff<sp/>(<ref refid="struct_buffer" kindref="compound">Buffer</ref>*<sp/>buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>owffset,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>src,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+    </programlisting>
+    <location file="src/Elf/Buffer.hpp"/>
+  </compounddef>
+</doxygen>

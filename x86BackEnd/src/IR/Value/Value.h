@@ -1,3 +1,9 @@
+/*!
+\file
+\brief This file contains declaration of Value class and its derived classes
+        (only exception is Instruction; it declared in Instructions.h) 
+
+*/
 #pragma once
 
 #include <cstddef>
@@ -16,6 +22,10 @@ enum class ValueType
     Value
     };
 
+/*!
+    \brief Abstract class for IR object.
+
+*/
 class Value : public NoCopyable
     {
     protected:
@@ -30,19 +40,64 @@ class Value : public NoCopyable
 
         name_t get_name() const;
         
-        virtual void      dump     () const = 0;            
+        /**
+         * @brief  Print Value in human-readable format to file DUMP.
+         * 
+         * Print Value in human-readable format to file DUMP. 
+         * PRINT_NEW_LINES regulates if printed Value generates extra new line chars
+         */
+        virtual void      dump     () const = 0;  
+
+        /**
+         * @brief Get Value type
+         * 
+         * @note debug purpose only
+         * @return ValueType 
+         */
         virtual ValueType get_type () const = 0;
 
+        /**
+         * @brief Translate Value to x86 code
+         * 
+         * @param ctx 
+         */
         virtual void translate_x86  (Context* ctx) const = 0;
+
+        /**
+         * @brief Puts Value to reg
+         * 
+         * Depending on *storage* field this functions puts Value to register
+         * @param ctx 
+         * @return GPRegisterNumber 
+         */
         GPRegisterNumber put_to_reg (Context* ctx) const;
         
+        /**
+         * @brief Set the *storage* 
+         * 
+         * This functions sets *storage_type* for value
+         * In Function and BaseBlock this function call this this function for all
+         * objects from their ValueArr<> members
+         * @note for Constant this function only checks *storage_type*
+         */
         virtual void   set_storage () const = 0;
+
+        /**
+         * @brief Get the storage member 
+         * 
+         * @return Storage* 
+         */
         Storage*       get_storage () const;                
     };
 
 //////////////////////////////////////////////////////
 class Instruction;
 
+/**
+ * @brief Block of Instructions.
+ * 
+ * BaseBlock is array of Instructions that will be executed continuously.
+ */
 class BaseBlock : public Value
     {
     private:
@@ -66,10 +121,20 @@ class BaseBlock : public Value
 const int    PRECISION = 100;
 const data_t BAD_VALUE = -666;
 
+/**
+ * @brief Double constant.
+ * 
+ * Object for double constant
+ */
 class Constant : public Value
     {
     public:
-        // Constant keeps its 'data_t data_param' in 'storage' field
+        /**
+         * @brief Construct a new Constant object
+         * @note Constant keeps its 'data_t data_param' in 'storage' field.  
+         * @param name_param 
+         * @param data_param 
+         */
         Constant (name_t name_param, const data_t data_param);
        ~Constant () override = default;
 
@@ -90,6 +155,10 @@ enum class VariableBaseType
     Char,
     };
 
+/**
+ * @brief Global Variable.
+ * 
+ */
 class GlobalVar : public Value
     {
     private:
@@ -114,6 +183,11 @@ enum class FunctionRetType
     Void,
     };
 
+/**
+ * @brief Function.
+ * 
+ * Objects that represents function
+ */
 class Function : public Value
     {
     private:
@@ -141,6 +215,11 @@ class Function : public Value
        
        void   increase_n_local_vars ();
        size_t get_n_local_vars      () const;
-
+       
+       /**
+        * @brief Sets function virtual address in storage
+        * 
+        * @param address 
+        */
        void set_address (address_t address) const;
     };

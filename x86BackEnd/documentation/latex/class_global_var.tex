@@ -1,0 +1,129 @@
+\hypertarget{class_global_var}{}\doxysection{Global\+Var Class Reference}
+\label{class_global_var}\index{GlobalVar@{GlobalVar}}
+
+
+Global Variable.  
+
+
+
+
+{\ttfamily \#include $<$Value.\+h$>$}
+
+
+
+Inheritance diagram for Global\+Var\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_global_var__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Global\+Var\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_global_var__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_global_var_a50f809f3f2c76b17ae677b775f4cac47}\label{class_global_var_a50f809f3f2c76b17ae677b775f4cac47}} 
+{\bfseries Global\+Var} (name\+\_\+t name\+\_\+param, Variable\+Base\+Type var\+\_\+type\+\_\+param, const \mbox{\hyperlink{class_constant}{Constant}} $\ast$init\+\_\+val\+\_\+param)
+\item 
+void \mbox{\hyperlink{class_global_var_a296cd305d43993d19d262c98f6c158cc}{dump}} () const override
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+Value\+Type \mbox{\hyperlink{class_global_var_a568dd05f7dcd53d1533b143891bb6fc5}{get\+\_\+type}} () const override
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{class_value}{Value}} type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_global_var_a07c47abeb2f0c4c18f2abaf2aca26cff}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_global_var_a2dd9e26d905287e8112b0a3e877326de}{set\+\_\+storage}} () const override
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Global Variable. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_global_var_a296cd305d43993d19d262c98f6c158cc}\label{class_global_var_a296cd305d43993d19d262c98f6c158cc}} 
+\index{GlobalVar@{GlobalVar}!dump@{dump}}
+\index{dump@{dump}!GlobalVar@{GlobalVar}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void Global\+Var\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_value_ad58adc30ecd6e33f8344b76bb94ad9a9}{Value}}.
+
+\mbox{\Hypertarget{class_global_var_a568dd05f7dcd53d1533b143891bb6fc5}\label{class_global_var_a568dd05f7dcd53d1533b143891bb6fc5}} 
+\index{GlobalVar@{GlobalVar}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!GlobalVar@{GlobalVar}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily Value\+Type Global\+Var\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get \mbox{\hyperlink{class_value}{Value}} type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Value\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_value_a81566c2e0f8d9c81fe18ad4ae251e471}{Value}}.
+
+\mbox{\Hypertarget{class_global_var_a2dd9e26d905287e8112b0a3e877326de}\label{class_global_var_a2dd9e26d905287e8112b0a3e877326de}} 
+\index{GlobalVar@{GlobalVar}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!GlobalVar@{GlobalVar}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily void Global\+Var\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_value_a8bc56c2cc9d6cb4aade7084277d9df26}{Value}}.
+
+\mbox{\Hypertarget{class_global_var_a07c47abeb2f0c4c18f2abaf2aca26cff}\label{class_global_var_a07c47abeb2f0c4c18f2abaf2aca26cff}} 
+\index{GlobalVar@{GlobalVar}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!GlobalVar@{GlobalVar}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily void Global\+Var\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_value_a5c80febbb8171e7c60cdd1598c47fe53}{Value}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Value/\mbox{\hyperlink{_value_8h}{Value.\+h}}\item 
+src/\+IR/\+Dump\+IR/Dump\+IR.\+cpp\item 
+src/\+IR/\+Storage/Storage.\+cpp\item 
+src/\+IR/\+Translate\+Tox86/Translate\+IRTox86.\+cpp\item 
+src/\+IR/\+Value/Value.\+cpp\end{DoxyCompactItemize}

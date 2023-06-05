@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_dba3ca033925bd6776f55b7fb53a5b82" kind="dir">
+    <compoundname>ATC/GraphVis/List</compoundname>
+    <innerfile refid="_visual_dump_8h">VisualDump.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ATC/GraphVis/List/"/>
+  </compounddef>
+</doxygen>

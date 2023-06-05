@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_easy_debug_8h" kind="file" language="C++">
+    <compoundname>EasyDebug.h</compoundname>
+    <includedby refid="_ars_lib_8h" local="yes">ATC/ArsLib.h</includedby>
+    <includedby refid="tostring_8cpp" local="yes">ATC/Logger/tostring.cpp</includedby>
+    <includedby refid="_utils_8cpp" local="yes">ATC/Utils/Utils.cpp</includedby>
+    <includedby refid="_ast_to_i_r_8cpp" local="yes">src/IR/AstToIR/AstToIR.cpp</includedby>
+    <includedby refid="_builder_8cpp" local="yes">src/IR/AstToIR/Builder.cpp</includedby>
+    <includedby refid="_dump_i_r_8cpp" local="yes">src/IR/DumpIR/DumpIR.cpp</includedby>
+    <includedby refid="_translate_i_r_tox86_8cpp" local="yes">src/IR/TranslateTox86/TranslateIRTox86.cpp</includedby>
+    <includedby refid="_lexical_ctx_8cpp" local="yes">src/Legacy/Common/LexicalCtx/LexicalCtx.cpp</includedby>
+    <includedby refid="_get_std_8cpp" local="yes">src/Legacy/Common/StandartAWP/GetStd.cpp</includedby>
+    <includedby refid="_program_8cpp" local="yes">src/Legacy/Common/Structures/Program/Program.cpp</includedby>
+    <includedby refid="_name_table_8cpp" local="yes">src/Legacy/Common/Structures/Tabels/NameTable.cpp</includedby>
+    <includedby refid="_graph_vis_8cpp" local="yes">src/Legacy/Common/Utils/GraphVis.cpp</includedby>
+    <includedby refid="_set_token_tree_8cpp" local="yes">src/Legacy/SetTokenTree.cpp</includedby>
+    <includedby refid="_translate_to_asm_8cpp" local="yes">src/Legacy/TranslateToAsm.cpp</includedby>
+    <includedby refid="src_2main_8cpp" local="yes">src/main.cpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>ATC/Debug/EasyDebug.h</label>
+        <link refid="_easy_debug_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_easy_debug_8h_1a03ffbf00c41c229d818e349019418fb4" prot="public" static="no">
+        <name>DEBUG_FROM_NIGTH_TO_MORNIG</name>
+        <initializer>(false)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="2" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1abfb2cff4be36d6eb32baaff3aa061afc" prot="public" static="no">
+        <name>i</name>
+        <param><defname>int_var</defname></param>
+        <initializer>do { printf (&quot;\t%s: %d\n&quot;, #int_var, int_var);        } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="6" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1a15dda21a040243bd10be2f057a7a9288" prot="public" static="no">
+        <name>u</name>
+        <param><defname>int_var</defname></param>
+        <initializer>do { printf (&quot;\t%s: %u\n&quot;, #int_var, int_var);        } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="7" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1a29c1c447444f588795f7049fbe0a5b44" prot="public" static="no">
+        <name>c</name>
+        <param><defname>char_var</defname></param>
+        <initializer>do { printf (&quot;\t%s: %c\n&quot;, #char_var, char_var);      } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="8" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1afa0786d9e16385b37aea95159efa7775" prot="public" static="no">
+        <name>d</name>
+        <param><defname>double_var</defname></param>
+        <initializer>do { printf (&quot;\t%s: %lg\n&quot;, #double_var, double_var); } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="9" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1a15678b94ae7abd7676bc5c3d4870237e" prot="public" static="no">
+        <name>p</name>
+        <param><defname>pointer</defname></param>
+        <initializer>do {printf(&quot;\t%s: %p\t\t(%s:%d)\n&quot;, #pointer, (void*)pointer, __FILE__, __LINE__); } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="12" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1acdcc5aaebf3f273c1762f24a6ece2e5e" prot="public" static="no">
+        <name>assert</name>
+        <param><defname>condition</defname></param>
+        <initializer>                            do                          \
+                            {                           \
+                            if (!(condition))           \
+                                printf (&quot;\033[91mASSERT\033[0m %s: Dyrachok, (%s) - is wrong condition (in line %d)\n&quot;, __func__, #condition, __LINE__); \
+                            } while(0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="15" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1aaa6b9cac04929ddc4ae8889e462eb6d7" prot="public" static="no">
+        <name>do</name>
+        <initializer>    {                                                                                           \
+        /*set_color*/                                                                           \
+                                                                                                \
+        printf(&quot;I AM WORKING IN FUNCTION: %s, in line: %d, (%s:%d)\n&quot;, __func__, __LINE__, __FILE__, __LINE__);/*add colors*/\
+                                                                                                \
+        /*reset_color*/                                                                         \
+    } while (0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>print all given parametrs (add later) </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="23" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_easy_debug_8h_1aaa6b9cac04929ddc4ae8889e462eb6d7" prot="public" static="no">
+        <name>do</name>
+        <initializer>    {                                                               \
+    printf(&quot;Enter any key to continue (%s:%d)\n&quot;, __FILE__, __LINE__);       \
+    getchar();                                                      \
+    } while (0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>print all given parametrs (add later) </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Debug/EasyDebug.h" line="34" column="9" bodyfile="ATC/Debug/EasyDebug.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>DEBUG_FROM_NIGTH_TO_MORNIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_FROM_NIGTH_TO_MORNIG<sp/>(false)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;my_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$i(int_var)<sp/><sp/><sp/><sp/><sp/>do<sp/>{<sp/>printf<sp/>(&quot;\t%s:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>#int_var,<sp/>int_var);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while(0);<sp/><sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$u(int_var)<sp/><sp/><sp/><sp/><sp/>do<sp/>{<sp/>printf<sp/>(&quot;\t%s:<sp/>%u\n&quot;</highlight><highlight class="normal">,<sp/>#int_var,<sp/>int_var);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while(0);<sp/><sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$c(char_var)<sp/><sp/><sp/><sp/>do<sp/>{<sp/>printf<sp/>(&quot;\t%s:<sp/>%c\n&quot;</highlight><highlight class="normal">,<sp/>#char_var,<sp/>char_var);<sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while(0);<sp/><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$d(double_var)<sp/><sp/>do<sp/>{<sp/>printf<sp/>(&quot;\t%s:<sp/>%lg\n&quot;</highlight><highlight class="normal">,<sp/>#double_var,<sp/>double_var);<sp/>}<sp/>while(0);<sp/><sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#define<sp/>$s(string)<sp/><sp/><sp/><sp/><sp/><sp/>do<sp/>{<sp/>printf<sp/>(&quot;\t%s:<sp/>&quot;,<sp/>#string);<sp/>ShowLine(string);<sp/>printf(&quot;\n&quot;);<sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wcast-qual&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$p(pointer)<sp/><sp/><sp/><sp/><sp/>do<sp/>{printf(&quot;\t%s:<sp/>%p\t\t(%s:%d)\n&quot;</highlight><highlight class="normal">,<sp/>#pointer,<sp/>(void*)pointer,<sp/>__FILE__,<sp/>__LINE__);<sp/>}<sp/>while(0);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>assert</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>assert(condition)<sp/><sp/><sp/>do<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!(condition))<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf<sp/>(&quot;\033[91mASSERT\033[0m<sp/>%s:<sp/>Dyrachok,<sp/>(%s)<sp/>-<sp/>is<sp/>wrong<sp/>condition<sp/>(in<sp/>line<sp/>%d)\n&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/>#condition,<sp/>__LINE__);<sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while(0);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>$<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*set_color*/</highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;I<sp/>AM<sp/>WORKING<sp/>IN<sp/>FUNCTION:<sp/>%s,<sp/>in<sp/>line:<sp/>%d,<sp/>(%s:%d)\n&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/>__LINE__,<sp/>__FILE__,<sp/>__LINE__);</highlight><highlight class="comment">/*add<sp/>colors*/</highlight><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*reset_color*/</highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="preprocessor">#define<sp/>$$<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>printf(&quot;Enter<sp/>any<sp/>key<sp/>to<sp/>continue<sp/>(%s:%d)\n&quot;</highlight><highlight class="normal">,<sp/>__FILE__,<sp/>__LINE__);<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>getchar();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);<sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/Debug/EasyDebug.h"/>
+  </compounddef>
+</doxygen>

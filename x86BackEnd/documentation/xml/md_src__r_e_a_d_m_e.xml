@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md_src__r_e_a_d_m_e" kind="page">
+    <compoundname>md_src_README</compoundname>
+    <title>README</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Legacy - директория со старым кодом, написанным для моего <ulink url="https://github.com/ArsenySamoylov/Lang.git">языка</ulink>.</para>
+<para>IR - директория посвящена IR (intermediate representation) коду</para>
+<para><ref refid="struct_elf" kindref="compound">Elf</ref> - директория посвящена созданию исполняемых файлов для Линуксаdoxygen </para>
+    </detaileddescription>
+    <location file="src/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_common_enums_8h" kind="file" language="C++">
+    <compoundname>CommonEnums.h</compoundname>
+    <includedby refid="_ars_lib_8h" local="yes">ATC/ArsLib.h</includedby>
+    <includedby refid="my__buffer_8cpp" local="yes">ATC/Buffer/my_buffer.cpp</includedby>
+    <includedby refid="_log_macroses_8h" local="yes">ATC/Logger/LogMacroses.h</includedby>
+    <includedby refid="_super_stack_8cpp" local="yes">ATC/SuperStack/SuperStack.cpp</includedby>
+    <includedby refid="_ast_to_i_r_8cpp" local="yes">src/IR/AstToIR/AstToIR.cpp</includedby>
+    <includedby refid="_builder_8cpp" local="yes">src/IR/AstToIR/Builder.cpp</includedby>
+    <includedby refid="_string_pool_8cpp" local="yes">src/IR/AstToIR/StringPool.cpp</includedby>
+    <includedby refid="_value_label_8cpp" local="yes">src/IR/AstToIR/ValueLabel.cpp</includedby>
+    <includedby refid="_dump_i_r_8cpp" local="yes">src/IR/DumpIR/DumpIR.cpp</includedby>
+    <includedby refid="_module_8cpp" local="yes">src/IR/Module/Module.cpp</includedby>
+    <includedby refid="_i_r_context_8cpp" local="yes">src/IR/TranslateTox86/IRContext.cpp</includedby>
+    <includedby refid="_registers_usage_8cpp" local="yes">src/IR/TranslateTox86/RegistersUsage.cpp</includedby>
+    <includedby refid="_translate_i_r_tox86_8cpp" local="yes">src/IR/TranslateTox86/TranslateIRTox86.cpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>ATC/RandomStuff/CommonEnums.h</label>
+        <link refid="_common_enums_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ATC/Logger/LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/Legacy/Common/Structures/DSL.h</label>
+        <link refid="_d_s_l_8h_source"/>
+      </node>
+      <node id="2">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_common_enums_8h_1adfc1795d469a23b7969613dc549ae2a8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ReturnStatus</name>
+        <enumvalue id="_common_enums_8h_1adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8" prot="public">
+          <name>SUCCESS</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1adfc1795d469a23b7969613dc549ae2a8aa5571864412c8275a2e18a931fddcaa6" prot="public">
+          <name>FAILURE</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1adfc1795d469a23b7969613dc549ae2a8ab7b3a5d235f12e7840685bb7ca56c560" prot="public">
+          <name>BAD_ARGUMENT</name>
+          <initializer>= -2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="5" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="6" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="enum" id="_common_enums_8h_1ab591ef8dd0cf8d6c50924ce2a09d7dfa" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ObjectStatus</name>
+        <enumvalue id="_common_enums_8h_1ab591ef8dd0cf8d6c50924ce2a09d7dfaa3f3f7329a5f168653c600bc6408d7928" prot="public">
+          <name>UNITIALIZED</name>
+          <initializer>=  0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1ab591ef8dd0cf8d6c50924ce2a09d7dfaa33cf1d8ef1d06ee698a7fabf40eb3a7f" prot="public">
+          <name>ACTIVE</name>
+          <initializer>=  2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1ab591ef8dd0cf8d6c50924ce2a09d7dfaa11fd9ca455f92c69c084484d5cd803c2" prot="public">
+          <name>DEAD</name>
+          <initializer>=  3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="12" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="13" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="enum" id="_common_enums_8h_1a6ab99367513014f5522ec52b3bb74f61" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ArgumentsErrors</name>
+        <enumvalue id="_common_enums_8h_1a6ab99367513014f5522ec52b3bb74f61a940e36ee5940e4ab6f044ac24a6fd4da" prot="public">
+          <name>NO_ARGUMENTS</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1a6ab99367513014f5522ec52b3bb74f61a9dcac3d34722cb93b3cb8d6260b0d2f9" prot="public">
+          <name>WRONG_ARGUMENT</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1a6ab99367513014f5522ec52b3bb74f61ad180e60f2885944af5fd8b5a8d045bca" prot="public">
+          <name>WROMG_NUMBER_OF_ARGUMENTS</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="19" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="enum" id="_common_enums_8h_1a0a97713c5acfe70f7c2b1d642678be0f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FILEerrors</name>
+        <enumvalue id="_common_enums_8h_1a0a97713c5acfe70f7c2b1d642678be0fade172e5fe30957f946c5d27875252bc5" prot="public">
+          <name>ERROR_OPENING_FILE</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1a0a97713c5acfe70f7c2b1d642678be0facdaf8fff17eab5bab3a6da68435ee15d" prot="public">
+          <name>ERROR_READING_FILE</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="26" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="enum" id="_common_enums_8h_1a1a9e675cfa64546d51e22b324757a0e6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DynamicMemoryErrors</name>
+        <enumvalue id="_common_enums_8h_1a1a9e675cfa64546d51e22b324757a0e6ac3a6551cb6ed14616c8701fe8098610c" prot="public">
+          <name>BAD_CALLOC</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1a1a9e675cfa64546d51e22b324757a0e6ad05c2a795ec2388f63d7c7b0d5629187" prot="public">
+          <name>BAD_REALLOC</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="32" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="enum" id="_common_enums_8h_1ab1c9cfcf2945b6802176cb547802b4d1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CommonErrors</name>
+        <enumvalue id="_common_enums_8h_1ab1c9cfcf2945b6802176cb547802b4d1a1924bf7762310b42741263bf33169e38" prot="public">
+          <name>NULL_PTR</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1ab1c9cfcf2945b6802176cb547802b4d1ab62ccc2bbd5e42f2a3eae8c9cd586790" prot="public">
+          <name>NULL_STRUCTURE_MEMBER</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1ab1c9cfcf2945b6802176cb547802b4d1a5d594af14177857fc7661d03eda0baea" prot="public">
+          <name>SYNTAX_ERROR</name>
+          <initializer>= 13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_common_enums_8h_1ab1c9cfcf2945b6802176cb547802b4d1aa9f2b828b1412b81d667728bc1113b0a" prot="public">
+          <name>LOX</name>
+          <initializer>= 0xDED</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="38" column="1" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="39" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_common_enums_8h_1aa5c6a6a53df6efaa070253173d3d5b9d" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int CRINGE</definition>
+        <argsstring></argsstring>
+        <name>CRINGE</name>
+        <initializer>= 0xDED</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/RandomStuff/CommonEnums.h" line="3" column="11" bodyfile="ATC/RandomStuff/CommonEnums.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CRINGE<sp/>=<sp/>0xDED;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ReturnStatus</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>SUCCESS<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>FAILURE<sp/>=<sp/>-1,<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>BAD_ARGUMENT<sp/>=<sp/>-2,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ObjectStatus</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>UNITIALIZED<sp/>=<sp/><sp/>0,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>ACTIVE<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>2,<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>3,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ArgumentsErrors</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>NO_ARGUMENTS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>WRONG_ARGUMENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>5,<sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>WROMG_NUMBER_OF_ARGUMENTS<sp/><sp/><sp/>=<sp/>6,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>FILEerrors</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ERROR_OPENING_FILE<sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>ERROR_READING_FILE<sp/>=<sp/>8,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>DynamicMemoryErrors</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>BAD_CALLOC<sp/><sp/><sp/>=<sp/>9,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>BAD_REALLOC<sp/><sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>CommonErrors</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL_PTR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>11,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL_STRUCTURE_MEMBER<sp/><sp/>=<sp/>12,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>SYNTAX_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>13,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>LOX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xDED,<sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+    </programlisting>
+    <location file="ATC/RandomStuff/CommonEnums.h"/>
+  </compounddef>
+</doxygen>

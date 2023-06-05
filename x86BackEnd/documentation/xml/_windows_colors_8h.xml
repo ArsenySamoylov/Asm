@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_windows_colors_8h" kind="file" language="C++">
+    <compoundname>WindowsColors.h</compoundname>
+    <includes local="no">windows.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>windows.h</label>
+      </node>
+      <node id="1">
+        <label>ATC/ConsoleColors/WindowsColors.h</label>
+        <link refid="_windows_colors_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_restore_old_attr" prot="public">RestoreOldAttr</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841" prot="public" static="no" strong="no">
+        <type></type>
+        <name>myCOLORS</name>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a775364fe1f3fffe99686bf6d572a7370" prot="public">
+          <name>black</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a8f5fa6b484ac7e2a97943d915cf224e2" prot="public">
+          <name>blue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a6aa25890c44e0aac424e56338abe47ca" prot="public">
+          <name>green</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841af86e4e7e79173ee87c1976080bb250b7" prot="public">
+          <name>cyan</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841aace9033470c7bfe9523c814271251908" prot="public">
+          <name>red</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a7f835883c0802cd7202f0b850422949d" prot="public">
+          <name>lil</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841abf63814a3032fdd1b57ce7cdf5d15d93" prot="public">
+          <name>yelow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a2782dc6d9427c0d1df3b944b63754a87" prot="public">
+          <name>st_cl</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a91422ad54be7335f93171529dfd21cf5" prot="public">
+          <name>gray</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841ada4c659a1ba23a4d26ed04603deab781" prot="public">
+          <name>lt_blue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841aa3e2deceb3ea91c7c591ac02c1c04587" prot="public">
+          <name>lt_green</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a9adc44c776cea16f3e543b947c7a4901" prot="public">
+          <name>lt_cyan</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a77e4557c4adbdd1f79850d2acb1c690a" prot="public">
+          <name>lt_red</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a030710e14580c6338f98414ad6fb8408" prot="public">
+          <name>lt_yellow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_windows_colors_8h_1a8703a2748d6287f1a42a2e8bb438e841a21946b175b15d5425854971286accb75" prot="public">
+          <name>lt_white</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="8" column="1" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="9" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_windows_colors_8h_1a9f2215b90264133de36ed7c2120f75f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned txGetConsoleAttr</definition>
+        <argsstring>()</argsstring>
+        <name>txGetConsoleAttr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="40" column="10" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="40" bodyend="46" declfile="ATC/ConsoleColors/WindowsColors.h" declline="29" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_windows_colors_8h_1a4f2c81e507932f22fa57b9a685b379f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SetColor</definition>
+        <argsstring>(unsigned back_ground, unsigned fore_ground)</argsstring>
+        <name>SetColor</name>
+        <param>
+          <type>unsigned</type>
+          <declname>back_ground</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>fore_ground</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/ConsoleColors/WindowsColors.h" line="31" column="5" bodyfile="ATC/ConsoleColors/WindowsColors.h" bodystart="31" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COLORS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLORS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>myCOLORS</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>black,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>blue,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>green,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>cyan,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>red,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>lil,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>yelow,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>st_cl,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>gray,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_blue,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_green,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_cyan,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_red,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_yellow,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>lt_white<sp/>=<sp/>15,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//???<sp/>wtf<sp/>ded<sp/>???</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>txGetConsoleAttr();<sp/></highlight><highlight class="comment">//tx_nodiscard;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SetColor(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>back_ground,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>fore_ground<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>old_attr<sp/>=<sp/>txGetConsoleAttr();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>SetConsoleTextAttribute<sp/>(GetStdHandle<sp/>(STD_OUTPUT_HANDLE),<sp/>(back_ground&lt;&lt;4)<sp/>|<sp/>fore_ground);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>old_attr;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>thx<sp/>to<sp/>DED<sp/>for<sp/>TXlib<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>txGetConsoleAttr()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>CONSOLE_SCREEN_BUFFER_INFO<sp/>con<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>GetConsoleScreenBufferInfo<sp/>(GetStdHandle<sp/>(STD_OUTPUT_HANDLE),<sp/>&amp;con);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>con.wAttributes;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="class_restore_old_attr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_restore_old_attr" kindref="compound">RestoreOldAttr</ref></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>old_attr;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_restore_old_attr" kindref="compound">RestoreOldAttr</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>attr)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>old_attr<sp/>=<sp/>attr;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>~<ref refid="class_restore_old_attr" kindref="compound">RestoreOldAttr</ref>()</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;GREAT<sp/>DESTRUCTOR,<sp/>oldatrr<sp/>=<sp/>%d\n&quot;,<sp/>old_attr);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetConsoleTextAttribute<sp/>(GetStdHandle<sp/>(STD_OUTPUT_HANDLE),<sp/>old_attr);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/ConsoleColors/WindowsColors.h"/>
+  </compounddef>
+</doxygen>

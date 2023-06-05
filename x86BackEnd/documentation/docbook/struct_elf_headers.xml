@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_elf_headers" xml:lang="en-US">
+<title>ElfHeaders Struct Reference</title>
+<indexterm><primary>ElfHeaders</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_elf_headers_1a02b95403950fabde0424ce0aecdc4f8b"/>Elf64_Ehdr <emphasis role="strong">elf_header</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_elf_headers_1a817cd0bfb14524ec4d24e7899af75f2e"/>Elf64_Phdr <emphasis role="strong">code_phdr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_elf_headers_1a9e56bd42eafaceaece41340dcc4fabc6"/>Elf64_Phdr <emphasis role="strong">stack_phdr</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Elf/Elf.hpp</section>

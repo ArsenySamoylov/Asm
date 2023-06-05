@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_data_base_8h" kind="file" language="C++">
+    <compoundname>DataBase.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="_binary_tree_8h" local="yes">BinaryTree.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>BinaryTree.h</label>
+        <link refid="_binary_tree_8h_source"/>
+      </node>
+      <node id="1">
+        <label>ATC/Trees/Akinator/DataBase.h</label>
+        <link refid="_data_base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_data_base" prot="public">DataBase</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_data_base_8h_1a031c0a018bd9b3331febc8b82cbf98ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OpenDataBase</definition>
+        <argsstring>(DataBase *data_base, const char *path)</argsstring>
+        <name>OpenDataBase</name>
+        <param>
+          <type><ref refid="struct_data_base" kindref="compound">DataBase</ref> *</type>
+          <declname>data_base</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/DataBase.h" line="18" column="5" declfile="ATC/Trees/Akinator/DataBase.h" declline="18" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_base_8h_1a8150f858566cd801780dbbc1a6124503" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int UpdateDataBase</definition>
+        <argsstring>(DataBase *data_base)</argsstring>
+        <name>UpdateDataBase</name>
+        <param>
+          <type><ref refid="struct_data_base" kindref="compound">DataBase</ref> *</type>
+          <declname>data_base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/DataBase.h" line="19" column="5" declfile="ATC/Trees/Akinator/DataBase.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_base_8h_1ad0b9bec1b57bd4c9ead055c8a26dc616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SetNewDataBase</definition>
+        <argsstring>(FILE *new_base, Node *node)</argsstring>
+        <name>SetNewDataBase</name>
+        <param>
+          <type>FILE *</type>
+          <declname>new_base</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/DataBase.h" line="21" column="5" declfile="ATC/Trees/Akinator/DataBase.h" declline="21" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_base_8h_1a44001d770dae35a3f539b2992e280c21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BufferToTreeDataBase</definition>
+        <argsstring>(BinaryTree *data_tree, const char *buffer)</argsstring>
+        <name>BufferToTreeDataBase</name>
+        <param>
+          <type><ref refid="struct_binary_tree" kindref="compound">BinaryTree</ref> *</type>
+          <declname>data_tree</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Trees/Akinator/DataBase.h" line="23" column="5" declfile="ATC/Trees/Akinator/DataBase.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;BinaryTree.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//typedef<sp/>BinaryTree<sp/>DataTree;</highlight></codeline>
+<codeline lineno="9" refid="struct_data_base" refkind="compound"><highlight class="comment"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_data_base" kindref="compound">DataBase</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_binary_tree" kindref="compound">BinaryTree</ref>*<sp/>data_tree;<sp/></highlight><highlight class="comment">//<sp/>pointer<sp/>or<sp/>not<sp/>???<sp/>this<sp/>is<sp/>the<sp/>question</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status;<sp/></highlight><highlight class="comment">//<sp/>=<sp/>UNITIALIZED;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OpenDataBase<sp/><sp/><sp/><sp/>(<ref refid="struct_data_base" kindref="compound">DataBase</ref>*<sp/>data_base,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>UpdateDataBase<sp/>(<ref refid="struct_data_base" kindref="compound">DataBase</ref>*<sp/>data_base);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SetNewDataBase<sp/>(FILE*<sp/>new_base,<sp/><ref refid="struct_node" kindref="compound">Node</ref>*<sp/>node);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>BufferToTreeDataBase<sp/>(<ref refid="struct_binary_tree" kindref="compound">BinaryTree</ref>*<sp/>data_tree,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer);</highlight></codeline>
+    </programlisting>
+    <location file="ATC/Trees/Akinator/DataBase.h"/>
+  </compounddef>
+</doxygen>

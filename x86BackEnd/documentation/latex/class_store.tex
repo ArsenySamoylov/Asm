@@ -1,0 +1,129 @@
+\hypertarget{class_store}{}\doxysection{Store Class Reference}
+\label{class_store}\index{Store@{Store}}
+
+
+\mbox{\hyperlink{class_instruction}{Instruction}} to allocate space for local variable.  
+
+
+
+
+{\ttfamily \#include $<$Instructions.\+h$>$}
+
+
+
+Inheritance diagram for Store\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_store__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Store\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_store__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_store_a49eb624f9c3193f60101f5466b1e0148}\label{class_store_a49eb624f9c3193f60101f5466b1e0148}} 
+{\bfseries Store} (name\+\_\+t name\+\_\+param, const \mbox{\hyperlink{class_value}{Value}} $\ast$val\+\_\+param)
+\item 
+void \mbox{\hyperlink{class_store_af9f11c9b5e26c934fdc8d1cdf34069de}{dump}} () const override
+\begin{DoxyCompactList}\small\item\em Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. \end{DoxyCompactList}\item 
+Instruction\+Type \mbox{\hyperlink{class_store_ae24f01b9a4d5924c2cc9b0c1ae246708}{get\+\_\+instr\+\_\+type}} () const override
+\begin{DoxyCompactList}\small\item\em Get instr\+\_\+type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_a356cbb050d01381df30a3e135dfd4e3f}{translate\+\_\+x86}} (\mbox{\hyperlink{struct_context}{Context}} $\ast$ctx) const override
+\begin{DoxyCompactList}\small\item\em Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_ab07b234554d2c9ae8b7cd758077c9c1f}{set\+\_\+storage}} () const override
+\begin{DoxyCompactList}\small\item\em Set the {\itshape storage} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_instruction}{Instruction}} to allocate space for local variable. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_store_af9f11c9b5e26c934fdc8d1cdf34069de}\label{class_store_af9f11c9b5e26c934fdc8d1cdf34069de}} 
+\index{Store@{Store}!dump@{dump}}
+\index{dump@{dump}!Store@{Store}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void Store\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. 
+
+Print \mbox{\hyperlink{class_value}{Value}} in human-\/readable format to file DUMP. PRINT\+\_\+\+NEW\+\_\+\+LINES regulates if printed \mbox{\hyperlink{class_value}{Value}} generates extra new line chars 
+
+Implements \mbox{\hyperlink{class_instruction_a8b89720a9e81b5034f384acf2584fe74}{Instruction}}.
+
+\mbox{\Hypertarget{class_store_ae24f01b9a4d5924c2cc9b0c1ae246708}\label{class_store_ae24f01b9a4d5924c2cc9b0c1ae246708}} 
+\index{Store@{Store}!get\_instr\_type@{get\_instr\_type}}
+\index{get\_instr\_type@{get\_instr\_type}!Store@{Store}}
+\doxysubsubsection{\texorpdfstring{get\_instr\_type()}{get\_instr\_type()}}
+{\footnotesize\ttfamily Instruction\+Type Store\+::get\+\_\+instr\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get instr\+\_\+type. 
+
+\begin{DoxyNote}{Note}
+debug purpose only 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Instruction\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_instruction_a5794ed6986bad233a819137af502519a}{Instruction}}.
+
+\mbox{\Hypertarget{class_store_ab07b234554d2c9ae8b7cd758077c9c1f}\label{class_store_ab07b234554d2c9ae8b7cd758077c9c1f}} 
+\index{Store@{Store}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!Store@{Store}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily void Store\+::set\+\_\+storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the {\itshape storage} 
+
+This functions sets {\itshape storage\+\_\+type} for value In \mbox{\hyperlink{class_function}{Function}} and \mbox{\hyperlink{class_base_block}{Base\+Block}} this function call this this function for all objects from their Value\+Arr$<$$>$ members \begin{DoxyNote}{Note}
+for \mbox{\hyperlink{class_constant}{Constant}} this function only checks {\itshape storage\+\_\+type} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_instruction_a4d0dfb9af1468c0ad0c5e3b0b39df7ac}{Instruction}}.
+
+\mbox{\Hypertarget{class_store_a356cbb050d01381df30a3e135dfd4e3f}\label{class_store_a356cbb050d01381df30a3e135dfd4e3f}} 
+\index{Store@{Store}!translate\_x86@{translate\_x86}}
+\index{translate\_x86@{translate\_x86}!Store@{Store}}
+\doxysubsubsection{\texorpdfstring{translate\_x86()}{translate\_x86()}}
+{\footnotesize\ttfamily void Store\+::translate\+\_\+x86 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_context}{Context}} $\ast$}]{ctx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Translate \mbox{\hyperlink{class_value}{Value}} to x86 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_instruction_a490849f5712f281da374de8de683069b}{Instruction}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+IR/\+Instructions/\mbox{\hyperlink{_instructions_8h}{Instructions.\+h}}\item 
+src/\+IR/\+Dump\+IR/Dump\+IR.\+cpp\item 
+src/\+IR/\+Instructions/Instruction.\+cpp\item 
+src/\+IR/\+Storage/Storage.\+cpp\item 
+src/\+IR/\+Translate\+Tox86/Translate\+IRTox86.\+cpp\end{DoxyCompactItemize}

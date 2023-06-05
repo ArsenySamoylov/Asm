@@ -1,0 +1,594 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_logger" kind="class" language="C++" prot="public">
+    <compoundname>Logger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::ostream</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_logger_1a178bc7d1dea36bad50998658ce91350d" prot="private" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* Logger::my_log</definition>
+        <argsstring></argsstring>
+        <name>my_log</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="11" column="14" bodyfile="ATC/Logger/Logger.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1a9e68e0b3d0746dba30b92affe912890a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Logger::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="13" column="13" bodyfile="ATC/Logger/Logger.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1a24e1e89b363f911959270ecd2ef5726d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Logger::indent</definition>
+        <argsstring></argsstring>
+        <name>indent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="14" column="13" bodyfile="ATC/Logger/Logger.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1a975d3c274c0c07ab125fdeb5668e6c26" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Logger::logname</definition>
+        <argsstring></argsstring>
+        <name>logname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="16" column="20" bodyfile="ATC/Logger/Logger.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_logger_1a245577bdb302984ac94d63fdbb1a663a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Logger::Logger</definition>
+        <argsstring>(const char *log_name)</argsstring>
+        <name>Logger</name>
+        <param>
+          <type>const char *</type>
+          <declname>log_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="18" column="9" bodyfile="ATC/Logger/Logger.cpp" bodystart="18" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1ab7e8125bade74f57a5948a70721c97b9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Logger::Logger</definition>
+        <argsstring>(const Logger &amp;value)=delete</argsstring>
+        <name>Logger</name>
+        <param>
+          <type>const <ref refid="class_logger" kindref="compound">Logger</ref> &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a09a1d44b72f51f5853328d7ffaa3a86f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_logger" kindref="compound">Logger</ref> &amp;</type>
+        <definition>Logger&amp; Logger::operator=</definition>
+        <argsstring>(const Logger &amp;original)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_logger" kindref="compound">Logger</ref> &amp;</type>
+          <declname>original</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="22" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_logger_1acebb37f5538780e6c14f13de6ec497bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_logger" kindref="compound">Logger</ref> &amp;</type>
+        <definition>Logger &amp; Logger::getInstance</definition>
+        <argsstring>()</argsstring>
+        <name>getInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="25" column="23" bodyfile="ATC/Logger/Logger.cpp" bodystart="41" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_logger_1acb668a9e186a25fbaad2e4af6d1ed00a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Logger::~Logger</definition>
+        <argsstring>()</argsstring>
+        <name>~Logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="26" column="9" bodyfile="ATC/Logger/Logger.cpp" bodystart="48" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a4cde1d8ca535d67874f0ad44bbaae7a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Logger::getlevel</definition>
+        <argsstring>()</argsstring>
+        <name>getlevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="28" column="13" bodyfile="ATC/Logger/Logger.cpp" bodystart="64" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a607dadc2ecd86bd41d86aeae7902d1a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Logger::setlevel</definition>
+        <argsstring>(int lvl)</argsstring>
+        <name>setlevel</name>
+        <param>
+          <type>int</type>
+          <declname>lvl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="29" column="13" bodyfile="ATC/Logger/Logger.cpp" bodystart="73" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a6629ec8cecf76d82bfacd2a45ff350e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Logger::getindent</definition>
+        <argsstring>()</argsstring>
+        <name>getindent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="31" column="13" bodyfile="ATC/Logger/Logger.cpp" bodystart="70" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1abee163d85d47f4987241a7e2ce07de5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Logger::setindent</definition>
+        <argsstring>(int indnt)</argsstring>
+        <name>setindent</name>
+        <param>
+          <type>int</type>
+          <declname>indnt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="32" column="13" bodyfile="ATC/Logger/Logger.cpp" bodystart="81" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a9885276d1b1e4e6dd2993f2ff3a0be07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE * Logger::getlog</definition>
+        <argsstring>()</argsstring>
+        <name>getlog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="34" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="67" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1af960fc277810e8127ecdc98d6893d23a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::log</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>log</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="36" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="91" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1ad0eb7e4d6845a4d9f93d29f674699d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::log_nolvl</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>log_nolvl</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="37" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="109" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1ac08e1c686879736ba7ce6fa0b1edfbab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::log_no_indent</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>log_no_indent</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="38" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="124" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1ae2215384ce7c16f3e70c20218439048d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::log_dup_console</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>log_dup_console</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="39" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="142" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a2628d32511fba53c29168015536c7960" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::logmsg</definition>
+        <argsstring>(char *message)</argsstring>
+        <name>logmsg</name>
+        <param>
+          <type>char *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="40" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="160" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a24eaf8aebaf9695f358a1c83443202e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * Logger::CAL_LOG</definition>
+        <argsstring>(size_t number_of_elmts, size_t size_of_elmts, const char *file, const char *func, int line)</argsstring>
+        <name>CAL_LOG</name>
+        <param>
+          <type>size_t</type>
+          <declname>number_of_elmts</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size_of_elmts</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="42" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="169" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a1767e37972e7ae90ad2d9f84dfc16058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::FREE_LOG</definition>
+        <argsstring>(void *break_free, const char *file, const char *func, int line)</argsstring>
+        <name>FREE_LOG</name>
+        <param>
+          <type>void *</type>
+          <declname>break_free</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="43" column="15" bodyfile="ATC/Logger/Logger.cpp" bodystart="186" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a644fcb73ab2cd3e21f2e528f26729b54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * Logger::RECAL_LOG</definition>
+        <argsstring>(void *ptr, size_t size, const char *file, const char *func, int line)</argsstring>
+        <name>RECAL_LOG</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="44" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="204" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a3bdfb2b4cbf3c49c14e891151ec87f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::checkerrno</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>checkerrno</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="46" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="344" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1accd72aaf8f579925d679562736135372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::logerror</definition>
+        <argsstring>(int error_code, const char *format,...)</argsstring>
+        <name>logerror</name>
+        <param>
+          <type>int</type>
+          <declname>error_code</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="47" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="313" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a0b8b6f990bab8ab579508718cbdedad5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::logerrno</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>logerrno</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="48" column="14" bodyfile="ATC/Logger/Logger.cpp" bodystart="329" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1a4c047a266fe18e29c4995905bee9e8c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Logger::LogMsgRet</definition>
+        <argsstring>(int return_value, const char *format,...)</argsstring>
+        <name>LogMsgRet</name>
+        <param>
+          <type>int</type>
+          <declname>return_value</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="51" column="15" bodyfile="ATC/Logger/Logger.cpp" bodystart="247" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1ac6a15a4e249ffdde7de896cbdaa4a82c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger::LogMsgNoRet</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>LogMsgNoRet</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="52" column="15" bodyfile="ATC/Logger/Logger.cpp" bodystart="273" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_1aee76b8b7c5d34c108c35ffbfe456aced" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::nullptr_t</type>
+        <definition>std::nullptr_t Logger::LogMsgNullRet</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>LogMsgNullRet</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ATC/Logger/Logger.h" line="53" column="24" bodyfile="ATC/Logger/Logger.cpp" bodystart="292" bodyend="310"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Logger</label>
+        <link refid="class_logger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::ostream</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Logger</label>
+        <link refid="class_logger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::ostream</label>
+      </node>
+    </collaborationgraph>
+    <location file="ATC/Logger/Logger.h" line="8" column="1" bodyfile="ATC/Logger/Logger.h" bodystart="9" bodyend="54"/>
+    <listofallmembers>
+      <member refid="class_logger_1a24eaf8aebaf9695f358a1c83443202e9" prot="public" virt="non-virtual"><scope>Logger</scope><name>CAL_LOG</name></member>
+      <member refid="class_logger_1a3bdfb2b4cbf3c49c14e891151ec87f21" prot="public" virt="non-virtual"><scope>Logger</scope><name>checkerrno</name></member>
+      <member refid="class_logger_1a1767e37972e7ae90ad2d9f84dfc16058" prot="public" virt="non-virtual"><scope>Logger</scope><name>FREE_LOG</name></member>
+      <member refid="class_logger_1a6629ec8cecf76d82bfacd2a45ff350e7" prot="public" virt="non-virtual"><scope>Logger</scope><name>getindent</name></member>
+      <member refid="class_logger_1acebb37f5538780e6c14f13de6ec497bc" prot="public" virt="non-virtual"><scope>Logger</scope><name>getInstance</name></member>
+      <member refid="class_logger_1a4cde1d8ca535d67874f0ad44bbaae7a1" prot="public" virt="non-virtual"><scope>Logger</scope><name>getlevel</name></member>
+      <member refid="class_logger_1a9885276d1b1e4e6dd2993f2ff3a0be07" prot="public" virt="non-virtual"><scope>Logger</scope><name>getlog</name></member>
+      <member refid="class_logger_1a24e1e89b363f911959270ecd2ef5726d" prot="private" virt="non-virtual"><scope>Logger</scope><name>indent</name></member>
+      <member refid="class_logger_1a9e68e0b3d0746dba30b92affe912890a" prot="private" virt="non-virtual"><scope>Logger</scope><name>level</name></member>
+      <member refid="class_logger_1af960fc277810e8127ecdc98d6893d23a" prot="public" virt="non-virtual"><scope>Logger</scope><name>log</name></member>
+      <member refid="class_logger_1ae2215384ce7c16f3e70c20218439048d" prot="public" virt="non-virtual"><scope>Logger</scope><name>log_dup_console</name></member>
+      <member refid="class_logger_1ac08e1c686879736ba7ce6fa0b1edfbab" prot="public" virt="non-virtual"><scope>Logger</scope><name>log_no_indent</name></member>
+      <member refid="class_logger_1ad0eb7e4d6845a4d9f93d29f674699d1b" prot="public" virt="non-virtual"><scope>Logger</scope><name>log_nolvl</name></member>
+      <member refid="class_logger_1a0b8b6f990bab8ab579508718cbdedad5" prot="public" virt="non-virtual"><scope>Logger</scope><name>logerrno</name></member>
+      <member refid="class_logger_1accd72aaf8f579925d679562736135372" prot="public" virt="non-virtual"><scope>Logger</scope><name>logerror</name></member>
+      <member refid="class_logger_1a245577bdb302984ac94d63fdbb1a663a" prot="private" virt="non-virtual"><scope>Logger</scope><name>Logger</name></member>
+      <member refid="class_logger_1ab7e8125bade74f57a5948a70721c97b9" prot="private" virt="non-virtual"><scope>Logger</scope><name>Logger</name></member>
+      <member refid="class_logger_1a2628d32511fba53c29168015536c7960" prot="public" virt="non-virtual"><scope>Logger</scope><name>logmsg</name></member>
+      <member refid="class_logger_1ac6a15a4e249ffdde7de896cbdaa4a82c" prot="public" virt="non-virtual"><scope>Logger</scope><name>LogMsgNoRet</name></member>
+      <member refid="class_logger_1aee76b8b7c5d34c108c35ffbfe456aced" prot="public" virt="non-virtual"><scope>Logger</scope><name>LogMsgNullRet</name></member>
+      <member refid="class_logger_1a4c047a266fe18e29c4995905bee9e8c9" prot="public" virt="non-virtual"><scope>Logger</scope><name>LogMsgRet</name></member>
+      <member refid="class_logger_1a975d3c274c0c07ab125fdeb5668e6c26" prot="private" virt="non-virtual"><scope>Logger</scope><name>logname</name></member>
+      <member refid="class_logger_1a178bc7d1dea36bad50998658ce91350d" prot="private" virt="non-virtual"><scope>Logger</scope><name>my_log</name></member>
+      <member refid="class_logger_1a09a1d44b72f51f5853328d7ffaa3a86f" prot="private" virt="non-virtual"><scope>Logger</scope><name>operator=</name></member>
+      <member refid="class_logger_1a644fcb73ab2cd3e21f2e528f26729b54" prot="public" virt="non-virtual"><scope>Logger</scope><name>RECAL_LOG</name></member>
+      <member refid="class_logger_1abee163d85d47f4987241a7e2ce07de5f" prot="public" virt="non-virtual"><scope>Logger</scope><name>setindent</name></member>
+      <member refid="class_logger_1a607dadc2ecd86bd41d86aeae7902d1a6" prot="public" virt="non-virtual"><scope>Logger</scope><name>setlevel</name></member>
+      <member refid="class_logger_1acb668a9e186a25fbaad2e4af6d1ed00a" prot="public" virt="non-virtual"><scope>Logger</scope><name>~Logger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

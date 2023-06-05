@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_no_copyable" kind="class" language="C++" prot="public">
+    <compoundname>NoCopyable</compoundname>
+    <derivedcompoundref refid="class_storage" prot="public" virt="non-virtual">Storage</derivedcompoundref>
+    <derivedcompoundref refid="class_value" prot="public" virt="non-virtual">Value</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_no_copyable_1ade9c96e3484b122001dd4f42e6c28047" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NoCopyable::NoCopyable</definition>
+        <argsstring>()=default</argsstring>
+        <name>NoCopyable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/NoCopyable.h" line="6" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_no_copyable_1a6704c3bd291a78054b26b83a63af0756" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual NoCopyable::~NoCopyable</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NoCopyable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/NoCopyable.h" line="7" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_no_copyable_1a976985434b31929677d366614d803157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_no_copyable" kindref="compound">NoCopyable</ref> &amp;</type>
+        <definition>NoCopyable&amp; NoCopyable::operator=</definition>
+        <argsstring>(const NoCopyable &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_no_copyable" kindref="compound">NoCopyable</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/NoCopyable.h" line="9" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_no_copyable_1a00d3c509a77e0c5e25d92714551c54d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NoCopyable::NoCopyable</definition>
+        <argsstring>(const NoCopyable &amp;)=delete</argsstring>
+        <name>NoCopyable</name>
+        <param>
+          <type>const <ref refid="class_no_copyable" kindref="compound">NoCopyable</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/NoCopyable.h" line="11" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>Function</label>
+        <link refid="class_function"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>GlobalVar</label>
+        <link refid="class_global_var"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Storage</label>
+        <link refid="class_storage"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Operator</label>
+        <link refid="struct_operator"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Load</label>
+        <link refid="class_load"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Instruction</label>
+        <link refid="class_instruction"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Call</label>
+        <link refid="class_call"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BaseBlock</label>
+        <link refid="class_base_block"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Branch</label>
+        <link refid="class_branch"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NoCopyable</label>
+        <link refid="class_no_copyable"/>
+      </node>
+      <node id="13">
+        <label>Return</label>
+        <link refid="struct_return"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Constant</label>
+        <link refid="class_constant"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Store</label>
+        <link refid="class_store"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Value</label>
+        <link refid="class_value"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/IR/NoCopyable.h" line="3" column="1" bodyfile="src/IR/NoCopyable.h" bodystart="4" bodyend="12"/>
+    <listofallmembers>
+      <member refid="class_no_copyable_1ade9c96e3484b122001dd4f42e6c28047" prot="public" virt="non-virtual"><scope>NoCopyable</scope><name>NoCopyable</name></member>
+      <member refid="class_no_copyable_1a00d3c509a77e0c5e25d92714551c54d1" prot="public" virt="non-virtual"><scope>NoCopyable</scope><name>NoCopyable</name></member>
+      <member refid="class_no_copyable_1a976985434b31929677d366614d803157" prot="public" virt="non-virtual"><scope>NoCopyable</scope><name>operator=</name></member>
+      <member refid="class_no_copyable_1a6704c3bd291a78054b26b83a63af0756" prot="public" virt="virtual"><scope>NoCopyable</scope><name>~NoCopyable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__home_arsenyfucker__desktop__second_semester_x86_back_end_src__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>Legacy - директория со старым кодом, написанным для моего <link xlink:href="https://github.com/ArsenySamoylov/Lang.git">языка</link>.</para>
+
+<para>IR - директория посвящена IR (intermediate representation) коду</para>
+
+<para><link linkend="_struct_elf">Elf</link> - директория посвящена созданию исполняемых файлов для Линуксаdoxygen </para>
+</section>

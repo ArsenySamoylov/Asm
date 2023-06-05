@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_instruction" xml:lang="en-US">
+<title>Instruction Class Reference</title>
+<indexterm><primary>Instruction</primary></indexterm>
+<para>
+
+<para>Abstract class for instruction, that will be executed. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Instructions.h&gt;</computeroutput>
+</para>
+Inheritance diagram for Instruction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_instruction__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Instruction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_instruction__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_instruction_1a84d2688e801420c6d6df3aec3e33fef7"/><emphasis role="strong">Instruction</emphasis> (name_t name_param, InstructionType type_param)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_instruction_1a8b89720a9e81b5034f384acf2584fe74">dump</link> () const override=0</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</listitem>
+            <listitem><para>virtual InstructionType <link linkend="_class_instruction_1a5794ed6986bad233a819137af502519a">get_instr_type</link> () const =0</para>
+
+<para>Get instr_type. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_instruction_1a490849f5712f281da374de8de683069b">translate_x86</link> (<link linkend="_struct_context">Context</link> *ctx) const override=0</para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_instruction_1a4d0dfb9af1468c0ad0c5e3b0b39df7ac">set_storage</link> () const override=0</para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</listitem>
+            <listitem><para>ValueType <link linkend="_class_instruction_1a1834df9dd269df28fd946671d29e1e0d">get_type</link> () const override final</para>
+
+<para>Get <link linkend="_class_value">Value</link> type. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_instruction_1ab4921a8785d375412dfb1505a7265926"/>enum InstructionType <emphasis role="strong">type</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Abstract class for instruction, that will be executed. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_instruction_1a8b89720a9e81b5034f384acf2584fe74"/>    <section>
+    <title>dump()</title>
+<indexterm><primary>dump</primary><secondary>Instruction</secondary></indexterm>
+<indexterm><primary>Instruction</primary><secondary>dump</secondary></indexterm>
+<para><computeroutput>virtual void Instruction::dump ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. PRINT_NEW_LINES regulates if printed <link linkend="_class_value">Value</link> generates extra new line chars </para>
+<para>
+Implements <link linkend="_class_value_1ad58adc30ecd6e33f8344b76bb94ad9a9">Value</link>.</para>
+<para>
+Implemented in <link linkend="_struct_operator_1ab38ae88a168aa17a8227f5598a5a216a">Operator</link>, <link linkend="_struct_return_1ac88922f7e3bab1ece0eec23eefe4726b">Return</link>, <link linkend="_class_call_1a54ed26dbf1e6cc76bff3b57c9c696e10">Call</link>, <link linkend="_class_branch_1a14d5e915388e5a1a63b6ff33ba8e942f">Branch</link>, <link linkend="_class_load_1a2ffe39a4cc70a22934d4619754d8da5b">Load</link>, and <link linkend="_class_store_1af9f11c9b5e26c934fdc8d1cdf34069de">Store</link>.</para>
+    </section><anchor xml:id="_class_instruction_1a5794ed6986bad233a819137af502519a"/>    <section>
+    <title>get_instr_type()</title>
+<indexterm><primary>get_instr_type</primary><secondary>Instruction</secondary></indexterm>
+<indexterm><primary>Instruction</primary><secondary>get_instr_type</secondary></indexterm>
+<para><computeroutput>virtual InstructionType Instruction::get_instr_type ( ) const<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Get instr_type. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>debug purpose only </para>
+</note>
+<formalpara><title>Returns</title>
+
+<para>InstructionType </para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_struct_operator_1aa6d95336b6c990924a9a8c56cbc3b8d7">Operator</link>, <link linkend="_struct_return_1aea53e7e3ade04c92589a49c6ee161052">Return</link>, <link linkend="_class_call_1a4b586a9f4be19d3700b48c9211d4ce29">Call</link>, <link linkend="_class_branch_1a3dc92ea578854ba3100e57b554c42188">Branch</link>, <link linkend="_class_load_1aabfec9224d8ba6728e1aaeaf932199af">Load</link>, and <link linkend="_class_store_1ae24f01b9a4d5924c2cc9b0c1ae246708">Store</link>.</para>
+    </section><anchor xml:id="_class_instruction_1a1834df9dd269df28fd946671d29e1e0d"/>    <section>
+    <title>get_type()</title>
+<indexterm><primary>get_type</primary><secondary>Instruction</secondary></indexterm>
+<indexterm><primary>Instruction</primary><secondary>get_type</secondary></indexterm>
+<para><computeroutput>ValueType Instruction::get_type ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Get <link linkend="_class_value">Value</link> type. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>debug purpose only </para>
+</note>
+<formalpara><title>Returns</title>
+
+<para>ValueType </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_value_1a81566c2e0f8d9c81fe18ad4ae251e471">Value</link>.</para>
+    </section><anchor xml:id="_class_instruction_1a4d0dfb9af1468c0ad0c5e3b0b39df7ac"/>    <section>
+    <title>set_storage()</title>
+<indexterm><primary>set_storage</primary><secondary>Instruction</secondary></indexterm>
+<indexterm><primary>Instruction</primary><secondary>set_storage</secondary></indexterm>
+<para><computeroutput>virtual void Instruction::set_storage ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</para>
+
+<para>This functions sets <emphasis>storage_type</emphasis> for value In <link linkend="_class_function">Function</link> and <link linkend="_class_base_block">BaseBlock</link> this function call this this function for all objects from their ValueArr&lt;&gt; members <note><title>Note</title>
+
+<para>for <link linkend="_class_constant">Constant</link> this function only checks <emphasis>storage_type</emphasis> </para>
+</note>
+</para>
+<para>
+Implements <link linkend="_class_value_1a8bc56c2cc9d6cb4aade7084277d9df26">Value</link>.</para>
+<para>
+Implemented in <link linkend="_struct_operator_1a0e2f9342c0bbdaaee61db08fe34b9787">Operator</link>, <link linkend="_struct_return_1ab83a398c3a53e45be73a43534a6e5e19">Return</link>, <link linkend="_class_call_1a9839f2f2c88928629f80bd2df0f49cd3">Call</link>, <link linkend="_class_branch_1a5612f299d00d99a2499c961bb739aec5">Branch</link>, <link linkend="_class_load_1a1ca0f3a03d0885c059ca3516e9519e42">Load</link>, and <link linkend="_class_store_1ab07b234554d2c9ae8b7cd758077c9c1f">Store</link>.</para>
+    </section><anchor xml:id="_class_instruction_1a490849f5712f281da374de8de683069b"/>    <section>
+    <title>translate_x86()</title>
+<indexterm><primary>translate_x86</primary><secondary>Instruction</secondary></indexterm>
+<indexterm><primary>Instruction</primary><secondary>translate_x86</secondary></indexterm>
+<para><computeroutput>virtual void Instruction::translate_x86 (<link linkend="_struct_context">Context</link> * ctx) const<computeroutput>[override]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ctx</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_value_1a5c80febbb8171e7c60cdd1598c47fe53">Value</link>.</para>
+<para>
+Implemented in <link linkend="_struct_operator_1a980a9871f1ae7b2091a0893acee001c6">Operator</link>, <link linkend="_struct_return_1aa83609e0489201eead089f31bdb4216d">Return</link>, <link linkend="_class_call_1a559c642d08f5d45404a4ab550714a91b">Call</link>, <link linkend="_class_branch_1a3139dda417192232452f7e330fe497dc">Branch</link>, <link linkend="_class_load_1a33776e091c7c4f20fa15a03c367c9acf">Load</link>, and <link linkend="_class_store_1a356cbb050d01381df30a3e135dfd4e3f">Store</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/IR/Instructions/<link linkend="__instructions_8h">Instructions.h</link>src/IR/Instructions/Instruction.cpp</section>
+</section>

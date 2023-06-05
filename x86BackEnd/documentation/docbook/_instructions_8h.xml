@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__instructions_8h" xml:lang="en-US">
+<title>src/IR/Instructions/Instructions.h File Reference</title>
+<indexterm><primary>src/IR/Instructions/Instructions.h</primary></indexterm>
+<para>
+
+<para>This file contains declaration of <link linkend="_class_instruction">Instruction</link> class and its derived classes. </para>
+ 
+</para>
+<programlisting>#include &quot;Value.h&quot;
+</programlisting>Include dependency graph for Instructions.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_instructions_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_instructions_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_instruction">Instruction</link></para>
+
+<para>Abstract class for instruction, that will be executed. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_store">Store</link></para>
+
+<para><link linkend="_class_instruction">Instruction</link> to allocate space for local variable. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_load">Load</link></para>
+
+<para><link linkend="_class_instruction">Instruction</link> to load value to local var. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_branch">Branch</link></para>
+
+<para><link linkend="_class_instruction">Instruction</link> to pass control flow. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_call">Call</link></para>
+
+<para><link linkend="_class_instruction">Instruction</link> to call another function. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_return">Return</link></para>
+
+<para><link linkend="_struct_return">Return</link> instruction. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_operator">Operator</link></para>
+
+<para>Math operation instruction. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="__instructions_8h_1a89ee1c4e5e5a33c60d0e6dc126ed2c0d"/>enum class <emphasis role="strong">InstructionType</emphasis> { 
+<emphasis role="strong">Store</emphasis>
+, <emphasis role="strong">Load</emphasis>
+, <emphasis role="strong">Operator</emphasis>
+, <emphasis role="strong">Branch</emphasis>
+, 
+<emphasis role="strong">Call</emphasis>
+, <emphasis role="strong">Return</emphasis>
+ }</para>
+</listitem>
+            <listitem><para><anchor xml:id="__instructions_8h_1a6a02b2d1d62293b20242e3dcfbdd0117"/>enum class <emphasis role="strong">OperatorType</emphasis> { 
+<emphasis role="strong">Add</emphasis>
+, <emphasis role="strong">Sub</emphasis>
+, <emphasis role="strong">Mul</emphasis>
+, <emphasis role="strong">Div</emphasis>
+, 
+<emphasis role="strong">Bigger</emphasis>
+, <emphasis role="strong">Less</emphasis>
+, <emphasis role="strong">Unknown</emphasis>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file contains declaration of <link linkend="_class_instruction">Instruction</link> class and its derived classes. </para>
+</section>
+</section>

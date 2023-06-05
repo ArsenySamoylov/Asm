@@ -1,0 +1,1070 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_builder_8cpp" kind="file" language="C++">
+    <compoundname>Builder.cpp</compoundname>
+    <includes refid="_easy_debug_8h" local="yes">EasyDebug.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="_builder_8h" local="yes">Builder.h</includes>
+    <includes refid="_common_enums_8h" local="yes">CommonEnums.h</includes>
+    <includes refid="_log_macroses_8h" local="yes">LogMacroses.h</includes>
+    <includes refid="_string_pool_8h" local="yes">StringPool.h</includes>
+    <includes refid="_grammar_8h" local="yes">Grammar.h</includes>
+    <includes refid="_program_8h" local="yes">Program.h</includes>
+    <incdepgraph>
+      <node id="17">
+        <label>Instructions.h</label>
+        <link refid="_instructions_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>stdarg.h</label>
+      </node>
+      <node id="12">
+        <label>Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>assert.h</label>
+      </node>
+      <node id="38">
+        <label>Tabels.h</label>
+        <link refid="_tabels_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>CommonEnums.h</label>
+        <link refid="_common_enums_8h_source"/>
+      </node>
+      <node id="22">
+        <label>errno.h</label>
+      </node>
+      <node id="24">
+        <label>Logger.h</label>
+        <link refid="_logger_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cassert</label>
+      </node>
+      <node id="14">
+        <label>TypeDefs.h</label>
+        <link refid="_type_defs_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/IR/AstToIR/Builder.cpp</label>
+        <link refid="_builder_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>StringPool.h</label>
+        <link refid="_string_pool_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stddef.h</label>
+      </node>
+      <node id="33">
+        <label>Grammar.h</label>
+        <link refid="_grammar_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>RegistersUsage.h</label>
+        <link refid="_registers_usage_8h_source"/>
+      </node>
+      <node id="37">
+        <label>NameTable.h</label>
+        <link refid="_name_table_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>ValueTable.h</label>
+        <link refid="_value_table_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EasyDebug.h</label>
+        <link refid="_easy_debug_8h_source"/>
+      </node>
+      <node id="4">
+        <label>Builder.h</label>
+        <link refid="_builder_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>string.h</label>
+      </node>
+      <node id="8">
+        <label>ValueArrTemplate.h</label>
+        <link refid="_value_arr_template_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cstdio</label>
+      </node>
+      <node id="34">
+        <label>TokenTypes.h</label>
+        <link refid="_token_types_8h_source"/>
+      </node>
+      <node id="35">
+        <label>Program.h</label>
+        <link refid="_program_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>LogConfig.h</label>
+        <link refid="_log_config_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Module.h</label>
+        <link refid="_module_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdlib</label>
+      </node>
+      <node id="21">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>cstddef</label>
+      </node>
+      <node id="26">
+        <label>tostring.h</label>
+        <link refid="tostring_8h_source"/>
+      </node>
+      <node id="29">
+        <label>Utils.h</label>
+        <link refid="_utils_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>FunctionLogger.h</label>
+        <link refid="_function_logger_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>NoCopyable.h</label>
+        <link refid="_no_copyable_8h_source"/>
+      </node>
+      <node id="31">
+        <label>stdio.h</label>
+      </node>
+      <node id="28">
+        <label>LinuxColors.h</label>
+        <link refid="_linux_colors_8h_source"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_builder_8cpp_1a04b79f16732873ae85f48dc823928c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BuilderCtor</definition>
+        <argsstring>(Builder *buildog, Module *mod)</argsstring>
+        <name>BuilderCtor</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type><ref refid="class_module" kindref="compound">Module</ref> *</type>
+          <declname>mod</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="13" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="13" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a57da749dbb9bc9043eaf659036df2cd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BuilderDtor</definition>
+        <argsstring>(Builder *buildog)</argsstring>
+        <name>BuilderDtor</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="29" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a17681e5b54e8117bc3417a896383d183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SetBuilderForFunction</definition>
+        <argsstring>(Builder *buildog, Function *func, ValueLabel *func_label)</argsstring>
+        <name>SetBuilderForFunction</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type><ref refid="class_function" kindref="compound">Function</ref> *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_value_label" kindref="compound">ValueLabel</ref> *</type>
+          <declname>func_label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="39" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="39" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a9847eb0930fd4566ec889b496523ce56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ResetBuilderAfterFunction</definition>
+        <argsstring>(Builder *buildog)</argsstring>
+        <name>ResetBuilderAfterFunction</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="60" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="60" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1aad293d5910b16e5563c97549c3d84024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddFunctionToModule</definition>
+        <argsstring>(Builder *buildog)</argsstring>
+        <name>AddFunctionToModule</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="72" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1ad6e5be71e48fc7520fc98bbb0d35388a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+        <definition>BaseBlock* GetCurrentBaseBlock</definition>
+        <argsstring>(Builder *buildog)</argsstring>
+        <name>GetCurrentBaseBlock</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="81" column="11" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="81" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a44db65f42f0a8319a9687af20ad6d17b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+        <definition>BaseBlock* InsertNewBaseBlock</definition>
+        <argsstring>(Builder *buildog, name_t block_name)</argsstring>
+        <name>InsertNewBaseBlock</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>block_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="105" column="11" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="105" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1abca24fa7b9439448be0dea992f98e935" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddInstruction</definition>
+        <argsstring>(Builder *buildog, Instruction *instruction)</argsstring>
+        <name>AddInstruction</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type><ref refid="class_instruction" kindref="compound">Instruction</ref> *</type>
+          <declname>instruction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="127" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="127" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1af04da9f82862df6a195d27ca27a7fe00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddGlobalVar</definition>
+        <argsstring>(Builder *buildog, GlobalVar *var)</argsstring>
+        <name>AddGlobalVar</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type><ref refid="class_global_var" kindref="compound">GlobalVar</ref> *</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="141" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="141" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1aaa1746003c7dd497c30e3d3b141b1d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+        <definition>Value* FindValue</definition>
+        <argsstring>(Builder *buildog, int name_id)</argsstring>
+        <name>FindValue</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>name_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="152" column="7" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="152" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a8279e239c41a5270848a0100ffc8ee88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddNativeFunctions</definition>
+        <argsstring>(Builder *buildog)</argsstring>
+        <name>AddNativeFunctions</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="174" column="5" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="174" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a1a9aa384a3c4f0f548feebe9e31f62b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_constant" kindref="compound">Constant</ref> *</type>
+        <definition>Constant* CreateConstant</definition>
+        <argsstring>(Builder *buildog, name_t const_name, data_t const_val)</argsstring>
+        <name>CreateConstant</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>const_name</declname>
+        </param>
+        <param>
+          <type>data_t</type>
+          <declname>const_val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="202" column="10" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="202" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a7d8fef0ca2e66bd1df287e70159b2994" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FunctionRetType</type>
+        <definition>static FunctionRetType GetRetType</definition>
+        <argsstring>(int type)</argsstring>
+        <name>GetRetType</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="236" column="24" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="236" bodyend="239" declfile="src/IR/AstToIR/Builder.cpp" declline="215" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a1e84dba929d984a85c42eede44ff8c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_function" kindref="compound">Function</ref> *</type>
+        <definition>Function* CreateFunction</definition>
+        <argsstring>(Builder *buildog, name_t func_name, int ret_type, int name_id)</argsstring>
+        <name>CreateFunction</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>func_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ret_type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>name_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="217" column="10" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="217" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1ab79a7a17a8f45b4e666959f92f189b26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_call" kindref="compound">Call</ref> *</type>
+        <definition>Call* CreateCall</definition>
+        <argsstring>(Builder *buildog, name_t call_name, const Function *func)</argsstring>
+        <name>CreateCall</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>call_name</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_function" kindref="compound">Function</ref> *</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="244" column="6" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="244" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a2d15c2dc16960a1e0e39a655434d31fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_global_var" kindref="compound">GlobalVar</ref> *</type>
+        <definition>GlobalVar* CreateGlobalVar</definition>
+        <argsstring>(Builder *buildog, name_t var_name, Constant *init_val)</argsstring>
+        <name>CreateGlobalVar</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>var_name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_constant" kindref="compound">Constant</ref> *</type>
+          <declname>init_val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="255" column="11" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="255" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a661f0c7b12bd2245bffd5a1acc7ea0b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_store" kindref="compound">Store</ref> *</type>
+        <definition>Store* CreateStore</definition>
+        <argsstring>(Builder *buildog, name_t var_name, Value *store_val)</argsstring>
+        <name>CreateStore</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>var_name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>store_val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="271" column="7" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="271" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a2e3cc64d8a4a5d7b6f1fab55a5303b62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_operator" kindref="compound">Operator</ref> *</type>
+        <definition>Operator* CreateOperator</definition>
+        <argsstring>(Builder *buildog, name_t op_name, OperatorType op_type, Value *left_op, Value *right_op)</argsstring>
+        <name>CreateOperator</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>op_name</declname>
+        </param>
+        <param>
+          <type>OperatorType</type>
+          <declname>op_type</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>left_op</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>right_op</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="287" column="10" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="287" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1ab68cd05b40a15eda60482173a96ef530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_load" kindref="compound">Load</ref> *</type>
+        <definition>Load* CreateLoad</definition>
+        <argsstring>(Builder *buildog, name_t load_name, Value *dest, Value *src)</argsstring>
+        <name>CreateLoad</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>load_name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="303" column="6" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="303" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1a1e2fda07909151e9a5e13deb19c03d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_return" kindref="compound">Return</ref> *</type>
+        <definition>Return* CreateReturn</definition>
+        <argsstring>(Builder *buildog, name_t ret_name, Value *ret_val)</argsstring>
+        <name>CreateReturn</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>ret_name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>ret_val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="319" column="8" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="319" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="_builder_8cpp_1adecd210a342b30145e96ae5518afb22a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_branch" kindref="compound">Branch</ref> *</type>
+        <definition>Branch* CreateBranch</definition>
+        <argsstring>(Builder *buildog, name_t name, Value *condition, BaseBlock *true_branch, BaseBlock *false_branch)</argsstring>
+        <name>CreateBranch</name>
+        <param>
+          <type><ref refid="struct_builder" kindref="compound">Builder</ref> *</type>
+          <declname>buildog</declname>
+        </param>
+        <param>
+          <type>name_t</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+          <declname>true_branch</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_block" kindref="compound">BaseBlock</ref> *</type>
+          <declname>false_branch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/AstToIR/Builder.cpp" line="334" column="8" bodyfile="src/IR/AstToIR/Builder.cpp" bodystart="334" bodyend="350"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;EasyDebug.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>assert</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CommonEnums.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;LogMacroses.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;StringPool.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Grammar.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Program.h&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>for<sp/>creating<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>BuilderCtor<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/><ref refid="class_module" kindref="compound">Module</ref>*<sp/>mod)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(mod);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>ValueNameTableCtor(&amp;buildog-&gt;global);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;local<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;current_function<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>buildog-&gt;body_blocks<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;mod<sp/>=<sp/>mod;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>BuilderDtor<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>ValueNameTableDtor(&amp;buildog-&gt;global);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SetBuilderForFunction<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>func,<sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>*<sp/>func_label)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(func);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(func_label);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>CopyValueLabel<sp/>(&amp;buildog-&gt;global,<sp/>func_label);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>ValueNameTableCtor<sp/>(&amp;buildog-&gt;local);<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;current_function<sp/><sp/>=<sp/>func;<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>buildog-&gt;body_blocks<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>func-&gt;get_body();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>name_t<sp/>entry_block_name<sp/>=<sp/>CreateString(</highlight><highlight class="stringliteral">&quot;entry_%s&quot;</highlight><highlight class="normal">,<sp/>func-&gt;get_name());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(entry_block_name);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>entry_block<sp/>=<sp/>InsertNewBaseBlock<sp/>(buildog,<sp/>entry_block_name);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/><sp/><sp/><sp/>(entry_block);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ResetBuilderAfterFunction<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>ValueNameTableDtor(&amp;buildog-&gt;local);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog<sp/>-&gt;<sp/>current_function<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>buildog<sp/>-&gt;<sp/>body_blocks<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddFunctionToModule<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;mod-&gt;<sp/>add_func(buildog-&gt;current_function);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>GetCurrentBaseBlock<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!buildog-&gt;current_function)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_value_arr" kindref="compound">ValueArr&lt;BaseBlock&gt;</ref>*<sp/>blocks_arr<sp/>=<sp/>buildog-&gt;current_function-&gt;get_body();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks_arr-&gt;get_size()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>report(</highlight><highlight class="stringliteral">&quot;Error<sp/>null<sp/>size\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf<sp/>(&quot;Arr<sp/>%p\n&quot;,<sp/>blocks_arr);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf<sp/>(&quot;Arr<sp/>size<sp/>%ld\n\t&quot;,<sp/>blocks_arr-&gt;size);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>blocks_arr-&gt;size<sp/>+<sp/>2;<sp/>i++)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>printf<sp/>(&quot;arr[%lu]<sp/>=<sp/>%p<sp/>,&quot;,<sp/>i,<sp/>blocks_arr-&gt;arr<sp/>[i]);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>blocks_arr-&gt;get_value<sp/>(blocks_arr-&gt;get_size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>InsertNewBaseBlock<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>block_name)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>name<sp/>can<sp/>be<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!buildog-&gt;current_function)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>report(</highlight><highlight class="stringliteral">&quot;Error,<sp/>Null<sp/>current_function,<sp/>can&apos;t<sp/>insert<sp/>new<sp/>base<sp/>block\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/><sp/>new_block<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref><sp/>(block_name);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/><sp/><sp/><sp/><sp/>(new_block);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_value_arr" kindref="compound">ValueArr&lt;BaseBlock&gt;</ref>*<sp/>blocks_arr<sp/>=<sp/>buildog-&gt;current_function-&gt;get_body();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/><sp/><sp/>(blocks_arr);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>blocks_arr-&gt;add(new_block);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>new_block;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddInstruction<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/><ref refid="class_instruction" kindref="compound">Instruction</ref>*<sp/>instruction)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(instruction);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>block<sp/>=<sp/>GetCurrentBaseBlock(buildog);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(block);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PRINT_VALUE(block);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>block-&gt;add_instr(instruction);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddGlobalVar<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/><ref refid="class_global_var" kindref="compound">GlobalVar</ref>*<sp/>var)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(var);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>buildog-&gt;mod-&gt;add_var(var);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="class_value" kindref="compound">Value</ref>*<sp/>FindValue<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref>*<sp/>temp<sp/>=<sp/>FindValueLabel<sp/>(&amp;buildog-&gt;global,<sp/>name_id);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp-&gt;val;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(buildog-&gt;current_function)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/>FindValueLabel<sp/>(&amp;buildog-&gt;local,<sp/>name_id);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp-&gt;val;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AddNativeFunctions<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>N_NATIVE_FUNCTIONS;<sp/>i++)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>native_func<sp/>=<sp/>GetNativeFunction<sp/>(i);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(native_func);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id<sp/>=<sp/>AddString<sp/>(native_func-&gt;get_name());</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(native_func-&gt;get_name(),<sp/></highlight><highlight class="stringliteral">&quot;fin&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FIN_NAME_ID<sp/>=<sp/>name_id;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref><sp/>function_label<sp/>=<sp/>{.name_id<sp/>=<sp/>name_id,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.type<sp/><sp/><sp/><sp/>=<sp/>FUNCTION,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.val<sp/><sp/><sp/><sp/><sp/>=<sp/>native_func</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CopyValueLabel<sp/>(&amp;buildog-&gt;global,<sp/>&amp;function_label);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SUCCESS;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="comment">//<sp/>Constant</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_constant" kindref="compound">Constant</ref>*<sp/>CreateConstant<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>const_name,<sp/>data_t<sp/>const_val)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(const_name);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_constant" kindref="compound">Constant</ref>*<sp/>constant<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_constant" kindref="compound">Constant</ref><sp/>(const_name,<sp/>const_val);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constant;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="comment">//<sp/>Function</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>FunctionRetType<sp/>GetRetType<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><ref refid="class_function" kindref="compound">Function</ref>*<sp/>CreateFunction<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>func_name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(func_name);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>FunctionRetType<sp/>type<sp/>=<sp/>GetRetType<sp/>(ret_type);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>func<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_function" kindref="compound">Function</ref><sp/>(func_name,<sp/>type);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_value_label" kindref="compound">ValueLabel</ref><sp/>function_label<sp/>=<sp/>{.name_id<sp/>=<sp/>name_id,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.type<sp/><sp/><sp/><sp/>=<sp/>FUNCTION,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.val<sp/><sp/><sp/><sp/><sp/>=<sp/>func</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>SetBuilderForFunction<sp/>(buildog,<sp/>func,<sp/>&amp;function_label);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>func;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>FunctionRetType<sp/>GetRetType<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/>(type<sp/>==<sp/>DOUBLE)<sp/>?<sp/>FunctionRetType::Double<sp/>:<sp/>FunctionRetType::Void;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="comment">//<sp/>Call</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_call" kindref="compound">Call</ref>*<sp/>CreateCall<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>call_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_function" kindref="compound">Function</ref>*<sp/>func)</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_call" kindref="compound">Call</ref>*<sp/>call<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_call" kindref="compound">Call</ref>(call_name,<sp/>func);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>call;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="comment">//<sp/>GlobalVar</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_global_var" kindref="compound">GlobalVar</ref>*<sp/>CreateGlobalVar<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>var_name,<sp/><ref refid="class_constant" kindref="compound">Constant</ref>*<sp/>init_val)</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(var_name);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(init_val);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_global_var" kindref="compound">GlobalVar</ref>*<sp/>var<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_global_var" kindref="compound">GlobalVar</ref><sp/>(var_name,<sp/>VariableBaseType::Double,<sp/>init_val);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>AddGlobalVar<sp/><sp/><sp/>(buildog,<sp/>var);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>var;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="comment">//<sp/>Store</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_store" kindref="compound">Store</ref>*<sp/>CreateStore<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>var_name,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>store_val)</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(var_name);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_store" kindref="compound">Store</ref>*<sp/>store<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_store" kindref="compound">Store</ref><sp/>(var_name,<sp/>store_val);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(store_val)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AddInstruction<sp/>(buildog,<sp/>store);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>store;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="comment">//<sp/>Operator</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"></highlight><highlight class="normal"><ref refid="struct_operator" kindref="compound">Operator</ref>*<sp/>CreateOperator<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>op_name,<sp/>OperatorType<sp/>op_type,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>left_op,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>right_op)</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(op_name);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(left_op);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(right_op);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_operator" kindref="compound">Operator</ref>*<sp/>op<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="struct_operator" kindref="compound">Operator</ref><sp/>(op_name,<sp/>op_type,<sp/>left_op,<sp/>right_op);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>AddInstruction<sp/>(buildog,<sp/>op);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>op;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="comment">//<sp/>Load</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_load" kindref="compound">Load</ref>*<sp/>CreateLoad<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>load_name,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>dest,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>src)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>name<sp/>can<sp/>be<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(dest);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(src);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_load" kindref="compound">Load</ref>*<sp/>load<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_load" kindref="compound">Load</ref><sp/>(load_name,<sp/>dest,<sp/>src);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>AddInstruction<sp/>(buildog,<sp/>load);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>load;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="comment">//<sp/>Return</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"></highlight><highlight class="normal"><ref refid="struct_return" kindref="compound">Return</ref>*<sp/>CreateReturn<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/>name_t<sp/>ret_name,<sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>ret_val)</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(buildog);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>name<sp/><sp/><sp/><sp/>can<sp/>be<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ret_val<sp/>can<sp/>ve<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_return" kindref="compound">Return</ref>*<sp/>ret<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="struct_return" kindref="compound">Return</ref><sp/>(ret_name,<sp/>ret_val);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>AddInstruction<sp/>(buildog,<sp/>ret);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="comment">//<sp/>Branch</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_branch" kindref="compound">Branch</ref>*<sp/>CreateBranch<sp/>(<ref refid="struct_builder" kindref="compound">Builder</ref>*<sp/>buildog,<sp/></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name_t<sp/>name,</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>condition,</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>true_branch,</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_base_block" kindref="compound">BaseBlock</ref>*<sp/>false_branch)</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(buildog);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>name<sp/><sp/><sp/><sp/><sp/><sp/>can<sp/>be<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>condition<sp/>can<sp/>be<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert<sp/>(true_branch);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert<sp/>(false_branch<sp/>||<sp/>(false_branch<sp/>==<sp/>NULL<sp/>&amp;&amp;<sp/>condition<sp/>==<sp/>NULL));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_branch" kindref="compound">Branch</ref>*<sp/>branch<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_branch" kindref="compound">Branch</ref><sp/>(name,<sp/>condition,<sp/>true_branch,<sp/>false_branch);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>AddInstruction<sp/>(buildog,<sp/>branch);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>branch;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/AstToIR/Builder.cpp"/>
+  </compounddef>
+</doxygen>

@@ -67,6 +67,7 @@ void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
                 break;
 
         case StorageType::Memory:
+                // TODO
                 print_tab ("get from mem -> %s\n", GetRegName(dest_reg->number));
                 assert (0);
 
@@ -112,7 +113,6 @@ void Module::translate_x86 (Elf* elf, const char* path_to_assembler_dump) const
     Context ctx = {};
     ContextCtor (&ctx, elf);
 
-
     DUMP = fopen (path_to_assembler_dump, "w");
     assert  (DUMP);
     setvbuf (DUMP, NULL, _IONBF, 0);
@@ -133,6 +133,7 @@ void Module::translate_x86 (Elf* elf, const char* path_to_assembler_dump) const
 
     ContextDtor (&ctx);
     fclose(DUMP);
+
     DUMP = NULL;
     }
 
@@ -148,7 +149,7 @@ static int SetStart (Context* ctx, const Function* main_func)
     print_tab (".section .text\n");
 
     print_raw ("%s:\n", "_start");
-    print_tab    ("# TODO: call InitGlobals\n");
+    print_tab ("# TODO: call InitGlobals\n");
     
     PUT_CALL  (ctx, main_func);
 
@@ -397,10 +398,8 @@ static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNum
                            PutLogicOp (ctx, operation, src, dest);
                            return 0; 
         default:
-            {
             report ("Unknown operator\n");            
             return 0;
-            }
         }
     }
 //////////////////////////////////////////////////////
@@ -518,7 +517,7 @@ static int RestoreBusyRegs (Context* ctx)
     }
 
 //////////////////////////////////////////////////////
-// Store // store on stack
+// Store 
 //////////////////////////////////////////////////////
 static int MoveToLocalVar (Context* ctx, const Value* src, const Value* dest);
 

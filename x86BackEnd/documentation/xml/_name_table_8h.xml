@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_name_table_8h" kind="file" language="C++">
+    <compoundname>NameTable.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includedby refid="_program_8h" local="yes">src/Legacy/Common/Structures/Program/Program.h</includedby>
+    <includedby refid="_name_table_8cpp" local="yes">src/Legacy/Common/Structures/Tabels/NameTable.cpp</includedby>
+    <includedby refid="_token_8h" local="yes">src/Legacy/Common/Structures/Token/Token.h</includedby>
+    <includedby refid="_super_stack_config_8h" local="yes">src/Legacy/SuperStackConfig.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>src/Legacy/Common/Structures/Tabels/NameTable.h</label>
+        <link refid="_name_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>src/Legacy/SetTokenTree.h</label>
+        <link refid="_set_token_tree_8h_source"/>
+      </node>
+      <node id="6">
+        <label>src/Legacy/Common/Utils/DefGraphVis.h</label>
+        <link refid="_def_graph_vis_8h_source"/>
+      </node>
+      <node id="15">
+        <label>ATC/SuperStack/SuperStack.h</label>
+        <link refid="_super_stack_8h_source"/>
+      </node>
+      <node id="11">
+        <label>src/Legacy/Common/LexicalCtx/LexicalCtx.h</label>
+        <link refid="_lexical_ctx_8h_source"/>
+      </node>
+      <node id="14">
+        <label>ATC/SuperStack/DebugFunctions.h</label>
+        <link refid="_debug_functions_8h_source"/>
+      </node>
+      <node id="12">
+        <label>src/Legacy/Common/Structures/Tabels/Tabels.h</label>
+        <link refid="_tabels_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/Legacy/Common/Utils/LangUtils.h</label>
+        <link refid="_lang_utils_8h_source"/>
+      </node>
+      <node id="13">
+        <label>src/Legacy/SuperStackConfig.h</label>
+        <link refid="_super_stack_config_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/Legacy/TranslateToAsm.h</label>
+        <link refid="_translate_to_asm_8h_source"/>
+      </node>
+      <node id="5">
+        <label>src/Legacy/Common/StandartAWP/StandartAWP.h</label>
+        <link refid="_standart_a_w_p_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/Legacy/Common/Structures/Tabels/NameTable.h</label>
+        <link refid="_name_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/Legacy/Common/Structures/Token/Token.h</label>
+        <link refid="_token_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/Legacy/Common/Structures/Program/Program.h</label>
+        <link refid="_program_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/IR/AstToIR/AstToIR.h</label>
+        <link refid="_ast_to_i_r_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/Legacy/AsmCtx.h</label>
+        <link refid="_asm_ctx_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_label" prot="public">Label</innerclass>
+    <innerclass refid="struct_name_table" prot="public">NameTable</innerclass>
+    <innerclass refid="struct_name_table_arr" prot="public">NameTableArr</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_name_table_8h_1a1982c27c1baf4996c05b666d77aac4c8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LOCALITY_NUM</name>
+        <enumvalue id="_name_table_8h_1a1982c27c1baf4996c05b666d77aac4c8afde1bb5ef04b28059e61df449501f1c0" prot="public">
+          <name>GLOBAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_name_table_8h_1a1982c27c1baf4996c05b666d77aac4c8ad0ef00e708ed18ba004480dceb79ecfb" prot="public">
+          <name>LOCAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="5" column="1" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="6" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_name_table_8h_1a81f9443909a6f1171c6d0e2defe7b274" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+        <definition>NameTable* NewNameTable</definition>
+        <argsstring>()</argsstring>
+        <name>NewNameTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="43" column="11" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="16" bodyend="34" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="43" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1af927aa9b1d887a4fed5f2954dc20488c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CloseNameTable</definition>
+        <argsstring>(NameTable *table)</argsstring>
+        <name>CloseNameTable</name>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="44" column="5" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="36" bodyend="71" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="44" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1ac18951c81e88a918e8f355092bb90904" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AddLabel</definition>
+        <argsstring>(Label *label, NameTable *table)</argsstring>
+        <name>AddLabel</name>
+        <param>
+          <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="46" column="8" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="101" bodyend="115" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="46" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1a0fcc4e347b4fd3195ca6025807869b5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+        <definition>Label* CopyLabel</definition>
+        <argsstring>(Label *label, NameTable *table)</argsstring>
+        <name>CopyLabel</name>
+        <param>
+          <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="47" column="7" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="117" bodyend="155" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="47" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1a7f95124a0610d92cfefa6e3dfc3b528e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+        <definition>Label* IsLabel</definition>
+        <argsstring>(int name_id, int type, NameTable *table)</argsstring>
+        <name>IsLabel</name>
+        <param>
+          <type>int</type>
+          <declname>name_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="49" column="7" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="73" bodyend="99" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="49" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1ac88396cf1a01a1819171f35d589c484a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CompareLabels</definition>
+        <argsstring>(Label *label1, Label *label2)</argsstring>
+        <name>CompareLabels</name>
+        <param>
+          <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+          <declname>label1</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_label" kindref="compound">Label</ref> *</type>
+          <declname>label2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="50" column="5" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="157" bodyend="178" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1a9aa85598255fa290062916d7ddd72cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref> *</type>
+        <definition>NameTableArr* NewNameTableArr</definition>
+        <argsstring>(int start_size)</argsstring>
+        <name>NewNameTableArr</name>
+        <param>
+          <type>int</type>
+          <declname>start_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="53" column="14" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="201" bodyend="225" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="53" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1aae49ce36283736a309d02397d749a6cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DeleteNameTableArr</definition>
+        <argsstring>(NameTableArr *table_arr)</argsstring>
+        <name>DeleteNameTableArr</name>
+        <param>
+          <type><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref> *</type>
+          <declname>table_arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="54" column="5" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="227" bodyend="260" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="54" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_name_table_8h_1a08a325459d68d6ef086c6c50e640f61f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> *</type>
+        <definition>NameTable* AddTable</definition>
+        <argsstring>(NameTableArr *table_arr)</argsstring>
+        <name>AddTable</name>
+        <param>
+          <type><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref> *</type>
+          <declname>table_arr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="57" column="11" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.cpp" bodystart="262" bodyend="279" declfile="src/Legacy/Common/Structures/Tabels/NameTable.h" declline="57" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>LOCALITY_NUM</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>GLOBAL,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>LOCAL,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_token" kindref="compound">Token</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct_label" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_label" kindref="compound">Label</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number_of_vars;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret_type;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var_number;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>local_type;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_token" kindref="compound">Token</ref>*<sp/>global_initialization;<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="struct_name_table" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_name_table" kindref="compound">NameTable</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_label" kindref="compound">Label</ref>**<sp/>label_arr;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>arr_size;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>number_of_labels;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="struct_name_table_arr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>**<sp/>arr;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_of_tables_arr;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number_of_tables;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>NewNameTable();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CloseNameTable<sp/>(<ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>table);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>AddLabel<sp/>(<ref refid="struct_label" kindref="compound">Label</ref>*<sp/>label,<sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>table);<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="struct_label" kindref="compound">Label</ref>*<sp/>CopyLabel<sp/><sp/><sp/><sp/>(<ref refid="struct_label" kindref="compound">Label</ref>*<sp/>label,<sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>table);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="struct_label" kindref="compound">Label</ref>*<sp/>IsLabel<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_id,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,<sp/><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>table);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CompareLabels<sp/>(<ref refid="struct_label" kindref="compound">Label</ref>*<sp/>label1,<sp/><ref refid="struct_label" kindref="compound">Label</ref>*<sp/>label2);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref>*<sp/>NewNameTableArr<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start_size);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>DeleteNameTableArr<sp/>(<ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref>*<sp/>table_arr);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>int<sp/>AddTable<sp/>(NameTable*<sp/>table,<sp/>NameTableArr*<sp/>table_arr);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><ref refid="struct_name_table" kindref="compound">NameTable</ref>*<sp/>AddTable<sp/>(<ref refid="struct_name_table_arr" kindref="compound">NameTableArr</ref>*<sp/>table_arr);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/Legacy/Common/Structures/Tabels/NameTable.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_2b2938339104f8c4d2f1e18063339943" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx</compoundname>
+    <innerfile refid="_lexical_ctx_8cpp_8o_8d">LexicalCtx.cpp.o.d</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/src/Legacy/Common/LexicalCtx/"/>
+  </compounddef>
+</doxygen>

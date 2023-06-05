@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_name_table_arr" kind="struct" language="C++" prot="public">
+    <compoundname>NameTableArr</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_name_table_arr_1a158ec0e922e8f29fa2d9bbc84f07c99b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_name_table" kindref="compound">NameTable</ref> **</type>
+        <definition>NameTable** NameTableArr::arr</definition>
+        <argsstring></argsstring>
+        <name>arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="37" column="15" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_name_table_arr_1a21596ce9520207a425fb85d90220225f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NameTableArr::size_of_tables_arr</definition>
+        <argsstring></argsstring>
+        <name>size_of_tables_arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="39" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_name_table_arr_1a7e45c4fa77b71a1e2d64ef7ec5b89b5c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NameTableArr::number_of_tables</definition>
+        <argsstring></argsstring>
+        <name>number_of_tables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="40" column="9" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>NameTable</label>
+        <link refid="struct_name_table"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>label_arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TokenValue</label>
+        <link refid="union_token_value"/>
+      </node>
+      <node id="4">
+        <label>Token</label>
+        <link refid="struct_token"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>left_child</edgelabel>
+          <edgelabel>right_child</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>t_label_ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Label</label>
+        <link refid="struct_label"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>global_initialization</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NameTableArr</label>
+        <link refid="struct_name_table_arr"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>arr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Legacy/Common/Structures/Tabels/NameTable.h" line="35" column="1" bodyfile="src/Legacy/Common/Structures/Tabels/NameTable.h" bodystart="36" bodyend="41"/>
+    <listofallmembers>
+      <member refid="struct_name_table_arr_1a158ec0e922e8f29fa2d9bbc84f07c99b" prot="public" virt="non-virtual"><scope>NameTableArr</scope><name>arr</name></member>
+      <member refid="struct_name_table_arr_1a7e45c4fa77b71a1e2d64ef7ec5b89b5c" prot="public" virt="non-virtual"><scope>NameTableArr</scope><name>number_of_tables</name></member>
+      <member refid="struct_name_table_arr_1a21596ce9520207a425fb85d90220225f" prot="public" virt="non-virtual"><scope>NameTableArr</scope><name>size_of_tables_arr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

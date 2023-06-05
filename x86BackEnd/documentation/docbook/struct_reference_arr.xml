@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_reference_arr" xml:lang="en-US">
+<title>ReferenceArr Struct Reference</title>
+<indexterm><primary>ReferenceArr</primary></indexterm>
+Collaboration diagram for ReferenceArr:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_reference_arr__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_reference_arr_1a941a0e6948517cdaa0b404148155e7de"/><link linkend="_struct_reference">Reference</link> ** <emphasis role="strong">arr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_reference_arr_1ad6d95a89303b07813985f750d8750f01"/>size_t <emphasis role="strong">size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_reference_arr_1ab3179715a0890a71f9fdae9e2e20eebb"/>size_t <emphasis role="strong">capacity</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/IR/TranslateTox86/IRContext.h</section>

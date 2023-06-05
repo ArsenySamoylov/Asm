@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_native_function_storage" kind="struct" language="C++" prot="public">
+    <compoundname>NativeFunctionStorage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_native_function_storage_1aacc65b2be990bc76d555dcd88d27912a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_function" kindref="compound">Function</ref> *</type>
+        <definition>const Function* NativeFunctionStorage::func_value</definition>
+        <argsstring></argsstring>
+        <name>func_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/TranslateIRTox86.cpp" line="94" column="20" bodyfile="src/IR/TranslateTox86/TranslateIRTox86.cpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_native_function_storage_1a12242fd2d9df8cb2cc20fa4ae8bd3c34" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t NativeFunctionStorage::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/TranslateIRTox86.cpp" line="95" column="25" bodyfile="src/IR/TranslateTox86/TranslateIRTox86.cpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Function</label>
+        <link refid="class_function"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Storage</label>
+        <link refid="class_storage"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NativeFunctionStorage</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>func_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NoCopyable</label>
+        <link refid="class_no_copyable"/>
+      </node>
+      <node id="3">
+        <label>Value</label>
+        <link refid="class_value"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/IR/TranslateTox86/TranslateIRTox86.cpp" line="92" column="1" bodyfile="src/IR/TranslateTox86/TranslateIRTox86.cpp" bodystart="93" bodyend="96"/>
+    <listofallmembers>
+      <member refid="struct_native_function_storage_1aacc65b2be990bc76d555dcd88d27912a" prot="public" virt="non-virtual"><scope>NativeFunctionStorage</scope><name>func_value</name></member>
+      <member refid="struct_native_function_storage_1a12242fd2d9df8cb2cc20fa4ae8bd3c34" prot="public" virt="non-virtual"><scope>NativeFunctionStorage</scope><name>offset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

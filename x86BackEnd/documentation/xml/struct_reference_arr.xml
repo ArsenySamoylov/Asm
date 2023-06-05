@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_reference_arr" kind="struct" language="C++" prot="public">
+    <compoundname>ReferenceArr</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_reference_arr_1a941a0e6948517cdaa0b404148155e7de" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_reference" kindref="compound">Reference</ref> **</type>
+        <definition>Reference** ReferenceArr::arr</definition>
+        <argsstring></argsstring>
+        <name>arr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="18" column="15" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reference_arr_1ad6d95a89303b07813985f750d8750f01" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ReferenceArr::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="20" column="12" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reference_arr_1ab3179715a0890a71f9fdae9e2e20eebb" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ReferenceArr::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/TranslateTox86/IRContext.h" line="21" column="12" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Reference</label>
+        <link refid="struct_reference"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ref_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Storage</label>
+        <link refid="class_storage"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ReferenceArr</label>
+        <link refid="struct_reference_arr"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>arr</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NoCopyable</label>
+        <link refid="class_no_copyable"/>
+      </node>
+      <node id="3">
+        <label>Value</label>
+        <link refid="class_value"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/IR/TranslateTox86/IRContext.h" line="16" column="1" bodyfile="src/IR/TranslateTox86/IRContext.h" bodystart="17" bodyend="22"/>
+    <listofallmembers>
+      <member refid="struct_reference_arr_1a941a0e6948517cdaa0b404148155e7de" prot="public" virt="non-virtual"><scope>ReferenceArr</scope><name>arr</name></member>
+      <member refid="struct_reference_arr_1ab3179715a0890a71f9fdae9e2e20eebb" prot="public" virt="non-virtual"><scope>ReferenceArr</scope><name>capacity</name></member>
+      <member refid="struct_reference_arr_1ad6d95a89303b07813985f750d8750f01" prot="public" virt="non-virtual"><scope>ReferenceArr</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

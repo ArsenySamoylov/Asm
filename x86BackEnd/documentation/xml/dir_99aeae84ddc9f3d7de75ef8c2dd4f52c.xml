@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_99aeae84ddc9f3d7de75ef8c2dd4f52c" kind="dir">
+    <compoundname>src/IR</compoundname>
+    <innerdir refid="dir_52b87d17becd29ea5ebbadb207de120c">src/IR/AstToIR</innerdir>
+    <innerdir refid="dir_cad1d6960674c492b5b072c8c269c27a">src/IR/DumpIR</innerdir>
+    <innerdir refid="dir_28246db06b4d65f8cf05ec9757168395">src/IR/Instructions</innerdir>
+    <innerdir refid="dir_8031b4b84850f6ef7a5442b230925a2e">src/IR/Module</innerdir>
+    <innerdir refid="dir_27c12f9046d5a0625129aa8ee1043c41">src/IR/Storage</innerdir>
+    <innerdir refid="dir_bc2a800d2718921019a3e5cccc8b1163">src/IR/TranslateTox86</innerdir>
+    <innerdir refid="dir_3692b9e2f9509cbd60748c247a78d3f3">src/IR/Value</innerdir>
+    <innerfile refid="_array_template_8h">ArrayTemplate.h</innerfile>
+    <innerfile refid="_no_copyable_8h">NoCopyable.h</innerfile>
+    <innerfile refid="_type_defs_8h">TypeDefs.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/IR/"/>
+  </compounddef>
+</doxygen>

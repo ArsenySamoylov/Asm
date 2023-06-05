@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_value_arr" xml:lang="en-US">
+<title>ValueArr&lt; Value_T &gt; Class Template Reference</title>
+<indexterm><primary>ValueArr&lt; Value_T &gt;</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_value_arr_1a86a5eb8d56383c11f8e45e500eaf49b9"/>Value_T * <emphasis role="strong">add</emphasis> (Value_T *val)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_value_arr_1a861b42c0481fb7509c9229e96241ec7e"/>Value_T * <emphasis role="strong">get_value</emphasis> (size_t index)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_value_arr_1a7bc966a77d2d8ba49b8a22b53a3a66ec"/>size_t <emphasis role="strong">get_size</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_value_arr_1a4a612af8d44f646fcbe5d676fbfc2148"/>const Value_T * <emphasis role="strong">get_const_value</emphasis> (size_t index) const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+src/IR/Value/ValueArrTemplate.h</section>

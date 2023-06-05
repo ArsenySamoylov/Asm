@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_label" xml:lang="en-US">
+<title>Label Struct Reference</title>
+<indexterm><primary>Label</primary></indexterm>
+Collaboration diagram for Label:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_label__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_label_1a4c498659943145db8ab8552e84c8288e"/>int <emphasis role="strong">type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1ab8ada0356e4e1b551ad547ae9f269893"/>int <emphasis role="strong">name_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1a6f0508f3956aa31fd23e8e081b0dfa29"/>int <emphasis role="strong">number_of_vars</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1aab36cd5715d33ff547659df8c5681504"/>int <emphasis role="strong">ret_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1ad8c00dc8039ab95d1e4d20e1bf35f461"/>int <emphasis role="strong">var_number</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1a91de3552b8b0abaa4e8996f7154833e7"/>int <emphasis role="strong">local_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_label_1a88a172f9222204bcb70d9f55b497e436"/>const <link linkend="_struct_token">Token</link> * <emphasis role="strong">global_initialization</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/Legacy/Common/Structures/Tabels/NameTable.h</section>

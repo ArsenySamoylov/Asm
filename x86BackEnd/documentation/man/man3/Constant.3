@@ -1,0 +1,124 @@
+.TH "Constant" 3 "Mon Jun 5 2023" "x86Backend" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Constant \- Double constant\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Value\&.h>\fP
+.PP
+Inherits \fBValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConstant\fP (name_t name_param, const data_t data_param)"
+.br
+.RI "Construct a new \fBConstant\fP object\&. "
+.ti -1c
+.RI "void \fBdump\fP () const override"
+.br
+.RI "Print \fBValue\fP in human-readable format to file DUMP\&. "
+.ti -1c
+.RI "ValueType \fBget_type\fP () const override"
+.br
+.RI "Get \fBValue\fP type\&. "
+.ti -1c
+.RI "void \fBtranslate_x86\fP (\fBContext\fP *ctx) const override"
+.br
+.RI "Translate \fBValue\fP to x86 code\&. "
+.ti -1c
+.RI "void \fBset_storage\fP () const override"
+.br
+.RI "Set the \fIstorage\fP "
+.ti -1c
+.RI "data_t \fBget_data\fP () const"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Double constant\&. 
+
+Object for double constant 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Constant::Constant (name_t name_param, const data_t data_param)"
+
+.PP
+Construct a new \fBConstant\fP object\&. 
+.PP
+\fBNote\fP
+.RS 4
+\fBConstant\fP keeps its 'data_t data_param' in 'storage' field\&. 
+.br
+ 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIname_param\fP 
+.br
+\fIdata_param\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Constant::dump () const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Print \fBValue\fP in human-readable format to file DUMP\&. Print \fBValue\fP in human-readable format to file DUMP\&. PRINT_NEW_LINES regulates if printed \fBValue\fP generates extra new line chars 
+.PP
+Implements \fBValue\fP\&.
+.SS "ValueType Constant::get_type () const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Get \fBValue\fP type\&. 
+.PP
+\fBNote\fP
+.RS 4
+debug purpose only 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ValueType 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+.SS "void Constant::set_storage () const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Set the \fIstorage\fP This functions sets \fIstorage_type\fP for value In \fBFunction\fP and \fBBaseBlock\fP this function call this this function for all objects from their ValueArr<> members 
+.PP
+\fBNote\fP
+.RS 4
+for \fBConstant\fP this function only checks \fIstorage_type\fP 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+.SS "void Constant::translate_x86 (\fBContext\fP * ctx) const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Translate \fBValue\fP to x86 code\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIctx\fP 
+.RE
+.PP
+
+.PP
+Implements \fBValue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for x86Backend from the source code\&.

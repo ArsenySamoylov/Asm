@@ -1,0 +1,40 @@
+.TH "Module" 3 "Mon Jun 5 2023" "x86Backend" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Module
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBdump\fP (const char *out_file) const"
+.br
+.ti -1c
+.RI "void \fBtranslate_x86\fP (\fBElf\fP *elf, const char *path_to_assembler_dump) const"
+.br
+.ti -1c
+.RI "void \fBadd_func\fP (\fBFunction\fP *func)"
+.br
+.ti -1c
+.RI "void \fBadd_var\fP (\fBGlobalVar\fP *var)"
+.br
+.ti -1c
+.RI "void \fBadd_const\fP (\fBConstant\fP *constant)"
+.br
+.ti -1c
+.RI "void \fBdumpGlobalVars\fP () const"
+.br
+.ti -1c
+.RI "void \fBdumpFunctions\fP () const"
+.br
+.ti -1c
+.RI "const \fBFunction\fP * \fBfind_main\fP () const"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for x86Backend from the source code\&.

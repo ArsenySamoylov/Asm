@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_dump_i_r_8h" kind="file" language="C++">
+    <compoundname>DumpIR.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="_module_8h" local="yes">Module.h</includes>
+    <includedby refid="_dump_i_r_8cpp" local="yes">src/IR/DumpIR/DumpIR.cpp</includedby>
+    <includedby refid="_translate_i_r_tox86_8cpp" local="yes">src/IR/TranslateTox86/TranslateIRTox86.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/IR/DumpIR/DumpIR.h</label>
+        <link refid="_dump_i_r_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Instructions.h</label>
+        <link refid="_instructions_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Storage.h</label>
+        <link refid="_storage_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>TypeDefs.h</label>
+        <link refid="_type_defs_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>stddef.h</label>
+      </node>
+      <node id="14">
+        <label>RegistersUsage.h</label>
+        <link refid="_registers_usage_8h_source"/>
+      </node>
+      <node id="6">
+        <label>ValueArrTemplate.h</label>
+        <link refid="_value_arr_template_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdio</label>
+      </node>
+      <node id="3">
+        <label>Module.h</label>
+        <link refid="_module_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cstdlib</label>
+      </node>
+      <node id="5">
+        <label>cstddef</label>
+      </node>
+      <node id="4">
+        <label>Value.h</label>
+        <link refid="_value_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>NoCopyable.h</label>
+        <link refid="_no_copyable_8h_source"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_dump_i_r_8h_1ab9420fab46111ee98a5ccc65ca9e7b43" prot="public" static="no">
+        <name>PRINT_VALUE</name>
+        <param><defname>val</defname></param>
+        <initializer>    do {                                      \
+    printf (&quot;(%s:%d) &quot;, __FILE__, __LINE__);  \
+    PrintValue(val); } while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/DumpIR/DumpIR.h" line="7" column="9" bodyfile="src/IR/DumpIR/DumpIR.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_dump_i_r_8h_1ac7138cab9249d8e20e5afe11d4ae0948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PrintValue</definition>
+        <argsstring>(const Value *val)</argsstring>
+        <name>PrintValue</name>
+        <param>
+          <type>const <ref refid="class_value" kindref="compound">Value</ref> *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/DumpIR/DumpIR.h" line="12" column="5" bodyfile="src/IR/DumpIR/DumpIR.cpp" bodystart="377" bodyend="396" declfile="src/IR/DumpIR/DumpIR.h" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_dump_i_r_8h_1a9c43de318cd2d2a335aa08f16cb5ef57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int WriteToFile</definition>
+        <argsstring>(FILE *out, const Instruction *instr)</argsstring>
+        <name>WriteToFile</name>
+        <param>
+          <type>FILE *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_instruction" kindref="compound">Instruction</ref> *</type>
+          <declname>instr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/IR/DumpIR/DumpIR.h" line="14" column="5" bodyfile="src/IR/DumpIR/DumpIR.cpp" bodystart="401" bodyend="419" declfile="src/IR/DumpIR/DumpIR.h" declline="14" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Module.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRINT_VALUE(val)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>printf<sp/>(&quot;(%s:%d)<sp/>&quot;</highlight><highlight class="normal">,<sp/>__FILE__,<sp/>__LINE__);<sp/><sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>PrintValue(val);<sp/>}<sp/>while(0)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>PrintValue<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_value" kindref="compound">Value</ref>*<sp/>val);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>WriteToFile<sp/>(FILE*<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_instruction" kindref="compound">Instruction</ref>*<sp/>instr);</highlight></codeline>
+    </programlisting>
+    <location file="src/IR/DumpIR/DumpIR.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_global_var" xml:lang="en-US">
+<title>GlobalVar Class Reference</title>
+<indexterm><primary>GlobalVar</primary></indexterm>
+<para>
+
+<para>Global Variable. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Value.h&gt;</computeroutput>
+</para>
+Inheritance diagram for GlobalVar:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_global_var__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for GlobalVar:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_global_var__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_global_var_1a50f809f3f2c76b17ae677b775f4cac47"/><emphasis role="strong">GlobalVar</emphasis> (name_t name_param, VariableBaseType var_type_param, const <link linkend="_class_constant">Constant</link> *init_val_param)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_global_var_1a296cd305d43993d19d262c98f6c158cc">dump</link> () const override</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</listitem>
+            <listitem><para>ValueType <link linkend="_class_global_var_1a568dd05f7dcd53d1533b143891bb6fc5">get_type</link> () const override</para>
+
+<para>Get <link linkend="_class_value">Value</link> type. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_global_var_1a07c47abeb2f0c4c18f2abaf2aca26cff">translate_x86</link> (<link linkend="_struct_context">Context</link> *ctx) const override</para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_global_var_1a2dd9e26d905287e8112b0a3e877326de">set_storage</link> () const override</para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Global Variable. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_global_var_1a296cd305d43993d19d262c98f6c158cc"/>    <section>
+    <title>dump()</title>
+<indexterm><primary>dump</primary><secondary>GlobalVar</secondary></indexterm>
+<indexterm><primary>GlobalVar</primary><secondary>dump</secondary></indexterm>
+<para><computeroutput>void GlobalVar::dump ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. </para>
+</para>
+
+<para>Print <link linkend="_class_value">Value</link> in human-readable format to file DUMP. PRINT_NEW_LINES regulates if printed <link linkend="_class_value">Value</link> generates extra new line chars </para>
+<para>
+Implements <link linkend="_class_value_1ad58adc30ecd6e33f8344b76bb94ad9a9">Value</link>.</para>
+    </section><anchor xml:id="_class_global_var_1a568dd05f7dcd53d1533b143891bb6fc5"/>    <section>
+    <title>get_type()</title>
+<indexterm><primary>get_type</primary><secondary>GlobalVar</secondary></indexterm>
+<indexterm><primary>GlobalVar</primary><secondary>get_type</secondary></indexterm>
+<para><computeroutput>ValueType GlobalVar::get_type ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Get <link linkend="_class_value">Value</link> type. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>debug purpose only </para>
+</note>
+<formalpara><title>Returns</title>
+
+<para>ValueType </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_value_1a81566c2e0f8d9c81fe18ad4ae251e471">Value</link>.</para>
+    </section><anchor xml:id="_class_global_var_1a2dd9e26d905287e8112b0a3e877326de"/>    <section>
+    <title>set_storage()</title>
+<indexterm><primary>set_storage</primary><secondary>GlobalVar</secondary></indexterm>
+<indexterm><primary>GlobalVar</primary><secondary>set_storage</secondary></indexterm>
+<para><computeroutput>void GlobalVar::set_storage ( ) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Set the <emphasis>storage</emphasis> </para>
+</para>
+
+<para>This functions sets <emphasis>storage_type</emphasis> for value In <link linkend="_class_function">Function</link> and <link linkend="_class_base_block">BaseBlock</link> this function call this this function for all objects from their ValueArr&lt;&gt; members <note><title>Note</title>
+
+<para>for <link linkend="_class_constant">Constant</link> this function only checks <emphasis>storage_type</emphasis> </para>
+</note>
+</para>
+<para>
+Implements <link linkend="_class_value_1a8bc56c2cc9d6cb4aade7084277d9df26">Value</link>.</para>
+    </section><anchor xml:id="_class_global_var_1a07c47abeb2f0c4c18f2abaf2aca26cff"/>    <section>
+    <title>translate_x86()</title>
+<indexterm><primary>translate_x86</primary><secondary>GlobalVar</secondary></indexterm>
+<indexterm><primary>GlobalVar</primary><secondary>translate_x86</secondary></indexterm>
+<para><computeroutput>void GlobalVar::translate_x86 (<link linkend="_struct_context">Context</link> * ctx) const<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Translate <link linkend="_class_value">Value</link> to x86 code. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ctx</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_value_1a5c80febbb8171e7c60cdd1598c47fe53">Value</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/IR/Value/<link linkend="__value_8h">Value.h</link>src/IR/DumpIR/DumpIR.cppsrc/IR/Storage/Storage.cppsrc/IR/TranslateTox86/TranslateIRTox86.cppsrc/IR/Value/Value.cpp</section>
+</section>

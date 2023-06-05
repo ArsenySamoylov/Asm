@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_78099e340e90a553d3a94efc9cd3ec18" kind="dir">
+    <compoundname>build/CMakeFiles/x86Backend.dir</compoundname>
+    <innerdir refid="dir_3b9e5b3c7300b8622de85b4cbc037388">build/CMakeFiles/x86Backend.dir/ATC</innerdir>
+    <innerdir refid="dir_16d5d7ee045ac3c92eb9c70d2bb120ed">build/CMakeFiles/x86Backend.dir/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/CMakeFiles/x86Backend.dir/"/>
+  </compounddef>
+</doxygen>

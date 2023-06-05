@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_ars_lib_8h" kind="file" language="C++">
+    <compoundname>ArsLib.h</compoundname>
+    <includes refid="my__buffer_8h" local="yes">my_buffer.h</includes>
+    <includes refid="_linux_colors_8h" local="yes">LinuxColors.h</includes>
+    <includes refid="_easy_debug_8h" local="yes">EasyDebug.h</includes>
+    <includes refid="_q_diagnostic_8h" local="yes">QDiagnostic.h</includes>
+    <includes refid="_html_log_8h" local="yes">HtmlLog.h</includes>
+    <includes refid="_common_enums_8h" local="yes">CommonEnums.h</includes>
+    <includes refid="_some_stuff_8h" local="yes">SomeStuff.h</includes>
+    <includes refid="_logger_8h" local="yes">Logger.h</includes>
+    <includes refid="_function_logger_8h" local="yes">FunctionLogger.h</includes>
+    <includes refid="_log_macroses_8h" local="yes">LogMacroses.h</includes>
+    <includes refid="_utils_8h" local="yes">Utils.h</includes>
+    <incdepgraph>
+      <node id="20">
+        <label>stdarg.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="10">
+        <label>CommonEnums.h</label>
+        <link refid="_common_enums_8h_source"/>
+      </node>
+      <node id="8">
+        <label>errno.h</label>
+      </node>
+      <node id="12">
+        <label>Logger.h</label>
+        <link refid="_logger_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>LogMacroses.h</label>
+        <link refid="_log_macroses_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SomeStuff.h</label>
+        <link refid="_some_stuff_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>EasyDebug.h</label>
+        <link refid="_easy_debug_8h_source"/>
+      </node>
+      <node id="18">
+        <label>string.h</label>
+      </node>
+      <node id="2">
+        <label>my_buffer.h</label>
+        <link refid="my__buffer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QDiagnostic.h</label>
+        <link refid="_q_diagnostic_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>LogConfig.h</label>
+        <link refid="_log_config_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>HtmlLog.h</label>
+        <link refid="_html_log_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>ATC/ArsLib.h</label>
+        <link refid="_ars_lib_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tostring.h</label>
+        <link refid="tostring_8h_source"/>
+      </node>
+      <node id="19">
+        <label>Utils.h</label>
+        <link refid="_utils_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>FunctionLogger.h</label>
+        <link refid="_function_logger_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LinuxColors.h</label>
+        <link refid="_linux_colors_8h_source"/>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifndef<sp/>NBinaryTree</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;//////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/>@note<sp/>This<sp/>library<sp/>has<sp/>Binary<sp/>Tree<sp/>Structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/><sp/><sp/><sp/><sp/><sp/><sp/>with<sp/>some<sp/>standart<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;BinaryTree.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;//////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;//////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Nmy_buffer</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor">#include<sp/>&quot;my_buffer.h&quot;</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ConsoleColors</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor">#include<sp/>&quot;LinuxColors.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;WindowsColors.h&quot;</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NEasyDebug</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor">#include<sp/>&quot;EasyDebug.h&quot;</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor">#include<sp/>&quot;QDiagnostic.h&quot;</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifndef<sp/>NFestival</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/>@note<sp/>This<sp/>library<sp/>allows<sp/>to<sp/>pronoubse<sp/>text<sp/>from<sp/>festival</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>example<sp/>of<sp/>festival<sp/>setting<sp/>look<sp/>.festivalrc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;Festival.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifndef<sp/>NGraphVis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;///////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/>@note<sp/>This<sp/>library<sp/>allows<sp/>you<sp/>to<sp/>create<sp/>.dot<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;///////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//<sp/>#include<sp/>&quot;GraphVis.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;///////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NHtmlLog</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor">#include<sp/>&quot;HtmlLog.h&quot;</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifndef<sp/>Nmy_safety</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//!<sp/>@note<sp/>This<sp/>is<sp/>library<sp/>for<sp/>logging<sp/>in<sp/>html<sp/>format</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;my_safety.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/>/////////&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NCommonEnums</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor">#include<sp/>&quot;CommonEnums.h&quot;</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NSomeStuff</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor">#include<sp/>&quot;SomeStuff.h&quot;</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NLOG</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor">#include<sp/>&quot;Logger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;FunctionLogger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;LogMacroses.h&quot;</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NUtils</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor">#include<sp/>&quot;Utils.h&quot;</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ATC/ArsLib.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_back_end_config_8h" kind="file" language="C++">
+    <compoundname>BackEndConfig.h</compoundname>
+    <includedby refid="_set_token_tree_8h" local="yes">src/Legacy/SetTokenTree.h</includedby>
+    <includedby refid="_translate_to_asm_8cpp" local="yes">src/Legacy/TranslateToAsm.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/Legacy/SetTokenTree.h</label>
+        <link refid="_set_token_tree_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/Legacy/BackEndConfig.h</label>
+        <link refid="_back_end_config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_back_end_config_8h_1a43696991c64673bde8705be9e79a1e75" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int START_RAM_ADDRESS</definition>
+        <argsstring></argsstring>
+        <name>START_RAM_ADDRESS</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/BackEndConfig.h" line="3" column="11" bodyfile="src/Legacy/BackEndConfig.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_back_end_config_8h_1abbef37bf65305a049676f079b5c52375" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int START_RAM_ADDRESS_FOR_GLOBAL_VARS</definition>
+        <argsstring></argsstring>
+        <name>START_RAM_ADDRESS_FOR_GLOBAL_VARS</name>
+        <initializer>= START_RAM_ADDRESS + 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/BackEndConfig.h" line="4" column="11" bodyfile="src/Legacy/BackEndConfig.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_back_end_config_8h_1a2a2563aa7c3b20341b556c7e1406ed5d" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int VARIABLES_ADDRESS_REG</definition>
+        <argsstring></argsstring>
+        <name>VARIABLES_ADDRESS_REG</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/BackEndConfig.h" line="8" column="11" bodyfile="src/Legacy/BackEndConfig.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_back_end_config_8h_1a95720bd59382f9c52596be3256920ee7" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int RETURN_VALUE_REG</definition>
+        <argsstring></argsstring>
+        <name>RETURN_VALUE_REG</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/BackEndConfig.h" line="9" column="11" bodyfile="src/Legacy/BackEndConfig.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_back_end_config_8h_1a77bfe3341395d807021369e02309e080" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SOFT_CPU_PRECISION</definition>
+        <argsstring></argsstring>
+        <name>SOFT_CPU_PRECISION</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Legacy/BackEndConfig.h" line="12" column="11" bodyfile="src/Legacy/BackEndConfig.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>START_RAM_ADDRESS<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>START_RAM_ADDRESS_FOR_GLOBAL_VARS<sp/>=<sp/>START_RAM_ADDRESS<sp/>+<sp/>0;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>const<sp/>int<sp/>MAX_RAM_USABLE_SIZE<sp/>=<sp/>1024;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>VARIABLES_ADDRESS_REG<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>rbx</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>RETURN_VALUE_REG<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>const<sp/>int<sp/>VAR_SIZE<sp/><sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SOFT_CPU_PRECISION<sp/>=<sp/>100;<sp/></highlight><highlight class="comment">//<sp/>int<sp/>relates<sp/>to<sp/>ARS<sp/>CORE<sp/>precission<sp/>while<sp/>working<sp/>with<sp/>float<sp/>numbers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//arsischa_kolbasischa</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/Legacy/BackEndConfig.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_context" xml:lang="en-US">
+<title>Context Struct Reference</title>
+<indexterm><primary>Context</primary></indexterm>
+Collaboration diagram for Context:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_context__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_context_1abcc236d4cb5195cbbfd8c7fa16d25de8"/><link linkend="_struct_reference_arr">ReferenceArr</link> <emphasis role="strong">call_refs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1ac9638d9a3ed138b85569c4104ce8217b"/><link linkend="_struct_reference_arr">ReferenceArr</link> <emphasis role="strong">jump_refs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1adef3cd79d89b8c6e994432d14c691194"/><link linkend="_struct_buffer">Buffer</link> * <emphasis role="strong">code</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1a71fde09a232cc9fde5e3efa0a274c826"/><link linkend="_struct_buffer">Buffer</link> * <emphasis role="strong">data</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1adf791e68ffce67652eb8aa545ef76e96"/><link linkend="_struct_buffer">Buffer</link> * <emphasis role="strong">stdlib</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1aa0c432a0a20a96657b9327f77e2f0518"/>size_t <emphasis role="strong">n_locals</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_context_1ae039b9e9fea376514423d4fdd604d581"/>FILE * <emphasis role="strong">dump</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/IR/TranslateTox86/IRContext.h</section>
