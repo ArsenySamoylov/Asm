@@ -1,5 +1,13 @@
+/*!
+\file
+\brief NoCopyable class 
+*/
 #pragma once
 
+/**
+ * @brief No COPY !!!!
+ * 
+ */
 class NoCopyable
     {
     public:

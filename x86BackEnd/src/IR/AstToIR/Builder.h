@@ -1,8 +1,17 @@
+/*!
+\file
+\brief This file contains Builder for transforming Ast tree to IR
+
+*/
 #pragma once
 
 #include "Module.h"
 #include "ValueTable.h"
 
+/**
+ * @brief It is interface for making Module from Ast tree
+ * 
+ */
 struct Builder
     {
     ValueNameTable global;
@@ -17,8 +26,31 @@ int BuilderCtor (Builder* buildog, Module* mod);
 int BuilderDtor (Builder* buildog);
 
 //////////////////////////////////////////////////////
+
+/**
+ * @brief Set the Builder for Function 
+ * 
+ * @param buildog 
+ * @param func 
+ * @param label 
+ * @return int 
+ */
 int SetBuilderForFunction     (Builder* buildog, Function* func, ValueLabel* label);
+
+/**
+ * @brief Resets Builder after emitting Function
+ * 
+ * @param buildog 
+ * @return int 
+ */
 int ResetBuilderAfterFunction (Builder* buildog);
+
+/**
+ * @brief Add function to Module
+ * 
+ * @param buildog 
+ * @return int 
+ */
 int AddFunctionToModule       (Builder* buildog);
 
 //////////////////////////////////////////////////////
@@ -35,7 +67,16 @@ Value* FindValue (Builder* buildog, int name_id);
 //////////////////////////////////////////////////////
 static int FIN_NAME_ID = 0; 
 
+/**
+ * @brief Add Native Function
+ * 
+ * Ast tree doesn't provide code for std functions, therefore
+ * they should be added before parsing Ast tree
+ * @param buildog 
+ * @return int 
+ */
 int AddNativeFunctions    (Builder* buildog);
+
 //////////////////////////////////////////////////////
 // Creators
 //////////////////////////////////////////////////////

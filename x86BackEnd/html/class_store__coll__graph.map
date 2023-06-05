@@ -1,0 +1,8 @@
+<map id="Store" name="Store">
+<area shape="rect" id="node1" title="Instruction to allocate space for local variable." alt="" coords="49,336,105,363"/>
+<area shape="rect" id="node2" href="$class_instruction.html" title="Abstract class for instruction, that will be executed." alt="" coords="111,260,201,287"/>
+<area shape="rect" id="node3" href="$class_value.html" title="Abstract class for IR object." alt="" coords="48,184,107,211"/>
+<area shape="rect" id="node4" href="$class_no_copyable.html" title=" " alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node5" href="$class_storage.html" title="Storage objects shows state of Value." alt="" coords="93,95,165,121"/>
+<area shape="rect" id="node6" href="$struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="131,5,234,32"/>
+</map>
