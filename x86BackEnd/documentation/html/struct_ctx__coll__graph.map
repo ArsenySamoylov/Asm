@@ -1,9 +1,0 @@
-<map id="Ctx" name="Ctx">
-<area shape="rect" id="node1" title=" " alt="" coords="90,547,134,573"/>
-<area shape="rect" id="node2" href="$struct_name_table_arr.html" title=" " alt="" coords="57,368,172,395"/>
-<area shape="rect" id="node7" href="$struct_program.html" title=" " alt="" coords="228,457,305,484"/>
-<area shape="rect" id="node3" href="$struct_name_table.html" title=" " alt="" coords="67,277,162,304"/>
-<area shape="rect" id="node4" href="$struct_label.html" title=" " alt="" coords="86,187,143,213"/>
-<area shape="rect" id="node5" href="$struct_token.html" title=" " alt="" coords="144,96,203,123"/>
-<area shape="rect" id="node6" href="$union_token_value.html" title=" " alt="" coords="126,5,221,32"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="NativeFunctionStorage" name="NativeFunctionStorage">
-<area shape="rect" id="node1" title=" " alt="" coords="5,336,176,363"/>
-<area shape="rect" id="node2" href="$class_function.html" title="derived from Value class" alt="" coords="52,247,129,273"/>
-<area shape="rect" id="node3" href="$class_value.html" title="abstract class for IR object" alt="" coords="61,171,120,197"/>
-<area shape="rect" id="node4" href="$class_no_copyable.html" title=" " alt="" coords="35,5,136,32"/>
-<area shape="rect" id="node5" href="$class_storage.html" title=" " alt="" coords="107,81,179,108"/>
-</map>
