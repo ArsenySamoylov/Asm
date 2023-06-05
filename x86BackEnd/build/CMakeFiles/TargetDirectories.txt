@@ -1,3 +1,0 @@
-/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build/CMakeFiles/x86Backend.dir
-/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build/CMakeFiles/edit_cache.dir
-/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/build/CMakeFiles/rebuild_cache.dir
