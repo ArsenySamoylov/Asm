@@ -1,0 +1,7 @@
+<map id="Branch" name="Branch">
+<area shape="rect" id="node1" title="Instruction to pass control flow." alt="" coords="28,323,95,349"/>
+<area shape="rect" id="node2" href="$class_instruction.html" title="Abstract class for instruction, that will be executed." alt="" coords="16,247,107,273"/>
+<area shape="rect" id="node3" href="$class_value.html" title="Abstract class for IR object." alt="" coords="32,171,91,197"/>
+<area shape="rect" id="node4" href="$class_no_copyable.html" title=" " alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node5" href="$class_storage.html" title=" " alt="" coords="77,81,149,108"/>
+</map>
