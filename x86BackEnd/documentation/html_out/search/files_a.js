@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['main_2ecpp_1191',['main.cpp',['../df/d0a/main_8cpp.html',1,'']]],
-  ['maybemakethisfunctionslater_2eh_1192',['MaybeMakeThisFunctionsLater.h',['../d4/d44/_maybe_make_this_functions_later_8h.html',1,'']]],
-  ['module_2ecpp_1193',['Module.cpp',['../d5/d13/_module_8cpp.html',1,'']]],
-  ['module_2eh_1194',['Module.h',['../dd/d7a/_module_8h.html',1,'']]],
-  ['my_5fbuffer_2ecpp_1195',['my_buffer.cpp',['../da/d49/my__buffer_8cpp.html',1,'']]],
-  ['my_5fbuffer_2eh_1196',['my_buffer.h',['../d9/dd8/my__buffer_8h.html',1,'']]],
-  ['my_5fsafety_2ecpp_1197',['my_safety.cpp',['../d3/db4/my__safety_8cpp.html',1,'']]],
-  ['my_5fsafety_2eh_1198',['my_safety.h',['../d8/d31/my__safety_8h.html',1,'']]]
+  ['translateirtox86_2ecpp_527',['TranslateIRTox86.cpp',['../da/d63/_translate_i_r_tox86_8cpp.html',1,'']]],
+  ['typedefs_2eh_528',['TypeDefs.h',['../d6/d77/_type_defs_8h.html',1,'']]]
 ];

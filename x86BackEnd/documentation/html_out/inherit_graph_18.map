@@ -1,16 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$df/d09/class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,81,107,108"/>
-<area shape="rect" id="node2" href="$da/d56/class_storage.html" title="Storage objects shows state of Value." alt="" coords="155,56,227,83"/>
-<area shape="rect" id="node3" href="$d4/d72/class_value.html" title="Abstract class for IR object." alt="" coords="161,107,220,133"/>
-<area shape="rect" id="node4" href="$d7/df0/class_base_block.html" title="Block of Instructions." alt="" coords="275,5,365,32"/>
-<area shape="rect" id="node5" href="$d9/d09/class_constant.html" title="Double constant." alt="" coords="280,56,360,83"/>
-<area shape="rect" id="node6" href="$d7/d29/class_function.html" title="Function." alt="" coords="281,107,359,133"/>
-<area shape="rect" id="node7" href="$db/dcd/class_global_var.html" title="Global Variable." alt="" coords="277,157,363,184"/>
-<area shape="rect" id="node8" href="$de/db6/class_instruction.html" title="Abstract class for instruction, that will be executed." alt="" coords="275,208,365,235"/>
-<area shape="rect" id="node9" href="$d7/d23/class_branch.html" title="Instruction to pass control flow." alt="" coords="419,81,486,108"/>
-<area shape="rect" id="node10" href="$d7/ded/class_call.html" title="Instruction to call another function." alt="" coords="429,132,476,159"/>
-<area shape="rect" id="node11" href="$df/d07/class_load.html" title="Instruction to load value to local var." alt="" coords="426,183,479,209"/>
-<area shape="rect" id="node12" href="$df/d6e/struct_operator.html" title="Math operation instruction." alt="" coords="413,233,492,260"/>
-<area shape="rect" id="node13" href="$d9/d4d/struct_return.html" title="Return instruction." alt="" coords="420,284,485,311"/>
-<area shape="rect" id="node14" href="$db/d9d/class_store.html" title="Instruction to allocate space for local variable." alt="" coords="425,335,481,361"/>
+<area shape="rect" id="node1" href="$dd/d36/class_value_arr.html" title="Template class to store array of Values." alt="" coords="5,5,164,32"/>
 </map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jump_5frefs_1711',['jump_refs',['../de/d66/struct_context.html#ac9638d9a3ed138b85569c4104ce8217b',1,'Context']]]
+  ['left_5fop_791',['left_op',['../df/d6e/struct_operator.html#aa4d7a66d96350b2dc6fbf0fed4614ffb',1,'Operator']]],
+  ['local_792',['local',['../db/dd3/struct_builder.html#a44593361f94d7d9d96e095bedeb3ae93',1,'Builder']]]
 ];
