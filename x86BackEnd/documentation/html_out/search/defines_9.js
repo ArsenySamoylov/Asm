@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kill_2110',['KILL',['../d0/d4e/_log_macroses_8h.html#a4b28dc90351783763ca28132cf89ea70',1,'LogMacroses.h']]],
-  ['kurwa_5fhash_2111',['KURWA_HASH',['../da/d2d/_super_stack_8cpp.html#a8f295959775e027dfb4a391c5cdf33c2',1,'SuperStack.cpp']]]
+  ['set_5ffailure_5fexit_957',['SET_FAILURE_EXIT',['../df/d0a/main_8cpp.html#a78dd5917e37a61e979b03bd7793dcc48',1,'main.cpp']]],
+  ['success_958',['SUCCESS',['../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'SUCCESS():&#160;Buffer.cpp'],['../d5/d83/_elf_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'SUCCESS():&#160;Elf.cpp']]]
 ];

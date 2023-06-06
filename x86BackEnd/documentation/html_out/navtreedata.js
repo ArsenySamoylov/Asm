@@ -25,6 +25,17 @@
 var NAVTREE =
 [
   [ "x86Backend", "index.html", [
+    [ "Overview", "index.html", [
+      [ "Следующая итерация", "index.html#autotoc_md1", [
+        [ "Описание моего IR`a", "index.html#autotoc_md2", [
+          [ "Иерархии классов в IR`e", "index.html#autotoc_md3", null ],
+          [ "Module в IR`e", "index.html#autotoc_md4", null ]
+        ] ],
+        [ "Пример", "index.html#autotoc_md5", null ],
+        [ "Стандартная библиотека", "index.html#autotoc_md6", null ]
+      ] ],
+      [ "Итог:", "index.html#autotoc_md7", null ]
+    ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -54,12 +65,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/d42/class_logger.html#a6629ec8cecf76d82bfacd2a45ff350e7",
-"d5/d83/_elf_8cpp.html#a51cf8a1711f3ee313155e8ff884e78c0",
-"d7/da7/struct_elf_headers.html#a02b95403950fabde0424ce0aecdc4f8b",
-"d9/d8e/_commands_8h.html#a88c551dfdce6bc4fb9d8623b12d4e463",
-"db/dcd/class_global_var.html#a2fb443a28486d71e0b4094eba609ce77",
-"df/d0a/main_8cpp.html#a78dd5917e37a61e979b03bd7793dcc48"
+"d7/d75/_builder_8cpp.html#a44db65f42f0a8319a9687af20ad6d17b",
+"dd/d36/_ast_to_i_r_8cpp.html#a11800beffa9323df7133b4ca003c51b8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

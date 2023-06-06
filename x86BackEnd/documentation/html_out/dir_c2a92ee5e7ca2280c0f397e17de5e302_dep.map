@@ -1,8 +1,8 @@
-<map id="/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/ATC/SuperStack" name="/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/ATC/SuperStack">
+<map id="src/Legacy/ATC/SuperStack" name="src/Legacy/ATC/SuperStack">
 <area shape="rect" id="node1" href="dir_74282847de7cb732ad312e717ed48fef.html" title="my_safety" alt="" coords="27,148,117,196"/>
 <area shape="rect" id="node2" href="dir_a7b8290f16d09444e6a93d7a97fd6c72.html" title="RandomStuff" alt="" coords="141,148,248,196"/>
 <area shape="rect" id="node3" href="dir_c2a92ee5e7ca2280c0f397e17de5e302.html" title="SuperStack" alt="" coords="87,52,182,100"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000025_000023.html" title="1" alt="" coords="100,130,109,145"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000025_000024.html" title="1" alt="" coords="173,121,182,135"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000055_000053.html" title="1" alt="" coords="100,130,109,145"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000055_000054.html" title="1" alt="" coords="173,121,182,135"/>
 <area shape="rect" id="clust1" href="dir_81107988ccd1d3fbfb91c8ae20ba889a.html" title="ATC" alt="" coords="16,16,259,207"/>
 </map>

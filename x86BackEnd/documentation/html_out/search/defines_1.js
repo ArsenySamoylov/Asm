@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['bluecolor_2067',['bluecolor',['../db/d82/_linux_colors_8h.html#a99660daabc4f863942aeaf437310a951',1,'LinuxColors.h']]],
-  ['buf_2068',['BUF',['../d8/d99/_get_std_8cpp.html#a05fd19e74fc2382fc5be6c97fd93297c',1,'GetStd.cpp']]]
+  ['check_5fsuccess_939',['CHECK_SUCCESS',['../df/d0a/main_8cpp.html#a1e2a85e505ab3bbfce756209004ab9fb',1,'main.cpp']]]
 ];

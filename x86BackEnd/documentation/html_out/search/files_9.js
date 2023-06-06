@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['langutils_2ecpp_1181',['LangUtils.cpp',['../d9/d38/_lang_utils_8cpp.html',1,'']]],
-  ['langutils_2eh_1182',['LangUtils.h',['../d3/d44/_lang_utils_8h.html',1,'']]],
-  ['lexicalctx_2ecpp_1183',['LexicalCtx.cpp',['../dc/dcd/_lexical_ctx_8cpp.html',1,'']]],
-  ['lexicalctx_2eh_1184',['LexicalCtx.h',['../dc/da1/_lexical_ctx_8h.html',1,'']]],
-  ['linuxcolors_2eh_1185',['LinuxColors.h',['../db/d82/_linux_colors_8h.html',1,'']]],
-  ['logconfig_2eh_1186',['LogConfig.h',['../df/dd4/_log_config_8h.html',1,'']]],
-  ['logger_2ecpp_1187',['Logger.cpp',['../de/d27/_logger_8cpp.html',1,'']]],
-  ['logger_2eh_1188',['Logger.h',['../d6/dec/_logger_8h.html',1,'']]],
-  ['logmacroses_2eh_1189',['LogMacroses.h',['../d0/d4e/_log_macroses_8h.html',1,'']]]
+  ['storage_2ecpp_523',['Storage.cpp',['../da/dd6/_storage_8cpp.html',1,'']]],
+  ['storage_2eh_524',['Storage.h',['../da/d94/_storage_8h.html',1,'']]],
+  ['stringpool_2ecpp_525',['StringPool.cpp',['../df/d6f/_string_pool_8cpp.html',1,'']]],
+  ['stringpool_2eh_526',['StringPool.h',['../d4/ddd/_string_pool_8h.html',1,'']]]
 ];

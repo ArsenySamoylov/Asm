@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['table_5farr_2191',['TABLE_ARR',['../d8/d06/_set_token_tree_8cpp.html#a247286210dc088de9d0e17d35c14fca7',1,'SetTokenTree.cpp']]],
-  ['table_5farr_5fsize_2192',['TABLE_ARR_SIZE',['../db/d2f/_name_table_8cpp.html#a199e536c7f5277d82de89093515d0421',1,'NameTable.cpp']]],
-  ['todo_2193',['TODO',['../d0/d4e/_log_macroses_8h.html#a066f78c44d68f94b3a5577f81f122617',1,'LogMacroses.h']]],
-  ['token_2194',['TOKEN',['../d0/d99/_graph_vis_8cpp.html#a5c3a83864bf5991d09aa5c2abb911bf0',1,'TOKEN():&#160;GraphVis.cpp'],['../d9/d38/_lang_utils_8cpp.html#a5c3a83864bf5991d09aa5c2abb911bf0',1,'TOKEN():&#160;LangUtils.cpp'],['../d9/d38/_lang_utils_8cpp.html#a5c3a83864bf5991d09aa5c2abb911bf0',1,'TOKEN():&#160;LangUtils.cpp']]],
-  ['token_5farr_2195',['TOKEN_ARR',['../d8/d99/_get_std_8cpp.html#a7d86c46731d891ab1d2aedd85281586f',1,'GetStd.cpp']]],
-  ['token_5ftype_2196',['TOKEN_TYPE',['../d2/d06/_grammar_8h.html#a961b1febb3e047f8837575c921f79fc8',1,'TOKEN_TYPE():&#160;Grammar.h'],['../d0/d99/_graph_vis_8cpp.html#a961b1febb3e047f8837575c921f79fc8',1,'TOKEN_TYPE():&#160;GraphVis.cpp'],['../d9/d38/_lang_utils_8cpp.html#a961b1febb3e047f8837575c921f79fc8',1,'TOKEN_TYPE():&#160;LangUtils.cpp'],['../d9/d38/_lang_utils_8cpp.html#a961b1febb3e047f8837575c921f79fc8',1,'TOKEN_TYPE():&#160;LangUtils.cpp']]],
-  ['top_5ftable_2197',['TOP_TABLE',['../d8/d06/_set_token_tree_8cpp.html#af50ef02f249cf8c99f70c900b4a8af27',1,'SetTokenTree.cpp']]],
-  ['total_5fsuccess_2198',['TOTAL_SUCCESS',['../da/d2d/_super_stack_8cpp.html#a62cbbd71b734b6e3bbb337e971faba68',1,'SuperStack.cpp']]],
-  ['type_2199',['TYPE',['../d4/d38/_d_s_l_8h.html#abf5153fd41479b942dc8c8ad63bef0a8',1,'DSL.h']]],
-  ['type_5fis_2200',['TYPE_IS',['../d4/d38/_d_s_l_8h.html#a4297d3c7b350741bd108e6bb43c54057',1,'DSL.h']]]
+  ['set_5ffailure_5fexit_2277',['SET_FAILURE_EXIT',['../de/dfb/src_2main_8cpp.html#a78dd5917e37a61e979b03bd7793dcc48',1,'main.cpp']]],
+  ['set_5ffunc_5fname_2278',['set_func_name',['../d2/d2a/_visual_dump_8h.html#a94bdba455cf6ffc02c60d884dd5c8c3d',1,'set_func_name():&#160;VisualDump.h'],['../d0/d99/_graph_vis_8cpp.html#a94bdba455cf6ffc02c60d884dd5c8c3d',1,'set_func_name():&#160;GraphVis.cpp']]],
+  ['show_5fvar_5fname_2279',['SHOW_VAR_NAME',['../d0/d20/_translate_to_asm_8h.html#a5c61f5da27b9ad24aa99350837c61752',1,'TranslateToAsm.h']]],
+  ['stack_5fcongig_2280',['STACK_CONGIG',['../d5/d3c/_super_stack_config_8h.html#af8c512d6e976d5cc0c91354afbdf130d',1,'SuperStackConfig.h']]],
+  ['stackctor_2281',['StackCtor',['../d7/d9e/_super_stack_8h.html#aa2dfecc30c6b65bae47231b17d2184cf',1,'SuperStack.h']]],
+  ['stackdtor_2282',['StackDtor',['../d7/d9e/_super_stack_8h.html#add996341f133ef309084068080763db7',1,'SuperStack.h']]],
+  ['stackpop_2283',['StackPop',['../d7/d9e/_super_stack_8h.html#a00008adb2c36594feaa38c8db823bbd4',1,'SuperStack.h']]],
+  ['stackpush_2284',['StackPush',['../d7/d9e/_super_stack_8h.html#a4aedb83bdca61048c5ab60603cb87c0b',1,'SuperStack.h']]],
+  ['stacktop_2285',['StackTop',['../d7/d9e/_super_stack_8h.html#a54a570001ba9c30880df39cf2e6ec1d6',1,'SuperStack.h']]],
+  ['string_5farr_2286',['STRING_ARR',['../d8/d99/_get_std_8cpp.html#a7ad204a49829365c740c57e83c8ac186',1,'STRING_ARR():&#160;GetStd.cpp'],['../d8/d06/_set_token_tree_8cpp.html#a7ad204a49829365c740c57e83c8ac186',1,'STRING_ARR():&#160;SetTokenTree.cpp'],['../d0/d20/_translate_to_asm_8h.html#a7ad204a49829365c740c57e83c8ac186',1,'STRING_ARR():&#160;TranslateToAsm.h']]],
+  ['stringify_2287',['STRINGIFY',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'CMakeCXXCompilerId.cpp']]],
+  ['stringify_5fhelper_2288',['STRINGIFY_HELPER',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'CMakeCXXCompilerId.cpp']]],
+  ['success_2289',['SUCCESS',['../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'SUCCESS():&#160;Buffer.cpp'],['../d5/d83/_elf_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'SUCCESS():&#160;Elf.cpp']]]
 ];
