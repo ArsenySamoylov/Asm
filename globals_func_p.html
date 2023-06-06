@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">x86Backend
    </div>
-   <div id="projectbrief">Backend for x86 for my simple programming language</div>
+   <div id="projectbrief">for my simple programming language</div>
   </td>
  </tr>
  </tbody>
@@ -88,8 +89,16 @@ $(document).ready(function(){initNavTree('globals_func_p.html',''); initResizabl
 <li>PrintFullType()
 : <a class="el" href="d3/dc4/_dump_i_r_8cpp.html#af446284648e08d61f263e30331e7d257">DumpIR.cpp</a>
 </li>
+<li>printl()
+: <a class="el" href="d9/d55/_some_stuff_8cpp.html#ada79ac1fadd25f5027731d99d5480176">SomeStuff.cpp</a>
+, <a class="el" href="d8/df5/_some_stuff_8h.html#ada79ac1fadd25f5027731d99d5480176">SomeStuff.h</a>
+</li>
 <li>PrintName()
 : <a class="el" href="d3/dc4/_dump_i_r_8cpp.html#ab245a6ee6904d54e89401e365db6f1f3">DumpIR.cpp</a>
+</li>
+<li>PrintNode()
+: <a class="el" href="d2/d2a/_visual_dump_8h.html#a76872f0e8e4379287e9fcc6304505404">VisualDump.h</a>
+, <a class="el" href="d0/d99/_graph_vis_8cpp.html#a890a8ecfe2604eda24a027e0f5fcc68a">GraphVis.cpp</a>
 </li>
 <li>PrintOperator()
 : <a class="el" href="d3/dc4/_dump_i_r_8cpp.html#a1cf0b56accdc897cab0e3ef50d7ee4f0">DumpIR.cpp</a>
@@ -98,13 +107,25 @@ $(document).ready(function(){initNavTree('globals_func_p.html',''); initResizabl
 : <a class="el" href="d9/d27/_registers_usage_8cpp.html#acf0faddab391c031ef1e0740b39c5993">RegistersUsage.cpp</a>
 , <a class="el" href="dd/d45/_registers_usage_8h.html#acf0faddab391c031ef1e0740b39c5993">RegistersUsage.h</a>
 </li>
+<li>PrintToken()
+: <a class="el" href="d9/d38/_lang_utils_8cpp.html#a9db959344a1c958dbaffee7284403404">LangUtils.cpp</a>
+, <a class="el" href="d3/d44/_lang_utils_8h.html#a61b090999d3dd93e5424072b7cb5cdec">LangUtils.h</a>
+</li>
 <li>PrintValue()
 : <a class="el" href="d3/dc4/_dump_i_r_8cpp.html#ac7138cab9249d8e20e5afe11d4ae0948">DumpIR.cpp</a>
 , <a class="el" href="d5/dd9/_dump_i_r_8h.html#ac7138cab9249d8e20e5afe11d4ae0948">DumpIR.h</a>
 </li>
+<li>ProgramCtor()
+: <a class="el" href="df/db8/_program_8cpp.html#abdd2784cea9d34c359c5e03cedb0ab2e">Program.cpp</a>
+, <a class="el" href="d0/d88/_program_8h.html#abdd2784cea9d34c359c5e03cedb0ab2e">Program.h</a>
+</li>
+<li>ProgramDtor()
+: <a class="el" href="df/db8/_program_8cpp.html#a4915b4722df983c8f1afc02653b90372">Program.cpp</a>
+, <a class="el" href="d0/d88/_program_8h.html#a4915b4722df983c8f1afc02653b90372">Program.h</a>
+</li>
 <li>PUT_CALL()
-: <a class="el" href="d5/d91/_commands_8cpp.html#afe4601455842080d33cd2fb105d938d2">Commands.cpp</a>
-, <a class="el" href="d9/d8e/_commands_8h.html#afe4601455842080d33cd2fb105d938d2">Commands.h</a>
+: <a class="el" href="d9/d8e/_commands_8h.html#afe4601455842080d33cd2fb105d938d2">Commands.h</a>
+, <a class="el" href="d5/d91/_commands_8cpp.html#afe4601455842080d33cd2fb105d938d2">Commands.cpp</a>
 </li>
 <li>PUT_CJUMP()
 : <a class="el" href="d5/d91/_commands_8cpp.html#a0fa2c38fa4fcb494a23375b6b94761bd">Commands.cpp</a>
@@ -138,9 +159,12 @@ $(document).ready(function(){initNavTree('globals_func_p.html',''); initResizabl
 <li>PutIMul()
 : <a class="el" href="d5/d91/_commands_8cpp.html#a5c17dd8e137d3d4beba8c9aae7cb40c0">Commands.cpp</a>
 </li>
+<li>PutInstruction()
+: <a class="el" href="d6/db4/_put_std_8cpp.html#a6b7bdbebe41ea2f0949db412d4749655">PutStd.cpp</a>
+</li>
 <li>PutJump()
-: <a class="el" href="d5/d91/_commands_8cpp.html#addb445a251c79f78e3f181aa39e7d315">Commands.cpp</a>
-, <a class="el" href="d9/d8e/_commands_8h.html#aa7ab5c788515279f81fa430b04dcf2a6">Commands.h</a>
+: <a class="el" href="d9/d8e/_commands_8h.html#aa7ab5c788515279f81fa430b04dcf2a6">Commands.h</a>
+, <a class="el" href="d5/d91/_commands_8cpp.html#addb445a251c79f78e3f181aa39e7d315">Commands.cpp</a>
 </li>
 <li>PutLogicOp()
 : <a class="el" href="d5/d91/_commands_8cpp.html#ad3e42c5e690fbb27fcbd02e05a762402">Commands.cpp</a>
@@ -170,16 +194,26 @@ $(document).ready(function(){initNavTree('globals_func_p.html',''); initResizabl
 , <a class="el" href="d9/d8e/_commands_8h.html#af4884ddf083c99c1f238ad071e444369">Commands.h</a>
 </li>
 <li>PutMulDiv()
-: <a class="el" href="d5/d91/_commands_8cpp.html#a5f37fc4d4d4ef1ebee14a1b830c588fd">Commands.cpp</a>
-, <a class="el" href="d9/d8e/_commands_8h.html#acd968af662e02f4dae7e730adbfae69f">Commands.h</a>
+: <a class="el" href="d9/d8e/_commands_8h.html#acd968af662e02f4dae7e730adbfae69f">Commands.h</a>
+, <a class="el" href="d5/d91/_commands_8cpp.html#a5f37fc4d4d4ef1ebee14a1b830c588fd">Commands.cpp</a>
+</li>
+<li>PutNativeFunction()
+: <a class="el" href="d6/db4/_put_std_8cpp.html#aeef2ccd85de23837f7311798676604bc">PutStd.cpp</a>
+</li>
+<li>PutOperator()
+: <a class="el" href="d6/db4/_put_std_8cpp.html#a26f85312354067211f0a4a858ab7344b">PutStd.cpp</a>
 </li>
 <li>PutPopR()
 : <a class="el" href="d5/d91/_commands_8cpp.html#a26913b21808e60ae4666b04ebe356e7b">Commands.cpp</a>
 , <a class="el" href="d9/d8e/_commands_8h.html#abd5323cee3adaeb9bf4f18ed6e214ebb">Commands.h</a>
 </li>
+<li>PutProgramToStdAWP()
+: <a class="el" href="d6/db4/_put_std_8cpp.html#a74587b4e2252718f936dc8127771f61c">PutStd.cpp</a>
+, <a class="el" href="d4/d8a/_standart_a_w_p_8h.html#a74587b4e2252718f936dc8127771f61c">StandartAWP.h</a>
+</li>
 <li>PutPushR()
-: <a class="el" href="d5/d91/_commands_8cpp.html#a628a3eabdde6d7a32e89f157ba875a71">Commands.cpp</a>
-, <a class="el" href="d9/d8e/_commands_8h.html#a8574c256ffeef5c05e0f6e1d86595af7">Commands.h</a>
+: <a class="el" href="d9/d8e/_commands_8h.html#a8574c256ffeef5c05e0f6e1d86595af7">Commands.h</a>
+, <a class="el" href="d5/d91/_commands_8cpp.html#a628a3eabdde6d7a32e89f157ba875a71">Commands.cpp</a>
 </li>
 <li>PutRet()
 : <a class="el" href="d5/d91/_commands_8cpp.html#add23369f67505ebfa528f4316fa2656c">Commands.cpp</a>
@@ -195,6 +229,9 @@ $(document).ready(function(){initNavTree('globals_func_p.html',''); initResizabl
 <li>PutSysCall()
 : <a class="el" href="d5/d91/_commands_8cpp.html#a52e92e7bfda10f49a5aba3be4aad1cf6">Commands.cpp</a>
 , <a class="el" href="d9/d8e/_commands_8h.html#a52e92e7bfda10f49a5aba3be4aad1cf6">Commands.h</a>
+</li>
+<li>PutToken()
+: <a class="el" href="d6/db4/_put_std_8cpp.html#a690b8fcc3bbba80d6e5a03eff02256e5">PutStd.cpp</a>
 </li>
 </ul>
 </div><!-- contents -->
