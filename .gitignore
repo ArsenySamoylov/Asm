@@ -1,0 +1,10 @@
+*.ii
+*.i
+*.o
+*.out
+*.exe
+-g
+-D
+**/.vscode
+**/logs/
+**/build
