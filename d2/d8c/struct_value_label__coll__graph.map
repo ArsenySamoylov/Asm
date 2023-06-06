@@ -1,9 +1,0 @@
-<map id="ValueLabel" name="ValueLabel">
-<area shape="rect" id="node1" title="Label for value." alt="" coords="52,363,145,389"/>
-<area shape="rect" id="node2" href="$d7/df0/class_base_block.html" title="Block of Instructions." alt="" coords="127,273,217,300"/>
-<area shape="rect" id="node3" href="$d4/d72/class_value.html" title="Abstract class for IR object." alt="" coords="48,184,107,211"/>
-<area shape="rect" id="node4" href="$df/d09/class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
-<area shape="rect" id="node5" href="$da/d56/class_storage.html" title="Storage objects shows state of Value." alt="" coords="93,95,165,121"/>
-<area shape="rect" id="node6" href="$dd/d2a/struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="131,5,234,32"/>
-<area shape="rect" id="node7" href="$dd/d36/class_value_arr.html" title=" " alt="" coords="131,184,307,211"/>
-</map>

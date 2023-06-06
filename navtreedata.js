@@ -36,7 +36,7 @@ var NAVTREE =
       ] ],
       [ "Итог:", "index.html#autotoc_md7", null ]
     ] ],
-    [ "Todo List", "dd/da0/todo.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -64,9 +64,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d7/d75/_builder_8cpp.html#a44db65f42f0a8319a9687af20ad6d17b",
-"dd/d36/_ast_to_i_r_8cpp.html#a11800beffa9323df7133b4ca003c51b8"
+"_array_template_8h.html",
+"_instructions_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a1cfdf0e8d0c87a228c1f40d9bee7888b",
+"class_load.html#abfd708677c7c53382684a94e421d98d9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
