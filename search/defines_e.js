@@ -1,12 +1,20 @@
 var searchData=
 [
-  ['rand_5fname_2171',['RAND_NAME',['../d0/d4e/_log_macroses_8h.html#a40e05a779a8b278b653ac93e31ec17ea',1,'LogMacroses.h']]],
-  ['recalloc_2172',['RECALLOC',['../d0/d4e/_log_macroses_8h.html#a1eb91c10363cd46f2fc0e747827068bf',1,'LogMacroses.h']]],
-  ['redcolor_2173',['redcolor',['../db/d82/_linux_colors_8h.html#a180a4f29fd5b65312283f1991d3bed32',1,'LinuxColors.h']]],
-  ['report_2174',['report',['../dc/dcf/_buffer_8cpp.html#a3aa431d89913e2b99d29d844e5440e12',1,'report():&#160;Buffer.cpp'],['../d0/d4e/_log_macroses_8h.html#a3aa431d89913e2b99d29d844e5440e12',1,'report():&#160;LogMacroses.h']]],
-  ['reset_5farr_2175',['RESET_ARR',['../d1/df7/_array_template_8h.html#a5bc574b2a805d10b46e6915f224919aa',1,'ArrayTemplate.h']]],
-  ['resetconsole_2176',['resetconsole',['../db/d82/_linux_colors_8h.html#a704690e09c749055c841fbe00b42600d',1,'LinuxColors.h']]],
-  ['ret_5ftype_2177',['RET_TYPE',['../d4/d38/_d_s_l_8h.html#a39921226a5772661e304883844faa382',1,'DSL.h']]],
-  ['right_2178',['RIGHT',['../d4/d38/_d_s_l_8h.html#a380515ccd869d548677fca725d285480',1,'DSL.h']]],
-  ['right_5fconst_2179',['RIGHT_CONST',['../d4/d38/_d_s_l_8h.html#a83c7a6658b80bfd7e10a74cdad180cac',1,'DSL.h']]]
+  ['p_2251',['p',['../dd/ded/_easy_debug_8h.html#a15678b94ae7abd7676bc5c3d4870237e',1,'EasyDebug.h']]],
+  ['paste_2252',['PASTE',['../d0/d4e/_log_macroses_8h.html#a9ac9dd35b93432c0b194466d2aa84788',1,'LogMacroses.h']]],
+  ['platform_5fid_2253',['PLATFORM_ID',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'CMakeCXXCompilerId.cpp']]],
+  ['pop_5freg_2254',['POP_REG',['../d0/d20/_translate_to_asm_8h.html#afa74d02cb86a363b9dfa5bebc239a124',1,'TranslateToAsm.h']]],
+  ['print_2255',['print',['../d3/dc4/_dump_i_r_8cpp.html#aa101808c9a62aa63ef158c3ace496795',1,'DumpIR.cpp']]],
+  ['print_5fcomment_2256',['print_comment',['../d5/d91/_commands_8cpp.html#a6813de047009a1a14818fec5e3020cfa',1,'Commands.cpp']]],
+  ['print_5finstr_5fcomm_2257',['PRINT_INSTR_COMM',['../d4/d4d/_i_r_context_8h.html#a42c1eb7aac1cb809c57358913a3c7c8a',1,'IRContext.h']]],
+  ['print_5flabel_2258',['print_label',['../d4/d4d/_i_r_context_8h.html#a31a51f041c9ddc8a28e9d4865ad1dd19',1,'IRContext.h']]],
+  ['print_5fraw_2259',['print_raw',['../d4/d4d/_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4',1,'print_raw():&#160;IRContext.h'],['../d3/dc4/_dump_i_r_8cpp.html#ab41e584ff492106dae6dc249ec1d6fb4',1,'print_raw():&#160;DumpIR.cpp']]],
+  ['print_5freg_2260',['PRINT_REG',['../dd/d45/_registers_usage_8h.html#a8df15fed6a46c07db033dfed7b617398',1,'RegistersUsage.h']]],
+  ['print_5ftab_2261',['print_tab',['../d4/d4d/_i_r_context_8h.html#afe06169e433bf4371790de5e754e20de',1,'IRContext.h']]],
+  ['print_5fvalue_2262',['PRINT_VALUE',['../d5/dd9/_dump_i_r_8h.html#ab9420fab46111ee98a5ccc65ca9e7b43',1,'DumpIR.h']]],
+  ['program_2263',['PROGRAM',['../d8/d06/_set_token_tree_8cpp.html#a250c0baba624b8a2e5069d80e95a52ba',1,'PROGRAM():&#160;SetTokenTree.cpp'],['../d0/d20/_translate_to_asm_8h.html#a250c0baba624b8a2e5069d80e95a52ba',1,'PROGRAM():&#160;TranslateToAsm.h']]],
+  ['purplecolor_2264',['purplecolor',['../db/d82/_linux_colors_8h.html#a2c76e40295aeec1bb3f18ead37e6650f',1,'LinuxColors.h']]],
+  ['push_5fconst_2265',['PUSH_CONST',['../d0/d20/_translate_to_asm_8h.html#a06f6d76497021d2990336463f86dda4b',1,'TranslateToAsm.h']]],
+  ['push_5fram_2266',['PUSH_RAM',['../d0/d20/_translate_to_asm_8h.html#a9a2bf4c41966542d01fb22e17a2597dc',1,'TranslateToAsm.h']]],
+  ['push_5freg_2267',['PUSH_REG',['../d0/d20/_translate_to_asm_8h.html#a920206c9f0adac3980f2c05970705840',1,'TranslateToAsm.h']]]
 ];

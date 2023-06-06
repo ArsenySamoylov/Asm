@@ -1,19 +1,19 @@
-<map id="/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common" name="/home/arsenyfucker/Desktop/SecondSemester/x86BackEnd/src/Legacy/Common">
+<map id="src/Legacy/Common" name="src/Legacy/Common">
 <area shape="rect" id="node1" href="dir_81107988ccd1d3fbfb91c8ae20ba889a.html" title="ATC" alt="" coords="259,351,331,399"/>
 <area shape="rect" id="node5" href="dir_fbece632718bd04dfbee69e8e6018ba5.html" title="Structures" alt="" coords="163,255,251,303"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000017_000031.html" title="18" alt="" coords="157,230,174,244"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000047_000061.html" title="18" alt="" coords="157,230,174,244"/>
 <area shape="rect" id="node3" href="dir_85adcc6a26188d644c5a01c4f8259e6b.html" title="LexicalCtx" alt="" coords="267,159,357,207"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000029_000011.html" title="3" alt="" coords="302,326,312,340"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000029_000031.html" title="3" alt="" coords="247,241,256,256"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000059_000041.html" title="3" alt="" coords="302,326,312,340"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000059_000061.html" title="3" alt="" coords="247,241,256,256"/>
 <area shape="rect" id="node4" href="dir_b492bcec07672d468944c3b06d7f34fd.html" title="StandartAWP" alt="" coords="201,63,308,111"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000030_000011.html" title="5" alt="" coords="328,334,337,349"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000030_000029.html" title="1" alt="" coords="291,131,300,146"/>
-<area shape="rect" id="edge7-headlabel" href="dir_000030_000031.html" title="3" alt="" coords="177,228,186,242"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000060_000041.html" title="5" alt="" coords="328,334,337,349"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000060_000059.html" title="1" alt="" coords="291,131,300,146"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000060_000061.html" title="3" alt="" coords="177,228,186,242"/>
 <area shape="rect" id="node6" href="dir_ef2b23f8a5b258ecc056d12edccaa2a2.html" title="Utils" alt="" coords="171,159,243,207"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000030_000018.html" title="1" alt="" coords="230,139,239,154"/>
-<area shape="rect" id="edge10-headlabel" href="dir_000031_000011.html" title="7" alt="" coords="262,324,272,339"/>
-<area shape="rect" id="edge8-headlabel" href="dir_000018_000011.html" title="3" alt="" coords="292,324,301,338"/>
-<area shape="rect" id="edge9-headlabel" href="dir_000018_000031.html" title="6" alt="" coords="210,229,220,244"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000060_000048.html" title="1" alt="" coords="230,139,239,154"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000061_000041.html" title="7" alt="" coords="262,324,272,339"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000048_000041.html" title="3" alt="" coords="292,324,301,338"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000048_000061.html" title="6" alt="" coords="210,229,220,244"/>
 <area shape="rect" id="clust2" href="dir_23e763588dedf41c4efb1e142e025e35.html" alt="" coords="27,52,368,313"/>
 <area shape="rect" id="clust1" href="dir_93d3d82ef3f103cf2c243514b6ce2378.html" title="Legacy" alt="" coords="16,16,395,409"/>
 </map>

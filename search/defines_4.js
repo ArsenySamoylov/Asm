@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['error_5foccured_2082',['ERROR_OCCURED',['../da/d2d/_super_stack_8cpp.html#a2699fa454e685ab82c11394eafc0a204',1,'SuperStack.cpp']]],
-  ['eval_2083',['EVAL',['../d0/d4e/_log_macroses_8h.html#ae4814861c311b8fc7925babf0298d2c3',1,'LogMacroses.h']]]
+  ['goto_5ffailure_5fexit_943',['GOTO_FAILURE_EXIT',['../df/d0a/main_8cpp.html#ab0b03f7f0b84ae9cdbb6708361a489e6',1,'main.cpp']]]
 ];

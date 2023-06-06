@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['main_5fname_1719',['MAIN_NAME',['../d2/d06/_grammar_8h.html#a8131875ef6852f62baf79e8c3f8db63d',1,'Grammar.h']]],
-  ['max_5fcomment_5flength_1720',['MAX_COMMENT_LENGTH',['../d9/d28/_i_r_context_8cpp.html#a8d087d5947def9b0416e327a4bb71d0c',1,'IRContext.cpp']]],
-  ['max_5ffunction_5fname_5flength_1721',['MAX_FUNCTION_NAME_LENGTH',['../d2/d06/_grammar_8h.html#a50325d38d6d8ed95df20629c92d9a3f9',1,'Grammar.h']]],
-  ['max_5fgraph_5fname_5flength_1722',['MAX_GRAPH_NAME_LENGTH',['../d0/d6a/_a_t_c_2_graph_vis_2_g_v_config_8h.html#ab2d3c0d1818c108d980be219af4781b9',1,'MAX_GRAPH_NAME_LENGTH():&#160;GVConfig.h'],['../d2/d2a/_visual_dump_8h.html#ab2d3c0d1818c108d980be219af4781b9',1,'MAX_GRAPH_NAME_LENGTH():&#160;VisualDump.h'],['../d8/dee/_common_2_utils_2_g_v_config_8h.html#ab2d3c0d1818c108d980be219af4781b9',1,'MAX_GRAPH_NAME_LENGTH():&#160;GVConfig.h']]],
-  ['max_5flength_1723',['MAX_LENGTH',['../df/d6f/_string_pool_8cpp.html#a9078d077f94a0e8f71ec446abe515d4f',1,'StringPool.cpp']]],
-  ['max_5flength_5fint_1724',['MAX_LENGTH_INT',['../da/dc9/tostring_8cpp.html#a2efffffb5c2fbf0e1d994ce5f00f3a71',1,'tostring.cpp']]],
-  ['max_5fword_5flength_1725',['MAX_WORD_LENGTH',['../d2/d06/_grammar_8h.html#ae803818934030c2d59704e8300b98311',1,'Grammar.h']]],
-  ['medcomissionerorrmessage_1726',['MedComissionErorrMessage',['../d3/d0f/_super_stack_dump_8cpp.html#aab768928227bd98a7bb727c88d9c8e7e',1,'SuperStackDump.cpp']]],
-  ['mod_1727',['mod',['../db/dd3/struct_builder.html#a2ee6666258bf2fcd9ec6c47d50570dd1',1,'Builder']]],
-  ['my_5flog_1728',['my_log',['../d3/d42/class_logger.html#a178bc7d1dea36bad50998658ce91350d',1,'Logger']]]
+  ['n_5flocal_5fvars_796',['n_local_vars',['../d7/d29/class_function.html#aae1078a6b6fde83757ec6af9f0f9c11b',1,'Function']]],
+  ['n_5flocals_797',['n_locals',['../de/d66/struct_context.html#aa0c432a0a20a96657b9327f77e2f0518',1,'Context']]],
+  ['n_5fnative_5ffunctions_798',['N_NATIVE_FUNCTIONS',['../d5/d13/_module_8cpp.html#abf33450f7311ba493cd4bd0ab36cacb4',1,'N_NATIVE_FUNCTIONS():&#160;Module.cpp'],['../dd/d7a/_module_8h.html#abf33450f7311ba493cd4bd0ab36cacb4',1,'N_NATIVE_FUNCTIONS():&#160;Module.cpp']]],
+  ['n_5fstd_5ffunctions_799',['N_STD_FUNCTIONS',['../da/d63/_translate_i_r_tox86_8cpp.html#a8c3a7645e1a708d2764cecf4b0a32382',1,'TranslateIRTox86.cpp']]],
+  ['n_5fusage_800',['n_usage',['../da/d56/class_storage.html#ae1871cf772ec0a47848e1fa4c8b2523f',1,'Storage']]],
+  ['name_801',['name',['../d4/d72/class_value.html#a62d78645b07ba16cce8dbaec863b13ab',1,'Value']]],
+  ['name_5fid_802',['name_id',['../d0/d6b/struct_value_label.html#a133839981bcf41842a874d46d270e223',1,'ValueLabel']]],
+  ['nativefunctions_803',['NativeFunctions',['../d5/d13/_module_8cpp.html#a8f1aa667c7f96308b74d8b0fec22bbb1',1,'Module.cpp']]],
+  ['number_804',['number',['../de/d24/struct_reg.html#acfc646d49466bf67813bf629f704ccc5',1,'Reg']]],
+  ['number_5fof_5fif_805',['NUMBER_OF_IF',['../dd/d36/_ast_to_i_r_8cpp.html#a84aeebba971d30ba776a3e896180fc0b',1,'AstToIR.cpp']]],
+  ['number_5fof_5fregs_806',['NUMBER_OF_REGS',['../d9/d27/_registers_usage_8cpp.html#ad0514685366ee269697f53fde1235be5',1,'RegistersUsage.cpp']]],
+  ['number_5fof_5fsegments_807',['NUMBER_OF_SEGMENTS',['../d0/d86/_elf_8hpp.html#a4f114e8320205ce85ed30a4bae00e10c',1,'Elf.hpp']]]
 ];

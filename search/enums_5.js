@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['initializators_5fnum_1871',['INITIALIZATORS_NUM',['../d2/d06/_grammar_8h.html#aeea3539aa499f9fabd6cd879b83ffd54',1,'Grammar.h']]],
-  ['instructiontype_1872',['InstructionType',['../db/d88/_instructions_8h.html#a89ee1c4e5e5a33c60d0e6dc126ed2c0d',1,'Instructions.h']]],
-  ['instuctions_5fnum_1873',['INSTUCTIONS_NUM',['../d2/d06/_grammar_8h.html#aaef0dc9d159819a449d4c3063744ea60',1,'Grammar.h']]]
+  ['nativefunction_855',['NativeFunction',['../dd/d7a/_module_8h.html#a7218d36a9589006c3f427ed8cb4845a7',1,'Module.h']]],
+  ['normalizeresultenum_856',['NormalizeResultEnum',['../d5/d91/_commands_8cpp.html#a4d04e35fe0ed95355c5bf2ae1d1fc0a6',1,'Commands.cpp']]]
 ];
