@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['module_90',['Module',['../class_module.html',1,'']]]
+  ['operator_480',['Operator',['../struct_operator.html',1,'']]]
 ];

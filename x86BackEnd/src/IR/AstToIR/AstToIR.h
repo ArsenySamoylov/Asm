@@ -1,3 +1,8 @@
+/*!
+\file
+\brief This file contains interface for translating Ast tree to IR
+\todo add 
+*/
 #pragma once
 
 #include "Module.h"

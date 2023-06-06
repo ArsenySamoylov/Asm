@@ -1,12 +1,20 @@
+/*! 
+\file
+\brief File with ValueArr template.
+*/
+
 #include <cstdlib>
 #include <cassert>
 #include <cstdio>
 
 template <class Value_T> 
+/**
+ * @brief Template class to store array of Values
+ * 
+ */
 class ValueArr
     {
     private:
-        // const enum ValueType base_type;
         Value_T** arr;
     
         size_t size;

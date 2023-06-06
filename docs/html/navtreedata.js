@@ -25,13 +25,50 @@
 var NAVTREE =
 [
   [ "x86Backend", "index.html", [
-    [ "index", "md_index.html", null ]
+    [ "Overview", "md__r_e_a_d_m_e.html", [
+      [ "Следующая итерация", "md__r_e_a_d_m_e.html#autotoc_md1", [
+        [ "Описание моего IR`a", "md__r_e_a_d_m_e.html#autotoc_md2", [
+          [ "Иерархии классов в IR`e", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+          [ "Module в IR`e", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+        ] ],
+        [ "Пример", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "Стандартная библиотека", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+      ] ],
+      [ "Итог:", "md__r_e_a_d_m_e.html#autotoc_md7", null ]
+    ] ],
+    [ "README", "md_src__r_e_a_d_m_e.html", null ],
+    [ "Todo List", "todo.html", null ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"_array_template_8h.html",
+"_instructions_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a1cfdf0e8d0c87a228c1f40d9bee7888b",
+"class_load.html#abfd708677c7c53382684a94e421d98d9",
+"todo.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

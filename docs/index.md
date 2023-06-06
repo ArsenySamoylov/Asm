@@ -86,9 +86,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Генерирующийся ассемблерный файл для данной программы <a class="anchor" id="md_x86BackEnd_README"></a>Данный репозиторий является продолжением моего проекта по созданию компилятора для собственного простого <a href="https://github.com/ArsenySamoylov/Lang.git">языка программирования</a>. Данная часть посвящена Backend`у для х86 архитектуры.</p>
-<p><a href="documentation/html/index.html">Страница с документацией.</a></p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<div class="textblock"><p>Генерирующийся ассемблерный файл для данной программы <a class="anchor" id="md_README"></a>Данный репозиторий является продолжением моего проекта по созданию компилятора для собственного простого <a href="https://github.com/ArsenySamoylov/Lang.git">языка программирования</a>. Данная часть посвящена Backend`у для х86 архитектуры.</p>
+<p><a href="https://arsenysamoylov.github.io/SecondSemester/">Страница с документацией.</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Следующая итерация</h1>
 <p>В контексте данной работы Backend - это программа переводящая Абстрактно-синтаксическое дерево (AST) в код для <code>исполнителя</code>. В первой итерации работы <code>исполнителем</code> был написанной мной <a href="https://github.com/ArsenySamoylov/CoreIArs.git">SoftCpu</a>, который имеет стековую архитектуру и небольшую область памяти, а также может выполнять простые математические операции.</p>
 <p>Главными изменениями в этой итерации стали:</p><ul>
@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>Так как мы переходим на регистровую архитектуру, то будем ориентироваться на уже готовые решения в этом направлении. Самым известным и распространённым решением является IR от <a href="https://llvm.org/docs/LangRef.html">LLVM` a</a>.</p>
 <p>Взяв его за основу, я реализовал собственный простейший IR. Если это проект получит продолжение, то следующей итерацией будет переход на полноценное использование IR от LLVM.</p>
 <p><b>Замечание:</b> Я решил сделать собственную реализацию простейшего IR в учебных целях. Дальнейшее его развитие, на данный момент, не имеет смыслы =(.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Описание моего IR`a</h2>
 <p>IR реализован с помощью классов и наследования на языке <code>C++</code>.</p>
 <p>Основной выступает абстрактный класс <code><a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a></code>, который хранит <code>name</code> - имя объекта (так же <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> хранит константу - тип конкретного объекта, что на самом деле является излишним; однако я решил оставить поле, так как это может пригодиться при отладке программы). От этого абстрактного класса наследуются классы:</p><ul>
@@ -121,16 +121,16 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><code><a class="el" href="struct_return.html" title="Return instruction.">Return</a></code> - инструкция возврата из функции, хранит указатель на возвращаемое значение.</li>
 </ul>
 <p>Данная иерархия описана в файле <a href="src/IR/Instructions/Instructions.h"><code>srs/IR/Instructions/Instructions.h</code></a>.</p>
-<p>Класс <code><a class="el" href="class_module.html">Module</a></code>, определенный в <a href="src/IR/Module/Module.h"><code>src/IR/Module/Module.h</code></a>, является массивом объектов <code><a class="el" href="class_function.html" title="Function.">Function</a></code> и <code><a class="el" href="class_global_var.html" title="Global Variable.">GlobalVar</a></code>. Объект <code><a class="el" href="class_module.html">Module</a></code> представляет собой исходную программу на моем языке.</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<p>Класс <code><a class="el" href="class_module.html" title="Class for representing program.">Module</a></code>, определенный в <a href="src/IR/Module/Module.h"><code>src/IR/Module/Module.h</code></a>, является массивом объектов <code><a class="el" href="class_function.html" title="Function.">Function</a></code> и <code><a class="el" href="class_global_var.html" title="Global Variable.">GlobalVar</a></code>. Объект <code><a class="el" href="class_module.html" title="Class for representing program.">Module</a></code> представляет собой исходную программу на моем языке.</p>
+<h3><a class="anchor" id="autotoc_md3"></a>
 Иерархии классов в IR`e</h3>
 <p><img src="resources/ValueHierarchy.png" alt="" class="inline"/> </p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Module в IR`e</h3>
 <p><img src="resources/Module.png" alt="" class="inline"/> </p>
 <p>Как было сказано выше - базовые блоки (<code><a class="el" href="class_base_block.html" title="Block of Instructions.">BaseBlock</a></code>) это массив инструкций, которые будут выполняться последовательно. Каждый базовый блок заканчивается инструкций передающей контроль - <code><a class="el" href="struct_return.html" title="Return instruction.">Return</a></code> или <code><a class="el" href="class_branch.html" title="Instruction to pass control flow.">Branch</a></code>. Благодаря последовательному исполнению инструкций возможно оптимально распределять регистры внутри базового блока.</p>
 <p>Однако существует проблема оптимизации использования регистров между базовыми блоками. Это проблема достаточна сложна, поэтому мы не будем рассматривать её в данной итерации проекта.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Пример</h2>
 <p>Рассмотрим пример простой программы на моем языке. Программа высчитывает факториал от заданной константы:</p>
 <div class="fragment"><div class="line">double factorial (var number)</div>
@@ -378,14 +378,14 @@ Module в IR`e</h3>
 <div class="line">    add $8, %rsp </div>
 <div class="line">    ret </div>
 </div><!-- fragment --><p>&lt;/details&gt;</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Стандартная библиотека</h2>
 <p>Для полноценной использования языка необходима библиотека, реализующая простейшие стандартные функции. Моя реализация некоторых функций находится в файле <code>src/Elf/stdlib.s</code>. Машинный код стандартных функций берется из файла <code>src/Elf/stdlib.o</code> и добавляется в конец исполняемого файла.</p>
 <p>Для создания контрольной программы с помощью генерирующегося ассемблерного кода, нужно линковать <code>src/Elf/stdlib.o</code>.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Итог:</h1>
 <p>В завершении работы замерим, как изменилось время работы программы на моем языке. Для сравнения будем использовать пример факториала из данной работы, но без вывода результата.</p>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Таблица: время расчета факториала от 15, 1000 раз</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -407,4 +407,3 @@ Module в IR`e</h3>
 </div>
 </body>
 </html>
-

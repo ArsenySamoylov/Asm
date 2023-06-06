@@ -1,8 +1,0 @@
-<map id="x86BackEnd/src/IR/Instructions/Instructions.h" name="x86BackEnd/src/IR/Instructions/Instructions.h">
-<area shape="rect" id="node1" title="This file contains declaration of Instruction class and its derived classes." alt="" coords="322,5,545,47"/>
-<area shape="rect" id="node2" href="$_module_8h_source.html" title=" " alt="" coords="224,95,419,136"/>
-<area shape="rect" id="node6" href="$_commands_8h_source.html" title=" " alt="" coords="443,95,648,136"/>
-<area shape="rect" id="node3" href="$_ast_to_i_r_8h_source.html" title=" " alt="" coords="5,184,200,225"/>
-<area shape="rect" id="node4" href="$_builder_8h_source.html" title=" " alt="" coords="224,184,419,225"/>
-<area shape="rect" id="node5" href="$_dump_i_r_8h_source.html" title=" " alt="" coords="443,184,642,225"/>
-</map>

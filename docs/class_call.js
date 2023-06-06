@@ -6,5 +6,7 @@ var class_call =
     [ "get_argv", "class_call.html#a4120c1a4162254cef3b9fec9a174868a", null ],
     [ "get_instr_type", "class_call.html#a4b586a9f4be19d3700b48c9211d4ce29", null ],
     [ "set_storage", "class_call.html#a9839f2f2c88928629f80bd2df0f49cd3", null ],
-    [ "translate_x86", "class_call.html#a559c642d08f5d45404a4ab550714a91b", null ]
+    [ "translate_x86", "class_call.html#a559c642d08f5d45404a4ab550714a91b", null ],
+    [ "argv", "class_call.html#aef8ebb78133583215bc5b571709d46cf", null ],
+    [ "function", "class_call.html#acdb59436a393ff891c0dcc6a895ee75e", null ]
 ];

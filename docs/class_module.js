@@ -9,5 +9,8 @@ var class_module =
     [ "dumpFunctions", "class_module.html#a8a0b60e19a07a3b49bb2de7b0a9abf81", null ],
     [ "dumpGlobalVars", "class_module.html#a57db1671464285cfc3bc11032665d68f", null ],
     [ "find_main", "class_module.html#a852eeecfaa9f746d2c1044de9540ce27", null ],
-    [ "translate_x86", "class_module.html#a2dc94d7fd8189bcb6802d4b3b9129f0b", null ]
+    [ "translate_x86", "class_module.html#a2dc94d7fd8189bcb6802d4b3b9129f0b", null ],
+    [ "const_pool", "class_module.html#af71b0b4cf32665e003c3bcf747f7457f", null ],
+    [ "functions", "class_module.html#a45522d56ada60fe7653b29bb2c43ebdd", null ],
+    [ "global_vars", "class_module.html#a6d7640f9286ed875b5239d5d6a1e48d3", null ]
 ];

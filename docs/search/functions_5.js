@@ -1,4 +1,14 @@
 var searchData=
 [
-  ['translate_5fx86_132',['translate_x86',['../class_instruction.html#a490849f5712f281da374de8de683069b',1,'Instruction::translate_x86()'],['../class_store.html#a356cbb050d01381df30a3e135dfd4e3f',1,'Store::translate_x86()'],['../class_load.html#a33776e091c7c4f20fa15a03c367c9acf',1,'Load::translate_x86()'],['../class_branch.html#a3139dda417192232452f7e330fe497dc',1,'Branch::translate_x86()'],['../class_call.html#a559c642d08f5d45404a4ab550714a91b',1,'Call::translate_x86()'],['../struct_return.html#aa83609e0489201eead089f31bdb4216d',1,'Return::translate_x86()'],['../struct_operator.html#a980a9871f1ae7b2091a0893acee001c6',1,'Operator::translate_x86()'],['../class_value.html#a5c80febbb8171e7c60cdd1598c47fe53',1,'Value::translate_x86()'],['../class_base_block.html#ace2f438ad119bd610183103a39131101',1,'BaseBlock::translate_x86()'],['../class_constant.html#a7308dce78679606aa72467fe63de5426',1,'Constant::translate_x86()'],['../class_global_var.html#a07c47abeb2f0c4c18f2abaf2aca26cff',1,'GlobalVar::translate_x86()'],['../class_function.html#afa24b0a4286dffad077c985708b97cbd',1,'Function::translate_x86()']]]
+  ['find_5fmain_598',['find_main',['../class_module.html#a852eeecfaa9f746d2c1044de9540ce27',1,'Module']]],
+  ['findnativefunction_599',['FindNativeFunction',['../_ast_to_i_r_8cpp.html#ab0f807f9268b49e36a18024c7390287e',1,'AstToIR.cpp']]],
+  ['findvalue_600',['FindValue',['../_builder_8cpp.html#aaa1746003c7dd497c30e3d3b141b1d90',1,'FindValue(Builder *buildog, int name_id):&#160;Builder.cpp'],['../_builder_8h.html#aaa1746003c7dd497c30e3d3b141b1d90',1,'FindValue(Builder *buildog, int name_id):&#160;Builder.cpp']]],
+  ['findvaluelabel_601',['FindValueLabel',['../_value_label_8cpp.html#a459b1753360c07958df08e6a89ce0d4d',1,'FindValueLabel(ValueNameTable *table, int name_id):&#160;ValueLabel.cpp'],['../_value_table_8h.html#a459b1753360c07958df08e6a89ce0d4d',1,'FindValueLabel(ValueNameTable *table, int name_id):&#160;ValueLabel.cpp']]],
+  ['flushheaders_602',['FlushHeaders',['../_elf_8cpp.html#a51cf8a1711f3ee313155e8ff884e78c0',1,'Elf.cpp']]],
+  ['flushsegmentdata_603',['FlushSegmentData',['../_elf_8cpp.html#ad2d1ff0fc7774c1297e4cda84c4b6ee1',1,'Elf.cpp']]],
+  ['flushsegmentsdata_604',['FlushSegmentsData',['../_elf_8cpp.html#a23cf1e3c31026812a50e6470220d1d3f',1,'Elf.cpp']]],
+  ['freeallocatablereg_605',['FreeAllocatableReg',['../_registers_usage_8cpp.html#a54b4da54363ec2e5e80553479057f05f',1,'RegistersUsage.cpp']]],
+  ['freenotallocatablereg_606',['FreeNotAllocatableReg',['../_registers_usage_8cpp.html#ab6d471e4c9c857ddd853f8881bd3db19',1,'RegistersUsage.cpp']]],
+  ['freereg_607',['FreeReg',['../_registers_usage_8cpp.html#acfcde587fcdb8ecdc22e3b2deea7eaa3',1,'FreeReg(int reg_number):&#160;RegistersUsage.cpp'],['../_registers_usage_8h.html#acfcde587fcdb8ecdc22e3b2deea7eaa3',1,'FreeReg(int reg_number):&#160;RegistersUsage.cpp']]],
+  ['function_608',['Function',['../class_function.html#a39634956036eaa935ce6d16e0de909ec',1,'Function']]]
 ];

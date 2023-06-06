@@ -1,3 +1,7 @@
+/*!
+\file
+\brief This file contains functions to write op_codes to ctx (and also print commend for Assembler file) 
+*/
 #pragma once
 
 #include "Instructions.h"
@@ -5,8 +9,32 @@
 
 const size_t VAR_SIZE = 8;
 
+/**
+ * @brief Wrapper for Call command
+ *  This wrapper sets storage field for Value and adds reference 
+ *  so resulting address wil be written in ResolveReference function.
+ * @param ctx 
+ * @param callee 
+ */
 void PUT_CALL  (Context* ctx, const Function* callee);
+
+/**
+ * @brief Wrapper for Call command
+ *  This wrapper sets storage field for Value and adds reference 
+ *  so resulting address wil be written in ResolveReference function.
+ * @param ctx 
+ * @param jump_dest 
+ */
 void PUT_JUMP  (Context* ctx, const BaseBlock* jump_dest);
+
+/**
+ * @brief Wrapper for Call command
+ *  This wrapper sets storage field for Value and adds reference 
+ *  so resulting address wil be written in ResolveReference function.
+ * @param ctx 
+ * @param jump_dest 
+ * @param reg_num 
+ */
 void PUT_CJUMP (Context* ctx, const BaseBlock* jump_dest, GPRegisterNumber reg_num);
 
 size_t PutSubRsp      (Context* ctx, size_t num,                                  const char* comment = NULL);

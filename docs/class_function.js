@@ -11,5 +11,9 @@ var class_function =
     [ "increase_n_local_vars", "class_function.html#ac04cd92d293f09e7b27a1cbf644d1a31", null ],
     [ "set_address", "class_function.html#ac1385c30b742829f88d5da77133e54dc", null ],
     [ "set_storage", "class_function.html#a4e01eeef439880175f203f92f223213e", null ],
-    [ "translate_x86", "class_function.html#afa24b0a4286dffad077c985708b97cbd", null ]
+    [ "translate_x86", "class_function.html#afa24b0a4286dffad077c985708b97cbd", null ],
+    [ "argv", "class_function.html#aea174128359dd39123c7b9878ae94f7b", null ],
+    [ "body", "class_function.html#a397c8752c83074c10c00502f097dddce", null ],
+    [ "n_local_vars", "class_function.html#aae1078a6b6fde83757ec6af9f0f9c11b", null ],
+    [ "ret_type", "class_function.html#a8f88fe66bd10390fdf126b23adfe2017", null ]
 ];

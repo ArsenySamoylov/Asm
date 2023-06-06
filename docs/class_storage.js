@@ -16,5 +16,10 @@ var class_storage =
     [ "set_storage_data", "class_storage.html#a4013000b1d16ce8a36f5c21170c8b1a6", null ],
     [ "set_storage_type", "class_storage.html#a7ea4bbbf207a2d9a0dcb1a0ba570f5d1", null ],
     [ "set_var_type", "class_storage.html#a4e753b01678f4d3523794870370ec089", null ],
-    [ "set_with_reg", "class_storage.html#a2badd5291fcf1f21d3182a5f4e73533f", null ]
+    [ "set_with_reg", "class_storage.html#a2badd5291fcf1f21d3182a5f4e73533f", null ],
+    [ "n_usage", "class_storage.html#ae1871cf772ec0a47848e1fa4c8b2523f", null ],
+    [ "owner_name", "class_storage.html#ad2a02dd3afb0dfcad9aec8e7937cae33", null ],
+    [ "storage_data", "class_storage.html#af0576a6d2e294836b665af521855efc7", null ],
+    [ "storage_type", "class_storage.html#a39e67d8d831642be207909643794a58b", null ],
+    [ "variable_type", "class_storage.html#a8d8c45ec6286d706f2a303f6d826256b", null ]
 ];

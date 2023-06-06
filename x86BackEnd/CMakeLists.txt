@@ -7,7 +7,7 @@ include_directories(src/IR src/IR/Value src/IR/Instructions src/IR/Module src/IR
                     src/Elf 
                     src/Legacy src/Legacy/include
 
-                    ATC/RandomStuff/ ATC/Logger ATC/Buffer ATC/ConsoleColors ATC/Utils ATC/Debug ATC/SuperStack ATC/my_safety
+                    src/Legacy/ATC/RandomStuff/ src/Legacy/ATC/Logger src/Legacy/ATC/Buffer src/Legacy/ATC/ConsoleColors src/Legacy/ATC/Utils src/Legacy/ATC/Debug src/Legacy/ATC/SuperStack src/Legacy/ATC/my_safety
                     src/Legacy/Common/ src/Legacy/Common/StandartAWP  src/Legacy/Common/Structures/ src/Legacy/Common/Structures/Program src/Legacy/Common/Structures/Token/ src/Legacy/Common/Structures/Tabels/ src/Legacy/Common/LexicalCtx src/Legacy/Common/Utils/)
 
 add_executable (x86Backend 
@@ -23,6 +23,6 @@ add_executable (x86Backend
 
                             src/Elf/Elf.cpp  src/Elf/Buffer.cpp
 
-                            ATC/Utils/Utils.cpp ATC/Buffer/my_buffer.cpp ATC/Logger/Logger.cpp ATC/Logger/tostring.cpp ATC/Logger/FunctionLogger.cpp ATC/SuperStack/SuperStack.cpp ATC/SuperStack/DebugFunctions.cpp ./ATC/my_safety/my_safety.cpp 
+                            src/Legacy/ATC/Utils/Utils.cpp src/Legacy/ATC/Buffer/my_buffer.cpp src/Legacy/ATC/Logger/Logger.cpp src/Legacy/ATC/Logger/tostring.cpp src/Legacy/ATC/Logger/FunctionLogger.cpp src/Legacy/ATC/SuperStack/SuperStack.cpp src/Legacy/ATC/SuperStack/DebugFunctions.cpp ./src/Legacy/ATC/my_safety/my_safety.cpp 
                             src/Legacy/AsmCtx.cpp src/Legacy/Common/StandartAWP/GetStd.cpp src/Legacy/Common/Structures/Program/Program.cpp src/Legacy/Common/Structures/Token/Token.cpp src/Legacy/Common/Structures/Tabels/NameTable.cpp src/Legacy/Common/Utils/GraphVis.cpp src/Legacy/Common/LexicalCtx/LexicalCtx.cpp src/Legacy/Common/Utils/LangUtils.cpp 
                             )

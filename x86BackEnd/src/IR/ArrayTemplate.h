@@ -1,3 +1,9 @@
+/*!
+\file
+\brief In a galaxy far far away, they didn't know what templates are...
+\todo make templates
+*/
+
 #pragma once
 
 const size_t START_ARR_SIZE = 16;

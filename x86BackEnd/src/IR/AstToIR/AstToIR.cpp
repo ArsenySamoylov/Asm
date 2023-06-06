@@ -12,7 +12,7 @@
 #include "CommonEnums.h"
 #include "EasyDebug.h"
 
-#include "Program.h" // for create string
+#include "Program.h" // for creating strings
 
 static Value* AstVisitor (Builder* buildog, const Token* token);
 
@@ -23,8 +23,10 @@ static Constant*  EmitConstant        (Builder* buildog, const Token* token);
 static Function*  EmitFunction        (Builder* buildog, const Token* token);
 static Call*      EmitCall            (Builder* buildog, const Token* token);
 static Value*     EmitNativeFunction  (Builder* buildog, const Token* token);
+/// @todo Rename to Initializer
 static Value*     EmitInitializator   (Builder* buildog, const Token* token);
 static Operator*  EmitOperator        (Builder* buildog, const Token* token);
+/// @todo Rename to Assignment
 static Value*     EmitAssigment       (Builder* buildog, const Token* token);
 static Return*    EmitReturn          (Builder* buildog, const Token* token);
 
@@ -321,7 +323,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         func_name = LEFT(token);
         assert(func_name);
         
-        // TODO make separate tables, to avoid cast
+        /// @todo make separate tables, to avoid cast
         func = (Function*) FindValue (buildog, NAME_ID(func_name));
         if (!func)
             {
@@ -336,9 +338,6 @@ static Call* EmitCall (Builder* buildog, const Token* token)
 
     name_t  call_name = CreateString ("%%c_%u", TEMP_VAR_NUMBER++);
     assert (call_name);
-
-    // PrintToken (func_name, GetStringPool());
-    // report ("%s, %d\n\n", GetString(NAME_ID(func_name)), NAME_ID(func_name));
 
     Call*   call = CreateCall (buildog, call_name, func);
     assert (call);
@@ -421,6 +420,7 @@ static Value* RearrangeFinTokens (Builder* buildog, const Token* token)
 
 //////////////////////////////////////////////////////
 // EmitInitializator
+/// @todo I will rename, I swear !!!
 //////////////////////////////////////////////////////
 static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token);
 static Store*     AddLocalVar     (Builder* buildog, const Token* token);
@@ -430,13 +430,11 @@ static Value* EmitInitializator (Builder* buildog, const Token* token) // add to
     assert(buildog);
     assert(token);
 
-    // report ("Init var %s\n", GetString (NAME_ID(LEFT(token))));
-
     // if Builder doesn't have current Function*, than it is GlobalVar,
     if (!buildog->current_function)
         return AddGlobalVar (buildog, token);
 
-    return AddLocalVar (buildog, token); // creating store 
+    return AddLocalVar (buildog, token); // create store 
     }
 
 static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
@@ -452,7 +450,6 @@ static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
     name_t  var_name = GetString(NAME_ID(var_name_token));
     assert (var_name);
 
-    // report ("Global var %s\n", var_name);
     GlobalVar* var = CreateGlobalVar (buildog, var_name, init_val);
     assert    (var);
 
@@ -493,7 +490,6 @@ static Store* AddLocalVar (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Operator
 //////////////////////////////////////////////////////
-
 static OperatorType GetOperatorType (int type);
 
 static Operator* EmitOperator (Builder* buildog, const Token* token)
@@ -532,7 +528,8 @@ static OperatorType GetOperatorType (int type)
     }
 
 //////////////////////////////////////////////////////
-// Assigment
+// Assigment 
+/// @todo I will rename, I swear !!!
 /////////////////////////////////////////////////////
 static Value* EmitAssigment (Builder* buildog, const Token* token)
     {
@@ -544,7 +541,6 @@ static Value* EmitAssigment (Builder* buildog, const Token* token)
 
     Load*   load = CreateLoad (buildog, NULL, dest, src);
     assert (load);
-    // printf ("Load %s\n", GetString (NAME_ID(LEFT(token))));
     
     return load;
     }

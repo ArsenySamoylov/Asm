@@ -1,9 +1,0 @@
-<map id="ATC/my_safety/my_safety.h" name="ATC/my_safety/my_safety.h">
-<area shape="rect" id="node1" title=" " alt="" coords="299,5,501,32"/>
-<area shape="rect" id="node2" href="$my__safety_8cpp.html" title=" " alt="" coords="173,80,390,107"/>
-<area shape="rect" id="node3" href="$_super_stack_8h.html" title=" " alt="" coords="414,80,626,107"/>
-<area shape="rect" id="node4" href="$_debug_functions_8cpp.html" title=" " alt="" coords="5,162,264,189"/>
-<area shape="rect" id="node5" href="$_super_stack_8cpp.html" title=" " alt="" coords="288,162,515,189"/>
-<area shape="rect" id="node6" href="$_super_stack_dump_8cpp.html" title=" " alt="" coords="539,155,739,196"/>
-<area shape="rect" id="node7" href="$_set_token_tree_8cpp.html" title=" " alt="" coords="763,162,970,189"/>
-</map>

@@ -2,7 +2,6 @@
 \file
 \brief This file contains declaration of Value class and its derived classes
         (only exception is Instruction; it declared in Instructions.h) 
-
 */
 #pragma once
 
@@ -24,7 +23,10 @@ enum class ValueType
 
 /*!
     \brief Abstract class for IR object.
-
+    @note Storage shows where Value stored during translation to x86 (for example on stack or in register)
+          and also hold some data (stack offset or reg number for example).
+          In translate_tox86 I work with const Value, which changes its storage.
+          That is why storage is mutable.  
 */
 class Value : public NoCopyable
     {
@@ -46,7 +48,7 @@ class Value : public NoCopyable
          * Print Value in human-readable format to file DUMP. 
          * PRINT_NEW_LINES regulates if printed Value generates extra new line chars
          */
-        virtual void      dump     () const = 0;  
+        virtual void dump () const = 0;  
 
         /**
          * @brief Get Value type
@@ -80,14 +82,14 @@ class Value : public NoCopyable
          * objects from their ValueArr<> members
          * @note for Constant this function only checks *storage_type*
          */
-        virtual void   set_storage () const = 0;
+        virtual void set_storage () const = 0;
 
         /**
-         * @brief Get the storage member 
+         * @brief Get the *storage* member 
          * 
          * @return Storage* 
          */
-        Storage*       get_storage () const;                
+        Storage* get_storage () const;                
     };
 
 //////////////////////////////////////////////////////

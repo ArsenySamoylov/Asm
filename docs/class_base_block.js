@@ -7,5 +7,6 @@ var class_base_block =
     [ "get_type", "class_base_block.html#ab680e5829bf197f7828b6261ac62e5f7", null ],
     [ "set_address", "class_base_block.html#af7028d741df123fdbaecf4bcd42cdd12", null ],
     [ "set_storage", "class_base_block.html#aaf4bb16294f85cab75262a9fc80ca83c", null ],
-    [ "translate_x86", "class_base_block.html#ace2f438ad119bd610183103a39131101", null ]
+    [ "translate_x86", "class_base_block.html#ace2f438ad119bd610183103a39131101", null ],
+    [ "inst_arr", "class_base_block.html#a7dfc76b50a5c2a4257e6a52d17043612", null ]
 ];

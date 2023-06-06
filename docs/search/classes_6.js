@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['globalvar_84',['GlobalVar',['../class_global_var.html',1,'']]]
+  ['load_477',['Load',['../class_load.html',1,'']]]
 ];

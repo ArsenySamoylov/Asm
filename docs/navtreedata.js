@@ -26,38 +26,47 @@ var NAVTREE =
 [
   [ "x86Backend", "index.html", [
     [ "Overview", "index.html", [
-      [ "Следующая итерация", "index.html#autotoc_md2", [
-        [ "Описание моего IR`a", "index.html#autotoc_md3", [
-          [ "Иерархии классов в IR`e", "index.html#autotoc_md4", null ],
-          [ "Module в IR`e", "index.html#autotoc_md5", null ]
+      [ "Следующая итерация", "index.html#autotoc_md1", [
+        [ "Описание моего IR`a", "index.html#autotoc_md2", [
+          [ "Иерархии классов в IR`e", "index.html#autotoc_md3", null ],
+          [ "Module в IR`e", "index.html#autotoc_md4", null ]
         ] ],
-        [ "Пример", "index.html#autotoc_md6", null ],
-        [ "Стандартная библиотека", "index.html#autotoc_md7", null ]
+        [ "Пример", "index.html#autotoc_md5", null ],
+        [ "Стандартная библиотека", "index.html#autotoc_md6", null ]
       ] ],
-      [ "Итог:", "index.html#autotoc_md8", null ]
+      [ "Итог:", "index.html#autotoc_md7", null ]
     ] ],
-    [ "SecondSemester finally over", "md__r_e_a_d_m_e.html", null ],
-    [ "README", "md_x86_back_end_src__r_e_a_d_m_e.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_a_t_c_2_graph_vis_2_g_v_config_8h_source.html",
-"dir_0de8cfeb06376eae222578d2a7ee0bf2.html"
+"_array_template_8h.html",
+"_instructions_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a1cfdf0e8d0c87a228c1f40d9bee7888b",
+"class_load.html#abfd708677c7c53382684a94e421d98d9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

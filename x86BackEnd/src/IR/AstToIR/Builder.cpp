@@ -19,7 +19,6 @@ int BuilderCtor (Builder* buildog, Module* mod)
     buildog->local = {};
 
     buildog->current_function = NULL;
-    // buildog->body_blocks      = NULL;
 
     buildog->mod = mod;
 
@@ -46,7 +45,6 @@ int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_la
     ValueNameTableCtor (&buildog->local); 
 
     buildog->current_function  = func; 
-    // buildog->body_blocks       = func->get_body();
     
     name_t entry_block_name = CreateString("entry_%s", func->get_name());
     assert (entry_block_name);
@@ -64,7 +62,6 @@ int ResetBuilderAfterFunction (Builder* buildog)
     ValueNameTableDtor(&buildog->local);
 
     buildog -> current_function = NULL;
-    // buildog -> body_blocks      = NULL;
 
     return 0;
     }
@@ -92,12 +89,6 @@ BaseBlock* GetCurrentBaseBlock (Builder* buildog)
         report("Error null size\n");
         return NULL;
         }
-
-    // printf ("Arr %p\n", blocks_arr);
-    // printf ("Arr size %ld\n\t", blocks_arr->size);
-    // for (size_t i = 0; i < blocks_arr->size + 2; i++)
-    //     printf ("arr[%lu] = %p ,", i, blocks_arr->arr [i]);
-    // printf("\n");
 
     return blocks_arr->get_value (blocks_arr->get_size() - 1);
     }
@@ -131,8 +122,6 @@ int AddInstruction (Builder* buildog, Instruction* instruction)
 
     BaseBlock* block = GetCurrentBaseBlock(buildog);
     assert(block);
-
-    // PRINT_VALUE(block);
 
     block->add_instr(instruction);
     return SUCCESS;
