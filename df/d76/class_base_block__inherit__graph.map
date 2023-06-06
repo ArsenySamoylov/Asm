@@ -1,0 +1,5 @@
+<map id="BaseBlock" name="BaseBlock">
+<area shape="rect" id="node1" title="Block of Instructions." alt="" coords="11,155,101,181"/>
+<area shape="rect" id="node2" href="$d4/d72/class_value.html" title="Abstract class for IR object." alt="" coords="27,80,85,107"/>
+<area shape="rect" id="node3" href="$df/d09/class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
+</map>

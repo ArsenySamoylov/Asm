@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['c_1639',['c',['../d2/dab/_token_types_8h.html#ae0323a9039add2978bf5b49550572c7c',1,'TokenTypes.h']]],
+  ['call_5frefs_1640',['call_refs',['../de/d66/struct_context.html#abcc236d4cb5195cbbfd8c7fa16d25de8',1,'Context']]],
+  ['capacity_1641',['capacity',['../d6/de4/struct_buffer.html#ad171af15d71eb35459abbac35f25fb43',1,'Buffer::capacity()'],['../db/d70/struct_string_pool.html#ad372629c0bcb0a6c9769b26745bdf99c',1,'StringPool::capacity()'],['../d2/d63/struct_value_name_table.html#afb517f5bc317d0a7d991860bcb37cdee',1,'ValueNameTable::capacity()'],['../dc/d41/struct_reference_arr.html#ab3179715a0890a71f9fdae9e2e20eebb',1,'ReferenceArr::capacity()'],['../dd/d36/class_value_arr.html#a7eb27e8fb19f50ddc0f1c4001e62e73d',1,'ValueArr::capacity()'],['../d9/d11/struct_super_stack.html#a1be5d038766e5d4add283c364a4ef4ed',1,'SuperStack::capacity()']]],
+  ['charpoison_1642',['CharPoison',['../d4/de4/_debug_functions_8h.html#a9e45335449ce47cbe76975955b312cc8',1,'DebugFunctions.h']]],
+  ['closing_5fcanary_1643',['closing_canary',['../d9/d11/struct_super_stack.html#aa19087e5a7060a2cf77e7697229fd7fd',1,'SuperStack']]],
+  ['code_1644',['code',['../de/d66/struct_context.html#adef3cd79d89b8c6e994432d14c691194',1,'Context']]],
+  ['code_5fbuf_1645',['code_buf',['../d7/d1e/struct_elf.html#a28754743c7f3f6e77b59aa8fd135d3dd',1,'Elf']]],
+  ['code_5fphdr_1646',['code_phdr',['../d7/da7/struct_elf_headers.html#a817cd0bfb14524ec4d24e7899af75f2e',1,'ElfHeaders']]],
+  ['code_5fvirtual_5faddress_1647',['CODE_VIRTUAL_ADDRESS',['../d0/d86/_elf_8hpp.html#a1c9f6cc19db10ef3255030fcd10972de',1,'Elf.hpp']]],
+  ['comment_1648',['COMMENT',['../d2/d06/_grammar_8h.html#a68314008c564db9a47fc9136a6eeec3e',1,'Grammar.h']]],
+  ['condition_1649',['condition',['../d7/d23/class_branch.html#a23ce807d9d5f37df421b8dad835a8f2e',1,'Branch']]],
+  ['const_5fpool_1650',['const_pool',['../dd/df9/class_module.html#af71b0b4cf32665e003c3bcf747f7457f',1,'Module']]],
+  ['constant_5fnumber_1651',['CONSTANT_NUMBER',['../dd/d36/_ast_to_i_r_8cpp.html#abf24dbbae650cb0c70b84a5464403a60',1,'AstToIR.cpp']]],
+  ['cringe_1652',['CRINGE',['../d9/d6f/_common_enums_8h.html#aa5c6a6a53df6efaa070253173d3d5b9d',1,'CommonEnums.h']]],
+  ['current_5ffunction_1653',['current_function',['../db/dd3/struct_builder.html#a40d6ce919167c521ac9dffc4ec7a82f8',1,'Builder']]],
+  ['current_5findent_1654',['current_indent',['../d2/d35/class_function_logger.html#aebb6600540a52e93aeb7f78a2de65ee6',1,'FunctionLogger']]]
+];
