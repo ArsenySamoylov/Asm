@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('da/da6/_value_arr_template_8h_source.h
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">size_t</span> new_size = capacity * <a class="code" href="../../d1/df7/_array_template_8h.html#a8d4b6acca3c177ae794cdae59530d67a">GROWTH_RATE</a>;                                          </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                                                            </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    Value_T** temp = (Value_T**) realloc (arr, new_size * <span class="keyword">sizeof</span>(temp[0]));    </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="../../dd/ded/_easy_debug_8h.html#acdcc5aaebf3f273c1762f24a6ece2e5e">assert</a>(temp);                                                                           </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    assert(temp);                                                                           </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                                                            </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    capacity = new_size;                                                               </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    arr      = temp;                                                                   </div>
@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('da/da6/_value_arr_template_8h_source.h
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Value_T&gt;</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../dd/d36/class_value_arr.html#a86a5eb8d56383c11f8e45e500eaf49b9">   79</a></span>&#160;Value_T* <a class="code" href="../../dd/d36/class_value_arr.html#a86a5eb8d56383c11f8e45e500eaf49b9">ValueArr&lt;Value_T&gt;::add</a> (Value_T* val)  </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {               </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../dd/ded/_easy_debug_8h.html#acdcc5aaebf3f273c1762f24a6ece2e5e">assert</a>(val);                                            </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    assert(val);                                            </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// PRINT_VALUE(val);                                        </span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// report (&quot;Arr %p, Val %p, ArrSize %lu\n&quot;, arr, val, arr-&gt;size);</span></div>
@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('da/da6/_value_arr_template_8h_source.h
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Value_T&gt;</div>
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../dd/d36/class_value_arr.html#a861b42c0481fb7509c9229e96241ec7e">   95</a></span>&#160;Value_T* <a class="code" href="../../dd/d36/class_value_arr.html#a861b42c0481fb7509c9229e96241ec7e">ValueArr&lt;Value_T&gt;::get_value</a> (<span class="keywordtype">size_t</span> index)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../dd/ded/_easy_debug_8h.html#acdcc5aaebf3f273c1762f24a6ece2e5e">assert</a> (index &lt; size);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    assert (index &lt; size);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> arr[index];</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('da/da6/_value_arr_template_8h_source.h
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Value_T&gt;</div>
 <div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../dd/d36/class_value_arr.html#a4a612af8d44f646fcbe5d676fbfc2148">  108</a></span>&#160;<span class="keyword">const</span> Value_T* <a class="code" href="../../dd/d36/class_value_arr.html#a4a612af8d44f646fcbe5d676fbfc2148">ValueArr&lt;Value_T&gt;::get_const_value</a> (<span class="keywordtype">size_t</span> index)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../dd/ded/_easy_debug_8h.html#acdcc5aaebf3f273c1762f24a6ece2e5e">assert</a> (index &lt; size);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    assert (index &lt; size);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> arr[index];</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
@@ -231,7 +231,6 @@ $(document).ready(function(){initNavTree('da/da6/_value_arr_template_8h_source.h
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">*/</span></div>
 <div class="ttc" id="a_array_template_8h_html_a8d4b6acca3c177ae794cdae59530d67a"><div class="ttname"><a href="../../d1/df7/_array_template_8h.html#a8d4b6acca3c177ae794cdae59530d67a">GROWTH_RATE</a></div><div class="ttdeci">const size_t GROWTH_RATE</div><div class="ttdef"><b>Definition:</b> ArrayTemplate.h:10</div></div>
 <div class="ttc" id="a_array_template_8h_html_ae7fbd7091ea3ae49d4eae8e7f8e859ec"><div class="ttname"><a href="../../d1/df7/_array_template_8h.html#ae7fbd7091ea3ae49d4eae8e7f8e859ec">START_ARR_SIZE</a></div><div class="ttdeci">const size_t START_ARR_SIZE</div><div class="ttdef"><b>Definition:</b> ArrayTemplate.h:9</div></div>
-<div class="ttc" id="a_easy_debug_8h_html_acdcc5aaebf3f273c1762f24a6ece2e5e"><div class="ttname"><a href="../../dd/ded/_easy_debug_8h.html#acdcc5aaebf3f273c1762f24a6ece2e5e">assert</a></div><div class="ttdeci">#define assert(condition)</div><div class="ttdef"><b>Definition:</b> EasyDebug.h:15</div></div>
 <div class="ttc" id="aclass_value_arr_html"><div class="ttname"><a href="../../dd/d36/class_value_arr.html">ValueArr</a></div><div class="ttdoc">Template class to store array of Values.</div><div class="ttdef"><b>Definition:</b> ValueArrTemplate.h:16</div></div>
 <div class="ttc" id="aclass_value_arr_html_a15b1423c88b76fe9c74493e0bfb62dae"><div class="ttname"><a href="../../dd/d36/class_value_arr.html#a15b1423c88b76fe9c74493e0bfb62dae">ValueArr::ValueArr</a></div><div class="ttdeci">ValueArr()</div><div class="ttdef"><b>Definition:</b> ValueArrTemplate.h:40</div></div>
 <div class="ttc" id="aclass_value_arr_html_a3894851f8e5d7df4d6d1b9ebb6ddc94a"><div class="ttname"><a href="../../dd/d36/class_value_arr.html#a3894851f8e5d7df4d6d1b9ebb6ddc94a">ValueArr::~ValueArr</a></div><div class="ttdeci">~ValueArr()</div><div class="ttdef"><b>Definition:</b> ValueArrTemplate.h:49</div></div>

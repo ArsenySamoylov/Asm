@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['offset_1766',['offset',['../dd/d2a/struct_storage_data.html#a96cfdb3d0cb8014d47ae10505298c638',1,'StorageData']]],
-  ['old_5fattr_1767',['old_attr',['../d2/dcd/class_restore_old_attr.html#ac439617e46c67ab6c9f4e08129b52ebd',1,'RestoreOldAttr']]],
-  ['old_5flevel_1768',['old_level',['../d2/d35/class_function_logger.html#a79e3cf6f62f7e69e67c9820fac3d09af',1,'FunctionLogger']]],
-  ['op_5fcode_5fnumber_1769',['op_code_number',['../de/d24/struct_reg.html#a29fc6b772451aea2e22c95563a8b4e02',1,'Reg']]],
-  ['op_5ftype_1770',['op_type',['../df/d6e/struct_operator.html#ab4b2821774d38b3a77f971a2e8d46035',1,'Operator']]],
-  ['opening_5fcanary_1771',['opening_canary',['../d9/d11/struct_super_stack.html#a175504cce4cb9231018893f1c30edd56',1,'SuperStack']]],
-  ['operators_1772',['OPERATORS',['../d2/d06/_grammar_8h.html#a514566429a3e783273c7dc370bd4ea35',1,'Grammar.h']]],
-  ['owner_5fname_1773',['owner_name',['../da/d56/class_storage.html#ad2a02dd3afb0dfcad9aec8e7937cae33',1,'Storage']]]
+  ['phdr_5ftable_5foffset_812',['PHDR_TABLE_OFFSET',['../d0/d86/_elf_8hpp.html#ac203e1c8b3d8d3d09a89627fb52a6f38',1,'Elf.hpp']]],
+  ['position_813',['position',['../d4/daa/struct_reference.html#a4711f7a303056ab34486420cc331a69b',1,'Reference']]],
+  ['precision_814',['PRECISION',['../d3/d68/_value_8h.html#ac96357b1d5d7d9565e41d8fab5a07a60',1,'Value.h']]],
+  ['print_5fnew_5flines_815',['PRINT_NEW_LINES',['../d3/dc4/_dump_i_r_8cpp.html#aedeb1da496a3c28ed829f4d20a0ab8ed',1,'DumpIR.cpp']]],
+  ['program_5fbuf_816',['program_buf',['../d7/d1e/struct_elf.html#af6c2d9508f71b9346673b9eec7728145',1,'Elf']]],
+  ['pushedregs_817',['PushedRegs',['../da/d63/_translate_i_r_tox86_8cpp.html#a97a598f31292581c4101bdc327b68de6',1,'TranslateIRTox86.cpp']]]
 ];

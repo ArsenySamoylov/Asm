@@ -158,10 +158,10 @@ Variables</h2></td></tr>
 <div class="line">        struct_name##<a class="code" href="../../df/d6f/_string_pool_8cpp.html#a1d3712629742a4b81b3696ed85a13616">Resize</a> (arr);                          \</div>
 <div class="line">                                                            \</div>
 <div class="line">    arr-&gt;arr[arr-&gt;size++] = val;                            \</div>
-<div class="line">    return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a>;                                         \</div>
+<div class="line">    return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;                                         \</div>
 <div class="line">    }</div>
+<div class="ttc" id="a_buffer_8cpp_html_aa90cac659d18e8ef6294c7ae337f6b58"><div class="ttname"><a href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a></div><div class="ttdeci">#define SUCCESS</div><div class="ttdef"><b>Definition:</b> Buffer.cpp:8</div></div>
 <div class="ttc" id="a_commands_8cpp_html_aa092615f270e898ff188012133fd558aa0d592a4b562059bc283e00b3704865c9"><div class="ttname"><a href="../../d5/d91/_commands_8cpp.html#aa092615f270e898ff188012133fd558aa0d592a4b562059bc283e00b3704865c9">Add</a></div><div class="ttdeci">@ Add</div><div class="ttdef"><b>Definition:</b> Commands.cpp:16</div></div>
-<div class="ttc" id="a_common_enums_8h_html_adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8"><div class="ttname"><a href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdef"><b>Definition:</b> CommonEnums.h:7</div></div>
 <div class="ttc" id="a_string_pool_8cpp_html_a1d3712629742a4b81b3696ed85a13616"><div class="ttname"><a href="../../df/d6f/_string_pool_8cpp.html#a1d3712629742a4b81b3696ed85a13616">Resize</a></div><div class="ttdeci">static int Resize()</div><div class="ttdef"><b>Definition:</b> StringPool.cpp:57</div></div>
 </div><!-- fragment -->
 </div>
@@ -235,7 +235,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> struct_name##<a class="code" href="../../d0/d19/_binary_tree_8h.html#a398ed8d86fefccabbf2b042f82cbd97f">Ctor</a> (struct_name* arr)                                      \</div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> struct_name##Ctor (struct_name* arr)                                      \</div>
 <div class="line">    {                                                                         \</div>
 <div class="line">    assert(arr);                                                              \</div>
 <div class="line">                                                                              \</div>
@@ -245,10 +245,9 @@ Variables</h2></td></tr>
 <div class="line">    arr-&gt;size     = 0;                                                        \</div>
 <div class="line">    arr-&gt;capacity = <a class="code" href="../../d1/df7/_array_template_8h.html#ae7fbd7091ea3ae49d4eae8e7f8e859ec">START_ARR_SIZE</a>;                                           \</div>
 <div class="line">                                                                              \</div>
-<div class="line">    return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a>;                                                           \</div>
+<div class="line">    return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;                                                           \</div>
 <div class="line">    }</div>
 <div class="ttc" id="a_array_template_8h_html_ae7fbd7091ea3ae49d4eae8e7f8e859ec"><div class="ttname"><a href="../../d1/df7/_array_template_8h.html#ae7fbd7091ea3ae49d4eae8e7f8e859ec">START_ARR_SIZE</a></div><div class="ttdeci">const size_t START_ARR_SIZE</div><div class="ttdef"><b>Definition:</b> ArrayTemplate.h:9</div></div>
-<div class="ttc" id="a_binary_tree_8h_html_a398ed8d86fefccabbf2b042f82cbd97f"><div class="ttname"><a href="../../d0/d19/_binary_tree_8h.html#a398ed8d86fefccabbf2b042f82cbd97f">Ctor</a></div><div class="ttdeci">int Ctor(BinaryTree *tree)</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -277,18 +276,18 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> struct_name##<a class="code" href="../../d0/d19/_binary_tree_8h.html#aa96b930c88db2dbdd34aefa139dec33f">Dtor</a> (struct_name* arr)                        \</div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> struct_name##Dtor (struct_name* arr)                        \</div>
 <div class="line">    {                                                           \</div>
 <div class="line">    assert(arr);                                                \</div>
 <div class="line">                                                                \</div>
 <div class="line">    if (arr-&gt;capacity == 0)                                     \</div>
 <div class="line">        {                                                       \</div>
 <div class="line">        report (<span class="stringliteral">&quot;Capacity can&#39;t be 0 in Dtor\n&quot;</span>);               \</div>
-<div class="line">        return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8aa5571864412c8275a2e18a931fddcaa6">FAILURE</a>;                                         \</div>
+<div class="line">        return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#a6d58f9ac447476b4e084d7ca383f5183">FAILURE</a>;                                         \</div>
 <div class="line">        }                                                       \</div>
 <div class="line">                                                                \</div>
-<div class="line">    for (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> = 0; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> &lt; arr-&gt;size; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>++)                      \</div>
-<div class="line">        free(arr-&gt;arr[<a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>]);                                      \</div>
+<div class="line">    for (<span class="keywordtype">size_t</span> i = 0; i &lt; arr-&gt;size; i++)                      \</div>
+<div class="line">        free(arr-&gt;arr[i]);                                      \</div>
 <div class="line">                                                                \</div>
 <div class="line">    free (arr-&gt;arr);                                            \</div>
 <div class="line">                                                                \</div>
@@ -296,11 +295,9 @@ Variables</h2></td></tr>
 <div class="line">    arr-&gt;size     = 0;                                          \</div>
 <div class="line">    arr-&gt;arr      = NULL;                                       \</div>
 <div class="line">                                                                \</div>
-<div class="line">    return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a>;                                             \</div>
+<div class="line">    return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;                                             \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a_binary_tree_8h_html_aa96b930c88db2dbdd34aefa139dec33f"><div class="ttname"><a href="../../d0/d19/_binary_tree_8h.html#aa96b930c88db2dbdd34aefa139dec33f">Dtor</a></div><div class="ttdeci">int Dtor(BinaryTree *tree)</div></div>
-<div class="ttc" id="a_common_enums_8h_html_adfc1795d469a23b7969613dc549ae2a8aa5571864412c8275a2e18a931fddcaa6"><div class="ttname"><a href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8aa5571864412c8275a2e18a931fddcaa6">FAILURE</a></div><div class="ttdeci">@ FAILURE</div><div class="ttdef"><b>Definition:</b> CommonEnums.h:8</div></div>
-<div class="ttc" id="a_easy_debug_8h_html_abfb2cff4be36d6eb32baaff3aa061afc"><div class="ttname"><a href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a></div><div class="ttdeci">#define i(int_var)</div><div class="ttdef"><b>Definition:</b> EasyDebug.h:6</div></div>
+<div class="ttc" id="a_buffer_8cpp_html_a6d58f9ac447476b4e084d7ca383f5183"><div class="ttname"><a href="../../dc/dcf/_buffer_8cpp.html#a6d58f9ac447476b4e084d7ca383f5183">FAILURE</a></div><div class="ttdeci">#define FAILURE</div><div class="ttdef"><b>Definition:</b> Buffer.cpp:9</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -341,7 +338,7 @@ Variables</h2></td></tr>
 <div class="line">    arr-&gt;capacity = new_size;                                                               \</div>
 <div class="line">    arr-&gt;arr      = temp;                                                                   \</div>
 <div class="line">                                                                                            \</div>
-<div class="line">    return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a>;                                                                         \</div>
+<div class="line">    return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;                                                                         \</div>
 <div class="line">    }</div>
 <div class="ttc" id="a_array_template_8h_html_a8d4b6acca3c177ae794cdae59530d67a"><div class="ttname"><a href="../../d1/df7/_array_template_8h.html#a8d4b6acca3c177ae794cdae59530d67a">GROWTH_RATE</a></div><div class="ttdeci">const size_t GROWTH_RATE</div><div class="ttdef"><b>Definition:</b> ArrayTemplate.h:10</div></div>
 </div><!-- fragment -->
@@ -383,10 +380,10 @@ Variables</h2></td></tr>
 <div class="line">    assert(arr);                                                         \</div>
 <div class="line">    assert(find);                                                        \</div>
 <div class="line">                                                                         \</div>
-<div class="line">    for (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> = 0; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> &lt; arr-&gt;size; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>++)                               \</div>
+<div class="line">    for (<span class="keywordtype">size_t</span> i = 0; i &lt; arr-&gt;size; i++)                               \</div>
 <div class="line">        {                                                                \</div>
-<div class="line">        if (cmp_function(find, arr-&gt;arr[<a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>]))                             \</div>
-<div class="line">            return arr-&gt;arr + <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>;                                         \</div>
+<div class="line">        if (cmp_function(find, arr-&gt;arr[i]))                             \</div>
+<div class="line">            return arr-&gt;arr + i;                                         \</div>
 <div class="line">        }                                                                \</div>
 <div class="line">                                                                         \</div>
 <div class="line">    return NULL;                                                         \</div>
@@ -413,11 +410,11 @@ Variables</h2></td></tr>
 <div class="line">    {                                           \</div>
 <div class="line">    assert (arr);                               \</div>
 <div class="line">                                                \</div>
-<div class="line">    for (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> = 0; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a> &lt; arr-&gt;size; <a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>++)      \</div>
-<div class="line">        free (arr-&gt;arr[<a class="code" href="../../dd/ded/_easy_debug_8h.html#abfb2cff4be36d6eb32baaff3aa061afc">i</a>]);                     \</div>
+<div class="line">    for (<span class="keywordtype">size_t</span> i = 0; i &lt; arr-&gt;size; i++)      \</div>
+<div class="line">        free (arr-&gt;arr[i]);                     \</div>
 <div class="line">                                                \</div>
 <div class="line">    arr-&gt;size = 0   ;                           \</div>
-<div class="line">    return <a class="code" href="../../d9/d6f/_common_enums_8h.html#adfc1795d469a23b7969613dc549ae2a8ac7f69f7c9e5aea9b8f54cf02870e2bf8">SUCCESS</a>;                             \</div>
+<div class="line">    return <a class="code" href="../../dc/dcf/_buffer_8cpp.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;                             \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>

@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['_5fcanary_5fsize_5f_1617',['_CANARY_SIZE_',['../d8/d31/my__safety_8h.html#a9c6c8f8bdc871f27cb7fce0c99eee03e',1,'my_safety.h']]],
-  ['_5fclosing_5fcanary_5f_1618',['_CLOSING_CANARY_',['../d8/d31/my__safety_8h.html#aa62fb03b365cb9c2d38c717215fcedce',1,'my_safety.h']]],
-  ['_5felement_5ft_5fsize_5f_1619',['_ELEMENT_T_SIZE_',['../d7/d9e/_super_stack_8h.html#aa2f9c46808c1263b83eb813541498b6a',1,'SuperStack.h']]],
-  ['_5fheap_5fgrowth_5frate_5f_1620',['_HEAP_GROWTH_RATE_',['../da/d2d/_super_stack_8cpp.html#a2cf894fddfd5c52700d15a9bb750c317',1,'SuperStack.cpp']]],
-  ['_5fheap_5fmin_5fcapacity_5f_1621',['_HEAP_MIN_CAPACITY_',['../d7/d9e/_super_stack_8h.html#a7ac9958f94d3f9c9278222a430707b3f',1,'SuperStack.h']]],
-  ['_5fheap_5freduction_5frate_5f_1622',['_HEAP_REDUCTION_RATE_',['../da/d2d/_super_stack_8cpp.html#a01b6f264ce90bb4e01bed61abf68432f',1,'SuperStack.cpp']]],
-  ['_5fopening_5fcanary_5f_1623',['_OPENING_CANARY_',['../d8/d31/my__safety_8h.html#ab78ace9fa683e6bc050699263610fe0e',1,'my_safety.h']]]
+  ['address_748',['address',['../dd/d2a/struct_storage_data.html#a38e04ba0f3fb303c0996a61bc319ae07',1,'StorageData::address()'],['../d4/daa/struct_reference.html#a16aa8afb93647dfa312af3e3140ccb9b',1,'Reference::address()']]],
+  ['allocation_5fstatus_749',['allocation_status',['../de/d24/struct_reg.html#a1efcb5655980b7c8146af8ceb6c9ce87',1,'Reg']]],
+  ['argv_750',['argv',['../d7/ded/class_call.html#aef8ebb78133583215bc5b571709d46cf',1,'Call::argv()'],['../d7/d29/class_function.html#aea174128359dd39123c7b9878ae94f7b',1,'Function::argv()']]],
+  ['arr_751',['arr',['../d2/d63/struct_value_name_table.html#a14e9682c5bd841c97fe4de589db6db0e',1,'ValueNameTable::arr()'],['../dc/d41/struct_reference_arr.html#a941a0e6948517cdaa0b404148155e7de',1,'ReferenceArr::arr()'],['../dd/d36/class_value_arr.html#ae7fc515a490c4025a65351cb402fa03a',1,'ValueArr::arr()']]],
+  ['assembler_5fdump_5ffile_752',['ASSEMBLER_DUMP_FILE',['../df/d0a/main_8cpp.html#a5474498c05858402716a89df8b4d7dcb',1,'main.cpp']]]
 ];
