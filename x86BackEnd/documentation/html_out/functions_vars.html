@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">x86Backend
    </div>
-   <div id="projectbrief">Backend for x86 for my simple programming language</div>
+   <div id="projectbrief">for my simple programming language</div>
   </td>
  </tr>
  </tbody>
@@ -92,14 +93,23 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>allocation_status
 : <a class="el" href="de/d24/struct_reg.html#a1efcb5655980b7c8146af8ceb6c9ce87">Reg</a>
 </li>
+<li>allow_recalloc
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#ad8a6939746a0a8485eec663ffbe6e2eb">LexicalCtx</a>
+</li>
 <li>argv
 : <a class="el" href="d7/ded/class_call.html#aef8ebb78133583215bc5b571709d46cf">Call</a>
 , <a class="el" href="d7/d29/class_function.html#aea174128359dd39123c7b9878ae94f7b">Function</a>
 </li>
 <li>arr
-: <a class="el" href="dc/d41/struct_reference_arr.html#a941a0e6948517cdaa0b404148155e7de">ReferenceArr</a>
+: <a class="el" href="d8/dd1/struct_name_table_arr.html#a158ec0e922e8f29fa2d9bbc84f07c99b">NameTableArr</a>
+, <a class="el" href="dc/d41/struct_reference_arr.html#a941a0e6948517cdaa0b404148155e7de">ReferenceArr</a>
 , <a class="el" href="dd/d36/class_value_arr.html#ae7fc515a490c4025a65351cb402fa03a">ValueArr&lt; Value_T &gt;</a>
 , <a class="el" href="d2/d63/struct_value_name_table.html#a14e9682c5bd841c97fe4de589db6db0e">ValueNameTable</a>
+</li>
+<li>arr_size
+: <a class="el" href="d5/dd4/struct_func_tabel.html#a85c170b8cc4face95ad4476c8276e5df">FuncTabel</a>
+, <a class="el" href="d8/d71/struct_name_table.html#a9d9b052f12717d4ca368c93a4ee9bdb5">NameTable</a>
+, <a class="el" href="d6/d4b/struct_var_tabel.html#a5afdf649be2e854f676760203c674466">VarTabel</a>
 </li>
 </ul>
 
@@ -111,8 +121,15 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>body
 : <a class="el" href="d7/d29/class_function.html#a397c8752c83074c10c00502f097dddce">Function</a>
 </li>
+<li>body_status
+: <a class="el" href="da/d32/struct_func_label.html#a0687d91ddd46e582dd68a45cf4b8a88a">FuncLabel</a>
+</li>
+<li>buf
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#a025d1198633fbe9a720f7f09cfbe2096">LexicalCtx</a>
+</li>
 <li>buffer
 : <a class="el" href="d6/de4/struct_buffer.html#a5ba6322cceef1daf1159fecaea83a379">Buffer</a>
+, <a class="el" href="d0/dca/struct_data_base.html#a3d6465ff9f327b02c7ffa89ad2865acd">DataBase</a>
 </li>
 </ul>
 
@@ -125,8 +142,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="d6/de4/struct_buffer.html#ad171af15d71eb35459abbac35f25fb43">Buffer</a>
 , <a class="el" href="dc/d41/struct_reference_arr.html#ab3179715a0890a71f9fdae9e2e20eebb">ReferenceArr</a>
 , <a class="el" href="db/d70/struct_string_pool.html#ad372629c0bcb0a6c9769b26745bdf99c">StringPool</a>
+, <a class="el" href="d9/d11/struct_super_stack.html#a1be5d038766e5d4add283c364a4ef4ed">SuperStack</a>
 , <a class="el" href="dd/d36/class_value_arr.html#a7eb27e8fb19f50ddc0f1c4001e62e73d">ValueArr&lt; Value_T &gt;</a>
 , <a class="el" href="d2/d63/struct_value_name_table.html#afb517f5bc317d0a7d991860bcb37cdee">ValueNameTable</a>
+</li>
+<li>closing_canary
+: <a class="el" href="d9/d11/struct_super_stack.html#aa19087e5a7060a2cf77e7697229fd7fd">SuperStack</a>
 </li>
 <li>code
 : <a class="el" href="de/d66/struct_context.html#adef3cd79d89b8c6e994432d14c691194">Context</a>
@@ -146,13 +167,20 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>current_function
 : <a class="el" href="db/dd3/struct_builder.html#a40d6ce919167c521ac9dffc4ec7a82f8">Builder</a>
 </li>
+<li>current_indent
+: <a class="el" href="d2/d35/class_function_logger.html#aebb6600540a52e93aeb7f78a2de65ee6">FunctionLogger</a>
+</li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>data
 : <a class="el" href="de/d66/struct_context.html#a71fde09a232cc9fde5e3efa0a274c826">Context</a>
+, <a class="el" href="db/d8b/struct_node.html#a8e9299bdf25bdbcbd9057603f1eed290">Node</a>
 , <a class="el" href="dd/d2a/struct_storage_data.html#a6d06481c30d9e915049e8ca8e6f05953">StorageData</a>
+</li>
+<li>data_tree
+: <a class="el" href="d0/dca/struct_data_base.html#a1d1b8a3a10391be771b064bd5036b748">DataBase</a>
 </li>
 <li>dest
 : <a class="el" href="df/d07/class_load.html#a84343028a947e1893ef3aac6cdffa8c6">Load</a>
@@ -174,8 +202,15 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>false_block
 : <a class="el" href="d7/d23/class_branch.html#a3c4cbf8d4c9fc0f90a700ed08d7596e3">Branch</a>
 </li>
+<li>first_child
+: <a class="el" href="db/d8b/struct_node.html#a4fbc48c42e41357a384014c3940d5c27">Node</a>
+</li>
 <li>function
 : <a class="el" href="d7/ded/class_call.html#acdb59436a393ff891c0dcc6a895ee75e">Call</a>
+, <a class="el" href="d4/dab/struct_native_function_struct.html#ada1c4a5993b2ae8d8cea80a240b9acdf">NativeFunctionStruct</a>
+</li>
+<li>function_name
+: <a class="el" href="d2/d35/class_function_logger.html#a6d1a9027ba3c7c318a395fe2a8c12613">FunctionLogger</a>
 </li>
 <li>functions
 : <a class="el" href="dd/df9/class_module.html#a45522d56ada60fe7653b29bb2c43ebdd">Module</a>
@@ -187,23 +222,47 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>global
 : <a class="el" href="db/dd3/struct_builder.html#a40cfeeb8e4c2363c06b7a039dcc5180b">Builder</a>
 </li>
+<li>global_initialization
+: <a class="el" href="d9/d98/struct_label.html#a88a172f9222204bcb70d9f55b497e436">Label</a>
+</li>
 <li>global_vars
-: <a class="el" href="dd/df9/class_module.html#a6d7640f9286ed875b5239d5d6a1e48d3">Module</a>
+: <a class="el" href="de/d51/struct_asm_ctx.html#a4eadf230c3f397b85825d6e1bea141fc">AsmCtx</a>
+, <a class="el" href="dd/df9/class_module.html#a6d7640f9286ed875b5239d5d6a1e48d3">Module</a>
 </li>
 <li>GROWTH_RATE
 : <a class="el" href="dd/d36/class_value_arr.html#a88aa3f22bbc7ef4d1a88313367dca8a4">ValueArr&lt; Value_T &gt;</a>
+</li>
+<li>guard_level
+: <a class="el" href="d2/d35/class_function_logger.html#ac24c3fb5503a701457ebd13ba270d9f7">FunctionLogger</a>
 </li>
 </ul>
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>hash
+: <a class="el" href="d9/d11/struct_super_stack.html#aaeee96a9e492412fcc785c396c045677">SuperStack</a>
+</li>
 <li>headers
 : <a class="el" href="d7/d1e/struct_elf.html#a6fdc3aa4eca13c43994ee59df39e1613">Elf</a>
+</li>
+<li>heap
+: <a class="el" href="d9/d11/struct_super_stack.html#a8ec799a3364fb4042ec46fc7c63988a4">SuperStack</a>
+</li>
+<li>heapHash
+: <a class="el" href="d9/d11/struct_super_stack.html#ad57101f179a9fbc510cebaaeb2cf62ac">SuperStack</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
+<li>indent
+: <a class="el" href="d6/de4/struct_buffer.html#ab2bff60cc85bd1cb4614098f04073cfe">Buffer</a>
+, <a class="el" href="d3/d42/class_logger.html#a24e1e89b363f911959270ecd2ef5726d">Logger</a>
+, <a class="el" href="d9/d27/struct_token.html#a918e412654a0097958496a19416129bc">Token</a>
+</li>
+<li>init_inf
+: <a class="el" href="d9/d11/struct_super_stack.html#a14c70e5953efbaef6ae52d92ec6d76e4">SuperStack</a>
+</li>
 <li>init_val
 : <a class="el" href="db/dcd/class_global_var.html#a2fb443a28486d71e0b4094eba609ce77">GlobalVar</a>
 </li>
@@ -221,11 +280,31 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>label_arr
+: <a class="el" href="d5/dd4/struct_func_tabel.html#a719c9ff1a975c1648e2dc55803ddd8c7">FuncTabel</a>
+, <a class="el" href="d8/d71/struct_name_table.html#ab653d74876f3b83f6815aa411860ca6f">NameTable</a>
+, <a class="el" href="d6/d4b/struct_var_tabel.html#ad68a0bd0e084f48eb03f3b4a669dd567">VarTabel</a>
+</li>
+<li>left_child
+: <a class="el" href="d9/d27/struct_token.html#a7894229ac04f44070cffc6ae00b6480b">Token</a>
+</li>
 <li>left_op
 : <a class="el" href="df/d6e/struct_operator.html#aa4d7a66d96350b2dc6fbf0fed4614ffb">Operator</a>
 </li>
+<li>level
+: <a class="el" href="d3/d42/class_logger.html#a9e68e0b3d0746dba30b92affe912890a">Logger</a>
+</li>
+<li>line
+: <a class="el" href="d9/d27/struct_token.html#a4b96c2a31d7c374fd2bd1986794f80dd">Token</a>
+</li>
 <li>local
 : <a class="el" href="db/dd3/struct_builder.html#a44593361f94d7d9d96e095bedeb3ae93">Builder</a>
+</li>
+<li>local_type
+: <a class="el" href="d9/d98/struct_label.html#a91de3552b8b0abaa4e8996f7154833e7">Label</a>
+</li>
+<li>logname
+: <a class="el" href="d3/d42/class_logger.html#a975d3c274c0c07ab125fdeb5668e6c26">Logger</a>
 </li>
 </ul>
 
@@ -233,6 +312,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>mod
 : <a class="el" href="db/dd3/struct_builder.html#a2ee6666258bf2fcd9ec6c47d50570dd1">Builder</a>
+</li>
+<li>my_log
+: <a class="el" href="d3/d42/class_logger.html#a178bc7d1dea36bad50998658ce91350d">Logger</a>
 </li>
 </ul>
 
@@ -248,13 +330,57 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="da/d56/class_storage.html#ae1871cf772ec0a47848e1fa4c8b2523f">Storage</a>
 </li>
 <li>name
-: <a class="el" href="d4/d72/class_value.html#a62d78645b07ba16cce8dbaec863b13ab">Value</a>
+: <a class="el" href="da/d32/struct_func_label.html#a4055a85484a7b58b344702b63c50861a">FuncLabel</a>
+, <a class="el" href="d4/d72/class_value.html#a62d78645b07ba16cce8dbaec863b13ab">Value</a>
 </li>
 <li>name_id
-: <a class="el" href="d0/d6b/struct_value_label.html#a133839981bcf41842a874d46d270e223">ValueLabel</a>
+: <a class="el" href="d9/d98/struct_label.html#ab8ada0356e4e1b551ad547ae9f269893">Label</a>
+, <a class="el" href="d0/d6b/struct_value_label.html#a133839981bcf41842a874d46d270e223">ValueLabel</a>
+, <a class="el" href="d9/d25/struct_var_label.html#a377c639ece92254314ece66f98eee8ad">VarLabel</a>
+</li>
+<li>name_table_arr
+: <a class="el" href="d3/dc2/struct_program.html#aa0953ce5bdaeba86d8f25787b01c3fb9">Program</a>
 </li>
 <li>number
 : <a class="el" href="de/d24/struct_reg.html#acfc646d49466bf67813bf629f704ccc5">Reg</a>
+</li>
+<li>number_of_global_vars
+: <a class="el" href="de/d51/struct_asm_ctx.html#a9d545a382de7b1bc1cba09b4c1a56a46">AsmCtx</a>
+, <a class="el" href="d3/dc2/struct_program.html#a76402838271f0fa99fff5e86d9e8ff4c">Program</a>
+</li>
+<li>number_of_labels
+: <a class="el" href="d5/dd4/struct_func_tabel.html#a905ed0339a8ec86b61b1bfc3c92b9bb7">FuncTabel</a>
+, <a class="el" href="d8/d71/struct_name_table.html#a517a508b39879440cccad6d92fb81597">NameTable</a>
+, <a class="el" href="d6/d4b/struct_var_tabel.html#a05fa0141b3e4b93641cd8312b99ba5fb">VarTabel</a>
+</li>
+<li>number_of_lines
+: <a class="el" href="d6/de4/struct_buffer.html#aa19ac91355d18c92f1433bfdb107c3ff">Buffer</a>
+</li>
+<li>number_of_local_variables
+: <a class="el" href="da/d32/struct_func_label.html#af4c302d52c98ee6d4a4b9a5d498b1c2c">FuncLabel</a>
+</li>
+<li>number_of_parametres
+: <a class="el" href="d4/dab/struct_native_function_struct.html#a6cee53e4837fb13b91c106d1c77c692d">NativeFunctionStruct</a>
+</li>
+<li>number_of_parametrs
+: <a class="el" href="da/d32/struct_func_label.html#ae1c818d680e01912686ddc4117a308a8">FuncLabel</a>
+</li>
+<li>number_of_return
+: <a class="el" href="da/d32/struct_func_label.html#a76646bc9788df412329be6af3c1e4819">FuncLabel</a>
+</li>
+<li>number_of_strings
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#a1094d04c952d6917842a74b2e4409346">LexicalCtx</a>
+, <a class="el" href="d3/dc2/struct_program.html#ada11961604445f9d96fcb35990799f4e">Program</a>
+</li>
+<li>number_of_tables
+: <a class="el" href="d8/dd1/struct_name_table_arr.html#a7e45c4fa77b71a1e2d64ef7ec5b89b5c">NameTableArr</a>
+</li>
+<li>number_of_tokens
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#ae2e1b2a0a1a594167c0cf4e7d6782587">LexicalCtx</a>
+, <a class="el" href="d3/dc2/struct_program.html#a48c8ab59010c14f3452d68c0c26de7f0">Program</a>
+</li>
+<li>number_of_vars
+: <a class="el" href="d9/d98/struct_label.html#a6f0508f3956aa31fd23e8e081b0dfa29">Label</a>
 </li>
 </ul>
 
@@ -263,11 +389,20 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>offset
 : <a class="el" href="dd/d2a/struct_storage_data.html#a96cfdb3d0cb8014d47ae10505298c638">StorageData</a>
 </li>
+<li>old_attr
+: <a class="el" href="d2/dcd/class_restore_old_attr.html#ac439617e46c67ab6c9f4e08129b52ebd">RestoreOldAttr</a>
+</li>
+<li>old_level
+: <a class="el" href="d2/d35/class_function_logger.html#a79e3cf6f62f7e69e67c9820fac3d09af">FunctionLogger</a>
+</li>
 <li>op_code_number
 : <a class="el" href="de/d24/struct_reg.html#a29fc6b772451aea2e22c95563a8b4e02">Reg</a>
 </li>
 <li>op_type
 : <a class="el" href="df/d6e/struct_operator.html#ab4b2821774d38b3a77f971a2e8d46035">Operator</a>
+</li>
+<li>opening_canary
+: <a class="el" href="d9/d11/struct_super_stack.html#a175504cce4cb9231018893f1c30edd56">SuperStack</a>
 </li>
 <li>owner_name
 : <a class="el" href="da/d56/class_storage.html#ad2a02dd3afb0dfcad9aec8e7937cae33">Storage</a>
@@ -276,11 +411,24 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>parent
+: <a class="el" href="db/d8b/struct_node.html#ad8184598cdea70e4bbdfd76f2b0f9e85">Node</a>
+</li>
+<li>path_to_src_file
+: <a class="el" href="d3/dc2/struct_program.html#a0825669e4a49328ad8beb7fc10422d7b">Program</a>
+</li>
 <li>position
 : <a class="el" href="d4/daa/struct_reference.html#a4711f7a303056ab34486420cc331a69b">Reference</a>
+, <a class="el" href="d9/d25/struct_var_label.html#a13fd5a0a3819ceb989b01225f79ab8c7">VarLabel</a>
+</li>
+<li>program
+: <a class="el" href="de/d51/struct_asm_ctx.html#afff72a4dfcfa4494a5a8efcd083e47ef">AsmCtx</a>
 </li>
 <li>program_buf
 : <a class="el" href="d7/d1e/struct_elf.html#af6c2d9508f71b9346673b9eec7728145">Elf</a>
+</li>
+<li>ptr_to_src_code
+: <a class="el" href="d9/d27/struct_token.html#a479e312a5203736c2032ca59a88bf341">Token</a>
 </li>
 </ul>
 
@@ -293,24 +441,41 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="dd/d2a/struct_storage_data.html#a95edd4df71ee914a8d921a79f3be53c2">StorageData</a>
 </li>
 <li>ret_type
-: <a class="el" href="d7/d29/class_function.html#a8f88fe66bd10390fdf126b23adfe2017">Function</a>
+: <a class="el" href="da/d32/struct_func_label.html#a3b6e60392f5de3df5a434e6a95b6df94">FuncLabel</a>
+, <a class="el" href="d7/d29/class_function.html#a8f88fe66bd10390fdf126b23adfe2017">Function</a>
+, <a class="el" href="d9/d98/struct_label.html#aab36cd5715d33ff547659df8c5681504">Label</a>
+, <a class="el" href="d4/dab/struct_native_function_struct.html#ad3f57f192bec8e21f8aaa7d8f35c371a">NativeFunctionStruct</a>
 </li>
 <li>ret_value
 : <a class="el" href="d9/d4d/struct_return.html#a5cb3354f2182a41b987e22070dfca7c2">Return</a>
 </li>
+<li>right_child
+: <a class="el" href="d9/d27/struct_token.html#a9fb3161dfb0da08373ad4d1cf7a69675">Token</a>
+</li>
 <li>right_op
 : <a class="el" href="df/d6e/struct_operator.html#a3f962692ee98f861e577a40ded63fb8f">Operator</a>
+</li>
+<li>root
+: <a class="el" href="df/d6e/struct_binary_tree.html#ae7e672ece25489eb84fc177bbe866023">BinaryTree</a>
+, <a class="el" href="d3/dc2/struct_program.html#a089e5524c5c585e24ef77ff3259a7d0d">Program</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>second_child
+: <a class="el" href="db/d8b/struct_node.html#a7ad45d23ad0776c89a7af9074b4d8642">Node</a>
+</li>
 <li>size
-: <a class="el" href="d6/de4/struct_buffer.html#a24e94f119f4b386771c78cf37aaff41b">Buffer</a>
+: <a class="el" href="df/d6e/struct_binary_tree.html#a605aec9cf8ab45fca9be8add295e8640">BinaryTree</a>
+, <a class="el" href="d6/de4/struct_buffer.html#a24e94f119f4b386771c78cf37aaff41b">Buffer</a>
 , <a class="el" href="dc/d41/struct_reference_arr.html#ad6d95a89303b07813985f750d8750f01">ReferenceArr</a>
 , <a class="el" href="db/d70/struct_string_pool.html#afadb85f0aca999f4bec4463b4b530a27">StringPool</a>
 , <a class="el" href="dd/d36/class_value_arr.html#acd19a9a06a2329001a3b4333e6807d5a">ValueArr&lt; Value_T &gt;</a>
 , <a class="el" href="d2/d63/struct_value_name_table.html#ac70c18aca439e0d4276f5651b77286ad">ValueNameTable</a>
+</li>
+<li>size_of_tables_arr
+: <a class="el" href="d8/dd1/struct_name_table_arr.html#a21596ce9520207a425fb85d90220225f">NameTableArr</a>
 </li>
 <li>src
 : <a class="el" href="df/d07/class_load.html#abfd708677c7c53382684a94e421d98d9">Load</a>
@@ -322,7 +487,10 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="dd/d36/class_value_arr.html#a9aaea6f6428125469e5b221364beb7c6">ValueArr&lt; Value_T &gt;</a>
 </li>
 <li>status
-: <a class="el" href="de/d24/struct_reg.html#ae6e7e0523a2dc069c2d5ff68bdffcdfd">Reg</a>
+: <a class="el" href="df/d6e/struct_binary_tree.html#ac8db09d57c956322d279cc66b9194fa6">BinaryTree</a>
+, <a class="el" href="d0/dca/struct_data_base.html#a113bdfc7ebcc46b21d4129a6d447c052">DataBase</a>
+, <a class="el" href="de/d24/struct_reg.html#ae6e7e0523a2dc069c2d5ff68bdffcdfd">Reg</a>
+, <a class="el" href="d9/d11/struct_super_stack.html#a58aa924a11e156504f040d3663ac715d">SuperStack</a>
 </li>
 <li>stdlib
 : <a class="el" href="de/d66/struct_context.html#adf791e68ffce67652eb8aa545ef76e96">Context</a>
@@ -336,18 +504,72 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>storage_type
 : <a class="el" href="da/d56/class_storage.html#a39e67d8d831642be207909643794a58b">Storage</a>
 </li>
+<li>str
+: <a class="el" href="d6/de4/struct_buffer.html#aa5d7828d93b627f58d110228c6851c6d">Buffer</a>
+, <a class="el" href="d4/dab/struct_native_function_struct.html#ab295fabb78a825dd31d45b414f179e25">NativeFunctionStruct</a>
+</li>
 <li>string_arr
-: <a class="el" href="db/d70/struct_string_pool.html#a99252a0b84b842a16b12d46783f95187">StringPool</a>
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#aa0ed0c340b116efc570a2f30414f7e9b">LexicalCtx</a>
+, <a class="el" href="d3/dc2/struct_program.html#a280660da02bbb5520c0f2641ad012139">Program</a>
+, <a class="el" href="db/d70/struct_string_pool.html#a99252a0b84b842a16b12d46783f95187">StringPool</a>
+</li>
+<li>string_arr_size
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#ab87e7a777c0ecf7f6c77effbb3cf4cfd">LexicalCtx</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>t_constant
+: <a class="el" href="d4/d17/union_token_value.html#a8959ec88e0780f9b20861b5c10daaa3d">TokenValue</a>
+</li>
+<li>t_function_ret_type
+: <a class="el" href="d4/d17/union_token_value.html#af5fbeb7a115e894bcba6d02f23e324f2">TokenValue</a>
+</li>
+<li>t_initializator
+: <a class="el" href="d4/d17/union_token_value.html#a8e5f597933da0b3c4a97571d28311ea7">TokenValue</a>
+</li>
+<li>t_instruction
+: <a class="el" href="d4/d17/union_token_value.html#aeafcca4ae2dc4b719b4a9b3710eb58a4">TokenValue</a>
+</li>
+<li>t_label_ptr
+: <a class="el" href="d9/d27/struct_token.html#a851aa538aba147a6283ef9f21a083074">Token</a>
+</li>
+<li>t_name_id
+: <a class="el" href="d4/d17/union_token_value.html#aad286a437f7ea28bf9d29a520dde2f05">TokenValue</a>
+</li>
+<li>t_name_ptr
+: <a class="el" href="d4/d17/union_token_value.html#a8e02b8200e4df5b7f3369eebd639d8df">TokenValue</a>
+</li>
+<li>t_native_function
+: <a class="el" href="d4/d17/union_token_value.html#a21900547a557ad94f74587ba6c35fa5d">TokenValue</a>
+</li>
+<li>t_number_of_variables
+: <a class="el" href="d4/d17/union_token_value.html#a881c39d37122380514b6f6e76f3faa4e">TokenValue</a>
+</li>
+<li>t_operator
+: <a class="el" href="d4/d17/union_token_value.html#a8c782a313e9e05ab211de6e30ebc5139">TokenValue</a>
+</li>
+<li>t_varible_number
+: <a class="el" href="d4/d17/union_token_value.html#a18fd27507966464c1678e2cbf9a2d23a">TokenValue</a>
+</li>
+<li>token_arr
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#ac8f3c12b74ca250525f0804bc54542c8">LexicalCtx</a>
+, <a class="el" href="d3/dc2/struct_program.html#a3d01f662618e68ded96ab6017566893f">Program</a>
+</li>
+<li>token_arr_size
+: <a class="el" href="d9/d82/struct_lexical_ctx.html#ac0b8c8644d4f34ce46c60fd6416bc15b">LexicalCtx</a>
+</li>
+<li>top
+: <a class="el" href="d9/d11/struct_super_stack.html#aa1c51ee3540b49c80b8d6e2e600e4fe7">SuperStack</a>
+</li>
 <li>true_block
 : <a class="el" href="d7/d23/class_branch.html#a7792b4c50df1fbdd25fa4a3048e738f9">Branch</a>
 </li>
 <li>type
 : <a class="el" href="de/db6/class_instruction.html#ab4921a8785d375412dfb1505a7265926">Instruction</a>
+, <a class="el" href="d9/d98/struct_label.html#a4c498659943145db8ab8552e84c8288e">Label</a>
+, <a class="el" href="d9/d27/struct_token.html#ae46b6b806df89709a13a14dc76c86623">Token</a>
 , <a class="el" href="d4/d72/class_value.html#a0353abaaf3f5a0bf5a01c8daad238449">Value</a>
 , <a class="el" href="d0/d6b/struct_value_label.html#aaedafc847669e658841cdc54133b2e96">ValueLabel</a>
 </li>
@@ -358,6 +580,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>val
 : <a class="el" href="db/d9d/class_store.html#aa64380c293b82d74c2fb3d9ef9172ae0">Store</a>
 , <a class="el" href="d0/d6b/struct_value_label.html#a5a3d1e9559ad96e742eee33df03867a7">ValueLabel</a>
+</li>
+<li>value
+: <a class="el" href="d9/d27/struct_token.html#a7dce8125d104a3a793a13d7cfa662449">Token</a>
+</li>
+<li>var_number
+: <a class="el" href="d9/d98/struct_label.html#ad8c00dc8039ab95d1e4d20e1bf35f461">Label</a>
 </li>
 <li>var_type
 : <a class="el" href="db/dcd/class_global_var.html#a61f2983cc7be205a789a0ee9a8484821">GlobalVar</a>

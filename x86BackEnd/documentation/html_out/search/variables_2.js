@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['call_5frefs_759',['call_refs',['../de/d66/struct_context.html#abcc236d4cb5195cbbfd8c7fa16d25de8',1,'Context']]],
-  ['capacity_760',['capacity',['../d6/de4/struct_buffer.html#ad171af15d71eb35459abbac35f25fb43',1,'Buffer::capacity()'],['../db/d70/struct_string_pool.html#ad372629c0bcb0a6c9769b26745bdf99c',1,'StringPool::capacity()'],['../d2/d63/struct_value_name_table.html#afb517f5bc317d0a7d991860bcb37cdee',1,'ValueNameTable::capacity()'],['../dc/d41/struct_reference_arr.html#ab3179715a0890a71f9fdae9e2e20eebb',1,'ReferenceArr::capacity()'],['../dd/d36/class_value_arr.html#a7eb27e8fb19f50ddc0f1c4001e62e73d',1,'ValueArr::capacity()']]],
-  ['code_761',['code',['../de/d66/struct_context.html#adef3cd79d89b8c6e994432d14c691194',1,'Context']]],
-  ['code_5fbuf_762',['code_buf',['../d7/d1e/struct_elf.html#a28754743c7f3f6e77b59aa8fd135d3dd',1,'Elf']]],
-  ['code_5fphdr_763',['code_phdr',['../d7/da7/struct_elf_headers.html#a817cd0bfb14524ec4d24e7899af75f2e',1,'ElfHeaders']]],
-  ['code_5fvirtual_5faddress_764',['CODE_VIRTUAL_ADDRESS',['../d0/d86/_elf_8hpp.html#a1c9f6cc19db10ef3255030fcd10972de',1,'Elf.hpp']]],
-  ['condition_765',['condition',['../d7/d23/class_branch.html#a23ce807d9d5f37df421b8dad835a8f2e',1,'Branch']]],
-  ['const_5fpool_766',['const_pool',['../dd/df9/class_module.html#af71b0b4cf32665e003c3bcf747f7457f',1,'Module']]],
-  ['constant_5fnumber_767',['CONSTANT_NUMBER',['../dd/d36/_ast_to_i_r_8cpp.html#abf24dbbae650cb0c70b84a5464403a60',1,'AstToIR.cpp']]],
-  ['current_5ffunction_768',['current_function',['../db/dd3/struct_builder.html#a40d6ce919167c521ac9dffc4ec7a82f8',1,'Builder']]]
+  ['bad_5fvalue_1632',['BAD_VALUE',['../d3/d68/_value_8h.html#a824fe1dd118c50bb9ebc7295932b5457',1,'Value.h']]],
+  ['block_1633',['block',['../d0/d6b/struct_value_label.html#a2a7d2e3e0fd4b920d1888dc40850c52f',1,'ValueLabel']]],
+  ['body_1634',['body',['../d7/d29/class_function.html#a397c8752c83074c10c00502f097dddce',1,'Function']]],
+  ['body_5fstatus_1635',['body_status',['../da/d32/struct_func_label.html#a0687d91ddd46e582dd68a45cf4b8a88a',1,'FuncLabel']]],
+  ['buf_1636',['buf',['../d9/d82/struct_lexical_ctx.html#a025d1198633fbe9a720f7f09cfbe2096',1,'LexicalCtx']]],
+  ['buffer_1637',['buffer',['../d6/de4/struct_buffer.html#a5ba6322cceef1daf1159fecaea83a379',1,'Buffer::buffer()'],['../d6/de4/struct_buffer.html#a975c08245fc353b7d1d59f4a894c558d',1,'Buffer::buffer()'],['../d0/dca/struct_data_base.html#a3d6465ff9f327b02c7ffa89ad2865acd',1,'DataBase::buffer()']]],
+  ['buffer_5fgrowth_5frate_1638',['BUFFER_GROWTH_RATE',['../dc/dcf/_buffer_8cpp.html#aa23135a0ade5254cc122e1d150ce88bb',1,'Buffer.cpp']]],
+  ['buffer_5fstart_5fsize_1639',['BUFFER_START_SIZE',['../dc/dcf/_buffer_8cpp.html#a0710dd4828ba832f7d0da1c286bdaf84',1,'Buffer.cpp']]]
 ];
