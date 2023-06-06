@@ -1,0 +1,5 @@
+<map id="Elf" name="Elf">
+<area shape="rect" id="node1" title="Structure to represent Elf file." alt="" coords="74,109,113,136"/>
+<area shape="rect" id="node2" href="$d6/de4/struct_buffer.html" title="Simple Buffer Struct." alt="" coords="5,5,67,32"/>
+<area shape="rect" id="node3" href="$d7/da7/struct_elf_headers.html" title="Headers that will be placed in Elf." alt="" coords="104,5,197,32"/>
+</map>

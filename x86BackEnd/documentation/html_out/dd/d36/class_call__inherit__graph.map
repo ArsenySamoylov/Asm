@@ -1,0 +1,6 @@
+<map id="Call" name="Call">
+<area shape="rect" id="node1" title="Instruction to call another function." alt="" coords="33,229,79,256"/>
+<area shape="rect" id="node2" href="$de/db6/class_instruction.html" title="Abstract class for instruction, that will be executed." alt="" coords="11,155,101,181"/>
+<area shape="rect" id="node3" href="$d4/d72/class_value.html" title="Abstract class for IR object." alt="" coords="27,80,85,107"/>
+<area shape="rect" id="node4" href="$df/d09/class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
+</map>
