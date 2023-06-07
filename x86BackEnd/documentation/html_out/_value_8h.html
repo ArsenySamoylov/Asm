@@ -142,8 +142,6 @@ Enumerations</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ac96357b1d5d7d9565e41d8fab5a07a60"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_value_8h.html#ac96357b1d5d7d9565e41d8fab5a07a60">PRECISION</a> = 100</td></tr>
 <tr class="separator:ac96357b1d5d7d9565e41d8fab5a07a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a824fe1dd118c50bb9ebc7295932b5457"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_type_defs_8h.html#a9854bd2bf1d220fd8e003bb2eb05be0d">data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_value_8h.html#a824fe1dd118c50bb9ebc7295932b5457">BAD_VALUE</a> = -666</td></tr>
-<tr class="separator:a824fe1dd118c50bb9ebc7295932b5457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains declaration of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> class and its derived classes (only exception is <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a>; it declared in <a class="el" href="_instructions_8h.html" title="This file contains declaration of Instruction class and its derived classes.">Instructions.h</a>) </p>
@@ -232,20 +230,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a824fe1dd118c50bb9ebc7295932b5457"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a824fe1dd118c50bb9ebc7295932b5457">&#9670;&nbsp;</a></span>BAD_VALUE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="_type_defs_8h.html#a9854bd2bf1d220fd8e003bb2eb05be0d">data_t</a> BAD_VALUE = -666</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac96357b1d5d7d9565e41d8fab5a07a60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac96357b1d5d7d9565e41d8fab5a07a60">&#9670;&nbsp;</a></span>PRECISION</h2>
 
@@ -257,6 +241,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>For historical reasons float constants represents as integer value multiplied by PRECISION <br  />
+ </p>
 
 </div>
 </div>

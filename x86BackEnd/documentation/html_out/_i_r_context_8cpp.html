@@ -106,13 +106,32 @@ Functions</h2></td></tr>
 <tr class="separator:a8c1921ec3cdffabcc84509e65613555b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bf219e9042133b671a6889de47d563f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#a6bf219e9042133b671a6889de47d563f">WriteOpCodes</a> (<a class="el" href="struct_context.html">Context</a> *ctx, const char *src, unsigned size)</td></tr>
 <tr class="separator:a6bf219e9042133b671a6889de47d563f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8dd0faff13a82fa3c85be406407987"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#aed8dd0faff13a82fa3c85be406407987">print_raw</a> (const char *format,...)</td></tr>
+<tr class="memdesc:aed8dd0faff13a82fa3c85be406407987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print to Assembler file.  <a href="_i_r_context_8cpp.html#aed8dd0faff13a82fa3c85be406407987">More...</a><br /></td></tr>
+<tr class="separator:aed8dd0faff13a82fa3c85be406407987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f6abf73f5190ec591e8d21de1c3d84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#a71f6abf73f5190ec591e8d21de1c3d84">print_comment</a> (const char *comment)</td></tr>
+<tr class="memdesc:a71f6abf73f5190ec591e8d21de1c3d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print comment using COMMENT_ALIGNMENT.  <a href="_i_r_context_8cpp.html#a71f6abf73f5190ec591e8d21de1c3d84">More...</a><br /></td></tr>
+<tr class="separator:a71f6abf73f5190ec591e8d21de1c3d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a919c35969928cee64cea01bf682f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#ab4a919c35969928cee64cea01bf682f6">new_line</a> ()</td></tr>
+<tr class="memdesc:ab4a919c35969928cee64cea01bf682f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inset new line Move carrige to new line and reset CURRENT_LINE_LENGTH.  <a href="_i_r_context_8cpp.html#ab4a919c35969928cee64cea01bf682f6">More...</a><br /></td></tr>
+<tr class="separator:ab4a919c35969928cee64cea01bf682f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#a665924d7d3edbc5d5193cd7ef279c5d7">PrintIRInstruction</a> (const <a class="el" href="class_instruction.html">Instruction</a> *instr)</td></tr>
+<tr class="memdesc:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a> dump to Assembler File as comment.  <a href="_i_r_context_8cpp.html#a665924d7d3edbc5d5193cd7ef279c5d7">More...</a><br /></td></tr>
+<tr class="separator:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce6889d77303cabae041d4d96569e6d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#adce6889d77303cabae041d4d96569e6d">MakeComment</a> (const char *format,...)</td></tr>
 <tr class="separator:adce6889d77303cabae041d4d96569e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a> = NULL</td></tr>
+<tr class="memdesc:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for Assembler dump.  <a href="_i_r_context_8cpp.html#ab5bc7772b71d0b2392b85cc3bc4467ba">More...</a><br /></td></tr>
 <tr class="separator:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5387475872b6ec051ef8401ce0e236e"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#aa5387475872b6ec051ef8401ce0e236e">COMMENT_ALIGNMENT</a> = 30</td></tr>
+<tr class="separator:aa5387475872b6ec051ef8401ce0e236e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28ed76132d2ed4a323c24a0eb26826c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#ad28ed76132d2ed4a323c24a0eb26826c">CURRENT_LINE_LENGTH</a> = 0</td></tr>
+<tr class="separator:ad28ed76132d2ed4a323c24a0eb26826c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9dd85dd76a5112dd197ae704e1b903b"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#ac9dd85dd76a5112dd197ae704e1b903b">TAB_SIZE</a> = 4</td></tr>
+<tr class="separator:ac9dd85dd76a5112dd197ae704e1b903b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d087d5947def9b0416e327a4bb71d0c"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8cpp.html#a8d087d5947def9b0416e327a4bb71d0c">MAX_COMMENT_LENGTH</a> = 128</td></tr>
 <tr class="separator:a8d087d5947def9b0416e327a4bb71d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -206,6 +225,114 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4a919c35969928cee64cea01bf682f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a919c35969928cee64cea01bf682f6">&#9670;&nbsp;</a></span>new_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void new_line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inset new line Move carrige to new line and reset CURRENT_LINE_LENGTH. </p>
+
+</div>
+</div>
+<a id="a71f6abf73f5190ec591e8d21de1c3d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71f6abf73f5190ec591e8d21de1c3d84">&#9670;&nbsp;</a></span>print_comment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_comment </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>comment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print comment using COMMENT_ALIGNMENT. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comment</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aed8dd0faff13a82fa3c85be406407987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8dd0faff13a82fa3c85be406407987">&#9670;&nbsp;</a></span>print_raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_raw </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print to Assembler file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td></td></tr>
+    <tr><td class="paramname">...</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a665924d7d3edbc5d5193cd7ef279c5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665924d7d3edbc5d5193cd7ef279c5d7">&#9670;&nbsp;</a></span>PrintIRInstruction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrintIRInstruction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_instruction.html">Instruction</a> *&#160;</td>
+          <td class="paramname"><em>instr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a> dump to Assembler File as comment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instr</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -310,6 +437,34 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aa5387475872b6ec051ef8401ce0e236e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5387475872b6ec051ef8401ce0e236e">&#9670;&nbsp;</a></span>COMMENT_ALIGNMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int COMMENT_ALIGNMENT = 30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad28ed76132d2ed4a323c24a0eb26826c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28ed76132d2ed4a323c24a0eb26826c">&#9670;&nbsp;</a></span>CURRENT_LINE_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CURRENT_LINE_LENGTH = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab5bc7772b71d0b2392b85cc3bc4467ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5bc7772b71d0b2392b85cc3bc4467ba">&#9670;&nbsp;</a></span>DUMP</h2>
 
@@ -322,6 +477,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>File for Assembler dump. </p>
+
 </div>
 </div>
 <a id="a8d087d5947def9b0416e327a4bb71d0c"></a>
@@ -332,6 +489,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const int MAX_COMMENT_LENGTH = 128</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9dd85dd76a5112dd197ae704e1b903b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9dd85dd76a5112dd197ae704e1b903b">&#9670;&nbsp;</a></span>TAB_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int TAB_SIZE = 4</td>
         </tr>
       </table>
 </div><div class="memdoc">

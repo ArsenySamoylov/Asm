@@ -1,6 +1,6 @@
 <map id="NoCopyable" name="NoCopyable">
 <area shape="rect" id="node1" title="No COPY !!!!" alt="" coords="167,5,268,32"/>
-<area shape="rect" id="node2" href="$class_storage.html" title="Storage objects shows state of Value." alt="" coords="137,80,209,107"/>
+<area shape="rect" id="node2" href="$class_storage.html" title="Storage objects shows state of Value while translating to x86." alt="" coords="137,80,209,107"/>
 <area shape="rect" id="node3" href="$class_value.html" title="Abstract class for IR object." alt="" coords="233,80,292,107"/>
 <area shape="rect" id="node4" href="$class_base_block.html" title="Block of Instructions." alt="" coords="5,155,96,181"/>
 <area shape="rect" id="node5" href="$class_constant.html" title="Double constant." alt="" coords="120,155,200,181"/>

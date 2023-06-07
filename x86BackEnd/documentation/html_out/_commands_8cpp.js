@@ -1,6 +1,5 @@
 var _commands_8cpp =
 [
-    [ "print_comment", "_commands_8cpp.html#a6813de047009a1a14818fec5e3020cfa", null ],
     [ "CommandsCodes", "_commands_8cpp.html#aa092615f270e898ff188012133fd558a", [
       [ "Sub", "_commands_8cpp.html#aa092615f270e898ff188012133fd558aa3e53f06234367d0e453fa5ea0ad2ab34", null ],
       [ "Add", "_commands_8cpp.html#aa092615f270e898ff188012133fd558aa0d592a4b562059bc283e00b3704865c9", null ],

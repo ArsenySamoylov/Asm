@@ -113,7 +113,7 @@ Collaboration diagram for GlobalVar:</div>
 <area shape="rect" href="class_value.html" title="Abstract class for IR object." alt="" coords="48,184,107,211"/>
 <area shape="rect" href="class_constant.html" title="Double constant." alt="" coords="99,260,179,287"/>
 <area shape="rect" href="class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
-<area shape="rect" href="class_storage.html" title="Storage objects shows state of Value." alt="" coords="93,95,165,121"/>
+<area shape="rect" href="class_storage.html" title="Storage objects shows state of Value while translating to x86." alt="" coords="93,95,165,121"/>
 <area shape="rect" href="struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="131,5,234,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -131,7 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a568dd05f7dcd53d1533b143891bb6fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> type.  <a href="class_global_var.html#a568dd05f7dcd53d1533b143891bb6fc5">More...</a><br /></td></tr>
 <tr class="separator:a568dd05f7dcd53d1533b143891bb6fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07c47abeb2f0c4c18f2abaf2aca26cff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_global_var.html#a07c47abeb2f0c4c18f2abaf2aca26cff">translate_x86</a> (<a class="el" href="struct_context.html">Context</a> *ctx) const override</td></tr>
-<tr class="memdesc:a07c47abeb2f0c4c18f2abaf2aca26cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 code.  <a href="class_global_var.html#a07c47abeb2f0c4c18f2abaf2aca26cff">More...</a><br /></td></tr>
+<tr class="memdesc:a07c47abeb2f0c4c18f2abaf2aca26cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 op codes.  <a href="class_global_var.html#a07c47abeb2f0c4c18f2abaf2aca26cff">More...</a><br /></td></tr>
 <tr class="separator:a07c47abeb2f0c4c18f2abaf2aca26cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dd9e26d905287e8112b0a3e877326de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_global_var.html#a2dd9e26d905287e8112b0a3e877326de">set_storage</a> () const override</td></tr>
 <tr class="memdesc:a2dd9e26d905287e8112b0a3e877326de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <em>storage</em>  <a href="class_global_var.html#a2dd9e26d905287e8112b0a3e877326de">More...</a><br /></td></tr>
@@ -354,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 code. </p>
+<p>Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 op codes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td></td></tr>
