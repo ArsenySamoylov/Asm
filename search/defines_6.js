@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hex_1042',['HEX',['../_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'CMakeCXXCompilerId.cpp']]]
+  ['new_5fline_952',['new_line',['../_dump_i_r_8cpp.html#a1185f064cc7bdd3f2a433da85a834c37',1,'DumpIR.cpp']]],
+  ['no_5fbuffer_953',['NO_BUFFER',['../_translate_i_r_tox86_8cpp.html#a76b811be8be871596e7477aec56ccf0b',1,'TranslateIRTox86.cpp']]]
 ];

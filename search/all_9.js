@@ -1,27 +1,6 @@
 var searchData=
 [
-  ['idiv_212',['Idiv',['../_commands_8cpp.html#aa092615f270e898ff188012133fd558aa5199ec4fc69bc228588d0a4e548edae1',1,'Commands.cpp']]],
-  ['imul_213',['Imul',['../_commands_8cpp.html#aa092615f270e898ff188012133fd558aa460be96ed793a90b2f8c2b79d18c0897',1,'Commands.cpp']]],
-  ['increase_5findent_214',['increase_indent',['../_dump_i_r_8cpp.html#a9289f830f2c92e4c594b4db2fbe480e8',1,'DumpIR.cpp']]],
-  ['increase_5fn_5flocal_5fvars_215',['increase_n_local_vars',['../class_function.html#ac04cd92d293f09e7b27a1cbf644d1a31',1,'Function']]],
-  ['increase_5fusage_216',['increase_usage',['../class_storage.html#a610e29b3ab2bad5f711263ec1d3e0edc',1,'Storage']]],
-  ['indent_217',['INDENT',['../_dump_i_r_8cpp.html#a807d2c7422e546403a0ff16a901e296b',1,'DumpIR.cpp']]],
-  ['info_5farch_218',['info_arch',['../_c_make_c_x_x_compiler_id_8cpp.html#a59647e99d304ed33b15cb284c27ed391',1,'CMakeCXXCompilerId.cpp']]],
-  ['info_5fcompiler_219',['info_compiler',['../_c_make_c_x_x_compiler_id_8cpp.html#a4b0efeb7a5d59313986b3a0390f050f6',1,'CMakeCXXCompilerId.cpp']]],
-  ['info_5flanguage_5fextensions_5fdefault_220',['info_language_extensions_default',['../_c_make_c_x_x_compiler_id_8cpp.html#a0f46a8a39e09d9b803c4766904fd7e99',1,'CMakeCXXCompilerId.cpp']]],
-  ['info_5flanguage_5fstandard_5fdefault_221',['info_language_standard_default',['../_c_make_c_x_x_compiler_id_8cpp.html#a4607cccf070750927b458473ca82c090',1,'CMakeCXXCompilerId.cpp']]],
-  ['info_5fplatform_222',['info_platform',['../_c_make_c_x_x_compiler_id_8cpp.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'CMakeCXXCompilerId.cpp']]],
-  ['init_5fval_223',['init_val',['../class_global_var.html#a2fb443a28486d71e0b4094eba609ce77',1,'GlobalVar']]],
-  ['insertnewbaseblock_224',['InsertNewBaseBlock',['../_builder_8h.html#a44db65f42f0a8319a9687af20ad6d17b',1,'InsertNewBaseBlock(Builder *buildog, name_t block_name):&#160;Builder.cpp'],['../_builder_8cpp.html#a44db65f42f0a8319a9687af20ad6d17b',1,'InsertNewBaseBlock(Builder *buildog, name_t block_name):&#160;Builder.cpp']]],
-  ['inst_5farr_225',['inst_arr',['../class_base_block.html#a7dfc76b50a5c2a4257e6a52d17043612',1,'BaseBlock']]],
-  ['instruction_226',['Instruction',['../class_instruction.html#a84d2688e801420c6d6df3aec3e33fef7',1,'Instruction::Instruction()'],['../_value_8h.html#ad9971b6ef33e02ba2c75d19c1d2518a1ac742c5a36b6307267bb709355feb2c41',1,'Instruction():&#160;Value.h'],['../class_instruction.html',1,'Instruction']]],
-  ['instruction_2ecpp_227',['Instruction.cpp',['../_instruction_8cpp.html',1,'']]],
-  ['instruction_2ecpp_2eo_2ed_228',['Instruction.cpp.o.d',['../_instruction_8cpp_8o_8d.html',1,'']]],
-  ['instructions_2eh_229',['Instructions.h',['../_instructions_8h.html',1,'']]],
-  ['instructiontype_230',['InstructionType',['../_instructions_8h.html#a89ee1c4e5e5a33c60d0e6dc126ed2c0d',1,'Instructions.h']]],
-  ['int_231',['Int',['../_value_8h.html#ab69f6b76e623d3ec3e1b2b4bd287548da1686a6c336b71b36d77354cea19a8b52',1,'Value.h']]],
-  ['ir_5fdump_5ffile_232',['IR_DUMP_FILE',['../main_8cpp.html#a313eaa41255295bf969fb8e99ad32e1b',1,'main.cpp']]],
-  ['ircontext_2ecpp_233',['IRContext.cpp',['../_i_r_context_8cpp.html',1,'']]],
-  ['ircontext_2ecpp_2eo_2ed_234',['IRContext.cpp.o.d',['../_i_r_context_8cpp_8o_8d.html',1,'']]],
-  ['ircontext_2eh_235',['IRContext.h',['../_i_r_context_8h.html',1,'']]]
+  ['je_210',['Je',['../_commands_8cpp.html#aa092615f270e898ff188012133fd558aac9ac7fba62993bc71f9100a92aaaae84',1,'Commands.cpp']]],
+  ['jmp_211',['Jmp',['../_commands_8cpp.html#aa092615f270e898ff188012133fd558aa3b2ab465ea4518f204c6e5a8ee90e04f',1,'Commands.cpp']]],
+  ['jump_5frefs_212',['jump_refs',['../struct_context.html#ac9638d9a3ed138b85569c4104ce8217b',1,'Context']]]
 ];
