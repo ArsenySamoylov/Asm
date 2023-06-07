@@ -15,7 +15,7 @@
 struct Builder
     {
     ValueNameTable global;
-    ValueNameTable local;         // active when builder process function 
+    ValueNameTable local; // active when builder process function 
 
     Function* current_function;
     
@@ -65,7 +65,10 @@ int AddGlobalVar   (Builder* buildog, GlobalVar* var);
 Value* FindValue (Builder* buildog, int name_id);
 
 //////////////////////////////////////////////////////
-static int FIN_NAME_ID = 0; 
+/// Ast tree has inconvenient way of representing `fin` function.
+/// For this reason I Rearrange tokens when find FIN Native Function token (see RearrangeFinTokens)
+/// For this reason I need to have access to FIN_NAME_ID.
+extern int FIN_NAME_ID; 
 
 /**
  * @brief Add Native Function

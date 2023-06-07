@@ -168,7 +168,7 @@ void GlobalVar::set_storage () const
 void Store::set_storage () const
     {
     storage.set_storage_type (StorageType::Stack);
-    * (storage.set_storage_data()) = {.offset = ++STACK_OFFSET};
+    *(storage.set_storage_data()) = {.offset = ++STACK_OFFSET};
 
     if (val)
         (val->get_storage())->increase_usage ();

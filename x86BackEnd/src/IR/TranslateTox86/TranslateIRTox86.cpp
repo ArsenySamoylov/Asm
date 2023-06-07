@@ -22,8 +22,10 @@ GPRegisterNumber Value::put_to_reg (Context* ctx) const
 
     if (storage.get_storage_type() == StorageType::Register)
         {
-        print_tab ("\t\t\t\t\t  # put_value_to_reg: '%s' already in %s\n", 
-                            name, GetRegName (storage.get_reg_num()));
+        print_comment (
+                       MakeComment ("put_value_to_reg: '%s' already in %s", 
+                            name, GetRegName (storage.get_reg_num()))
+                      );
 
         return storage.get_reg_num();
         }
@@ -68,7 +70,7 @@ void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
 
         case StorageType::Memory:
                 // TODO
-                print_tab ("get from mem -> %s\n", GetRegName(dest_reg->number));
+                print_tab ("get from mem -> %s", GetRegName(dest_reg->number));
                 assert (0);
 
         default:
@@ -149,7 +151,8 @@ static int SetStart (Context* ctx, const Function* main_func)
     print_tab (".section .text\n");
 
     print_raw ("%s:\n", "_start");
-    print_tab ("# TODO: call InitGlobals\n");
+    print_tab ("# TODO: call InitGlobals");
+    new_line();
     
     PUT_CALL  (ctx, main_func);
 
@@ -231,7 +234,8 @@ void Function::translate_x86 (Context* ctx) const
 static int SetStackFrame (Context* ctx, size_t n_locals)
     {
     assert(ctx);
-    print_tab ("# set stack frame (%lu local vars)\n", n_locals);
+    print_tab ("# set stack frame (%lu local vars)", n_locals);
+    new_line ();
 
     PutSubRsp (ctx, n_locals * 8);
 
@@ -240,21 +244,22 @@ static int SetStackFrame (Context* ctx, size_t n_locals)
     PutPushR (ctx, rbp->number);
     PutMovRR (ctx, RSP, RBP);
 
-    print_raw ("\n");
+    new_line ();
     return SUCCESS;
     }
 
 static int SaveCalleeSaveRegisters  (Context* ctx)
     {
     assert (ctx);
-    print_tab ("# save callee-save regs\n");
+    print_tab ("# save callee-save regs");
+    new_line ();
 
     PutPushR (ctx, RBX);
 
     for (int i = R10; i <= R15; i++)
         PutPushR (ctx, (GPRegisterNumber) i);
 
-    print_raw ("\n");
+    new_line ();
     return 0;
     }
 
@@ -263,7 +268,8 @@ static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
     assert (ctx);
     assert (argv);
 
-    print_tab ("# save param regs on stack\n");
+    print_tab ("# save param regs on stack");
+    new_line ();
 
     size_t n_params = 0;
     int    i = RDI;
@@ -322,7 +328,7 @@ void BaseBlock::translate_x86 (Context* ctx) const
         const Instruction*  val = inst_arr.get_const_value(i);
         assert (val);
         
-        PRINT_INSTR_COMM (val);
+        PrintIRInstruction (val);
         val->translate_x86 (ctx);
         new_line();
         }
@@ -402,6 +408,7 @@ static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNum
             return 0;
         }
     }
+
 //////////////////////////////////////////////////////
 // Branch
 //////////////////////////////////////////////////////
@@ -459,7 +466,9 @@ static int SaveBusyRegs (Context* ctx)
     {
     assert (ctx);
 
-    print_tab ("# save busy regs\n");
+    print_tab ("# save busy regs");
+    new_line ();
+
     for (int i = RDI; i <= R9; i++)
         {
         Reg* param_reg = GetReg (i);
@@ -480,7 +489,8 @@ static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv)
     assert (ctx);
     assert (argv);
 
-    print_tab ("# set parameters \n");
+    print_tab ("# set parameters");
+    new_line ();
     
     int i = RDI;
     for (size_t n_params = 0; n_params < argv->get_size(); n_params++)
@@ -586,6 +596,7 @@ void Return::translate_x86 (Context* ctx) const
         new_line ();
 
         (ret_value->get_storage())->move_to_reg (ctx, rax, comment);
+        new_line ();
         }
 
     RestoreCalleeSaveRegisters (ctx);
@@ -597,7 +608,8 @@ void Return::translate_x86 (Context* ctx) const
 static int ClearStackFrame (Context* ctx, size_t n_locals)
     {
     assert(ctx);
-    print_tab ("# clear stack frame\n");
+    print_tab ("# clear stack frame");
+    new_line();
 
     Reg* rbp = GetReg (RBP);
     
@@ -611,13 +623,14 @@ static int RestoreCalleeSaveRegisters  (Context* ctx)
     {
     assert (ctx);
 
-    print_tab ("# restore callee-save regs\n");
+    print_tab ("# restore callee-save regs");
+    new_line ();
 
     for (int i = R15; i >= R10; i--)
         PutPopR (ctx, (GPRegisterNumber) i);
 
     PutPopR (ctx, RBX);
-   
-    print_raw ("\n");
+    
+    new_line();
     return 0;
     }

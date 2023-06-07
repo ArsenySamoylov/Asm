@@ -2,12 +2,6 @@
 
 #include "Commands.h"
 
-#define print_comment(COMMENT) do {                                 \
-                                  if (comment)                      \
-                                    print_raw ("# %s", comment);    \
-                                                                    \
-                                 print_raw ("\n"); } while (0);
-
 #pragma GCC diagnostic ignored "-Wconversion"
 
 unsigned enum CommandsCodes
@@ -142,7 +136,6 @@ size_t PutJump  (Context* ctx, name_t label, const char* comment)
 
     print_tab ("jmp %s ", label);
     print_comment (comment);
-    print_raw ("\n");
 
     const unsigned        OP_CODES_SIZE = 5;
     static char op_codes [OP_CODES_SIZE] = {Jmp};
@@ -156,7 +149,8 @@ size_t PutCJump (Context* ctx, GPRegisterNumber test, name_t label, const char* 
     {
     assert (ctx);
 
-    print_tab ("cmp $100, %s\n", GetRegName(test));
+    print_tab ("cmp $100, %s", GetRegName(test));
+    new_line ();
     print_tab ("je %s ", label);
     print_comment (comment);
 
@@ -426,7 +420,8 @@ static void PutClearRdx (Context* ctx)
     {
     assert (ctx);
 
-    print_tab ("xor %%rdx, %%rdx\n");
+    print_tab ("xor %%rdx, %%rdx");
+    new_line ();
 
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {0x48, 0x31, 0xd2};
@@ -437,7 +432,8 @@ static void NormalizeResult (Context* ctx, GPRegisterNumber result, int normaliz
     {
     assert (ctx);
 
-    print_tab ("# (normalize result) #\n");
+    print_tab ("# (normalize result) #");
+    new_line ();
     PutClearRdx (ctx);
 
     PutMovConstant (ctx, result, 100);
@@ -456,8 +452,9 @@ static void PutIMul (Context* ctx, GPRegisterNumber reg)
     {
     assert (ctx);
 
-    print_tab ("imul %s\n", GetRegName (reg));
-
+    print_tab ("imul %s", GetRegName (reg));
+    new_line ();
+    
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {};
 
@@ -482,7 +479,8 @@ static void PutIDiv (Context* ctx, GPRegisterNumber reg)
     {
     assert (ctx);
 
-    print_tab ("idiv %s\n", GetRegName (reg));
+    print_tab ("idiv %s", GetRegName (reg));
+    new_line ();
 
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {};
@@ -509,7 +507,8 @@ static void PutAdd  (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest)
     {
     assert (ctx);
 
-    print_tab ("add %s, %s\n", GetRegName (src), GetRegName (dest));
+    print_tab ("add %s, %s", GetRegName (src), GetRegName (dest));
+    new_line ();
 
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {};
@@ -524,7 +523,8 @@ static void PutSub  (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest)
     {
     assert (ctx);
 
-    print_tab ("sub %s, %s\n", GetRegName (src), GetRegName (dest));
+    print_tab ("sub %s, %s", GetRegName (src), GetRegName (dest));
+    new_line ();
 
     const unsigned OP_CODES_SIZE = 3;
     static char op_codes [OP_CODES_SIZE] = {};
@@ -538,14 +538,17 @@ static void PutSub  (Context* ctx, GPRegisterNumber src, GPRegisterNumber dest)
 size_t PutLogicOp (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char* comment)
     {
     assert (ctx);
-    print_tab ("# generating logic op #\n");
-
+    print_tab ("# generating logic op #");
+    new_line ();
+    
     PutPushR (ctx, RDX, "(save %rdx)");
-    print_raw ("\n");
-
+    new_line ();
+    
     print_tab ("cmpq %s, %s\n", GetRegName(src), GetRegName(dest));
     print_tab ("%s %%al\n", GetOperationName(operation));
-    print_tab ("movzbq %%al, %%rax\n\n");
+    print_tab ("movzbq %%al, %%rax");
+    new_line ();
+    new_line ();
 
     const unsigned OP_CODES_SIZE = 4;
     static char op_codes [OP_CODES_SIZE] = {};
@@ -584,8 +587,9 @@ size_t PutMathAddSub (Context* ctx, OperatorType operation, GPRegisterNumber src
     {
     assert(ctx);
 
-    print_tab ("# math op #\n");
-    
+    print_tab ("# math op #");
+    new_line ();
+
     if (operation == OperatorType::Add)
         PutAdd (ctx, src, dest);
     else
@@ -599,10 +603,10 @@ size_t PutMathAddSub (Context* ctx, OperatorType operation, GPRegisterNumber src
 size_t PutMulDiv (Context* ctx,  OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest, const char* comment)
     {
     assert (ctx);
-    print_tab ("# generating mul/div #\n");
+    print_tab ("# generating mul/div #");
+    new_line ();
 
     PutPushR (ctx, RDX, "(save %rdx)");
-
     PutClearRdx (ctx);
 
     PutMovRR (ctx, dest, RAX);
@@ -628,7 +632,10 @@ size_t PutSysCall (Context* ctx)
     const unsigned       OP_CODES_SIZE = 2;
     static char op_codes[OP_CODES_SIZE] = {0x0f, 0x05};
     
-    print_tab ("syscall\n\n");
+    print_tab ("syscall");
+    new_line ();
+    new_line ();
+    
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
 
     return 0;

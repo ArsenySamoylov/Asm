@@ -42,10 +42,10 @@ struct StorageData
     };
 
 /**
- * @brief Storage objects shows state of Value.
+ * @brief Storage objects shows state of Value while translating to x86.
  * 
- * Storage objects shows state of Value. For example result after executing Instruction
- * can be placed in register or on stack. 
+ * Storage objects shows state of Value. For example: while translating to machine codes 
+ * Value can be placed in register or on stack.
  */
 class Storage : public NoCopyable 
     {
@@ -89,17 +89,25 @@ class Storage : public NoCopyable
         address_t         get_address      () const;
         
         /**
-         * @brief Set storage, to state that object in register.
-         * Set storage, to state that object in register. Sets register status to BUSY
+         * @brief Set storage to state that object in register.
+         * Set storage to state that object in register. Sets register status to BUSY.
          * @param reg 
          */
         void set_with_reg (Reg* reg);
 
         /**
-         * @brief Print storage to stdin (debug purposes)
+         * @brief Print storage to stdin (debug purposes).
          * 
          */
         void print () const;
 
+        /**
+         * @brief Move storage to destination register.
+         *  How to move storage to reg depends on StorageType and StorageData
+         *
+         * @param ctx 
+         * @param dest_reg 
+         * @param comment comment to Asm file
+         */
         void move_to_reg (Context* ctx, Reg* dest_reg, const char* comment = NULL);
     };

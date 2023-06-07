@@ -236,9 +236,8 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
     assert(buildog);
     assert(token);
 
-    data_t const_val  = (int) (CONST(token) * 100);
+    data_t const_val  = (data_t) (CONST(token) * 100);
     name_t const_name = CreateString ("const_%d", CONSTANT_NUMBER++);
-    // $u (CONSTANT_NUMBER);
 
     Constant* constant = CreateConstant (buildog, const_name, const_val);
 
@@ -291,13 +290,14 @@ static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv,Tok
         Value* param_val = AstVisitor (buildog, LEFT(param));
         assert(param_val);
                          
-        argv->add(param_val);
+        argv->add (param_val);
 
         param = RIGHT(param);
         }
 
     return SUCCESS;
     }
+
 //////////////////////////////////////////////////////
 // Call
 //////////////////////////////////////////////////////
@@ -323,7 +323,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         func_name = LEFT(token);
         assert(func_name);
         
-        /// @todo make separate tables, to avoid cast
+        /// @todo make separate table for functions, to avoid cast
         func = (Function*) FindValue (buildog, NAME_ID(func_name));
         if (!func)
             {
@@ -475,7 +475,7 @@ static Store* AddLocalVar (Builder* buildog, const Token* token)
     Value* store_val = AstVisitor (buildog, RIGHT(token));
     
     Store* store = CreateStore (buildog, var_name, store_val);
-
+    
     ValueLabel label = { .name_id = NAME_ID(name),
                          .type    = VARIABLE,
                          .val     = store,

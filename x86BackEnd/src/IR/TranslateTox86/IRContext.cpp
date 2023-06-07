@@ -8,7 +8,7 @@
 
 #include "CommonEnums.h"
 #include "LogMacroses.h"
-
+#include "DumpIR.h"
 
 FILE* DUMP = NULL;
 
@@ -106,7 +106,54 @@ void WriteOpCodes (Context* ctx, const char* src, unsigned size)
     CopyToBuff (ctx->code, ctx->code->size, (void*) src, size);
     } 
 
-const int    MAX_COMMENT_LENGTH = 128;
+//////////////////////////////////////////////////////
+const int COMMENT_ALIGNMENT = 30;
+      int CURRENT_LINE_LENGTH   = 0;
+
+const int TAB_SIZE = 4;
+const int MAX_COMMENT_LENGTH = 128;
+
+void print_raw     (const char* format, ...)
+    {
+    assert (format);
+
+    va_list ptr;
+    va_start(ptr, format);
+
+    CURRENT_LINE_LENGTH += vfprintf (DUMP, format, ptr);
+
+    va_end(ptr);
+    }
+
+void print_comment (const char* comment)
+    {
+    if (!comment) 
+        {
+        new_line ();
+        return;
+        }
+
+    if (COMMENT_ALIGNMENT - CURRENT_LINE_LENGTH > 0)
+        fprintf (DUMP, "%*c", COMMENT_ALIGNMENT - CURRENT_LINE_LENGTH, ' ');
+
+    print_raw ("# %s", comment);
+    new_line ();
+    }
+
+void new_line ()
+    {
+    print_raw ("\n");
+    CURRENT_LINE_LENGTH = 0;
+    }
+
+void PrintIRInstruction (const Instruction* instr)
+    {
+    assert (instr);
+
+    print_raw ("### "); 
+    WriteToFile (DUMP, instr); 
+    new_line ();
+    }
 
 const char* MakeComment (const char* format, ...)
     {

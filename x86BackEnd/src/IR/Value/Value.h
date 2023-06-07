@@ -59,7 +59,7 @@ class Value : public NoCopyable
         virtual ValueType get_type () const = 0;
 
         /**
-         * @brief Translate Value to x86 code
+         * @brief Translate Value to x86 op codes
          * 
          * @param ctx 
          */
@@ -120,8 +120,9 @@ class BaseBlock : public Value
     };
 
 //////////////////////////////////////////////////////
-const int    PRECISION = 100;
-const data_t BAD_VALUE = -666;
+/// For historical reasons float constants represents as
+/// integer value multiplied by PRECISION 
+const int PRECISION = 100;
 
 /**
  * @brief Double constant.

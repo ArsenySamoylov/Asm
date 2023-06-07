@@ -78,19 +78,53 @@ int ClearCtxAfterFunction (Context* ctx);
 
 void WriteOpCodes (Context* ctx, const char* src, unsigned size);
 
+//////////////////////////////////////////////////////
+/// File for Assembler dump
 extern FILE* DUMP;
+extern const int TAB_SIZE;
 
-#define print_raw(format, ...) fprintf (DUMP, format __VA_OPT__(,) __VA_ARGS__);   
-#define print_label(VALUE)      print_raw  ("%s:\n", (VALUE)->name)
-#define new_line()              print_raw ("\n");
-#define PRINT_INSTR_COMM(INSTR) print_raw ("### "); WriteToFile (DUMP, INSTR); print_raw("\n");   
+/**
+ * @brief Print to Assembler file
+ * 
+ * @param format 
+ * @param ... 
+ */
+void print_raw     (const char* format, ...);
 
-#define print_tab(format, ...)                            \
-    do                                                    \
-    {                                                     \
-    print_raw ("\t");                                     \
-                                                          \
-    print_raw (format __VA_OPT__(,) __VA_ARGS__);         \
-    }while(0);
+/**
+ * @brief Print comment using COMMENT_ALIGNMENT
+ * 
+ * @param comment 
+ */
+void print_comment (const char* comment);         
+
+/**
+ * @brief Inset new line
+ * Move carrige to new line and reset CURRENT_LINE_LENGTH
+ */
+void new_line      ();
+
+/**
+ * @brief print with tab
+ * @note TAB_SIZE specifies how many spaces inserted instead tab
+ */
+#define print_tab(format, ...) do {                                             \
+                                print_raw ("%*c", TAB_SIZE, ' ');               \
+                                print_raw (format __VA_OPT__(,) __VA_ARGS__);   \
+                                  } while (0);
+
+#define print_label(VALUE)      do {                                        \
+                                    print_raw  ("%s:", (VALUE)->name);      \
+                                    new_line();                             \
+                                    } while (0);
+
+/**
+ * @brief Print Instruction dump to Assembler File as comment
+ * 
+ * @param instr 
+ */
+void PrintIRInstruction (const Instruction* instr);
+
+#define PRINT_INSTR_COMM(INSTR) 
 
 const char* MakeComment (const char* format, ...);

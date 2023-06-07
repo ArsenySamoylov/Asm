@@ -159,6 +159,7 @@ Value* FindValue (Builder* buildog, int name_id)
     }
 
 //////////////////////////////////////////////////////
+int FIN_NAME_ID = 0;
 
 int AddNativeFunctions (Builder* buildog)
     {

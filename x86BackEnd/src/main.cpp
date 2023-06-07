@@ -1,16 +1,11 @@
-#include "TranslateToAsm.h"
-
-#include "AstToIR.h"
-
 #include "StandartAWP.h"
-#include "SetTokenTree.h"
+#include "AstToIR.h"
 
 #include "DefGraphVis.h"
 
 #include "LogMacroses.h"
 #include "EasyDebug.h"
 #include "Elf.hpp"
-
 
 #define GOTO_FAILURE_EXIT(exit_name)        goto fail_exit_label_##exit_name;
 #define SET_FAILURE_EXIT(exit_name)              fail_exit_label_##exit_name:
@@ -44,10 +39,10 @@ int main(int argc, const char* argv[])
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
   
   program_module.dump          (IR_DUMP_FILE);
+
   program_module.translate_x86 (&elf, ASSEMBLER_DUMP_FILE);
 
   WriteElf (&elf, result_elf_name);
-
   SYSTEM ("chmod +x ASM.out\n");
 
   ProgramDtor (&program);
