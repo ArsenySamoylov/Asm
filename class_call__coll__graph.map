@@ -4,7 +4,7 @@
 <area shape="rect" id="node3" href="$class_value.html" title="Abstract class for IR object." alt="" coords="371,184,430,211"/>
 <area shape="rect" id="node8" href="$class_function.html" title="Function." alt="" coords="221,273,298,300"/>
 <area shape="rect" id="node4" href="$class_no_copyable.html" title="No COPY !!!!" alt="" coords="321,5,422,32"/>
-<area shape="rect" id="node5" href="$class_storage.html" title="Storage objects shows state of Value." alt="" coords="409,95,481,121"/>
+<area shape="rect" id="node5" href="$class_storage.html" title="Storage objects shows state of Value while translating to x86." alt="" coords="409,95,481,121"/>
 <area shape="rect" id="node6" href="$struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="447,5,549,32"/>
 <area shape="rect" id="node7" href="$class_value_arr.html" title=" " alt="" coords="5,184,148,211"/>
 <area shape="rect" id="node9" href="$class_value_arr.html" title=" " alt="" coords="172,184,347,211"/>

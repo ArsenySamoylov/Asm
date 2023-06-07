@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['translateirtox86_2ecpp_527',['TranslateIRTox86.cpp',['../_translate_i_r_tox86_8cpp.html',1,'']]],
-  ['typedefs_2eh_528',['TypeDefs.h',['../_type_defs_8h.html',1,'']]]
+  ['nametable_2ecpp_2eo_2ed_589',['NameTable.cpp.o.d',['../_name_table_8cpp_8o_8d.html',1,'']]],
+  ['nocopyable_2eh_590',['NoCopyable.h',['../_no_copyable_8h.html',1,'']]]
 ];

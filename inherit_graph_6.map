@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,81,107,108"/>
-<area shape="rect" id="node2" href="$class_storage.html" title="Storage objects shows state of Value." alt="" coords="155,56,227,83"/>
+<area shape="rect" id="node2" href="$class_storage.html" title="Storage objects shows state of Value while translating to x86." alt="" coords="155,56,227,83"/>
 <area shape="rect" id="node3" href="$class_value.html" title="Abstract class for IR object." alt="" coords="161,107,220,133"/>
 <area shape="rect" id="node4" href="$class_base_block.html" title="Block of Instructions." alt="" coords="275,5,365,32"/>
 <area shape="rect" id="node5" href="$class_constant.html" title="Double constant." alt="" coords="280,56,360,83"/>

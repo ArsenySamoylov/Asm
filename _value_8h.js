@@ -22,6 +22,5 @@ var _value_8h =
       [ "Int", "_value_8h.html#ab69f6b76e623d3ec3e1b2b4bd287548da1686a6c336b71b36d77354cea19a8b52", null ],
       [ "Char", "_value_8h.html#ab69f6b76e623d3ec3e1b2b4bd287548da8e95e84813830072b7516cfaa7dbc1a9", null ]
     ] ],
-    [ "BAD_VALUE", "_value_8h.html#a824fe1dd118c50bb9ebc7295932b5457", null ],
     [ "PRECISION", "_value_8h.html#ac96357b1d5d7d9565e41d8fab5a07a60", null ]
 ];

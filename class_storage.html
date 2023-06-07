@@ -92,14 +92,14 @@ $(document).ready(function(){initNavTree('class_storage.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_storage.html" title="Storage objects shows state of Value.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>.  
+<p><a class="el" href="class_storage.html" title="Storage objects shows state of Value while translating to x86.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> while translating to x86.  
  <a href="class_storage.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Storage:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_storage__inherit__graph.png" border="0" usemap="#a_storage_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_storage_inherit__map" id="a_storage_inherit__map">
-<area shape="rect" title="Storage objects shows state of Value." alt="" coords="20,80,92,107"/>
+<area shape="rect" title="Storage objects shows state of Value while translating to x86." alt="" coords="20,80,92,107"/>
 <area shape="rect" href="class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -108,7 +108,7 @@ Collaboration diagram for Storage:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_storage__coll__graph.png" border="0" usemap="#a_storage_coll__map" alt="Collaboration graph"/></div>
 <map name="a_storage_coll__map" id="a_storage_coll__map">
-<area shape="rect" title="Storage objects shows state of Value." alt="" coords="83,95,155,121"/>
+<area shape="rect" title="Storage objects shows state of Value while translating to x86." alt="" coords="83,95,155,121"/>
 <area shape="rect" href="class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
 <area shape="rect" href="struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="131,5,234,32"/>
 </map>
@@ -147,12 +147,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fe5a5bab571dba9231e55bf5424c5d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_type_defs_8h.html#a3c4cf2bed54097894a533af3d236737d">address_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_storage.html#a6fe5a5bab571dba9231e55bf5424c5d9">get_address</a> () const</td></tr>
 <tr class="separator:a6fe5a5bab571dba9231e55bf5424c5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2badd5291fcf1f21d3182a5f4e73533f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_storage.html#a2badd5291fcf1f21d3182a5f4e73533f">set_with_reg</a> (<a class="el" href="struct_reg.html">Reg</a> *reg)</td></tr>
-<tr class="memdesc:a2badd5291fcf1f21d3182a5f4e73533f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set storage, to state that object in register. Set storage, to state that object in register. Sets register status to BUSY.  <a href="class_storage.html#a2badd5291fcf1f21d3182a5f4e73533f">More...</a><br /></td></tr>
+<tr class="memdesc:a2badd5291fcf1f21d3182a5f4e73533f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set storage to state that object in register. Set storage to state that object in register. Sets register status to BUSY.  <a href="class_storage.html#a2badd5291fcf1f21d3182a5f4e73533f">More...</a><br /></td></tr>
 <tr class="separator:a2badd5291fcf1f21d3182a5f4e73533f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a491713e42e55922412c64ea9d35120dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_storage.html#a491713e42e55922412c64ea9d35120dd">print</a> () const</td></tr>
-<tr class="memdesc:a491713e42e55922412c64ea9d35120dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print storage to stdin (debug purposes)  <a href="class_storage.html#a491713e42e55922412c64ea9d35120dd">More...</a><br /></td></tr>
+<tr class="memdesc:a491713e42e55922412c64ea9d35120dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print storage to stdin (debug purposes).  <a href="class_storage.html#a491713e42e55922412c64ea9d35120dd">More...</a><br /></td></tr>
 <tr class="separator:a491713e42e55922412c64ea9d35120dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a381256ebbb1a1a926e9dbcfd86d39c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_storage.html#a381256ebbb1a1a926e9dbcfd86d39c0f">move_to_reg</a> (<a class="el" href="struct_context.html">Context</a> *ctx, <a class="el" href="struct_reg.html">Reg</a> *dest_reg, const char *comment=NULL)</td></tr>
+<tr class="memdesc:a381256ebbb1a1a926e9dbcfd86d39c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move storage to destination register. How to move storage to reg depends on StorageType and <a class="el" href="struct_storage_data.html" title="Structure to contain data and information about Storage.">StorageData</a>.  <a href="class_storage.html#a381256ebbb1a1a926e9dbcfd86d39c0f">More...</a><br /></td></tr>
 <tr class="separator:a381256ebbb1a1a926e9dbcfd86d39c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_no_copyable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_no_copyable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_no_copyable.html">NoCopyable</a></td></tr>
 <tr class="memitem:ade9c96e3484b122001dd4f42e6c28047 inherit pub_methods_class_no_copyable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_copyable.html#ade9c96e3484b122001dd4f42e6c28047">NoCopyable</a> ()=default</td></tr>
@@ -178,8 +179,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad2a02dd3afb0dfcad9aec8e7937cae33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_storage.html" title="Storage objects shows state of Value.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>. </p>
-<p><a class="el" href="class_storage.html" title="Storage objects shows state of Value.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>. For example result after executing <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a> can be placed in register or on stack. </p>
+<div class="textblock"><p><a class="el" href="class_storage.html" title="Storage objects shows state of Value while translating to x86.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> while translating to x86. </p>
+<p><a class="el" href="class_storage.html" title="Storage objects shows state of Value while translating to x86.">Storage</a> objects shows state of <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>. For example: while translating to machine codes <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> can be placed in register or on stack. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afafa9906b0dfb206bd3439b00c015b5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afafa9906b0dfb206bd3439b00c015b5c">&#9670;&nbsp;</a></span>Storage()</h2>
@@ -430,6 +431,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Move storage to destination register. How to move storage to reg depends on StorageType and <a class="el" href="struct_storage_data.html" title="Structure to contain data and information about Storage.">StorageData</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td></td></tr>
+    <tr><td class="paramname">dest_reg</td><td></td></tr>
+    <tr><td class="paramname">comment</td><td>comment to Asm file </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a491713e42e55922412c64ea9d35120dd"></a>
@@ -447,7 +458,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Print storage to stdin (debug purposes) </p>
+<p>Print storage to stdin (debug purposes). </p>
 
 </div>
 </div>
@@ -520,7 +531,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set storage, to state that object in register. Set storage, to state that object in register. Sets register status to BUSY. </p>
+<p>Set storage to state that object in register. Set storage to state that object in register. Sets register status to BUSY. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td></td></tr>

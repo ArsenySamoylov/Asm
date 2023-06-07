@@ -152,7 +152,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a731e6089b4ab4e880981b0a16ef741ed"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_builder_8h.html#a731e6089b4ab4e880981b0a16ef741ed">FIN_NAME_ID</a> = 0</td></tr>
+<tr class="memitem:a731e6089b4ab4e880981b0a16ef741ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_builder_8h.html#a731e6089b4ab4e880981b0a16ef741ed">FIN_NAME_ID</a></td></tr>
 <tr class="separator:a731e6089b4ab4e880981b0a16ef741ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -813,15 +813,16 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int FIN_NAME_ID = 0</td>
+          <td class="memname">int FIN_NAME_ID</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Ast tree has inconvenient way of representing <code>fin</code> function. For this reason I Rearrange tokens when find FIN Native <a class="el" href="class_function.html" title="Function.">Function</a> token (see RearrangeFinTokens) For this reason I need to have access to FIN_NAME_ID. </p>
 
 </div>
 </div>

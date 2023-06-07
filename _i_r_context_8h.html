@@ -112,16 +112,11 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab41e584ff492106dae6dc249ec1d6fb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a>(format, ...)&#160;&#160;&#160;fprintf (<a class="el" href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a>, format __VA_OPT__(,) __VA_ARGS__);</td></tr>
-<tr class="separator:ab41e584ff492106dae6dc249ec1d6fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31a51f041c9ddc8a28e9d4865ad1dd19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a31a51f041c9ddc8a28e9d4865ad1dd19">print_label</a>(VALUE)&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a>  (&quot;%s:\n&quot;, (VALUE)-&gt;name)</td></tr>
-<tr class="separator:a31a51f041c9ddc8a28e9d4865ad1dd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1185f064cc7bdd3f2a433da85a834c37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a1185f064cc7bdd3f2a433da85a834c37">new_line</a>()&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a> (&quot;\n&quot;);</td></tr>
-<tr class="separator:a1185f064cc7bdd3f2a433da85a834c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c1eb7aac1cb809c57358913a3c7c8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a42c1eb7aac1cb809c57358913a3c7c8a">PRINT_INSTR_COMM</a>(INSTR)&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a> (&quot;### &quot;); <a class="el" href="_dump_i_r_8h.html#a9c43de318cd2d2a335aa08f16cb5ef57">WriteToFile</a> (<a class="el" href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a>, INSTR); <a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a>(&quot;\n&quot;);</td></tr>
-<tr class="separator:a42c1eb7aac1cb809c57358913a3c7c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe06169e433bf4371790de5e754e20de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#afe06169e433bf4371790de5e754e20de">print_tab</a>(format, ...)</td></tr>
+<tr class="memdesc:afe06169e433bf4371790de5e754e20de"><td class="mdescLeft">&#160;</td><td class="mdescRight">print with tab  <a href="_i_r_context_8h.html#afe06169e433bf4371790de5e754e20de">More...</a><br /></td></tr>
 <tr class="separator:afe06169e433bf4371790de5e754e20de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a51f041c9ddc8a28e9d4865ad1dd19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a31a51f041c9ddc8a28e9d4865ad1dd19">print_label</a>(VALUE)</td></tr>
+<tr class="separator:a31a51f041c9ddc8a28e9d4865ad1dd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -146,52 +141,32 @@ Functions</h2></td></tr>
 <tr class="separator:a8c1921ec3cdffabcc84509e65613555b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bf219e9042133b671a6889de47d563f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a6bf219e9042133b671a6889de47d563f">WriteOpCodes</a> (<a class="el" href="struct_context.html">Context</a> *ctx, const char *src, unsigned size)</td></tr>
 <tr class="separator:a6bf219e9042133b671a6889de47d563f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8dd0faff13a82fa3c85be406407987"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#aed8dd0faff13a82fa3c85be406407987">print_raw</a> (const char *format,...)</td></tr>
+<tr class="memdesc:aed8dd0faff13a82fa3c85be406407987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print to Assembler file.  <a href="_i_r_context_8h.html#aed8dd0faff13a82fa3c85be406407987">More...</a><br /></td></tr>
+<tr class="separator:aed8dd0faff13a82fa3c85be406407987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f6abf73f5190ec591e8d21de1c3d84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a71f6abf73f5190ec591e8d21de1c3d84">print_comment</a> (const char *comment)</td></tr>
+<tr class="memdesc:a71f6abf73f5190ec591e8d21de1c3d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print comment using COMMENT_ALIGNMENT.  <a href="_i_r_context_8h.html#a71f6abf73f5190ec591e8d21de1c3d84">More...</a><br /></td></tr>
+<tr class="separator:a71f6abf73f5190ec591e8d21de1c3d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a919c35969928cee64cea01bf682f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#ab4a919c35969928cee64cea01bf682f6">new_line</a> ()</td></tr>
+<tr class="memdesc:ab4a919c35969928cee64cea01bf682f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inset new line Move carrige to new line and reset CURRENT_LINE_LENGTH.  <a href="_i_r_context_8h.html#ab4a919c35969928cee64cea01bf682f6">More...</a><br /></td></tr>
+<tr class="separator:ab4a919c35969928cee64cea01bf682f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#a665924d7d3edbc5d5193cd7ef279c5d7">PrintIRInstruction</a> (const <a class="el" href="class_instruction.html">Instruction</a> *instr)</td></tr>
+<tr class="memdesc:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a> dump to Assembler File as comment.  <a href="_i_r_context_8h.html#a665924d7d3edbc5d5193cd7ef279c5d7">More...</a><br /></td></tr>
+<tr class="separator:a665924d7d3edbc5d5193cd7ef279c5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce6889d77303cabae041d4d96569e6d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#adce6889d77303cabae041d4d96569e6d">MakeComment</a> (const char *format,...)</td></tr>
 <tr class="separator:adce6889d77303cabae041d4d96569e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a></td></tr>
+<tr class="memdesc:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for Assembler dump.  <a href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">More...</a><br /></td></tr>
 <tr class="separator:ab5bc7772b71d0b2392b85cc3bc4467ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9dd85dd76a5112dd197ae704e1b903b"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i_r_context_8h.html#ac9dd85dd76a5112dd197ae704e1b903b">TAB_SIZE</a></td></tr>
+<tr class="separator:ac9dd85dd76a5112dd197ae704e1b903b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains interface for translating <a class="el" href="class_module.html" title="Class for representing program.">Module</a> to <a class="el" href="struct_elf.html" title="Structure to represent Elf file.">Elf</a> program (<a class="el" href="struct_context.html" title="Interface for translating Module to Elf.">Context</a> and <a class="el" href="struct_reference.html" title="Struct to hold reference for call or jump ro resolve it later.">Reference</a>) </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a1185f064cc7bdd3f2a433da85a834c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1185f064cc7bdd3f2a433da85a834c37">&#9670;&nbsp;</a></span>new_line</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define new_line</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a> (&quot;\n&quot;);</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a42c1eb7aac1cb809c57358913a3c7c8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42c1eb7aac1cb809c57358913a3c7c8a">&#9670;&nbsp;</a></span>PRINT_INSTR_COMM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRINT_INSTR_COMM</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">INSTR</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a> (&quot;### &quot;); <a class="el" href="_dump_i_r_8h.html#a9c43de318cd2d2a335aa08f16cb5ef57">WriteToFile</a> (<a class="el" href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a>, INSTR); <a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a>(&quot;\n&quot;);</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a31a51f041c9ddc8a28e9d4865ad1dd19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a31a51f041c9ddc8a28e9d4865ad1dd19">&#9670;&nbsp;</a></span>print_label</h2>
 
@@ -203,39 +178,15 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">VALUE</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a>  (&quot;%s:\n&quot;, (VALUE)-&gt;name)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab41e584ff492106dae6dc249ec1d6fb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab41e584ff492106dae6dc249ec1d6fb4">&#9670;&nbsp;</a></span>print_raw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define print_raw</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">format, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;fprintf (<a class="el" href="_i_r_context_8h.html#ab5bc7772b71d0b2392b85cc3bc4467ba">DUMP</a>, format __VA_OPT__(,) __VA_ARGS__);</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">                                    <span class="keywordflow">do</span> {                                        \</div>
+<div class="line">                                    print_raw  (<span class="stringliteral">&quot;%s:&quot;</span>, (VALUE)-&gt;name);      \</div>
+<div class="line">                                    new_line();                             \</div>
+<div class="line">                                    } <span class="keywordflow">while</span> (0);</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afe06169e433bf4371790de5e754e20de"></a>
@@ -263,14 +214,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                    \</div>
-<div class="line">    {                                                     \</div>
-<div class="line">    print_raw (<span class="stringliteral">&quot;\t&quot;</span>);                                     <a class="code" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">\</a></div>
-<div class="line"><a class="code" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">                                                          \</a></div>
-<div class="line"><a class="code" href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">    print_raw</a> (format __VA_OPT__(,) __VA_ARGS__);         \</div>
-<div class="line">    }<span class="keywordflow">while</span>(0);</div>
-<div class="ttc" id="a_i_r_context_8h_html_ab41e584ff492106dae6dc249ec1d6fb4"><div class="ttname"><a href="_i_r_context_8h.html#ab41e584ff492106dae6dc249ec1d6fb4">print_raw</a></div><div class="ttdeci">#define print_raw(format,...)</div><div class="ttdef"><b>Definition:</b> IRContext.h:83</div></div>
+<b>Value:</b><div class="fragment"><div class="line">                                <span class="keywordflow">do</span> {                                             \</div>
+<div class="line">                                print_raw (<span class="stringliteral">&quot;%*c&quot;</span>, <a class="code" href="_i_r_context_8h.html#ac9dd85dd76a5112dd197ae704e1b903b">TAB_SIZE</a>, <span class="charliteral">&#39; &#39;</span>);               \</div>
+<div class="line">                                print_raw (format __VA_OPT__(,) __VA_ARGS__);   \</div>
+<div class="line">                                  } <span class="keywordflow">while</span> (0);</div>
+<div class="ttc" id="a_i_r_context_8h_html_ac9dd85dd76a5112dd197ae704e1b903b"><div class="ttname"><a href="_i_r_context_8h.html#ac9dd85dd76a5112dd197ae704e1b903b">TAB_SIZE</a></div><div class="ttdeci">const int TAB_SIZE</div><div class="ttdef"><b>Definition:</b> IRContext.cpp:113</div></div>
 </div><!-- fragment -->
+<p>print with tab </p>
+<dl class="section note"><dt>Note</dt><dd>TAB_SIZE specifies how many spaces inserted instead tab </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -391,6 +343,114 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4a919c35969928cee64cea01bf682f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a919c35969928cee64cea01bf682f6">&#9670;&nbsp;</a></span>new_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void new_line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inset new line Move carrige to new line and reset CURRENT_LINE_LENGTH. </p>
+
+</div>
+</div>
+<a id="a71f6abf73f5190ec591e8d21de1c3d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71f6abf73f5190ec591e8d21de1c3d84">&#9670;&nbsp;</a></span>print_comment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_comment </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>comment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print comment using COMMENT_ALIGNMENT. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comment</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aed8dd0faff13a82fa3c85be406407987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8dd0faff13a82fa3c85be406407987">&#9670;&nbsp;</a></span>print_raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_raw </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print to Assembler file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td></td></tr>
+    <tr><td class="paramname">...</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a665924d7d3edbc5d5193cd7ef279c5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665924d7d3edbc5d5193cd7ef279c5d7">&#9670;&nbsp;</a></span>PrintIRInstruction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrintIRInstruction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_instruction.html">Instruction</a> *&#160;</td>
+          <td class="paramname"><em>instr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print <a class="el" href="class_instruction.html" title="Abstract class for instruction, that will be executed.">Instruction</a> dump to Assembler File as comment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instr</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -560,6 +620,30 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">FILE* DUMP</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>File for Assembler dump. </p>
+
+</div>
+</div>
+<a id="ac9dd85dd76a5112dd197ae704e1b903b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9dd85dd76a5112dd197ae704e1b903b">&#9670;&nbsp;</a></span>TAB_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int TAB_SIZE</td>
         </tr>
       </table>
   </td>

@@ -121,7 +121,7 @@ Collaboration diagram for Value:</div>
 <map name="a_value_coll__map" id="a_value_coll__map">
 <area shape="rect" title="Abstract class for IR object." alt="" coords="48,184,107,211"/>
 <area shape="rect" href="class_no_copyable.html" title="No COPY !!!!" alt="" coords="5,5,107,32"/>
-<area shape="rect" href="class_storage.html" title="Storage objects shows state of Value." alt="" coords="93,95,165,121"/>
+<area shape="rect" href="class_storage.html" title="Storage objects shows state of Value while translating to x86." alt="" coords="93,95,165,121"/>
 <area shape="rect" href="struct_storage_data.html" title="Structure to contain data and information about Storage." alt="" coords="131,5,234,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a81566c2e0f8d9c81fe18ad4ae251e471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> type.  <a href="class_value.html#a81566c2e0f8d9c81fe18ad4ae251e471">More...</a><br /></td></tr>
 <tr class="separator:a81566c2e0f8d9c81fe18ad4ae251e471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c80febbb8171e7c60cdd1598c47fe53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_value.html#a5c80febbb8171e7c60cdd1598c47fe53">translate_x86</a> (<a class="el" href="struct_context.html">Context</a> *ctx) const =0</td></tr>
-<tr class="memdesc:a5c80febbb8171e7c60cdd1598c47fe53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 code.  <a href="class_value.html#a5c80febbb8171e7c60cdd1598c47fe53">More...</a><br /></td></tr>
+<tr class="memdesc:a5c80febbb8171e7c60cdd1598c47fe53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 op codes.  <a href="class_value.html#a5c80febbb8171e7c60cdd1598c47fe53">More...</a><br /></td></tr>
 <tr class="separator:a5c80febbb8171e7c60cdd1598c47fe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab68f4bce225da0bdba8085c85b90ca0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_registers_usage_8h.html#ab5975331cd486284a82c920f62045e26">GPRegisterNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_value.html#ab68f4bce225da0bdba8085c85b90ca0f">put_to_reg</a> (<a class="el" href="struct_context.html">Context</a> *ctx) const</td></tr>
 <tr class="memdesc:ab68f4bce225da0bdba8085c85b90ca0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to reg.  <a href="class_value.html#ab68f4bce225da0bdba8085c85b90ca0f">More...</a><br /></td></tr>
@@ -173,7 +173,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for IR object. </p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="class_storage.html" title="Storage objects shows state of Value.">Storage</a> shows where <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> stored during translation to x86 (for example on stack or in register) and also hold some data (stack offset or reg number for example). In translate_tox86 I work with const <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>, which changes its storage. That is why storage is mutable. <br  />
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="class_storage.html" title="Storage objects shows state of Value while translating to x86.">Storage</a> shows where <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> stored during translation to x86 (for example on stack or in register) and also hold some data (stack offset or reg number for example). In translate_tox86 I work with const <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a>, which changes its storage. That is why storage is mutable. <br  />
  </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a34b3fd7da89c8da39158746671fff0f6"></a>
@@ -409,7 +409,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 code. </p>
+<p>Translate <a class="el" href="class_value.html" title="Abstract class for IR object.">Value</a> to x86 op codes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td></td></tr>

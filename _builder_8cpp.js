@@ -20,5 +20,6 @@ var _builder_8cpp =
     [ "GetRetType", "_builder_8cpp.html#a7d8fef0ca2e66bd1df287e70159b2994", null ],
     [ "InsertNewBaseBlock", "_builder_8cpp.html#a44db65f42f0a8319a9687af20ad6d17b", null ],
     [ "ResetBuilderAfterFunction", "_builder_8cpp.html#a9847eb0930fd4566ec889b496523ce56", null ],
-    [ "SetBuilderForFunction", "_builder_8cpp.html#a17681e5b54e8117bc3417a896383d183", null ]
+    [ "SetBuilderForFunction", "_builder_8cpp.html#a17681e5b54e8117bc3417a896383d183", null ],
+    [ "FIN_NAME_ID", "_builder_8cpp.html#a731e6089b4ab4e880981b0a16ef741ed", null ]
 ];
