@@ -18,29 +18,11 @@ merge_0:
 	return 1
 
 
-Declare function 'TEST' (param iteration):
-entry_TEST:
-	%op_0 = bigger iteration, 0
-	br %op_0, label than_1, label merge_1
-
-than_1:
-	%c_1 = call: factorial (param 6)
-	result = store(%c_1)
-	call: fout (param result)
-	%op_4 = sub iteration, 1
-	%c_3 = call: TEST (param %op_4)
-
-	return %c_3
-	br label merge_1
-
-merge_1:
-
-	return 1
-
-
 Declare function 'main' ():
 entry_main:
-	%c_0 = call: TEST (param 10)
+	%c_0 = call: factorial (param 6)
+	result = store(%c_0)
+	call: fout (param result)
 
 	return 0
 

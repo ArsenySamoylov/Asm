@@ -44,6 +44,11 @@ GPRegisterNumber Value::put_to_reg (Context* ctx) const
 //////////////////////////////////////////////////////
 // Storage
 //////////////////////////////////////////////////////
+#include <stack>
+using namespace std;
+static  stack <Storage*> StackedStorages; // I need container to hold storages that was moved from stack to registers.
+                                          // So when BaseBlock ends it will reset this storages
+
 void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
     {
     assert (ctx);
@@ -66,6 +71,7 @@ void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
 
         case StorageType::Stack:
                 PutMoveFromStack (ctx, storage_data.offset, dest_reg->number, comment);
+                StackedStorages.push (this);
                 break;
 
         case StorageType::Memory:
@@ -293,11 +299,15 @@ static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
 
         Reg* reg = GetReg (i);
         param_storage->set_with_reg (reg); 
-
+        
         const char* comment = MakeComment ("save parameter '%s' on stack", param->get_name());
         assert     (comment);
 
         PutMoveToStack (ctx, (GPRegisterNumber) i, param_storage->get_stack_offset(), comment);
+        if (i == RDX)
+            {
+            param_storage->set_storage_type (StorageType::Stack);
+            }
 
         i++; 
         n_params++; 
@@ -315,6 +325,8 @@ static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
 //////////////////////////////////////////////////////
 // BaseBlock
 //////////////////////////////////////////////////////
+static void ResetVarStorage (); // Relays on StackedStorages container
+
 void BaseBlock::translate_x86 (Context* ctx) const 
     {
     assert (ctx);
@@ -332,8 +344,25 @@ void BaseBlock::translate_x86 (Context* ctx) const
         val->translate_x86 (ctx);
         new_line();
         }
+
+    ResetVarStorage ();
     }   
 
+
+static void ResetVarStorage ()
+    {
+    while (!StackedStorages.empty())
+        {
+        Storage* storage = StackedStorages.top();
+        assert  (storage);
+        StackedStorages.pop();
+
+        storage->set_storage_type (StorageType::Stack);
+        report (" ");
+        storage->print();
+        }
+    }
+    
 //////////////////////////////////////////////////////
 // Constant
 //////////////////////////////////////////////////////
@@ -375,12 +404,13 @@ void Operator::translate_x86 (Context* ctx) const
         (left_op->get_storage())->set_with_reg (save_left);
         }
 
-    storage.set_with_reg (result_reg);
 
     PutMathOperation (ctx, op_type, right, left);
 
     (left_op ->get_storage())->decrease_usage (); 
     (right_op->get_storage())->decrease_usage ();
+    
+    storage.set_with_reg (result_reg);
     }
 
 static int PutMathOperation (Context* ctx, OperatorType operation, GPRegisterNumber src, GPRegisterNumber dest)

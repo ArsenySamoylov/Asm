@@ -2,7 +2,10 @@
 front:
 	./FrontEnd.out test0.gars test0.awp
  	
- back:
+front_q:
+	./FrontEnd.out test1.gars test0.awp
+ 
+back:
 	./OldBackend.out test0.awp soft_cpu_asm.txt
  
  ass:	

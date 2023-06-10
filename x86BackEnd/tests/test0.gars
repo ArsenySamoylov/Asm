@@ -6,21 +6,9 @@ double factorial (var number)
     return 1;
     } 
 
-double TEST (var iteration)
-    {
-    if (iteration > 0)
-	{
-	var result = factorial (6); 
-    	fout << result;
-    	   
-    	return TEST (iteration - 1);
-	}
-	   
-    return 1;
-    }
-	     
 double main ()
     {
-    TEST (10);
+	var result = factorial (6); 
+    fout << result;
     return 0;
     }

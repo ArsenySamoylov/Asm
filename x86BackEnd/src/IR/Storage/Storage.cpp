@@ -7,6 +7,8 @@
 
 #include "Commands.h"
 
+#include "LogMacroses.h"
+
 Storage::Storage (StorageType type, VariableType var_type, name_t owner_name_param) :
     storage_type  (type),
     variable_type (var_type),
@@ -134,7 +136,11 @@ void Function::set_storage () const
     for (size_t i = 0; i < body.get_size(); i++)
         body.get_const_value(i)->set_storage();
     
-    assert (STACK_OFFSET == n_local_vars);
+    if (STACK_OFFSET != n_local_vars)
+        {
+        report ("Error, n_local_vars(%lu) for '%s' doesn't match with STACK_OFFSET(%lu)\n", n_local_vars, name, STACK_OFFSET);
+        assert (0);
+        }
     }
 
 //////////////////////////////////////////////////////
@@ -169,6 +175,8 @@ void Store::set_storage () const
     {
     storage.set_storage_type (StorageType::Stack);
     *(storage.set_storage_data()) = {.offset = ++STACK_OFFSET};
+
+    // report ("%d - %s\n", STACK_OFFSET, name);
 
     if (val)
         (val->get_storage())->increase_usage ();

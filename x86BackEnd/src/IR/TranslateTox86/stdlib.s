@@ -31,12 +31,14 @@ cos:
     ret
 
 fout:
-    
+    push %r11
+
     mov %rdi, %rax
     
     cmp $0, %rax
     jge skip
 
+    push %rax
     movb $'-', %al
     push %rax
     mov   %rsp, %rsi
@@ -44,7 +46,8 @@ fout:
     mov   $1, %rdx         #
     mov   $1, %rax         # write function code for syscall
     mov   $1, %rdi         # write (buffer = rsi, descriptor = rdi, rdx = count)
-    syscall                #
+    syscall  
+    pop %rax               #
     pop %rax
 
     # abs(x) = (x XOR y) - y; y = x >>> 31
@@ -88,6 +91,7 @@ skip:
     syscall                #
     pop %rax
 
+    pop %r11
     ret
 
 put_decimal:

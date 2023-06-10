@@ -18,7 +18,8 @@ unsigned enum CommandsCodes
     Bigger,
     Less,
     Imul,
-    Idiv,
+    CQTO = 0x99,
+    Idiv = 0xf7,
 
     RegReg           = 0x48,
     RegExtended      = 0x49,
@@ -326,7 +327,7 @@ size_t PutMovConstant (Context* ctx, GPRegisterNumber dest, data_t data, const c
 size_t PutMoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset, const char* comment)
     {
     assert (ctx);
-    print_tab ("movq %s, -%-2lu(%%rbp)  ",  GetRegName(src), offset * 8);
+    print_tab ("movq %s, %-2lu(%%rbp)  ",  GetRegName(src), offset * 8);
     print_comment (comment);
     
     const unsigned OP_CODES_SIZE = 4;
@@ -347,7 +348,7 @@ size_t PutMoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset, cons
     args_byte |= src_byte;
 
     op_codes [2] = args_byte;
-    op_codes [3] = -offset * 8;
+    op_codes [3] = offset * 8;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
     return 0;
@@ -356,7 +357,7 @@ size_t PutMoveToStack   (Context* ctx, GPRegisterNumber src, size_t offset, cons
 size_t PutMoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest, const char* comment)
     {
     assert (ctx);
-    print_tab ("movq -%-2lu(%%rbp), %s  ", offset * 8, GetRegName(dest));
+    print_tab ("movq %-2lu(%%rbp), %s  ", offset * 8, GetRegName(dest));
     print_comment (comment);
     
     const unsigned OP_CODES_SIZE = 4;
@@ -377,7 +378,7 @@ size_t PutMoveFromStack (Context* ctx, size_t offset, GPRegisterNumber dest, con
     args_byte |= dest_byte;
 
     op_codes [2] = args_byte;
-    op_codes [3] = -offset * 8;
+    op_codes [3] = offset * 8;
 
     WriteOpCodes (ctx, op_codes, OP_CODES_SIZE);
 
@@ -424,8 +425,8 @@ static void PutClearRdx (Context* ctx)
     new_line ();
 
     const unsigned OP_CODES_SIZE = 3;
-    static char op_codes [OP_CODES_SIZE] = {0x48, 0x31, 0xd2};
-    WriteOpCodes (ctx, op_codes, 3); // write xor %rdx, %rdx
+    static char op_codes [OP_CODES_SIZE] = {RegReg, 0x31, 0xd2};
+    WriteOpCodes (ctx, op_codes, 3);       // xor %rdx, %rdx
     }
 
 static void NormalizeResult (Context* ctx, GPRegisterNumber result, int normalization_type)
@@ -436,7 +437,7 @@ static void NormalizeResult (Context* ctx, GPRegisterNumber result, int normaliz
     new_line ();
     PutClearRdx (ctx);
 
-    PutMovConstant (ctx, result, 100);
+    PutMovConstant (ctx, result, PRECISION);
 
     if (normalization_type == MUL)
         PutIMul (ctx, result);
@@ -479,27 +480,31 @@ static void PutIDiv (Context* ctx, GPRegisterNumber reg)
     {
     assert (ctx);
 
+    print_tab ("cqto\n");
     print_tab ("idiv %s", GetRegName (reg));
     new_line ();
 
-    const unsigned OP_CODES_SIZE = 3;
+    const unsigned OP_CODES_SIZE = 5;
     static char op_codes [OP_CODES_SIZE] = {};
 
-    op_codes[1] = 0xf7;
+    op_codes[0] = RegReg; 
+    op_codes[1] = CQTO;
+
+    op_codes[3] = Idiv;
 
     Reg* reg_reg = GetReg (reg);
     if (reg_reg->op_code_number < 8)
         {
-        op_codes[0] = RegReg;
-        op_codes[2] = 0xf8 + reg_reg->op_code_number;
+        op_codes[2] = RegReg;
+        op_codes[4] = 0xf8 + reg_reg->op_code_number;
         }
     else
         {
-        op_codes[0] = RegExtended;
-        op_codes[2] = 0xf8 + reg_reg->op_code_number - 8;
+        op_codes[2] = RegExtended;
+        op_codes[4] = 0xf8 + reg_reg->op_code_number - 8;
         }
 
-    WriteOpCodes (ctx, op_codes, 3); 
+    WriteOpCodes (ctx, op_codes, OP_CODES_SIZE); 
 
     }
 
@@ -615,7 +620,7 @@ size_t PutMulDiv (Context* ctx,  OperatorType operation, GPRegisterNumber src, G
         PutIMul (ctx, src);
     else
         PutIDiv (ctx, src);
-
+        
     int how_to_normalize = operation == OperatorType::Div ? MUL : DIV;
     NormalizeResult (ctx, dest, how_to_normalize);
     

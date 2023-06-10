@@ -125,6 +125,4 @@ void new_line      ();
  */
 void PrintIRInstruction (const Instruction* instr);
 
-#define PRINT_INSTR_COMM(INSTR) 
-
 const char* MakeComment (const char* format, ...);
