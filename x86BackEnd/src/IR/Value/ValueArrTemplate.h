@@ -118,4 +118,8 @@ void PtrArray<Value_T>::copy (Value_T& val)
 template <class Value_T>
 void PtrArray<Value_T>::reset()
     {
+    for (size_t i = 0; i < size; i++)
+        free (arr[i]);
+
+    size = 0;
     }

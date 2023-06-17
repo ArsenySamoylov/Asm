@@ -15,16 +15,13 @@ static int SetPhdr (Elf64_Phdr* header, uint32_t p_type, Elf64_Addr segment_virt
 static int SetPhdrSize   (Elf64_Phdr* header, uint64_t size);
 static int SetPhdrOffset (Elf64_Phdr* header, Elf64_Off segment_offset);
 
-int SetElfHeaders (ElfHeaders* elf)
+void Elf::SetElfHeaders (ElfHeaders* elf)
     {
     assert(elf);
 
     SetEhdr (&elf->elf_header);
     
     SetPhdr (&elf->code_phdr, PT_LOAD,  CODE_VIRTUAL_ADDRESS,   PF_X | PF_R);
-    // SetPhdr (&elf->data_phdr, PT_LOAD,  RODATA_VIRTUAL_ADDRESS, PF_R | PF_W);
-    // SetPhdr (&elf->stdlib_phdr, PT_LOAD, STDLIB_VIRTUAL_ADDRESS, PF_X | PF_R);
-
     SetPhdr (&elf->stack_phdr, PT_GNU_STACK, 0,  PF_R | PF_W);
 
     elf->stack_phdr.p_align = 0x10;
@@ -88,32 +85,18 @@ static int SetPhdrOffset (Elf64_Phdr* segment_hdr, Elf64_Off segment_offset)
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-int ElfCtor (Elf* elf)
+Elf::Elf ()
     {
-    assert(elf);
-
-    SetElfHeaders(&elf->headers);
+    SetElfHeaders(&headers);
 
     BufferCtor (&elf->code_buf);
-    // BufferCtor (&elf->data_buf);
-    // BufferCtor (&elf->stdlib_buf);
-
     BufferCtor (&elf->program_buf);
-
-    return SUCCESS;
     }
     
-int ElfDtor (Elf* elf)
+Elf::~Elf ()
     {
-    assert(elf);
-
     BufferDtor (&elf->code_buf);
-    // BufferDtor (&elf->data_buf);
-    // BufferDtor (&elf->stdlib_buf);
-
     BufferDtor (&elf->program_buf);
-
-    return SUCCESS;
     }
 
 static int FlushSegmentData  (Elf64_Phdr* segment, Buffer* src, Buffer* program_buf);
@@ -129,9 +112,6 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
     assert(out_file);
     
     SetPhdrSize (&elf->headers.code_phdr,   elf->code_buf.size); 
-    // SetPhdrSize (&elf->headers.data_phdr,   elf->data_buf.size);
-
-    // SetPhdrSize (&elf->headers.stdlib_phdr, elf->stdlib_buf.size - 10);
 
     elf->headers.stack_phdr.p_filesz = 0;
     elf->headers.stack_phdr.p_memsz  = 0;
@@ -140,12 +120,6 @@ int WriteElf (Elf* elf, const char* path_to_out_file)
 
     SetPhdrOffset (&elf->headers.code_phdr,   current_program_size);
            current_program_size += elf->code_buf.size;
-
-    // SetPhdrOffset (&elf->headers.data_phdr, current_program_size);
-        //    current_program_size += elf->data_buf.size;
-
-    // SetPhdrOffset (&elf->headers.stdlib_phdr, current_program_size);
-            // current_program_size += elf->stdlib_buf.size;
 
     FlushHeaders      (elf);
     FlushSegmentsData (elf);
@@ -175,11 +149,7 @@ static int FlushSegmentsData (Elf* elf)
     assert(elf);
     
     FlushSegmentData (&elf->headers.code_phdr,   &elf->code_buf,   &elf->program_buf);
-    // FlushSegmentData (&elf->headers.data_phdr,   &elf->data_buf,   &elf->program_buf);
-    
-    // printf ("STDLIB size: 0x%x\n", elf->stdlib_buf.size);
-    // FlushSegmentData (&elf->headers.stdlib_phdr, &elf->stdlib_buf, &elf->program_buf);
-    
+
     return SUCCESS;
     }
 
