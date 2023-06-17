@@ -9,7 +9,7 @@
 #include "CommonEnums.h"
 #include "LogMacroses.h"
 
-Reg GeneralPurposeRegs[] = {
+static Reg GeneralPurposeRegs[] = {
 { RAX, FREE, NotAllocatable, 0 }, 
 
 { RDI, FREE, Allocatable,    7 }, 
@@ -35,8 +35,7 @@ Reg GeneralPurposeRegs[] = {
 const int NUMBER_OF_REGS = sizeof(GeneralPurposeRegs) / sizeof(Reg);
 
 #include <stack>
-using namespace std;
-static  stack <Reg*> FreeRegs;
+static std::stack <Reg*> FreeRegs;
 
 int ResetRegisters ()
     {

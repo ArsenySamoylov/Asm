@@ -32,7 +32,7 @@ int SetElfHeaders (ElfHeaders* elf);
  * @brief Structure to represent Elf file
  * 
  */
-struct Elf
+class Elf final : NoCopyable
     {
     ElfHeaders headers;
     

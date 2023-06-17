@@ -45,8 +45,8 @@ GPRegisterNumber Value::put_to_reg (Context* ctx) const
 // Storage
 //////////////////////////////////////////////////////
 #include <stack>
-using namespace std;
-static  stack <Storage*> StackedStorages; // I need container to hold storages that was moved from stack to registers.
+using namespace std::stack;
+static  stack <Storage*> StackedStorages; // I need container to hold storages that were moved from stack to registers.
                                           // So when BaseBlock ends it will reset this storages
 
 void Storage::move_to_reg (Context* ctx, Reg* dest_reg, const char* comment)
@@ -358,8 +358,6 @@ static void ResetVarStorage ()
         StackedStorages.pop();
 
         storage->set_storage_type (StorageType::Stack);
-        report (" ");
-        storage->print();
         }
     }
     

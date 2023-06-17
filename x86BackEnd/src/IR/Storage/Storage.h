@@ -50,8 +50,8 @@ struct StorageData
 class Storage : public NoCopyable 
     {
     private:
-        enum   StorageType  storage_type;
-        enum   VariableType variable_type;
+        StorageType  storage_type;
+        VariableType variable_type;
         struct StorageData  storage_data; // storage data interpretation depends on StorageType 
         
         size_t n_usage;
@@ -93,7 +93,7 @@ class Storage : public NoCopyable
          * Set storage to state that object in register. Sets register status to BUSY.
          * @param reg 
          */
-        void set_with_reg (Reg* reg);
+        void set_with_reg (Reg& reg);
 
         /**
          * @brief Print storage to stdin (debug purposes).
@@ -109,5 +109,5 @@ class Storage : public NoCopyable
          * @param dest_reg 
          * @param comment comment to Asm file
          */
-        void move_to_reg (Context* ctx, Reg* dest_reg, const char* comment = NULL);
+        void move_to_reg (Context& ctx, Reg& dest_reg, const char* comment = NULL);
     };

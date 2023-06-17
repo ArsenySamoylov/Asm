@@ -17,10 +17,10 @@ struct Elf;
 class Module
     {
     private:
-        ValueArr<GlobalVar> global_vars;
-        ValueArr<Function> functions;  
+        PtrArray<GlobalVar> global_vars;
+        PtrArray<Function> functions;  
 
-        ValueArr<Constant> const_pool;
+        PtrArray<Constant> const_pool;
     
     public:
          Module () = default;
@@ -31,7 +31,7 @@ class Module
          * 
          * @param out_file 
          */
-        void dump             (const char* out_file)    const;
+        void dump (const char* out_file)    const;
 
         /**
          * @brief Translate Module to x86 op_codes (and also generate Assembler file)
@@ -39,11 +39,11 @@ class Module
          * @param elf 
          * @param path_to_assembler_dump 
          */
-        void translate_x86    (Elf* elf, const char* path_to_assembler_dump) const;
+        void translate_x86    (Elf& elf, const char* path_to_assembler_dump) const;
 
-        void add_func  (Function*  func);
-        void add_var   (GlobalVar* var);
-        void add_const (Constant*  constant);
+        void add_func  (Function&  func);
+        void add_var   (GlobalVar& var);
+        void add_const (Constant&  constant);
 
         /**
          * @brief Convenient way to dump global vars
@@ -61,7 +61,7 @@ class Module
          * @brief Find main function
          * 
          * Used in translate_x86 to make `call main`
-         * @return const Function* 
+         * @return const Function& 
          */
         const Function* find_main () const;
     };

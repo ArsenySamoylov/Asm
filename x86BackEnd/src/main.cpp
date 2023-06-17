@@ -38,9 +38,9 @@ int main(int argc, const char* argv[])
   CHECK_SUCCESS (GetProgramFromStdAwp(&program, path_to_awp_file), BAD_SRC_FILE);
   CHECK_SUCCESS (AstToIR (&program, &program_module), IR_ERROR); 
   
-  program_module.dump          (IR_DUMP_FILE);
+  program_module.dump (IR_DUMP_FILE);
 
-  program_module.translate_x86 (&elf, ASSEMBLER_DUMP_FILE);
+  program_module.translate_x86 (elf, ASSEMBLER_DUMP_FILE);
 
   WriteElf (&elf, result_elf_name);
   SYSTEM ("chmod +x ASM.out\n");

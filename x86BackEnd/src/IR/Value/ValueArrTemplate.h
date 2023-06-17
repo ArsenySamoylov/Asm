@@ -1,6 +1,6 @@
 /*! 
 \file
-\brief File with ValueArr template.
+\brief File with PtrArray template.
 */
 
 #include <cstdlib>
@@ -9,10 +9,11 @@
 
 template <class Value_T> 
 /**
- * @brief Template class to store array of Values
- * 
+ * @brief Simple container template 
+ * @note This class is in development, 
+ *       it lacks a lot of features (for example iterators).
  */
-class ValueArr
+class PtrArray
     {
     private:
         Value_T** arr;
@@ -26,45 +27,36 @@ class ValueArr
     void resize ();
 
     public:
-        ValueArr ();
-       ~ValueArr ();
+        PtrArray ();
+       ~PtrArray ();
 
-        Value_T* add       (Value_T* val);
-        Value_T* get_value (size_t index);
-        size_t get_size  () const;
-
-        const Value_T* get_const_value (size_t index) const;
+        size_t         get_size  () const;
+        Value_T&       get_value (size_t index);
+        const Value_T& get_const_value (size_t index) const;
+        
+        Value_T& add   (Value_T& val);
+        void     copy  (Value_T& val);
+        void     reset ();
     };
 
-template <class Value_T> 
-ValueArr<Value_T>::ValueArr ()
+template <class Value_T>
+PtrArray<Value_T>::PtrArray ()
     {
     arr = (Value_T**) calloc (START_ARR_SIZE, sizeof(arr[0]));
-                                                                              
+    assert (arr);
+
     size     = 0;                                                        
     capacity = START_ARR_SIZE;                                           
     }
 
 template <class Value_T>
-ValueArr<Value_T>::~ValueArr ()
+PtrArray<Value_T>::~PtrArray ()
     {
-    if (capacity == 0)                                     
-        {                                                       
-        printf ("%s:%d, Capacity can't be 0 in Dtor\n", __FILE__, __LINE__);               
-        return;                                         
-        }                                                       
-
-    // printf ("ValueArr dtor\n");                                                      
-
     free (arr);                                            
-                                                                
-    capacity = 0;                                          
-    size     = 0;                                          
-    arr      = NULL;                                       
     }
 
 template <class Value_T>
-void ValueArr<Value_T>::resize ()                                          
+void PtrArray<Value_T>::resize ()                                          
     {                                                                                            
     size_t new_size = capacity * GROWTH_RATE;                                          
                                                                                             
@@ -76,76 +68,54 @@ void ValueArr<Value_T>::resize ()
     }
 
 template <class Value_T>
-Value_T* ValueArr<Value_T>::add (Value_T* val)  
-    {               
-    assert(val);                                            
-
-    // PRINT_VALUE(val);                                        
-    // report ("Arr %p, Val %p, ArrSize %lu\n", arr, val, arr->size);
-
-    if (size >= capacity)                         
-        this->resize ();                          
-
-    arr[size++] = val;   
-
-    return val;                                            
-    }
-
-template <class Value_T>
-Value_T* ValueArr<Value_T>::get_value (size_t index)
-    {
-    assert (index < size);
-    return arr[index];
-    }
-
-template <class Value_T>
-size_t ValueArr<Value_T>::get_size () const 
+size_t PtrArray<Value_T>::get_size () const 
     {
     return size;
     }
 
 template <class Value_T>
-const Value_T* ValueArr<Value_T>::get_const_value (size_t index) const
+Value_T& PtrArray<Value_T>::get_value (size_t index)
     {
     assert (index < size);
-
-    return arr[index];
+    Value_T* ret_val = arr[index];
+    
+    assert (ret_val); 
+    return *ret_val;
     }
 
-//////////////////////////////////////////////////////
-// template  example//
-/*
-template <int R>
-struct Vec
+template <class Value_T>
+const Value_T& PtrArray<Value_T>::get_const_value (size_t index) const
     {
-    double coord[R];
-    };
-
-template <int R>
-double dot (double* a, double* b)
-    {
-    double res = 0;
-    for (int i = R-1; i >= 0; i--) res += a[i] * b[i];
-    return res;
+    assert (index < size);
+    const Value_T* val = arr[index];
+    assert (val);
+    return *val;
     }
 
-template <>
-double dot<3> (double* a, double* b)
-    {
-    return a[2] * b[2] + 
-           a[1] * b[1] + 
-           a[0] * b[0];
+template <class Value_T>
+Value_T& PtrArray<Value_T>::add (Value_T& val)  
+    {               
+    if (size >= capacity)                         
+        this->resize ();                          
+
+    arr[size++] = &val;   
+
+    return val;                                            
     }
 
-template <R>
-inline double dot (double* a, double* b)
+template <class Value_T>
+void PtrArray<Value_T>::copy (Value_T& val)
     {
-    return a[0] * b[0] + dot <R-1> (a+1, b+1);
+    if (size >= capacity)                         
+        this->resize();                          
+                                                            
+    Value_T* temp = new Value_T ();
+    
+    *temp = val;                                                 
+    arr->arr[arr->size++] = temp;      
     }
 
-template <>
-inline double dot <1> (double* a, double* b)
+template <class Value_T>
+void PtrArray<Value_T>::reset()
     {
-    return a[0] * b[0];
     }
-*/

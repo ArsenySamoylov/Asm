@@ -10,95 +10,57 @@
 #include "Grammar.h"
 #include "Program.h" // for creating string
 
-int BuilderCtor (Builder* buildog, Module* mod)
+Builder::Builder (Module& mod_param) :
+    mod    (mod_param),
+    global_vars (),
+    local_vars  (),
+    current_function (NULL)
+    {}
+
+void Builder::set_function (Function& func, FunctionLabel& func_label)
     {
-    assert(buildog);
-    assert(mod);
+    functions.copy (func_label);
+    local_vars.reset ();
+
+    current_function  = &func; 
     
-    ValueNameTableCtor(&buildog->global);
-    buildog->local = {};
-
-    buildog->current_function = NULL;
-
-    buildog->mod = mod;
-
-    return SUCCESS;
-    }
-
-int BuilderDtor (Builder* buildog)
-    {
-    assert(buildog);
-
-    ValueNameTableDtor(&buildog->global);
-
-    return SUCCESS;
-    }
-
-//////////////////////////////////////////////////////
-int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_label)
-    {
-    assert(buildog);
-    assert(func);
-    assert(func_label);
-
-    CopyValueLabel (&buildog->global, func_label);
-    ValueNameTableCtor (&buildog->local); 
-
-    buildog->current_function  = func; 
-    
-    name_t entry_block_name = CreateString("entry_%s", func->get_name());
+    name_t  entry_block_name = CreateString("entry_%s", func.get_name());
     assert (entry_block_name);
 
-    BaseBlock* entry_block = InsertNewBaseBlock (buildog, entry_block_name);
-    assert    (entry_block);
-
-    return SUCCESS;
+    this->insert_new_base_block (entry_block_name);
     }
 
-int ResetBuilderAfterFunction (Builder* buildog)
+void Builder::reset_after_function ()
     {
-    assert (buildog);
-
-    ValueNameTableDtor(&buildog->local);
-
-    buildog -> current_function = NULL;
-
-    return 0;
+    local_vars.reset ();
+    current_function = NULL;
     }
 
-int AddFunctionToModule (Builder* buildog)
+BaseBlock* Builder::get_current_base_block ()
     {
-    assert(buildog);
-
-    buildog->mod-> add_func(buildog->current_function);
-    return SUCCESS;
-    }
-
-//////////////////////////////////////////////////////
-BaseBlock* GetCurrentBaseBlock (Builder* buildog)
-    {
-    assert(buildog);
-
-    if (!buildog->current_function)
+    if (!current_function)
         return NULL;
 
-    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
+    PtrArray<BaseBlock> blocks_arr = current_function->get_body();
     
-    if (blocks_arr->get_size() == 0)
+    if (blocks_arr.get_size() == 0)
         {
         report("Error null size\n");
         return NULL;
         }
 
-    return blocks_arr->get_value (blocks_arr->get_size() - 1);
+    return &blocks_arr.get_value(blocks_arr.get_size() - 1);
     }
 
-BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
+/**
+ * @brief Insert New base block to current Function
+ * 
+ * @param block_name  Can be Null
+ * @return BaseBlock& 
+ */
+BaseBlock* Builder::insert_new_base_block (name_t block_name)
     {
-    assert(buildog);
-    // name can be NULL
-
-    if (!buildog->current_function)
+    if (!current_function)
         {
         report("Error, Null current_function, can't insert new base block\n");
         return NULL;
@@ -107,96 +69,105 @@ BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
     BaseBlock*  new_block = new BaseBlock (block_name);
     assert     (new_block);
 
-    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
-    assert   (blocks_arr);
+    PtrArray<BaseBlock> blocks_arr = current_function->get_body();
 
-    blocks_arr->add(new_block);
+    blocks_arr.add (*new_block);
     return new_block;
     }   
 
 //////////////////////////////////////////////////////
-int AddInstruction (Builder* buildog, Instruction* instruction)
+void Builder::add (Function& func)
     {
-    assert(buildog);
-    assert(instruction);
-
-    BaseBlock* block = GetCurrentBaseBlock(buildog);
-    assert(block);
-
-    block->add_instr(instruction);
-    return SUCCESS;
+    mod.add_func(func);
     }
 
-int AddGlobalVar (Builder* buildog, GlobalVar* var)
+void Builder::add (Instruction& instruction)
     {
-    assert(buildog);
-    assert(var);
 
-    buildog->mod->add_var(var);
-    
-    return SUCCESS;
+    BaseBlock* block = this->get_current_base_block ();
+    assert    (block);
+
+    block->add_instr(instruction);
+    }
+
+void Builder::add (GlobalVar& var)
+    {
+    mod.add_var(var);
     }
 
 //////////////////////////////////////////////////////
-Value* FindValue (Builder* buildog, int name_id)
+template <class Value_T>
+static Value_T* FindValueLabel (PtrArray<Value_T>* name_table, int name_id)
     {
-    assert (buildog);
+    assert (name_table);
+
+    for (size_t i = 0; i < name_table->get_size (); i++)
+        {
+        Value_T label = name_table->get_value (i);
+
+        if (label.name_id == name_id)
+            return &label;
+        }
     
-    ValueLabel* temp = FindValueLabel (&buildog->global, name_id);
+    return NULL;
+    }
+
+Value* Builder::find_value (int name_id)
+    {
+    ValueLabel* temp = FindValueLabel (&global_vars, name_id);
 
     if (temp)
-        return temp->val;
+        return &temp->val;
 
-    if (buildog->current_function)
+    if (current_function)
         {
-        temp = FindValueLabel (&buildog->local, name_id);
+        temp = FindValueLabel (&local_vars, name_id);
 
         if (temp)
-            return temp->val;
+            return &temp->val;
         }
 
     return NULL;
     }
 
-//////////////////////////////////////////////////////
-int FIN_NAME_ID = 0;
-
-int AddNativeFunctions (Builder* buildog)
+Function* Builder::find_function (int name_id)
     {
-    assert(buildog);
+    FunctionLabel* label = FindValueLabel (&functions, name_id);
 
+    if (label)
+        return &label->function;
+
+    return NULL; 
+    }
+
+void Builder::add_native_functions ()
+    {
     for (int i = 0; i < N_NATIVE_FUNCTIONS; i++)
         {
         Function* native_func = GetNativeFunction (i);
-        assert         (native_func);
+        assert   (native_func);
 
         int name_id = AddString (native_func->get_name());
 
         if (!strcmp(native_func->get_name(), "fin"))
             FIN_NAME_ID = name_id;
 
-        ValueLabel function_label = {.name_id = name_id,
-                                    .type    = FUNCTION,
-                                    .val     = native_func
-                                    };
+        FunctionLabel function_label (name_id, FUNCTION, *native_func);
 
-        CopyValueLabel (&buildog->global, &function_label);
+        functions.copy (function_label);
         }
-
-    return SUCCESS;
     }
 
 //////////////////////////////////////////////////////
 // Constant
 //////////////////////////////////////////////////////
-Constant* CreateConstant (Builder* buildog, name_t const_name, data_t const_val)
+Constant& Builder::create_constant (name_t const_name, data_t const_val)
     {
-    assert (buildog);
     assert (const_name);
 
     Constant* constant = new Constant (const_name, const_val);
 
-    return constant;
+    return *constant;
     }
 
 //////////////////////////////////////////////////////
@@ -204,23 +175,19 @@ Constant* CreateConstant (Builder* buildog, name_t const_name, data_t const_val)
 //////////////////////////////////////////////////////
 static FunctionRetType GetRetType (int type);
 
-Function* CreateFunction (Builder* buildog, name_t func_name, int ret_type, int name_id)
+Function& Builder::create_function (name_t func_name, int ret_type, int name_id)
     {
-    assert (buildog);
     assert (func_name);
 
     FunctionRetType type = GetRetType (ret_type);
 
     Function* func = new Function (func_name, type);
 
-    ValueLabel function_label = {.name_id = name_id,
-                                 .type    = FUNCTION,
-                                 .val     = func
-                                };
+    FunctionLabel function_label (name_id, FUNCTION, *func);
 
-    SetBuilderForFunction (buildog, func, &function_label);
+    this->set_function (*func, function_label);
 
-    return func;
+    return *func;
     }
 
 static FunctionRetType GetRetType (int type)
@@ -231,110 +198,113 @@ static FunctionRetType GetRetType (int type)
 //////////////////////////////////////////////////////
 // Call
 //////////////////////////////////////////////////////
-Call* CreateCall (Builder* buildog, name_t call_name, const Function* func)
+Call& Builder::create_call (name_t call_name, const Function& func)
     {
-    assert(buildog);
-
     Call* call = new Call(call_name, func);    
-    return call;
+    return *call;
     }
 
 //////////////////////////////////////////////////////
 // GlobalVar
 //////////////////////////////////////////////////////
-GlobalVar* CreateGlobalVar (Builder* buildog, name_t var_name, Constant* init_val)
+GlobalVar& Builder::create_global_var (name_t var_name, Constant* init_val)
     {
-    assert (buildog);
     assert (var_name);
     assert (init_val);
 
     GlobalVar* var = new GlobalVar (var_name, VariableBaseType::Double, init_val);
+    
+    this->add (*var);
 
-    AddGlobalVar   (buildog, var);
-
-    return var;
+    return *var;
     }
 
 //////////////////////////////////////////////////////
 // Store
 //////////////////////////////////////////////////////
-Store* CreateStore (Builder* buildog, name_t var_name, Value* store_val)
+/**
+ * @brief 
+ * 
+ * @param var_name 
+ * @param store_val can be Null
+ * @return Store& 
+ */
+Store& Builder::create_store (name_t var_name, Value* store_val)
     {
-    assert (buildog);
     assert (var_name);
-
+    
     Store* store = new Store (var_name, store_val);
 
     if (store_val)
-        AddInstruction (buildog, store);
+        this->add (*store);
 
-    return store;
+    return *store;
     }
 
 //////////////////////////////////////////////////////
 // Operator
 //////////////////////////////////////////////////////
-Operator* CreateOperator (Builder* buildog, name_t op_name, OperatorType op_type, Value* left_op, Value* right_op)
+Operator& Builder::create_operator (name_t op_name, OperatorType op_type, Value& left_op, Value& right_op)
     {
-    assert (buildog);
     assert (op_name);
-    assert (left_op);
-    assert (right_op);
 
     Operator* op = new Operator (op_name, op_type, left_op, right_op);
 
-    AddInstruction (buildog, op);
-    return op;
+    this->add (*op);
+    return *op;
     }
 
 //////////////////////////////////////////////////////
 // Load
 //////////////////////////////////////////////////////
-Load* CreateLoad (Builder* buildog, name_t load_name, Value* dest, Value* src)
+Load& Builder::create_load (name_t load_name, Value& dest, Value& src)
     {
-    assert (buildog);
-    // name can be NULL
-    assert (dest);
-    assert (src);
-
     Load* load = new Load (load_name, dest, src);
 
-    AddInstruction (buildog, load);
-    return load;
+    this->add (*load);
+    return *load;
     }
 
 //////////////////////////////////////////////////////
 // Return
 //////////////////////////////////////////////////////
-Return* CreateReturn (Builder* buildog, name_t ret_name, Value* ret_val)
+/**
+ * @brief Create return Value and add to current BaseBlock 
+ * 
+ * @param ret_name Can be Null
+ * @param ret_val  Can be Null
+ * @return Return& 
+ */
+Return& Builder::create_return (name_t ret_name, Value* ret_val)
     {
-    assert (buildog);
-    // name    can be NULL
-    // ret_val can ve NULL
-
     Return* ret = new Return (ret_name, ret_val);
 
-    AddInstruction (buildog, ret);
-    return ret;
+    this->add (*ret);
+    return *ret;
     }
 
 //////////////////////////////////////////////////////
 // Branch
 //////////////////////////////////////////////////////
-Branch* CreateBranch (Builder* buildog, 
+/**
+ * @brief Create Branch Instruction 
+ * 
+ * @param name              can be Null 
+ * @param condition         can be Null
+ * @param true_branch      
+ * @param false_branch      can be Null
+ * @return Branch& 
+ */
+Branch& Builder::create_branch (
                             name_t name,
                             Value* condition,
                             BaseBlock* true_branch,
                             BaseBlock* false_branch)
     {
-    assert(buildog);
-    // name      can be NULL
-    // condition can be NULL
-    // assert (true_branch);
-    // assert (false_branch || (false_branch == NULL && condition == NULL));
+    assert (true_branch);
 
     Branch* branch = new Branch (name, condition, true_branch, false_branch);
 
-    AddInstruction (buildog, branch);
-    return branch;
+    this->add (*branch);
+    return *branch;
     }

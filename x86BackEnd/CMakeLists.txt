@@ -14,15 +14,11 @@ add_executable (x86Backend
                             src/main.cpp 
 
                             src/IR/Value/Value.cpp 
-                            src/IR/Instructions/Instruction.cpp    
+                            src/IR/Instructions/Instruction.cpp
+
                             src/IR/Module/Module.cpp
-                            src/IR/Storage/Storage.cpp 
+                            src/IR/Storage/Storage.cpp
+                             
                             src/IR/AstToIR/Builder.cpp  src/IR/AstToIR/AstToIR.cpp src/IR/AstToIR/StringPool.cpp src/IR/AstToIR/ValueLabel.cpp  
                             src/IR/DumpIR/DumpIR.cpp 
-                            src/IR/TranslateTox86/RegistersUsage.cpp src/IR/TranslateTox86/IRContext.cpp  src/IR/TranslateTox86/Commands.cpp src/IR/TranslateTox86/TranslateIRTox86.cpp
-
-                            src/Elf/Elf.cpp  src/Elf/Buffer.cpp
-
-                            src/Legacy/ATC/Utils/Utils.cpp src/Legacy/ATC/Buffer/my_buffer.cpp src/Legacy/ATC/Logger/Logger.cpp src/Legacy/ATC/Logger/tostring.cpp src/Legacy/ATC/Logger/FunctionLogger.cpp src/Legacy/ATC/SuperStack/SuperStack.cpp src/Legacy/ATC/SuperStack/DebugFunctions.cpp ./src/Legacy/ATC/my_safety/my_safety.cpp 
-                            src/Legacy/AsmCtx.cpp src/Legacy/Common/StandartAWP/GetStd.cpp src/Legacy/Common/Structures/Program/Program.cpp src/Legacy/Common/Structures/Token/Token.cpp src/Legacy/Common/Structures/Tabels/NameTable.cpp src/Legacy/Common/Utils/GraphVis.cpp src/Legacy/Common/LexicalCtx/LexicalCtx.cpp src/Legacy/Common/Utils/LangUtils.cpp 
-                            )
+)

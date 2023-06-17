@@ -30,7 +30,7 @@ class Instruction : public Value
        Instruction (name_t name_param, InstructionType type_param);
       ~Instruction () = default;
 
-       virtual void            dump           () const override  = 0;
+       virtual void dump () const override  = 0;
        /**
         * @brief Get instr_type 
         * @note debug purpose only
@@ -38,10 +38,10 @@ class Instruction : public Value
         */
        virtual InstructionType get_instr_type () const           = 0;
 
-       virtual void translate_x86 (Context* ctx) const override  = 0;
+       virtual void translate_x86 (Context& ctx) const override  = 0;
        virtual void set_storage   ()             const override  = 0;
 
-       ValueType get_type  () const override final;
+       ValueType get_type () const override final;
     };
 
 //////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ class Instruction : public Value
  * @brief Instruction to allocate space for local variable.
  * 
  */
-class Store : public Instruction
+class Store final : public Instruction
     {
     private:
         const Value* val;
@@ -59,10 +59,10 @@ class Store : public Instruction
          Store (name_t name_param, const Value* val_param);
         ~Store () = default; 
 
-       void            dump           () const override;
+       void dump () const override;
        InstructionType get_instr_type () const override;
 
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
     };
 
@@ -71,20 +71,20 @@ class Store : public Instruction
  * @brief Instruction to load value to local var.
  * 
  */
-class Load : public Instruction
+class Load final : public Instruction
     {
     private:
-        const Value* dest;
-        const Value* src;
+        const Value& dest;
+        const Value& src;
 
     public:
-        Load (name_t name_param, const Value* dest_param, const Value* src_param);
+        Load (name_t name_param, const Value& dest_param, const Value& src_param);
        ~Load () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void translate_x86  (Context* ctx) const override;
+       void translate_x86  (Context& ctx) const override;
        void set_storage    ()             const override;
     };
 
@@ -93,7 +93,7 @@ class Load : public Instruction
  * @brief Instruction to pass control flow.
  * 
  */
-class Branch : public Instruction
+class Branch final : public Instruction
     {
     private:
         const Value* condition;
@@ -111,11 +111,11 @@ class Branch : public Instruction
        void            dump           () const override;
        InstructionType get_instr_type () const override;
        
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
 
-       void set_true_block  (const BaseBlock* true_block_param);
-       void set_false_block (const BaseBlock* false_block_param);
+       void set_true_block  (const BaseBlock& true_block_param);
+       void set_false_block (const BaseBlock& false_block_param);
     };
 
 //////////////////////////////////////////////////////
@@ -123,23 +123,23 @@ class Branch : public Instruction
  * @brief Instruction to call another function.
  * 
  */
-class Call : public Instruction
+class Call final : public Instruction
     {
     private:
-        const Function*   function;
-        ValueArr<Value>   argv;
+        const Function&   function;
+        PtrArray<Value>   argv;
 
     public:
-        Call (name_t name_param, const Function* function_param);
+        Call (name_t name_param, const Function& function_param);
        ~Call () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
 
-       ValueArr<Value>* get_argv ();
+       PtrArray<Value>& get_argv ();
     };
 
 //////////////////////////////////////////////////////
@@ -147,7 +147,7 @@ class Call : public Instruction
  * @brief Return instruction. 
  * 
  */
-struct Return : public Instruction 
+struct Return final : public Instruction 
     {
     private:
         const Value* ret_value;
@@ -159,7 +159,7 @@ struct Return : public Instruction
        void            dump           () const override;
        InstructionType get_instr_type () const override;
 
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
     };
 
@@ -181,23 +181,23 @@ enum class OperatorType
  * @brief Math operation instruction.
  * 
  */
-struct Operator : public Instruction
+struct Operator final : public Instruction
     {
     public:
         const enum OperatorType op_type;
     
-        const Value* left_op;
-        const Value* right_op;
+        const Value& left_op;
+        const Value& right_op;
 
     public:
         Operator (name_t name_param, enum OperatorType op_type_param, 
-                 const Value* left_param, 
-                 const Value* right_param);
+                 const Value& left_param, 
+                 const Value& right_param);
        ~Operator () = default;
 
        void            dump           () const override;
        InstructionType get_instr_type () const override;
        
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
     };

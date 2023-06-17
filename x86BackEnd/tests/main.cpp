@@ -10,6 +10,7 @@ void Measure (const char* system_arg, const char* program_name);
 
 int main ()
     {
+    // todo make in for loop 
     Measure ("./SOFT_CPU.out soft_cpu_asm.txt.ars", "SoftCpu");
     Measure ("../ASM.out",                          "Elf    ");
 

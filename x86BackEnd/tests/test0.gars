@@ -8,7 +8,8 @@ double factorial (var number)
 
 double main ()
     {
-	var result = factorial (6); 
+	var result = factorial (6);
     fout << result;
+    
     return 0;
     }

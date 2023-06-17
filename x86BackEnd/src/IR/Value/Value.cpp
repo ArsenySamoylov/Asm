@@ -16,7 +16,7 @@ Value::Value (ValueType param_type, name_t param_name) :
     {}
 
 name_t   Value::get_name    () const {return name;}
-Storage* Value::get_storage () const {return &storage;}
+Storage& Value::get_storage () const {return storage;}
 
 //////////////////////////////////////////////////////
 // BaseBlock
@@ -28,7 +28,7 @@ BaseBlock::BaseBlock (name_t name_param) :
 BaseBlock::~BaseBlock ()
     {
     for (size_t i = 0; i < inst_arr.get_size(); i++)
-        delete inst_arr.get_value (i);
+        delete &inst_arr.get_value (i);
     }
 
 ValueType BaseBlock::get_type () const 
@@ -37,10 +37,8 @@ ValueType BaseBlock::get_type () const
     return ValueType::BaseBlock;
     }
 
-Instruction* BaseBlock::add_instr (Instruction* instr)
+Instruction& BaseBlock::add_instr (Instruction& instr)
     {
-    assert (instr);
-
     return inst_arr.add (instr);
     }
 
@@ -99,16 +97,16 @@ Function::~Function ()
 
     // printf ("\t\tDeleting argv\n");
     for (size_t i = 0; i < argv.get_size(); i++)
-        delete argv.get_value(i);
+        delete &argv.get_value(i);
 
     // printf ("\t\tDeleting function body\n");
     for (size_t i = 0; i < body.get_size(); i++)
-        delete body.get_value(i);
+        delete &body.get_value(i);
 
     }
 
-ValueArr<Value>*      Function::get_argv () {return &argv;}
-ValueArr<BaseBlock>*  Function::get_body () {return &body;}
+PtrArray<Value>&      Function::get_argv () {return argv;}
+PtrArray<BaseBlock>&  Function::get_body () {return body;}
 
 ValueType Function::get_type () const 
     {

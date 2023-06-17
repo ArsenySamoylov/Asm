@@ -88,17 +88,15 @@ address_t Storage::get_address () const
     return storage_data.address;
     }
 
-void Storage::set_with_reg (Reg* reg)
+void Storage::set_with_reg (Reg& reg)
     {
-    assert (reg);
-
     if (storage_type == StorageType::Register)
         FreeReg (storage_data.reg_num);
 
     storage_type         = StorageType::Register;
-    storage_data.reg_num = reg->number;
+    storage_data.reg_num = reg.number;
 
-    reg->status = BUSY;
+    reg.status = BUSY;
     }
     
 void Storage::print () const
@@ -131,10 +129,10 @@ void Function::set_storage () const
     STACK_OFFSET = 0;
 
     for (size_t i = 0; i < argv.get_size(); i++)
-        argv.get_const_value(i)->set_storage();
+        argv.get_const_value(i).set_storage();
 
     for (size_t i = 0; i < body.get_size(); i++)
-        body.get_const_value(i)->set_storage();
+        body.get_const_value(i).set_storage();
     
     if (STACK_OFFSET != n_local_vars)
         {
@@ -149,7 +147,7 @@ void Function::set_storage () const
 void BaseBlock::set_storage () const
     {
     for (size_t i = 0; i < inst_arr.get_size(); i++)
-        inst_arr.get_const_value(i)->set_storage();
+        inst_arr.get_const_value(i).set_storage();
     }
 
 //////////////////////////////////////////////////////
@@ -179,29 +177,29 @@ void Store::set_storage () const
     // report ("%d - %s\n", STACK_OFFSET, name);
 
     if (val)
-        (val->get_storage())->increase_usage ();
+        (val->get_storage()).increase_usage ();
     }
 
 void Load::set_storage () const
     {
     storage.set_var_type (VariableType::Temp);
 
-    (dest->get_storage())->increase_usage ();  
-    (src ->get_storage())->increase_usage ();
+    (dest.get_storage()).increase_usage ();  
+    (src.get_storage()).increase_usage ();
     }
 
 void Operator::set_storage () const
     {
     storage.set_var_type (VariableType::Temp);
 
-    ( left_op->get_storage())->increase_usage ();
-    (right_op->get_storage())->increase_usage ();
+    ( left_op.get_storage()).increase_usage ();
+    (right_op.get_storage()).increase_usage ();
     }
 
 void Branch::set_storage () const
     {
     if (condition)
-        (condition->get_storage())->increase_usage ();
+        (condition->get_storage()).increase_usage ();
     }
 
 void Call::set_storage () const 
@@ -209,7 +207,7 @@ void Call::set_storage () const
     storage.set_var_type (VariableType::Temp);
 
     for (size_t i = 0; i < argv.get_size(); i++)
-        (argv.get_const_value(i)->get_storage())->increase_usage ();
+        (argv.get_const_value(i).get_storage()).increase_usage ();
     }
 
 void Return::set_storage () const 
@@ -217,5 +215,5 @@ void Return::set_storage () const
     storage.set_var_type (VariableType::Temp);
 
     if (ret_value)
-        (ret_value->get_storage())->increase_usage ();
+        (ret_value->get_storage()).increase_usage ();
     }

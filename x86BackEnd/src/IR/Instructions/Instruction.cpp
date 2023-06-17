@@ -37,7 +37,7 @@ InstructionType Store::get_instr_type () const
 //////////////////////////////////////////////////////
 // Load
 //////////////////////////////////////////////////////
-Load::Load (name_t name_param, const Value* dest_param, const Value* src_param) :
+Load::Load (name_t name_param, const Value& dest_param, const Value& src_param) :
     Instruction (name_param, InstructionType::Load),
     dest        (dest_param),
     src         (src_param) 
@@ -71,26 +71,22 @@ InstructionType Branch::get_instr_type () const
     return InstructionType::Branch;
     }
 
-void Branch::set_true_block  (const BaseBlock* true_block_param) 
+void Branch::set_true_block  (const BaseBlock& true_block_param) 
     {
-    assert (true_block_param);
     assert (true_block == NULL);
-
-    true_block = true_block_param;
+    true_block = &true_block_param;
     }
 
-void Branch::set_false_block (const BaseBlock* false_block_param)
+void Branch::set_false_block (const BaseBlock& false_block_param)
     {
-    assert (false_block_param);
     assert (false_block == NULL);
-
-    false_block = false_block_param;
+    false_block = &false_block_param;
     }
 
 //////////////////////////////////////////////////////
 // Call
 //////////////////////////////////////////////////////
-Call::Call (name_t name_param, const Function* function_param) :
+Call::Call (name_t name_param, const Function& function_param) :
     Instruction (name_param, InstructionType::Call),
     function    (function_param)  
     {}
@@ -102,8 +98,7 @@ InstructionType Call::get_instr_type () const
     return InstructionType::Call;
     }
 
-      ValueArr<Value>* Call::get_argv       ()       {return &argv;};
-// const ValueArr<Instruction*> Call::get_const_argv () const {return &argv;};
+PtrArray<Value>& Call::get_argv () {return argv;};
 
 //////////////////////////////////////////////////////
 // Return
@@ -124,8 +119,8 @@ InstructionType Return::get_instr_type () const
 // Operator
 //////////////////////////////////////////////////////
 Operator::Operator (name_t name_param, enum OperatorType op_type_param, 
-                    const Value* left_param, 
-                    const Value* right_param) :
+                    const Value& left_param, 
+                    const Value& right_param) :
 
     Instruction (name_param, InstructionType::Operator),
     op_type  (op_type_param),

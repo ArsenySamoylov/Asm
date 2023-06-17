@@ -36,10 +36,10 @@ int AstToIR (Program* program, Module* dest_mod)
     assert(program);
     assert(dest_mod);
 
-    Builder buildog = {};
+    Builder buildog {};
     BuilderCtor (&buildog, dest_mod);
 
-    StringPool pool = { program->string_arr, (size_t ) program->number_of_strings, (size_t) program->number_of_strings};
+    StringPool pool { program->string_arr, (size_t ) program->number_of_strings, (size_t) program->number_of_strings};
     SetStringPool (&pool); // size MUST be equal to capacity !
 
     AddNativeFunctions (&buildog);

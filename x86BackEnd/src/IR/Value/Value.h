@@ -6,6 +6,8 @@
 #pragma once
 
 #include <cstddef>
+#include <optional>
+using std::optional;
 
 #include "ValueArrTemplate.h"
 #include "Storage.h"
@@ -28,7 +30,7 @@ enum class ValueType
           In translate_tox86 I work with const Value, which changes its storage.
           That is why storage is mutable.  
 */
-class Value : public NoCopyable
+class Value : NoCopyable
     {
     protected:
         const enum ValueType type;
@@ -48,7 +50,7 @@ class Value : public NoCopyable
          * Print Value in human-readable format to file DUMP. 
          * PRINT_NEW_LINES regulates if printed Value generates extra new line chars
          */
-        virtual void dump () const = 0;  
+        virtual void dump () const = 0;
 
         /**
          * @brief Get Value type
@@ -63,7 +65,7 @@ class Value : public NoCopyable
          * 
          * @param ctx 
          */
-        virtual void translate_x86  (Context* ctx) const = 0;
+        virtual void translate_x86  (Context& ctx) const = 0;
 
         /**
          * @brief Puts Value to reg
@@ -72,7 +74,7 @@ class Value : public NoCopyable
          * @param ctx 
          * @return GPRegisterNumber 
          */
-        GPRegisterNumber put_to_reg (Context* ctx) const;
+        GPRegisterNumber put_to_reg (Context& ctx) const;
         
         /**
          * @brief Set the *storage* 
@@ -89,7 +91,7 @@ class Value : public NoCopyable
          * 
          * @return Storage* 
          */
-        Storage* get_storage () const;                
+        Storage& get_storage () const;
     };
 
 //////////////////////////////////////////////////////
@@ -100,22 +102,22 @@ class Instruction;
  * 
  * BaseBlock is array of Instructions that will be executed continuously.
  */
-class BaseBlock : public Value
+class BaseBlock final : public Value
     {
     private:
-        ValueArr <Instruction> inst_arr;
+        PtrArray <Instruction> inst_arr;
     
     public:
         BaseBlock (name_t name_param);
-       ~BaseBlock () override;
+       ~BaseBlock ();
 
         void      dump     () const override;
         ValueType get_type () const override;
         
-        void translate_x86 (Context* ctx) const override;
+        void translate_x86 (Context& ctx) const override;
         void set_storage   ()             const override;
 
-        Instruction* add_instr (Instruction* instr);
+        Instruction& add_instr (Instruction& instr);
         void set_address (address_t address) const;
     };
 
@@ -129,14 +131,14 @@ const int PRECISION = 100;
  * 
  * Object for double constant
  */
-class Constant : public Value
+class Constant final : public Value
     {
     public:
         /**
          * @brief Construct a new Constant object
          * @note Constant keeps its 'data_t data_param' in 'storage' field.  
-         * @param name_param 
-         * @param data_param 
+         * @param name_param
+         * @param data_param
          */
         Constant (name_t name_param, const data_t data_param);
        ~Constant () override = default;
@@ -144,7 +146,7 @@ class Constant : public Value
        void      dump     () const override;
        ValueType get_type () const override;
        
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
 
        data_t get_data () const;
@@ -162,11 +164,11 @@ enum class VariableBaseType
  * @brief Global Variable.
  * 
  */
-class GlobalVar : public Value
+class GlobalVar final : public Value
     {
     private:
         const enum VariableBaseType var_type;
-        const Constant*             init_val;
+        const Constant* init_val; // GlobalVar has no ownership of init_val
 
     public:
         GlobalVar (name_t name_param, VariableBaseType var_type_param, const Constant* init_val_param);
@@ -175,7 +177,7 @@ class GlobalVar : public Value
        void      dump     () const override;
        ValueType get_type () const override;
 
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
     };
 
@@ -191,13 +193,13 @@ enum class FunctionRetType
  * 
  * Objects that represents function
  */
-class Function : public Value
+class Function final : public Value
     {
     private:
         const enum FunctionRetType ret_type;
 
-        ValueArr<Value>     argv;    
-        ValueArr<BaseBlock> body;
+        PtrArray<Value>     argv;    
+        PtrArray<BaseBlock> body;
 
         size_t n_local_vars;
 
@@ -208,11 +210,11 @@ class Function : public Value
        void      dump     () const override;
        ValueType get_type () const override;
        
-       void translate_x86 (Context* ctx) const override;
+       void translate_x86 (Context& ctx) const override;
        void set_storage   ()             const override;
 
-       ValueArr<Value>*       get_argv ();
-       ValueArr<BaseBlock>*   get_body ();
+       PtrArray<Value>&       get_argv ();
+       PtrArray<BaseBlock>&   get_body ();
 
        FunctionRetType get_ret_type () const;
        

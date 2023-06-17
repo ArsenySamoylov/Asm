@@ -1,28 +1,121 @@
 
 
-Declare function 'factorial' (param number):
-entry_factorial:
-	%op_0 = bigger number, 1
-	br %op_0, label than_0, label merge_0
+Declare function 'LinearEquationSolver' (param a, param c):
+entry_LinearEquationSolver:
+	%op_0 = bigger a, 0
+	%op_1 = less a, 0
+	%op_2 = add %op_0, %op_1
+	br %op_2, label than_0, label else_0
 
 than_0:
-	%op_2 = sub number, 1
-	%c_1 = call: factorial (param %op_2)
-	%op_3 = mul number, %c_1
+	%op_4 = mul -1, c
+	%op_5 = div %op_4, a
+	call: fout (param %op_5)
 
-	return %op_3
+	return 1
+	br label merge_0
+
+else_0:
+	%op_6 = bigger c, 0
+	%op_7 = less c, 0
+	%op_8 = add %op_6, %op_7
+	br %op_8, label than_1, label else_1
+
+than_1:
+	call: fout (param -666)
+
+	return 1
+	br label merge_1
+
+else_1:
+	call: fout (param 8)
+
+	return 3
+	br label merge_1
+
+merge_1:
 	br label merge_0
 
 merge_0:
 
+	return -1
+
+
+Declare function 'SquareEquationSolver' (param a, param b, param c):
+entry_SquareEquationSolver:
+	%op_0 = bigger a, 0
+	%op_1 = less a, 0
+	%op_2 = add %op_0, %op_1
+	%op_3 = sub 1, %op_2
+	br %op_3, label than_2, label merge_2
+
+than_2:
+	btemp = store(b)
+	ctemp = store(c)
+	%c_4 = call: LinearEquationSolver (param btemp, param ctemp)
+
+	return %c_4
+	br label merge_2
+
+merge_2:
+	%op_5 = mul b, b
+	%op_6 = mul 4, a
+	%op_7 = mul %op_6, c
+	%op_8 = sub %op_5, %op_7
+	dis = store(%op_8)
+	%op_9 = less dis, 0
+	br %op_9, label than_3, label merge_3
+
+than_3:
+	call: fout (param -666)
+
+	return -1
+	br label merge_3
+
+merge_3:
+	%op_11 = bigger dis, 0
+	%op_12 = less dis, 0
+	%op_13 = add %op_11, %op_12
+	br %op_13, label than_4, label else_4
+
+than_4:
+	%c_14 = call: pow (param dis, param 0.5)
+	sqrtdis = store(%c_14)
+	%op_16 = mul -1, b
+	%op_17 = add %op_16, sqrtdis
+	%op_18 = mul 2, a
+	%op_19 = div %op_17, %op_18
+	call: fout (param %op_19)
+	%op_21 = mul -1, b
+	%op_22 = sub %op_21, sqrtdis
+	%op_23 = mul 2, a
+	%op_24 = div %op_22, %op_23
+	call: fout (param %op_24)
+
+	return 2
+	br label merge_4
+
+else_4:
+	%op_26 = mul -1, b
+	%op_27 = mul 2, a
+	%op_28 = div %op_26, %op_27
+	call: fout (param %op_28)
+
 	return 1
+	br label merge_4
+
+merge_4:
+
+	return -1
 
 
 Declare function 'main' ():
 entry_main:
-	%c_0 = call: factorial (param 6)
-	result = store(%c_0)
-	call: fout (param result)
+	a = store(1)
+	b = store(-5)
+	c = store(0)
+	%c_0 = call: SquareEquationSolver (param a, param b, param c)
+	nroots = store(%c_0)
 
 	return 0
 
