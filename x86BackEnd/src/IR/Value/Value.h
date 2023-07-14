@@ -6,8 +6,6 @@
 #pragma once
 
 #include <cstddef>
-#include <optional>
-using std::optional;
 
 #include "ValueArrTemplate.h"
 #include "Storage.h"

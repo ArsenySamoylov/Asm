@@ -43,6 +43,8 @@ struct FunctionLabel
                     type     (type_param),
                     function (function_param)
                     {}
+
+    FunctionLabel& operator= (const FunctionLabel& src);
     };
 
 ValueLabel* FindValueLabel (PtrArray<ValueLabel>& table, int name_id);

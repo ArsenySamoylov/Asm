@@ -97,13 +97,11 @@ void Builder::add (GlobalVar& var)
 
 //////////////////////////////////////////////////////
 template <class Value_T>
-static Value_T* FindValueLabel (PtrArray<Value_T>* name_table, int name_id)
+static Value_T* FindValueLabel (const PtrArray<Value_T>& name_table, const int name_id)
     {
-    assert (name_table);
-
-    for (size_t i = 0; i < name_table->get_size (); i++)
+    for (size_t i = 0; i < name_table.get_size(); i++)
         {
-        Value_T label = name_table->get_value (i);
+        Value_T& label = name_table.get_value(i);
 
         if (label.name_id == name_id)
             return &label;
@@ -112,16 +110,16 @@ static Value_T* FindValueLabel (PtrArray<Value_T>* name_table, int name_id)
     return NULL;
     }
 
-Value* Builder::find_value (int name_id)
+Value* Builder::find_value (const int name_id)
     {
-    ValueLabel* temp = FindValueLabel (&global_vars, name_id);
+    ValueLabel* temp = FindValueLabel (global_vars, name_id);
 
     if (temp)
         return &temp->val;
 
     if (current_function)
         {
-        temp = FindValueLabel (&local_vars, name_id);
+        temp = FindValueLabel (local_vars, name_id);
 
         if (temp)
             return &temp->val;
@@ -132,7 +130,7 @@ Value* Builder::find_value (int name_id)
 
 Function* Builder::find_function (int name_id)
     {
-    FunctionLabel* label = FindValueLabel (&functions, name_id);
+    FunctionLabel* label = FindValueLabel (functions, name_id);
 
     if (label)
         return &label->function;
@@ -187,6 +185,9 @@ Function& Builder::create_function (name_t func_name, int ret_type, int name_id)
 
     this->set_function (*func, function_label);
 
+    // 14.07.2023
+    mod.add_func (*func);
+    //
     return *func;
     }
 

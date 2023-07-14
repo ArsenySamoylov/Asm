@@ -11,10 +11,12 @@
 class NoCopyable
     {
     public:
-             NoCopyable () = default;
+    explicit NoCopyable () = default;
     virtual ~NoCopyable () = default;
 
+    NoCopyable (const NoCopyable&)   = delete;
     NoCopyable& operator = (const NoCopyable&) = delete;
 
-    NoCopyable (const NoCopyable&)   = delete;
+    NoCopyable (NoCopyable&&) = delete;
+    NoCopyable& operator = (const NoCopyable&&) = delete;
     };

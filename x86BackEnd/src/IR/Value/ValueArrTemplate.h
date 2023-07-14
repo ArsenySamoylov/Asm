@@ -31,7 +31,7 @@ class PtrArray
        ~PtrArray ();
 
         size_t         get_size  () const;
-        Value_T&       get_value (size_t index);
+        Value_T&       get_value (size_t index)       const;
         const Value_T& get_const_value (size_t index) const;
         
         Value_T& add   (Value_T& val);
@@ -74,7 +74,7 @@ size_t PtrArray<Value_T>::get_size () const
     }
 
 template <class Value_T>
-Value_T& PtrArray<Value_T>::get_value (size_t index)
+Value_T& PtrArray<Value_T>::get_value (size_t index) const 
     {
     assert (index < size);
     Value_T* ret_val = arr[index];
@@ -112,7 +112,7 @@ void PtrArray<Value_T>::copy (Value_T& val)
     Value_T* temp = new Value_T ();
     
     *temp = val;                                                 
-    arr->arr[arr->size++] = temp;      
+    arr[(size++)] = temp;      
     }
 
 template <class Value_T>

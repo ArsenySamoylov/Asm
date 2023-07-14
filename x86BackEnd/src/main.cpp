@@ -35,7 +35,7 @@ int main(int argc, const char* argv[])
 
   Module program_module {};
   
-  if (AstToIR (&program, &program_module) != SUCCESS)
+  if (AstToIR (program, program_module) != SUCCESS)
     {
     report ("Couldn't translate AST to IR\n");
     return FAILURE;
