@@ -137,7 +137,7 @@ void Module::translate_x86 (Elf* elf, const char* path_to_assembler_dump) const
         (functions[i])->translate_x86 (&ctx);
     
     AddStdlib (&ctx, STDLIB_OBJ_PATH, STDLIB_OFFSET, STDLIB_SIZE);
-    ResolveReferences (ctx.code, &ctx.call_refs); 
+    ResolveReferences (ctx.code, ctx.call_refs); 
 
     ContextDtor (&ctx);
     fclose(DUMP);
@@ -230,7 +230,7 @@ void Function::translate_x86 (Context* ctx) const
     for (size_t i = 0; i < body.size(); i++)
         (body[i])->translate_x86 (ctx) ;
 
-    ResolveReferences (ctx->code, &ctx->jump_refs);
+    ResolveReferences (ctx->code, ctx->jump_refs);
     
     ClearCtxAfterFunction (ctx);
 

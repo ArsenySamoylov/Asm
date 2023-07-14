@@ -5,6 +5,7 @@
 #pragma once
 
 #include <stdlib.h>
+#include <vector>
 
 #include "Elf.hpp"
 #include "Value.h"
@@ -25,20 +26,11 @@ struct Reference
  * @brief Array of references
  * 
  */
-struct ReferenceArr 
-    {
-    Reference** arr;
+#include <vector>
+using ReferenceArr = std::vector<Reference>;
 
-    size_t size;
-    size_t capacity;
-    };
-
-int ReferenceArrCtor (ReferenceArr* arr);
-int ReferenceArrDtor (ReferenceArr* arr);
-
-int ResetReferenceArr (ReferenceArr* arr);
-
-int AddReference      (ReferenceArr* arr, Reference* ref);
+void ResetReferenceArr (ReferenceArr& arr);
+void AddReference      (ReferenceArr& arr, Reference ref);
 
 /**
  * @brief Resolves references for jum an call
@@ -48,7 +40,7 @@ int AddReference      (ReferenceArr* arr, Reference* ref);
  * @param refs 
  * @return int status
  */
-int ResolveReferences (Buffer* buf, ReferenceArr* refs);
+int ResolveReferences (Buffer* buf, ReferenceArr& refs);
 
 ////////////////////////////////////////////////////// 
 

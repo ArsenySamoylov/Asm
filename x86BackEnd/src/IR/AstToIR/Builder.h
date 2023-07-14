@@ -35,7 +35,7 @@ int BuilderDtor (Builder* buildog);
  * @param label 
  * @return int 
  */
-int SetBuilderForFunction     (Builder* buildog, Function* func, ValueLabel* label);
+int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel label);
 
 /**
  * @brief Resets Builder after emitting Function

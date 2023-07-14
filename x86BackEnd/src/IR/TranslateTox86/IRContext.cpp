@@ -12,39 +12,30 @@
 
 FILE* DUMP = NULL;
 
-#include "ArrayTemplate.h"
-
-ARR_CTOR   (ReferenceArr, Reference)
-ARR_DTOR   (ReferenceArr, Reference)
-ARR_RESIZE (ReferenceArr, Reference)
-ARR_ADD    (ReferenceArr, Reference)
-RESET_ARR  (ReferenceArr)
-
-#undef ARR_CTOR   
-#undef ARR_DTOR   
-#undef ARR_RESIZE 
-#undef ARR_ADD    
-#undef FIND_IN_ARR
-#undef COPY_TO_ARR
-#undef RESET_ARR
-
 #pragma GCC diagnostic ignored "-Wconversion"
+void ResetReferenceArr (ReferenceArr& arr)
+    {
+    arr.clear();
+    }
 
-int ResolveReferences (Buffer* code, ReferenceArr* refs)
+void AddReference (ReferenceArr& arr, Reference ref)
+    {
+    arr.push_back(ref);
+    }
+
+int ResolveReferences (Buffer* code, ReferenceArr& refs)
     {
     assert(code);
-    assert(refs);
     
-    for (size_t i = 0; i < refs->size; i++)
+    for (size_t i = 0; i < refs.size(); i++)
         {
-        Reference* reference = refs->arr[i];
-        assert    (reference);
+        const Reference& reference = refs[i];
 
-        byte* where_to_write = code->buffer + reference->position;
-        assert (code->size > reference->position);
+        byte* where_to_write = code->buffer + reference.position;
+        assert (code->size > reference.position);
 
-        *((int32_t*) where_to_write) = reference->ref_value->get_storage()->get_address() -
-                                       reference->address;
+        *((int32_t*) where_to_write) = reference.ref_value->get_storage()->get_address() -
+                                       reference.address;
         }
 
     return 0;
@@ -56,9 +47,6 @@ int ContextCtor (Context* ctx, Elf* elf)
     assert(ctx);
     assert(elf);
 
-    ReferenceArrCtor (&ctx->call_refs);
-    ReferenceArrCtor (&ctx->jump_refs);
-
     ctx->code = &elf->code_buf;
 
     return SUCCESS;
@@ -68,9 +56,6 @@ int ContextDtor (Context* ctx)
     {
     assert(ctx);
 
-    ReferenceArrDtor (&ctx->call_refs);
-    ReferenceArrDtor (&ctx->jump_refs);
-    
     ctx->code = NULL;
     ctx->data = NULL;
 
@@ -93,7 +78,7 @@ int ClearCtxAfterFunction (Context* ctx)
     assert(ctx);
     
     ctx->n_locals = 0;
-    ResetReferenceArr  (&ctx->jump_refs);
+    ResetReferenceArr (ctx->jump_refs);
     return SUCCESS;
     }
 

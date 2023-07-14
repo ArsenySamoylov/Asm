@@ -106,8 +106,8 @@ Function::~Function ()
 
     }
 
-vector<Value*>*      Function::get_argv () {return &argv;}
-vector<BaseBlock*>*  Function::get_body () {return &body;}
+vector<Value*>&      Function::get_argv () {return argv;}
+vector<BaseBlock*>&  Function::get_body () {return body;}
 
 ValueType Function::get_type () const 
     {

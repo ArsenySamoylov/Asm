@@ -248,7 +248,7 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
-static int GetParametersDeclaration (Builder* buildog, vector<Value*>* argv, Token* token);
+static void GetParametersDeclaration (Builder* buildog, vector<Value*>& argv, Token* token);
 
 static Function* EmitFunction (Builder* buildog, const Token* token)
     {
@@ -277,12 +277,11 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     return NULL;
     }
 
-static int GetParametersDeclaration (Builder* buildog, vector<Value*>* argv,Token* token)
+static void GetParametersDeclaration (Builder* buildog, vector<Value*>& argv,Token* token)
     {
     assert(buildog);
-    assert(argv);
 
-    if (!token) return SUCCESS;
+    if (!token) return;
 
     Token* param = token;
     while (param)
@@ -290,12 +289,10 @@ static int GetParametersDeclaration (Builder* buildog, vector<Value*>* argv,Toke
         Value* param_val = AstVisitor (buildog, LEFT(param));
         assert(param_val);
                          
-        argv->push_back(param_val);
+        argv.push_back(param_val);
 
         param = RIGHT(param);
         }
-
-    return SUCCESS;
     }
 
 //////////////////////////////////////////////////////
@@ -362,18 +359,16 @@ static Call* EmitCall (Builder* buildog, const Token* token)
 
 const Function* FindNativeFunction (Builder* buildog, int native_func_num)
     {
-    ValueNameTable* table = &buildog->global;
-    assert(table);
+    ValueNameTable& table = buildog->global;
 
     const char* native_func = NATIVE_FUNCTIONS[native_func_num].str;
     assert(native_func);
 
-    for (size_t i = 0; i < table->size; i++)
+    for (size_t i = 0; i < table.size(); i++)
         {
-        const ValueLabel* label = table->arr[i];
-        assert(label);
+        const ValueLabel label = table[i];
 
-        const Value* val =  label->val;
+        const Value* val = label.val;
         if (!strcmp(val->get_name(), native_func))
             return (const Function*) val;
         }
@@ -458,7 +453,7 @@ static GlobalVar* AddGlobalVar (Builder* buildog, const Token* token)
                             .val     = var,
                            };
     
-    CopyValueLabel (&buildog->global, &var_label);
+    CopyValueLabel (buildog->global, var_label);
 
     return var;
     };
@@ -481,7 +476,7 @@ static Store* AddLocalVar (Builder* buildog, const Token* token)
                          .val     = store,
                        };
     
-    CopyValueLabel (&buildog->local, &label);
+    CopyValueLabel (buildog->local, label);
     
     buildog->current_function->increase_n_local_vars ();
     return store;

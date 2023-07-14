@@ -211,8 +211,8 @@ class Function : public Value
        void translate_x86 (Context* ctx) const override;
        void set_storage   ()             const override;
 
-       vector<Value*>*       get_argv ();
-       vector<BaseBlock*>*   get_body ();
+       vector<Value*>&       get_argv ();
+       vector<BaseBlock*>&   get_body ();
 
        FunctionRetType get_ret_type () const;
        

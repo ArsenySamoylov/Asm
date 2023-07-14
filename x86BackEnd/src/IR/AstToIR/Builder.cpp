@@ -15,7 +15,6 @@ int BuilderCtor (Builder* buildog, Module* mod)
     assert(buildog);
     assert(mod);
     
-    ValueNameTableCtor(&buildog->global);
     buildog->local = {};
 
     buildog->current_function = NULL;
@@ -29,20 +28,17 @@ int BuilderDtor (Builder* buildog)
     {
     assert(buildog);
 
-    ValueNameTableDtor(&buildog->global);
 
     return SUCCESS;
     }
 
 //////////////////////////////////////////////////////
-int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel* func_label)
+int SetBuilderForFunction (Builder* buildog, Function* func, ValueLabel func_label)
     {
     assert(buildog);
     assert(func);
-    assert(func_label);
 
-    CopyValueLabel (&buildog->global, func_label);
-    ValueNameTableCtor (&buildog->local); 
+    CopyValueLabel (buildog->global, func_label);
 
     buildog->current_function  = func; 
     
@@ -59,7 +55,8 @@ int ResetBuilderAfterFunction (Builder* buildog)
     {
     assert (buildog);
 
-    ValueNameTableDtor(&buildog->local);
+    // ValueNameTableDtor(&buildog->local);
+    buildog->local.clear();
 
     buildog -> current_function = NULL;
 
@@ -82,15 +79,15 @@ BaseBlock* GetCurrentBaseBlock (Builder* buildog)
     if (!buildog->current_function)
         return NULL;
 
-    vector<BaseBlock*>* blocks_arr = buildog->current_function->get_body();
+    vector<BaseBlock*>& blocks_arr = buildog->current_function->get_body();
     
-    if (blocks_arr->size() == 0)
+    if (blocks_arr.size() == 0)
         {
         report("Error null size\n");
         return NULL;
         }
 
-    return (*blocks_arr)[blocks_arr->size() - 1];
+    return blocks_arr[blocks_arr.size() - 1];
     }
 
 BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
@@ -107,10 +104,9 @@ BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
     BaseBlock*  new_block = new BaseBlock (block_name);
     assert     (new_block);
 
-    vector<BaseBlock*>* blocks_arr = buildog->current_function->get_body();
-    assert   (blocks_arr);
+    vector<BaseBlock*>& blocks_arr = buildog->current_function->get_body();
 
-    blocks_arr->push_back(new_block);
+    blocks_arr.push_back(new_block);
     return new_block;
     }   
 
@@ -142,17 +138,17 @@ Value* FindValue (Builder* buildog, int name_id)
     {
     assert (buildog);
     
-    ValueLabel* temp = FindValueLabel (&buildog->global, name_id);
+    Value* temp = FindValue (buildog->global, name_id);
 
     if (temp)
-        return temp->val;
+        return temp;
 
     if (buildog->current_function)
         {
-        temp = FindValueLabel (&buildog->local, name_id);
+        temp = FindValue (buildog->local, name_id);
 
         if (temp)
-            return temp->val;
+            return temp;
         }
 
     return NULL;
@@ -180,7 +176,7 @@ int AddNativeFunctions (Builder* buildog)
                                     .val     = native_func
                                     };
 
-        CopyValueLabel (&buildog->global, &function_label);
+        CopyValueLabel (buildog->global, function_label);
         }
 
     return SUCCESS;
@@ -218,7 +214,7 @@ Function* CreateFunction (Builder* buildog, name_t func_name, int ret_type, int 
                                  .val     = func
                                 };
 
-    SetBuilderForFunction (buildog, func, &function_label);
+    SetBuilderForFunction (buildog, func, function_label);
 
     return func;
     }

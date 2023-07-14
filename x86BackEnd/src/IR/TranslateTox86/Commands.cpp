@@ -38,14 +38,13 @@ void PUT_CALL (Context* ctx, const Function* callee)
     assert (ctx);
     assert (callee);
 
-    Reference* reference = (Reference*) calloc (1, sizeof(reference[0]));
-    assert    (reference);
+    auto temp = PutCall (ctx, callee->get_name());
 
-    reference->position  = PutCall (ctx, callee->get_name());
-    reference->address   = reference->position + 4 + CODE_VIRTUAL_ADDRESS;
-    reference->ref_value = callee;
+    Reference reference = { .position = temp,
+                            .address  = temp + 4 + CODE_VIRTUAL_ADDRESS,
+                            .ref_value = callee };
     
-    AddReference (&ctx->call_refs, reference);
+    AddReference (ctx->call_refs, reference);
     return;
     }
 
@@ -54,14 +53,13 @@ void PUT_JUMP (Context* ctx, const BaseBlock* jump_dest)
     assert (ctx);
     assert (jump_dest);
 
-    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
-        assert (ref);
+    Reference ref{};
 
-    ref->position  = PutJump (ctx, jump_dest->get_name());
-    ref->address   = ref->position + 4 +CODE_VIRTUAL_ADDRESS;
-    ref->ref_value = jump_dest;
+    ref.position  = PutJump (ctx, jump_dest->get_name());
+    ref.address   = ref.position + 4 +CODE_VIRTUAL_ADDRESS;
+    ref.ref_value = jump_dest;
 
-    AddReference (&ctx->jump_refs, ref);
+    AddReference (ctx->jump_refs, ref);
     }
 
 void PUT_CJUMP (Context* ctx, const BaseBlock* jump_dest, GPRegisterNumber reg_num)
@@ -69,14 +67,13 @@ void PUT_CJUMP (Context* ctx, const BaseBlock* jump_dest, GPRegisterNumber reg_n
     assert (ctx);
     assert (jump_dest);
 
-    Reference* ref = (Reference*) calloc (1, sizeof(ref[0]));
-    assert (ref);
+    Reference ref{};
 
-    ref->position  = PutCJump (ctx, reg_num, jump_dest->get_name());
-    ref->address   = ref->position + 4 + CODE_VIRTUAL_ADDRESS;
-    ref->ref_value = jump_dest;
+    ref.position  = PutCJump (ctx, reg_num, jump_dest->get_name());
+    ref.address   = ref.position + 4 + CODE_VIRTUAL_ADDRESS;
+    ref.ref_value = jump_dest;
 
-    AddReference (&ctx->jump_refs, ref);
+    AddReference (ctx->jump_refs, ref);
     }
 
 

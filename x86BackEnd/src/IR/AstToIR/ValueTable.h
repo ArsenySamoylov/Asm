@@ -4,6 +4,8 @@
 */
 #pragma once
 
+#include <vector>
+
 #include "Value.h"
 
 /**
@@ -26,16 +28,10 @@ struct ValueLabel
  * @brief Array of ValueLabels
  * @todo add ValueTable for Function
  */
-struct ValueNameTable
-    {
-    ValueLabel** arr;
+using ValueNameTable = std::vector<ValueLabel>;
 
-    size_t size;
-    size_t capacity;
-    };
+// int ValueNameTableCtor (ValueNameTable* table);
+// int ValueNameTableDtor (ValueNameTable* table);
 
-int ValueNameTableCtor (ValueNameTable* table);
-int ValueNameTableDtor (ValueNameTable* table);
-
-ValueLabel* CopyValueLabel (ValueNameTable* table, ValueLabel* label);
-ValueLabel* FindValueLabel (ValueNameTable* table, int name_id);
+void CopyValueLabel (ValueNameTable& table, ValueLabel label);
+Value* FindValue (ValueNameTable& table, int name_id);
