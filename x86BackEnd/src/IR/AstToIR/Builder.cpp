@@ -82,15 +82,15 @@ BaseBlock* GetCurrentBaseBlock (Builder* buildog)
     if (!buildog->current_function)
         return NULL;
 
-    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
+    vector<BaseBlock*>* blocks_arr = buildog->current_function->get_body();
     
-    if (blocks_arr->get_size() == 0)
+    if (blocks_arr->size() == 0)
         {
         report("Error null size\n");
         return NULL;
         }
 
-    return blocks_arr->get_value (blocks_arr->get_size() - 1);
+    return (*blocks_arr)[blocks_arr->size() - 1];
     }
 
 BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
@@ -107,10 +107,10 @@ BaseBlock* InsertNewBaseBlock (Builder* buildog, name_t block_name)
     BaseBlock*  new_block = new BaseBlock (block_name);
     assert     (new_block);
 
-    ValueArr<BaseBlock>* blocks_arr = buildog->current_function->get_body();
+    vector<BaseBlock*>* blocks_arr = buildog->current_function->get_body();
     assert   (blocks_arr);
 
-    blocks_arr->add(new_block);
+    blocks_arr->push_back(new_block);
     return new_block;
     }   
 

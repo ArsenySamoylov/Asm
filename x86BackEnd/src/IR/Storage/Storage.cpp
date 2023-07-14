@@ -130,11 +130,11 @@ void Function::set_storage () const
     {
     STACK_OFFSET = 0;
 
-    for (size_t i = 0; i < argv.get_size(); i++)
-        argv.get_const_value(i)->set_storage();
+    for (size_t i = 0; i < argv.size(); i++)
+        argv[i]->set_storage();
 
-    for (size_t i = 0; i < body.get_size(); i++)
-        body.get_const_value(i)->set_storage();
+    for (size_t i = 0; i < body.size(); i++)
+        body[i]->set_storage();
     
     if (STACK_OFFSET != n_local_vars)
         {
@@ -148,8 +148,8 @@ void Function::set_storage () const
 //////////////////////////////////////////////////////
 void BaseBlock::set_storage () const
     {
-    for (size_t i = 0; i < inst_arr.get_size(); i++)
-        inst_arr.get_const_value(i)->set_storage();
+    for (size_t i = 0; i < inst_arr.size(); i++)
+        inst_arr[i]->set_storage();
     }
 
 //////////////////////////////////////////////////////
@@ -208,8 +208,8 @@ void Call::set_storage () const
     {
     storage.set_var_type (VariableType::Temp);
 
-    for (size_t i = 0; i < argv.get_size(); i++)
-        (argv.get_const_value(i)->get_storage())->increase_usage ();
+    for (size_t i = 0; i < argv.size(); i++)
+        (argv[i]->get_storage())->increase_usage ();
     }
 
 void Return::set_storage () const 

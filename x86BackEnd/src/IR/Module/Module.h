@@ -17,10 +17,10 @@ struct Elf;
 class Module
     {
     private:
-        ValueArr<GlobalVar> global_vars;
-        ValueArr<Function> functions;  
+        vector<GlobalVar*> global_vars;
+        vector<Function*> functions;  
 
-        ValueArr<Constant> const_pool;
+        vector<Constant*> const_pool;
     
     public:
          Module () = default;

@@ -248,7 +248,7 @@ static Constant*  EmitConstant  (Builder* buildog, const Token* token)
 //////////////////////////////////////////////////////
 // Function
 //////////////////////////////////////////////////////
-static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv, Token* token);
+static int GetParametersDeclaration (Builder* buildog, vector<Value*>* argv, Token* token);
 
 static Function* EmitFunction (Builder* buildog, const Token* token)
     {
@@ -277,7 +277,7 @@ static Function* EmitFunction (Builder* buildog, const Token* token)
     return NULL;
     }
 
-static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv,Token* token)
+static int GetParametersDeclaration (Builder* buildog, vector<Value*>* argv,Token* token)
     {
     assert(buildog);
     assert(argv);
@@ -290,7 +290,7 @@ static int GetParametersDeclaration (Builder* buildog, ValueArr<Value>* argv,Tok
         Value* param_val = AstVisitor (buildog, LEFT(param));
         assert(param_val);
                          
-        argv->add (param_val);
+        argv->push_back(param_val);
 
         param = RIGHT(param);
         }
@@ -342,7 +342,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
     Call*   call = CreateCall (buildog, call_name, func);
     assert (call);
 
-    ValueArr<Value>* argv = call->get_argv();
+    vector<Value*>* argv = call->get_argv();
     assert   (argv);
 
     Token* param = LEFT (func_name);
@@ -351,7 +351,7 @@ static Call* EmitCall (Builder* buildog, const Token* token)
         Value* param_val = AstVisitor (buildog, LEFT(param));
         assert(param_val);
 
-        argv->add(param_val);
+        argv->push_back(param_val);
 
         param = RIGHT(param);
         }

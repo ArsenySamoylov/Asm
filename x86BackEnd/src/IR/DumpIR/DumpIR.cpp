@@ -27,7 +27,7 @@ static int       PRINT_NEW_LINES = true;
 #define print_raw(format, ...) fprintf(DUMP_FILE, format __VA_OPT__(,) __VA_ARGS__)
 #define new_line() if (PRINT_NEW_LINES) print_raw ("\n");
 
-static void DumpParameters (const ValueArr<Value>* argv);
+static void DumpParameters (const vector<Value*>* argv);
 static void PrintFullType  (const Value* val);
 static void PrintName      (const Value* val);
 
@@ -51,13 +51,13 @@ void Module::dump (const char* out_file) const
 
     setvbuf(DUMP_FILE, NULL, _IONBF, 0);
 
-    for (size_t i = 0; i < global_vars.get_size(); i++)
-        global_vars.get_const_value(i)->dump();
+    for (size_t i = 0; i < global_vars.size(); i++)
+        global_vars[i]->dump();
 
     new_line();
 
-    for (size_t i = 0; i < functions.get_size(); i++)
-        functions.get_const_value(i)  ->dump();
+    for (size_t i = 0; i < functions.size(); i++)
+        functions[i]->dump();
 
     fclose(DUMP_FILE);
     DUMP_FILE = NULL;
@@ -88,7 +88,7 @@ void Constant::dump () const
 //////////////////////////////////////////////////////
 void Function::dump () const 
     {
-    if (body.get_size() == 0)
+    if (body.size() == 0)
         {
         print ("extern function '%4s' ", name);
         DumpParameters (&argv);
@@ -105,8 +105,8 @@ void Function::dump () const
     print_raw(":");
     new_line ();
 
-    for (size_t i = 0; i < body.get_size(); i++)
-        body.get_const_value(i)->dump();
+    for (size_t i = 0; i < body.size(); i++)
+        body[i]->dump();
 
     new_line ();
     }
@@ -122,8 +122,8 @@ void BaseBlock::dump  () const
 
     increase_indent();
 
-    for (size_t i = 0; i < inst_arr.get_size(); i++)
-        inst_arr.get_const_value(i)->dump();
+    for (size_t i = 0; i < inst_arr.size(); i++)
+        inst_arr[i]->dump();
 
     decrease_indent();
     }
@@ -320,18 +320,18 @@ void PrintFullType (const Value* val)
     */
     }
 
-void DumpParameters (const ValueArr<Value>* argv)
+void DumpParameters (const vector<Value*>* argv)
     {
     assert(argv);
 
     print_raw("(");
 
-    for (size_t i = 0; i < argv->get_size(); i++)
+    for (size_t i = 0; i < argv->size(); i++)
         {
         print_raw("param ");
-        PrintName (argv->get_const_value(i));
+        PrintName ((*argv)[i]);
 
-        if (i < argv->get_size() - 1)
+        if (i < argv->size() - 1)
             print_raw (", ");
         }
 

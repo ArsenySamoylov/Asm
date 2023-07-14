@@ -127,7 +127,7 @@ class Call : public Instruction
     {
     private:
         const Function*   function;
-        ValueArr<Value>   argv;
+        vector<Value*>   argv;
 
     public:
         Call (name_t name_param, const Function* function_param);
@@ -139,7 +139,7 @@ class Call : public Instruction
        void translate_x86 (Context* ctx) const override;
        void set_storage   ()             const override;
 
-       ValueArr<Value>* get_argv ();
+       vector<Value*>* get_argv ();
     };
 
 //////////////////////////////////////////////////////

@@ -102,7 +102,7 @@ InstructionType Call::get_instr_type () const
     return InstructionType::Call;
     }
 
-      ValueArr<Value>* Call::get_argv       ()       {return &argv;};
+      vector<Value*>* Call::get_argv       ()       {return &argv;};
 // const ValueArr<Instruction*> Call::get_const_argv () const {return &argv;};
 
 //////////////////////////////////////////////////////

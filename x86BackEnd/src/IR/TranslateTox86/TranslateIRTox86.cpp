@@ -130,11 +130,11 @@ void Module::translate_x86 (Elf* elf, const char* path_to_assembler_dump) const
     
     SetStart (&ctx, main_func);
 
-    for (size_t i = 0; i < global_vars.get_size(); i++)
-        (global_vars.get_const_value(i))->translate_x86 (&ctx);
+    for (size_t i = 0; i < global_vars.size(); i++)
+        (global_vars[i])->translate_x86 (&ctx);
 
-    for (size_t i = 0; i < functions.get_size(); i++)
-        (functions.get_const_value(i))->translate_x86 (&ctx);
+    for (size_t i = 0; i < functions.size(); i++)
+        (functions[i])->translate_x86 (&ctx);
     
     AddStdlib (&ctx, STDLIB_OBJ_PATH, STDLIB_OFFSET, STDLIB_SIZE);
     ResolveReferences (ctx.code, &ctx.call_refs); 
@@ -207,11 +207,11 @@ void GlobalVar::translate_x86 (Context* ctx) const
 //////////////////////////////////////////////////////
 static int SetStackFrame (Context* ctx, size_t n_locals);
 static int SaveCalleeSaveRegisters   (Context* ctx);
-static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv);
+static size_t SetParametersRegisters (Context* ctx, const vector<Value*>* argv);
 
 void Function::translate_x86 (Context* ctx) const 
     {
-    if (body.get_size() == 0)
+    if (body.size() == 0)
         return;
         
     print_label (this);
@@ -227,8 +227,8 @@ void Function::translate_x86 (Context* ctx) const
     ResetRegisters ();
     SetParametersRegisters (ctx, &argv);
 
-    for (size_t i = 0; i < body.get_size(); i++)
-        (body.get_const_value(i))->translate_x86 (ctx) ;
+    for (size_t i = 0; i < body.size(); i++)
+        (body[i])->translate_x86 (ctx) ;
 
     ResolveReferences (ctx->code, &ctx->jump_refs);
     
@@ -269,7 +269,7 @@ static int SaveCalleeSaveRegisters  (Context* ctx)
     return 0;
     }
 
-static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
+static size_t SetParametersRegisters (Context* ctx, const vector<Value*>* argv)
     {
     assert (ctx);
     assert (argv);
@@ -282,12 +282,12 @@ static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
 
     const Value* param = NULL;
 
-    while (n_params < argv->get_size())   
+    while (n_params < argv->size())   
         {
         assert (n_params <= 6);
         assert (i <= R9);
 
-        param = argv->get_const_value (n_params);
+        param = (*argv)[n_params];
         assert (param);
 
         Storage* param_storage = param->get_storage();
@@ -313,7 +313,7 @@ static size_t SetParametersRegisters (Context* ctx, const ValueArr<Value>* argv)
         n_params++; 
         }
 
-    assert (n_params == argv->get_size());
+    assert (n_params == argv->size());
     assert (n_params <= 6);
 
     new_line();
@@ -335,9 +335,9 @@ void BaseBlock::translate_x86 (Context* ctx) const
 
     this->set_address (CODE_VIRTUAL_ADDRESS + ctx->code->size);
 
-    for (size_t i = 0; i < inst_arr.get_size(); i++)
+    for (size_t i = 0; i < inst_arr.size(); i++)
         {
-        const Instruction*  val = inst_arr.get_const_value(i);
+        const Instruction*  val = inst_arr[i];
         assert (val);
         
         PrintIRInstruction (val);
@@ -470,7 +470,7 @@ using namespace std;
 static  stack <Reg> PushedRegs;
 
 static int SaveBusyRegs      (Context* ctx);
-static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv);
+static int SetRegsBeforeCall (Context* ctx, const vector<Value*>* argv);
 static int RestoreBusyRegs   (Context* ctx);
 
 void Call::translate_x86 (Context* ctx) const
@@ -513,7 +513,7 @@ static int SaveBusyRegs (Context* ctx)
     return 0;
     }
 
-static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv)
+static int SetRegsBeforeCall (Context* ctx, const vector<Value*>* argv)
     {
     $log(DEBUG)
     assert (ctx);
@@ -523,11 +523,11 @@ static int SetRegsBeforeCall (Context* ctx, const ValueArr<Value>* argv)
     new_line ();
     
     int i = RDI;
-    for (size_t n_params = 0; n_params < argv->get_size(); n_params++)
+    for (size_t n_params = 0; n_params < argv->size(); n_params++)
         {
         Reg* param_reg = GetReg (i++);
 
-        const Value*    param_val = argv->get_const_value (n_params);
+        const Value*    param_val = (*argv)[n_params];
         assert (param_val);
 
         (param_val->get_storage())->move_to_reg    (ctx, param_reg);

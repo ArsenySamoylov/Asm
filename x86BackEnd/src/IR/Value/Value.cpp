@@ -27,8 +27,8 @@ BaseBlock::BaseBlock (name_t name_param) :
 
 BaseBlock::~BaseBlock ()
     {
-    for (size_t i = 0; i < inst_arr.get_size(); i++)
-        delete inst_arr.get_value (i);
+    for (size_t i = 0; i < inst_arr.size(); i++)
+        delete inst_arr[i];
     }
 
 ValueType BaseBlock::get_type () const 
@@ -37,11 +37,10 @@ ValueType BaseBlock::get_type () const
     return ValueType::BaseBlock;
     }
 
-Instruction* BaseBlock::add_instr (Instruction* instr)
+void BaseBlock::add_instr (Instruction* instr)
     {
     assert (instr);
-
-    return inst_arr.add (instr);
+    inst_arr.push_back(instr);
     }
 
 void BaseBlock::set_address (address_t address) const
@@ -98,17 +97,17 @@ Function::~Function ()
     // printf ("\tFunction dtor\n");
 
     // printf ("\t\tDeleting argv\n");
-    for (size_t i = 0; i < argv.get_size(); i++)
-        delete argv.get_value(i);
+    for (size_t i = 0; i < argv.size(); i++)
+        delete argv[i];
 
     // printf ("\t\tDeleting function body\n");
-    for (size_t i = 0; i < body.get_size(); i++)
-        delete body.get_value(i);
+    for (size_t i = 0; i < body.size(); i++)
+        delete body[i];
 
     }
 
-ValueArr<Value>*      Function::get_argv () {return &argv;}
-ValueArr<BaseBlock>*  Function::get_body () {return &body;}
+vector<Value*>*      Function::get_argv () {return &argv;}
+vector<BaseBlock*>*  Function::get_body () {return &body;}
 
 ValueType Function::get_type () const 
     {

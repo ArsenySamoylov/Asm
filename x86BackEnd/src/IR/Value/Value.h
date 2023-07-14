@@ -6,9 +6,11 @@
 #pragma once
 
 #include <cstddef>
+#include <vector>
 
-#include "ValueArrTemplate.h"
 #include "Storage.h"
+
+using std::vector;
 
 enum class ValueType
     {
@@ -103,7 +105,7 @@ class Instruction;
 class BaseBlock : public Value
     {
     private:
-        ValueArr <Instruction> inst_arr;
+        vector <Instruction*> inst_arr;
     
     public:
         BaseBlock (name_t name_param);
@@ -115,7 +117,7 @@ class BaseBlock : public Value
         void translate_x86 (Context* ctx) const override;
         void set_storage   ()             const override;
 
-        Instruction* add_instr (Instruction* instr);
+        void add_instr (Instruction* instr);
         void set_address (address_t address) const;
     };
 
@@ -154,8 +156,6 @@ class Constant : public Value
 enum class VariableBaseType
     {
     Double,
-    Int,
-    Char,
     };
 
 /**
@@ -165,8 +165,8 @@ enum class VariableBaseType
 class GlobalVar : public Value
     {
     private:
-        const enum VariableBaseType var_type;
-        const Constant*             init_val;
+        const VariableBaseType var_type;
+        const Constant* init_val;
 
     public:
         GlobalVar (name_t name_param, VariableBaseType var_type_param, const Constant* init_val_param);
@@ -196,8 +196,8 @@ class Function : public Value
     private:
         const enum FunctionRetType ret_type;
 
-        ValueArr<Value>     argv;    
-        ValueArr<BaseBlock> body;
+        vector<Value*>     argv;    
+        vector<BaseBlock*> body;
 
         size_t n_local_vars;
 
@@ -211,8 +211,8 @@ class Function : public Value
        void translate_x86 (Context* ctx) const override;
        void set_storage   ()             const override;
 
-       ValueArr<Value>*       get_argv ();
-       ValueArr<BaseBlock>*   get_body ();
+       vector<Value*>*       get_argv ();
+       vector<BaseBlock*>*   get_body ();
 
        FunctionRetType get_ret_type () const;
        
