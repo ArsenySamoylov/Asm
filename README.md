@@ -1,3 +1,9 @@
+# Disclaimer
+
+This project is intended for educational purposes only. It is a study project and not intended for production use. 
+
+Please use it responsibly and at your own risk =).
+
 # SecondSemester finally over
 
 Этот репозиторий содержит работы со второго семестра обучения программированию на ФизТехе. Репозиторий состоит из трех частей:
