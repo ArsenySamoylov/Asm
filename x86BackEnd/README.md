@@ -1,3 +1,9 @@
+# Disclaimer
+
+This project is intended for educational purposes only. It is a study project and not intended for production use. 
+
+Please use it responsibly and at your own risk =).
+
 # Overview
 Данный репозиторий является продолжением моего проекта по созданию компилятора для собственного простого [языка программирования](https://github.com/ArsenySamoylov/Lang.git). Данная часть посвящена Backend`у для х86 архитектуры.
 
